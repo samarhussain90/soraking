@@ -46,7 +46,7 @@ class SettingsManager:
 
         # Fetch from database
         try:
-            response = self.client.supabase.table('settings')\
+            response = self.client.client.table('settings')\
                 .select('*')\
                 .eq('category', category)\
                 .eq('key', key)\
@@ -90,7 +90,7 @@ class SettingsManager:
 
         # Fetch from database
         try:
-            response = self.client.supabase.table('settings')\
+            response = self.client.client.table('settings')\
                 .select('*')\
                 .eq('category', category)\
                 .order('key')\
@@ -116,7 +116,7 @@ class SettingsManager:
             List of all settings
         """
         try:
-            response = self.client.supabase.table('settings')\
+            response = self.client.client.table('settings')\
                 .select('*')\
                 .order('category', 'key')\
                 .execute()
@@ -159,7 +159,7 @@ class SettingsManager:
             if description:
                 update_data['description'] = description
 
-            response = self.client.supabase.table('settings')\
+            response = self.client.client.table('settings')\
                 .update(update_data)\
                 .eq('category', category)\
                 .eq('key', key)\
@@ -216,7 +216,7 @@ class SettingsManager:
             if description:
                 insert_data['description'] = description
 
-            response = self.client.supabase.table('settings')\
+            response = self.client.client.table('settings')\
                 .insert(insert_data)\
                 .execute()
 
@@ -248,7 +248,7 @@ class SettingsManager:
             True if successful, False otherwise
         """
         try:
-            response = self.client.supabase.table('settings')\
+            response = self.client.client.table('settings')\
                 .delete()\
                 .eq('category', category)\
                 .eq('key', key)\
