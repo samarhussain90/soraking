@@ -28,7 +28,7 @@ class GeminiVideoAnalyzer:
         Upload video to Gemini File API using REST API directly
 
         Args:
-            video_path: Path to video file or YouTube URL
+            video_path: Path to video file or URL (will download if URL)
 
         Returns:
             Uploaded file object
@@ -38,7 +38,30 @@ class GeminiVideoAnalyzer:
         # Use REST API directly to bypass discovery cache bug
         import requests
         import mimetypes
+        import tempfile
         from pathlib import Path
+
+        # Check if video_path is a URL
+        is_url = video_path.startswith('http://') or video_path.startswith('https://')
+        temp_file = None
+
+        if is_url:
+            # Download video to temporary file
+            print(f"Downloading video from URL...")
+            response = requests.get(video_path, stream=True)
+            response.raise_for_status()
+
+            # Create temp file with proper extension
+            suffix = Path(video_path).suffix or '.mp4'
+            temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
+
+            # Download in chunks
+            for chunk in response.iter_content(chunk_size=8192):
+                temp_file.write(chunk)
+            temp_file.close()
+
+            video_path = temp_file.name
+            print(f"Downloaded to temporary file: {video_path}")
 
         # Get file info
         file_path = Path(video_path)
