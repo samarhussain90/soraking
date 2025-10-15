@@ -1,0 +1,34 @@
+{
+  "aggressive": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "scene_type": "character",
+      "purpose": "hook",
+      "prompt": "[00:00-00:03] EXTREME CLOSE-UP: Tesla dashboard. Push-in camera. High-contrast lighting. Sharp focus.\n[00:03-00:08] MEDIUM SHOT: Spokesperson 1 speaking. Dramatic lighting. Shallow depth focus.\n[00:08-00:12] WIDE SHOT: Tesla parked with solar panels in the backdrop. Pan camera. Bright lighting. Sharp focus.\nAUDIO: urgent voice, fast pace, compelling emotion. Says: \"I'm not supposed to be sharing this with you, so listen closely before it gets taken down.\". Background music: electronic, 140 BPM, builds. 0:05 beat drop, 0:10 climax. Sound effect at 0:03: whoosh. Sound effect at 0:08: cha-ching.\nTEXT OVERLAYS: At 0:01, crash-in: \"LISTEN CLOSELY\" (Impact, 100pt, red with black outline). Fades out at 0:03. At 0:08, pop: \"STOP PAYING ELECTRICITY\" (Montserrat Black, 80pt, yellow). Fades out at 0:12.\nTECHNICAL: 4K resolution, 1792x1024, urgent style, cinematic grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 2
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "scene_type": "b-roll",
+      "purpose": "problem",
+      "prompt": "[00:12-00:16] MEDIUM SHOT: Tesla screen showing browser with solar program. Natural lighting. Sharp focus.\n[00:16-00:20] CLOSE-UP: Tesla screen with solar program details. Tilt-up camera. Bright lighting. Shallow depth focus.\n[00:20-00:24] WIDE SHOT: House with solar panels. Zoom-in camera. Warm lighting. Sharp focus.\nAUDIO: confident voice, medium pace, informative emotion. Says: \"Basically, there's a new solar tax credit program for homeowners.\". Background music: electronic, 145 BPM, steady. 0:18 beat drop. Sound effect at 0:16: click. Sound effect at 0:20: ding.\nTEXT OVERLAYS: At 0:14, slide: \"$8,000 - $10,000 INCENTIVE\" (Bebas Neue, 90pt, white with black outline). Fades out at 0:18. At 0:20, fade: \"NO ELECTRIC BILL\" (Impact, 80pt, green). Fades out at 0:24.\nTECHNICAL: 4K resolution, 1792x1024, energetic style, vibrant grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 2
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:24-00:36",
+      "scene_type": "b-roll",
+      "purpose": "cta",
+      "prompt": "[00:24-00:28] MEDIUM SHOT: Clickable link appearing below video. Highlighted lighting. Sharp focus.\n[00:28-00:32] CLOSE-UP: Finger tapping link on screen. Bright lighting. Sharp focus.\n[00:32-00:36] WIDE SHOT: Happy family near solar-powered home. Dolly-out camera. Sunset glow lighting. Sharp focus.\nAUDIO: encouraging voice, slow pace, hopeful emotion. Says: \"So, I guess tap the link below now if you want to try it.\". Background music: electronic, 150 BPM, drops. 0:30 link reveal. Sound effect at 0:32: success chime.\nTEXT OVERLAYS: At 0:26, pop: \"FREE 30-SECOND QUIZ\" (Montserrat Black, 75pt, blue). Fades out at 0:30. At 0:30, crash-in: \"CLICK NOW\" (Impact, 85pt, red with black outline). Fades out at 0:34.\nTECHNICAL: 4K resolution, 1792x1024, calm style, natural grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 2
+    }
+  ]
+}

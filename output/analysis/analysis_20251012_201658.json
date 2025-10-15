@@ -1,0 +1,207 @@
+{
+  "video_metadata": {
+    "duration_seconds": 35,
+    "estimated_fps": 30,
+    "aspect_ratio": "9:16"
+  },
+  "spokesperson": {
+    "physical_description": "A female in her early-to-mid 20s with a friendly and approachable appearance. She has medium-length, dark brown hair with subtle lighter highlights, styled in soft waves and parted slightly off-center. Her facial features include large, expressive dark brown eyes, prominent and well-defined dark eyebrows, and a wide, genuine smile revealing straight, white teeth. She has a slender build and a clear, fair complexion. Her clothing is casual and relatable: a plain, white, short-sleeved crew-neck t-shirt paired with light-wash, high-waisted denim jeans.",
+    "speaking_style": "Highly energetic, enthusiastic, and conversational. Her pace is fast but articulate, delivering lines in a punchy, rhythmic manner. She maintains direct eye contact with the camera and uses subtle hand gestures and head movements to add emphasis and convey excitement. Her tone is persuasive and trustworthy, as if sharing a valuable secret with a friend.",
+    "presence_timestamps": [
+      "00:00-00:35"
+    ],
+    "total_screen_time_seconds": 35
+  },
+  "script": {
+    "full_transcript": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+    "key_phrases": [
+      "$120 a month",
+      "changed everything",
+      "$39 a month",
+      "Same coverage, way less money",
+      "a new law",
+      "you have to request it",
+      "It's not automatic",
+      "don't overpay",
+      "fast, free",
+      "save you hundreds"
+    ],
+    "call_to_action": "Click the link below to check if you qualify."
+  },
+  "scene_breakdown": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:06",
+      "duration_seconds": 6,
+      "purpose": "Hook/Problem",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-Level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "A bright, modern, and clean indoor space with a softly blurred background, suggesting a home or contemporary office.",
+      "lighting": "High-key, soft, and even lighting that flatters the subject and creates a positive, trustworthy mood.",
+      "visual_elements": [
+        "Text overlay: 'paying'",
+        "Text overlay: '$120'",
+        "Text overlay: 'month'",
+        "Text overlay: 'insurance'",
+        "Text overlay: 'a'",
+        "Text overlay: 'changed'",
+        "Text overlay: 'everything'",
+        "Prop: A blue and white box for 'AUTO INSURANCE' held by the spokesperson."
+      ],
+      "message": "I had a common, expensive problem that you probably have too, but I found a secret solution.",
+      "emotion": "Relatability, slight frustration (at the old price), transitioning to excitement."
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:06-00:13",
+      "duration_seconds": 7,
+      "purpose": "Solution/Proof",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-Level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "Same as Scene 1.",
+      "lighting": "Same as Scene 1.",
+      "visual_elements": [
+        "Text overlay: '2'",
+        "Text overlay: 'I'",
+        "Text overlay: 'for'",
+        "Text overlay: '$39'",
+        "Text overlay: 'coverage'",
+        "Text overlay: 'money'"
+      ],
+      "message": "The solution provides a specific, dramatic, and highly desirable result: massive savings for the same product.",
+      "emotion": "Triumph, happiness, relief."
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:13-00:22",
+      "duration_seconds": 9,
+      "purpose": "Justification/Mechanism",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-Level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "Same as Scene 1.",
+      "lighting": "Same as Scene 1.",
+      "visual_elements": [
+        "Text overlay: 'a'",
+        "Text overlay: 'drivers'",
+        "Text overlay: 'for'",
+        "Text overlay: 'could'",
+        "Text overlay: 'rate'",
+        "Text overlay: 'request'",
+        "Text overlay: 'it's'",
+        "Text overlay: 'automatic'"
+      ],
+      "message": "There's a legitimate reason for this amazing deal (a 'new law'), but it's not given to you automatically; you must be proactive.",
+      "emotion": "Informative, urgent, conspiratorial (like sharing an insider tip)."
+    },
+    {
+      "scene_number": 4,
+      "timestamp": "00:22-00:29",
+      "duration_seconds": 7,
+      "purpose": "Urgency/Call to Action",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-Level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "Same as Scene 1.",
+      "lighting": "Same as Scene 1.",
+      "visual_elements": [
+        "Text overlay: 'insurance'",
+        "Text overlay: '12+'",
+        "Text overlay: 'months'",
+        "Text overlay: 'overpay'",
+        "Text overlay: 'I'",
+        "Text overlay: 'link'",
+        "Text overlay: 'check'"
+      ],
+      "message": "If you meet this simple condition, you are likely wasting money. Take the first step to fix it now.",
+      "emotion": "Empathetic, persuasive, direct."
+    },
+    {
+      "scene_number": 5,
+      "timestamp": "00:29-00:35",
+      "duration_seconds": 6,
+      "purpose": "Reinforce CTA & Benefits",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-Level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "Same as Scene 1.",
+      "lighting": "Same as Scene 1.",
+      "visual_elements": [
+        "Text overlay: 'qualify'",
+        "Text overlay: 'fast'",
+        "Text overlay: 'free'",
+        "Text overlay: 'you'",
+        "Text overlay: 'hundreds'"
+      ],
+      "message": "The process is easy, risk-free, and the potential reward is significant.",
+      "emotion": "Confident, encouraging, reassuring."
+    }
+  ],
+  "visual_style": {
+    "color_palette": [
+      "Bright White (#FFFFFF)",
+      "Light Grey (#D3D3D3)",
+      "Deep Blue (#00529B on prop)",
+      "Bold Yellow (#FFD700 for text)",
+      "Black (#000000 for text outline)",
+      "Light Wash Denim Blue"
+    ],
+    "lighting_style": "High-key commercial lighting. It's soft, diffuse, and bright, eliminating harsh shadows to create a clean, trustworthy, and optimistic atmosphere.",
+    "cinematography": "Direct-to-camera, user-generated content (UGC) style. The single, static medium shot creates an intimate and personal connection, making the message feel like a genuine testimonial rather than a polished corporate ad.",
+    "text_overlays": [
+      "Large, bold, sans-serif font.",
+      "Bright yellow fill with a thick black outline for maximum contrast and readability.",
+      "Text appears word-by-word, perfectly synchronized with the spokesperson's speech to emphasize key terms."
+    ],
+    "graphics_style": "Minimalist. The only graphics are the text overlays and the design on the prop box. There are no other animations or complex visual effects.",
+    "brand_elements": [
+      "The 'QUOTENTM' logo on the prop box.",
+      "The blue and white color scheme of the prop box."
+    ]
+  },
+  "pacing": {
+    "overall_tempo": "Fast",
+    "scene_durations": [
+      6,
+      7,
+      9,
+      7,
+      6
+    ],
+    "energy_curve": "Starts high and maintains a high level of energy throughout. It peaks slightly when the '$39' solution is revealed and sustains that persuasive energy until the final call to action.",
+    "music_description": "No background music is present. This choice puts 100% of the auditory focus on the spokesperson's voice, enhancing the feeling of a personal, direct message.",
+    "voice_pacing": "Rapid and rhythmic. The spokesperson delivers lines in short, punchy bursts that align with the on-screen text, making the message easy to digest despite the fast pace."
+  },
+  "storytelling": {
+    "framework": "Problem-Agitation-Solution (PAS). The ad clearly presents the Problem (paying too much), Agitates the problem by suggesting the viewer is also overpaying and will miss out, and offers a simple Solution (click the link).",
+    "emotional_arc": [
+      "Relatability",
+      "Surprise",
+      "Hope",
+      "Urgency",
+      "Confidence"
+    ],
+    "hook_strategy": "The ad opens with a specific, high dollar amount ($120) that is a common pain point for many drivers, immediately grabbing the attention of anyone who feels their car insurance is too expensive.",
+    "problem_presented": "Overpaying for car insurance month after month.",
+    "solution_offered": "A quick, free online check (via the link) that can unlock a significantly lower rate due to a 'new law'.",
+    "proof_elements": [
+      "Testimonial: The entire ad is framed as the spokesperson's personal success story.",
+      "Data/Specificity: Using concrete numbers ('$120', '$39', 'two-minute check', '12+ months') makes the claim feel more tangible and believable than vague promises."
+    ],
+    "urgency_tactics": [
+      "Fear Of Missing Out (FOMO): The statement 'you have to request it. It's not automatic' is a powerful tactic that implies inaction will result in continuing to overpay and missing a special opportunity."
+    ]
+  },
+  "why_it_works": [
+    "The use of extreme specificity and contrast ($120 vs. $39) creates an instantly understandable and powerful value proposition. The brain can quickly calculate the massive savings, making the offer highly compelling.",
+    "Framing the discount as a result of a 'new law' lends the offer an air of authority and legitimacy. It feels less like a sales gimmick and more like a consumer right that the viewer needs to claim, which lowers skepticism.",
+    "The combination of a relatable spokesperson, direct-to-camera UGC style, and a simple, low-friction call to action ('fast, free') effectively breaks down viewer resistance and maximizes the likelihood of a click."
+  ]
+}

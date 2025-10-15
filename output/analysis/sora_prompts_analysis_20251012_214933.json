@@ -1,0 +1,25 @@
+{
+  "aggressive": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "purpose": "Hook - grab attention with relatable problem",
+      "prompt": "A medium close-up of a spokesperson in a Clean, modern background.\n\nCHARACTER: A female in her early-to-mid 20s with a friendly and approachable appearance. She has long, shoulder-length dark brown hair styled in soft waves with subtle lighter brown highlights, parted slightly off-center. Her facial features include large, expressive dark brown eyes, prominent and well-defined dark eyebrows, and a wide, genuine smile revealing straight, white teeth. She has a slender build and is dressed in a casual, relatable style: a plain white, short-sleeved, crew-neck t-shirt and light-wash, high-waisted denim jeans.\n\nSETTING: Clean, modern background\nLIGHTING: Bright, professional\nEMOTION: urgent, intense, dynamic\nCAMERA: dynamic, energetic camera movement\n\nVOICEOVER (spokesperson speaks directly to camera):\n\"I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.\"\n\nThe spokesperson maintains eye contact with camera, uses natural hand gestures, and delivers the message with urgent, intense, dynamic energy. Dynamic, energetic camera movement.\n\nDuration: 12 seconds\nStyle: Professional advertising, direct-to-camera testimonial\nQuality: 4K, sharp focus, well-lit",
+      "script_segment": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money."
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "purpose": "Show the problem/context visually",
+      "prompt": "B-ROLL FOOTAGE: Car driving smoothly on highway at sunset, aerial view tracking shot\n\nCRITICAL: This is pure B-roll. NO people, NO faces, NO characters should appear.\nOnly show objects, environments, vehicles, and settings related to driving.\n\nVISUAL STYLE:\n- dynamic, energetic camera movement\n- fast, urgent pacing\n- Mood: confident, secure\n- Cinematic, high production value\n- Professional lighting\n\nVOICEOVER (audio only, NO visible speaker):\n\"Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did.\"\n\nThe visuals support the voiceover message but contain ZERO humans. Focus on driving imagery: vehicles, roads, documents, settings, abstract visuals.\n\nDuration: 12 seconds\nQuality: 4K, sharp focus, cinematic\nContent: B-roll only - NO PEOPLE, NO FACES, NO CHARACTERS",
+      "script_segment": "Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did."
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:24-00:36",
+      "purpose": "Show solution and call-to-action",
+      "prompt": "B-ROLL FOOTAGE: Dash cam POV of sudden brake, narrowly avoiding collision, dramatic moment\n\nCRITICAL: This is pure B-roll. NO people, NO faces, NO characters should appear.\nOnly show objects, environments, vehicles, and settings related to near_miss.\n\nVISUAL STYLE:\n- dynamic, energetic camera movement\n- fast, urgent pacing\n- Mood: tension, relief\n- Cinematic, high production value\n- Professional lighting\n\nVOICEOVER (audio only, NO visible speaker):\n\"Click the link below to check if you qualify. It's fast, free, and could save you hundreds.\"\n\nThe visuals support the voiceover message but contain ZERO humans. Focus on near_miss imagery: vehicles, roads, documents, settings, abstract visuals.\n\nDuration: 12 seconds\nQuality: 4K, sharp focus, cinematic\nContent: B-roll only - NO PEOPLE, NO FACES, NO CHARACTERS",
+      "script_segment": "Click the link below to check if you qualify. It's fast, free, and could save you hundreds."
+    }
+  ]
+}

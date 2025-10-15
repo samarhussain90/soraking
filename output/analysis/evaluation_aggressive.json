@@ -1,0 +1,381 @@
+{
+  "video_path": "/Users/samarm3/soraking/output/videos/final_aggressive.mp4",
+  "original_analysis": {
+    "video_metadata": {
+      "duration_seconds": 35,
+      "estimated_fps": 30,
+      "aspect_ratio": "9:16"
+    },
+    "spokesperson": {
+      "physical_description": "A female in her early-to-mid 20s with a friendly and approachable appearance. She has long, shoulder-length dark brown hair styled in soft waves with subtle lighter brown highlights, parted slightly off-center. Her facial features include large, expressive brown eyes, well-defined arched eyebrows, and a wide, genuine smile revealing straight, white teeth. She has a slender build and is dressed in a casual, relatable style: a simple, plain white, short-sleeved crew-neck t-shirt paired with light-wash, high-waisted denim jeans.",
+      "speaking_style": "Her tone is highly enthusiastic, energetic, and persuasive. She speaks at a fast pace but maintains excellent clarity. Her delivery is animated, using frequent, natural hand gestures to emphasize her points and convey excitement. Her facial expressions are very dynamic, mirroring the emotional arc of the script from relatable frustration to triumphant discovery.",
+      "presence_timestamps": [
+        "00:00-00:35"
+      ],
+      "total_screen_time_seconds": 35
+    },
+    "script": {
+      "full_transcript": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12 plus months, don't overpay like I did. Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+      "key_phrases": [
+        "$120 a month",
+        "$39 a month",
+        "changed everything",
+        "Same coverage, way less money",
+        "a new law",
+        "you have to request it",
+        "don't overpay like I did",
+        "fast, free",
+        "save you hundreds"
+      ],
+      "call_to_action": "Click the link below to check if you qualify."
+    },
+    "scene_breakdown": [
+      {
+        "scene_number": 1,
+        "timestamp": "00:00-00:12",
+        "duration_seconds": 12,
+        "type": "actor_hook",
+        "purpose": "Hook - establish relatable problem",
+        "has_character": true,
+        "vertical": "auto_insurance",
+        "actor_profile": {
+          "age": "30s",
+          "age_range": [
+            30,
+            35
+          ],
+          "gender": "female",
+          "description": "Woman aged 30-35, professional but approachable style, relatable and authentic",
+          "emotion": "frustrated then excited",
+          "purpose": "Hook - establish relatable problem"
+        },
+        "shot_type": "Medium Close-Up",
+        "camera_angle": "Eye-Level",
+        "setting": "At a gas station, standing next to car, casual outdoor setting. Woman aged 30-35 speaking directly to camera.",
+        "lighting": "Natural daylight, soft and realistic",
+        "emotion": "frustrated then excited",
+        "message": "Hook - establish relatable problem",
+        "camera_note": "Phone mounted at eye level, intimate selfie-style angle"
+      },
+      {
+        "scene_number": 2,
+        "timestamp": "00:12-00:24",
+        "duration_seconds": 12,
+        "type": "actor_proof",
+        "purpose": "Social proof - solution works for real people",
+        "has_character": true,
+        "vertical": "auto_insurance",
+        "actor_profile": {
+          "age": "35-45",
+          "age_range": [
+            35,
+            45
+          ],
+          "gender": "male",
+          "description": "Man aged 35-45, business casual attire, relatable and authentic",
+          "emotion": "confident and reassuring",
+          "purpose": "Social proof - solution works for real people"
+        },
+        "shot_type": "Medium Shot",
+        "camera_angle": "Eye-Level",
+        "setting": "Inside a car repair shop, cars in background. Man aged 35-45 speaking directly to camera.",
+        "lighting": "Professional warm lighting, well-lit",
+        "emotion": "confident and reassuring",
+        "message": "Social proof - solution works for real people",
+        "camera_note": "Webcam angle from laptop, professional but approachable"
+      },
+      {
+        "scene_number": 3,
+        "timestamp": "00:24-00:36",
+        "duration_seconds": 12,
+        "type": "actor_cta",
+        "purpose": "Call to action - create urgency to act",
+        "has_character": true,
+        "vertical": "auto_insurance",
+        "actor_profile": {
+          "age": "45-55",
+          "age_range": [
+            45,
+            55
+          ],
+          "gender": "female",
+          "description": "Woman aged 45-55, casual trendy style, relatable and authentic",
+          "emotion": "urgent but helpful",
+          "purpose": "Call to action - create urgency to act"
+        },
+        "shot_type": "Medium Close-Up",
+        "camera_angle": "Eye-Level",
+        "setting": "Inside a modern car, driver seat, parked in bright daylight. Woman aged 45-55 speaking directly to camera.",
+        "lighting": "Bright commercial lighting, vibrant",
+        "emotion": "urgent but helpful",
+        "message": "Call to action - create urgency to act",
+        "camera_note": "Over-the-shoulder perspective transitioning to direct camera",
+        "cta": "Click the link below to check if you qualify."
+      }
+    ],
+    "visual_style": {
+      "color_palette": [
+        "Bright White (#FFFFFF)",
+        "Corporate Blue (#005A9C)",
+        "High-Contrast Yellow (#FFD700)",
+        "Denim Blue (#6F8FAF)",
+        "Neutral Gray/Beige (background)"
+      ],
+      "lighting_style": "High-key, soft, and professional. It's designed to be bright, clean, and trustworthy, focusing all attention on the spokesperson's expressive face.",
+      "cinematography": "Simple and direct. The static, eye-level medium close-up creates a personal, conversational feel, as if the spokesperson is talking directly to the viewer on a video call. A shallow depth of field isolates her from the background.",
+      "text_overlays": [
+        "Large, bold, sans-serif font.",
+        "Bright yellow fill with a thick black outline for maximum readability on any background.",
+        "Each word or short phrase appears sequentially, timed with the voiceover to emphasize key points."
+      ],
+      "graphics_style": "Minimalist. The only graphic elements are the text overlays and the product box held by the spokesperson. The box design is clean and corporate.",
+      "brand_elements": [
+        "The 'QUOTENTM' logo on the product box.",
+        "The blue and white color scheme of the product box."
+      ]
+    },
+    "pacing": {
+      "overall_tempo": "Fast",
+      "scene_durations": [
+        8,
+        10,
+        10,
+        7
+      ],
+      "energy_curve": "Starts high, maintains a high level of enthusiasm throughout, and ends on a strong, urgent call to action. There are no lulls in energy.",
+      "music_description": "No background music is used. This choice places 100% of the auditory focus on the spokesperson's voice, making her message feel more personal, direct, and important.",
+      "voice_pacing": "Rapid-fire delivery that conveys excitement and urgency. The rhythm is broken up by slight pauses to emphasize key numbers like '$120' and '$39'."
+    },
+    "storytelling": {
+      "framework": "Problem-Agitate-Solution (PAS). The ad presents the Problem (overpaying for insurance), Agitates the problem by highlighting the viewer might be making the same mistake, and offers a simple Solution (click the link).",
+      "emotional_arc": [
+        "Relatability",
+        "Surprise",
+        "Excitement",
+        "Urgency",
+        "Empowerment"
+      ],
+      "hook_strategy": "The ad opens with a specific, high dollar amount ($120) for a common expense, immediately grabbing the attention of anyone who feels they are overpaying for car insurance.",
+      "problem_presented": "Consumers are unknowingly overpaying for car insurance.",
+      "solution_offered": "A quick, free online tool that leverages a 'new law' to find significantly cheaper insurance rates for qualified drivers.",
+      "proof_elements": [
+        "Personal Testimonial: The entire ad is framed as the spokesperson's personal success story.",
+        "Data/Specificity: Using concrete numbers ('$120' vs. '$39', '2-minute check', '12+ months') makes the claims feel tangible and believable.",
+        "Appeal to Authority: Mentioning a 'new law' adds a layer of external validation and credibility to the offer."
+      ],
+      "urgency_tactics": [
+        "Exclusivity/Action Required: The statement 'It's not automatic. You have to request it' implies that the benefit is only available to those who take immediate action."
+      ]
+    },
+    "why_it_works": [
+      "Relatability and Authenticity: The spokesperson's casual appearance and direct-to-camera delivery create a sense of authenticity, as if a friend is sharing a money-saving tip. This builds trust faster than a traditional corporate ad.",
+      "Powerful Contrast: The dramatic difference between '$120' and '$39' is the core of the ad's persuasive power. It's a simple, clear, and highly compelling value proposition that requires no complex explanation.",
+      "Frictionless Call to Action: The ad systematically removes barriers to action. It's a 'quick two-minute check,' it's 'free,' and it's just a 'link below.' This makes it incredibly easy for the viewer to say 'yes' and click."
+    ],
+    "vertical": "auto_insurance",
+    "vertical_name": "Auto Insurance",
+    "transformed": true
+  },
+  "generated_analysis": {
+    "video_metadata": {
+      "duration_seconds": 36,
+      "estimated_fps": 30,
+      "aspect_ratio": "16:9"
+    },
+    "spokesperson": {
+      "physical_description": "The ad features three distinct spokespeople, all appearing to be in the 25-50 age range, representing different demographics. \n1. Spokesperson 1 (Female, 25-35): Red/auburn shoulder-length hair, fair skin with noticeable freckles across her nose and cheeks, brown eyes, and a slim facial structure. She wears a cream-colored ribbed turtleneck sweater and a beige jacket. Her expression is intense and frustrated.\n2. Spokesperson 2 (Male, 35-45): Dark, neatly styled hair, bright blue eyes, and a short, well-groomed beard and mustache (stubble). He has a more rugged appearance and wears a navy blue button-down shirt over a grey t-shirt.\n3. Spokesperson 3 (Female, 40-50): Wavy, shoulder-length blonde hair with darker roots, brown eyes, and defined cheekbones. She wears a light olive-green hoodie and small gold hoop earrings. Her expression is energetic and enthusiastic.",
+      "speaking_style": "Urgent, fast-paced, and direct-to-camera. Each spokesperson delivers their lines with high energy, as if sharing a crucial, time-sensitive secret. The tone shifts from frustration to empowerment and urgency.",
+      "presence_timestamps": [
+        "00:00-00:11",
+        "00:12-00:24",
+        "00:24-00:36"
+      ],
+      "total_screen_time_seconds": 36
+    },
+    "script": {
+      "full_transcript": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. ...you're qualified. Click the link below to check if you qualify. It's fast, free, and could save you hundreds. Click the link below to!",
+      "key_phrases": [
+        "$120 a month",
+        "$39 a month",
+        "changed everything",
+        "a new law",
+        "you have to request it",
+        "don't overpay like I did",
+        "save you hundreds",
+        "Click the link below"
+      ],
+      "call_to_action": "Click the link below to check if you qualify."
+    },
+    "scene_breakdown": [
+      {
+        "scene_number": 1,
+        "timestamp": "00:00-00:11",
+        "duration_seconds": 11,
+        "purpose": "Hook/Problem",
+        "shot_type": "Extreme Close-Up to Medium Close-Up",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Slow pull-out zoom",
+        "characters": "Spokesperson 1 (Redhead woman)",
+        "setting": "A gas station, outdoors. A white car and a gas pump are visible in the blurred background.",
+        "lighting": "Bright, natural daylight, slightly overcast, creating a realistic and slightly harsh look.",
+        "visual_elements": [
+          "Text overlay: '$120' (00:06)",
+          "Text overlay: '$39' (00:07)"
+        ],
+        "message": "I was overpaying for car insurance, but I found a simple way to cut my bill by more than half.",
+        "emotion": "Frustration turning into empowered relief."
+      },
+      {
+        "scene_number": 2,
+        "timestamp": "00:12-00:24",
+        "duration_seconds": 12,
+        "purpose": "Agitate/Proof",
+        "shot_type": "Close-Up to Medium Shot",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static shot, slight zoom out",
+        "characters": "Spokesperson 2 (Man with beard)",
+        "setting": "An auto repair garage. Cars on lifts and tool chests are visible in the soft-focus background.",
+        "lighting": "Bright, even, fluorescent lighting typical of a commercial garage.",
+        "visual_elements": [
+          "Text overlay: '$120' covering the top half of his face (00:19)",
+          "Text overlay: '$39' covering the bottom half of his face (00:20)",
+          "Fast, jarring cuts and sound effects when text appears."
+        ],
+        "message": "There's a 'new law' that could save you money, but insurance companies won't give it to you automatically. You must take action.",
+        "emotion": "Urgent, informative, slightly conspiratorial."
+      },
+      {
+        "scene_number": 3,
+        "timestamp": "00:24-00:36",
+        "duration_seconds": 12,
+        "purpose": "Solution/Call to Action",
+        "shot_type": "Close-Up",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Slightly shaky, handheld feel to imply authenticity and immediacy.",
+        "characters": "Spokesperson 3 (Blonde woman)",
+        "setting": "Inside a parked or slowly moving car, from the passenger's perspective.",
+        "lighting": "Natural daylight coming through the car windows.",
+        "visual_elements": [
+          "Text overlay: '$120' and '$39' (00:30)",
+          "Visual echo/glitch effect on the spokesperson (00:31)",
+          "Text overlay: 'CLICK THE LINK BELOW TO!' (00:33)"
+        ],
+        "message": "The solution is to click the link right now. It's quick, easy, and the potential savings are huge.",
+        "emotion": "High-energy, enthusiastic, demanding action."
+      }
+    ],
+    "visual_style": {
+      "color_palette": [
+        "Natural tones (beige, cream, olive green)",
+        "Cool tones (garage blues and greys)",
+        "High-contrast accent: Bright Red (#FF0000) for text"
+      ],
+      "lighting_style": "Bright and realistic, using either natural daylight or functional indoor lighting to create a sense of authenticity, not a polished studio look.",
+      "cinematography": "Direct-to-camera address with shallow depth of field to focus on the speaker. A mix of slow zooms and handheld shots creates a dynamic, user-generated feel.",
+      "text_overlays": [
+        "$120",
+        "$39",
+        "CLICK THE LINK BELOW TO!"
+      ],
+      "graphics_style": "Bold, cartoonish, red text with a thick black and white outline. Designed for maximum visibility and impact, often placed directly over the speaker's face.",
+      "brand_elements": [
+        "None. The ad is unbranded to feel more like a generic tip or secret rather than a corporate message."
+      ]
+    },
+    "pacing": {
+      "overall_tempo": "Fast",
+      "scene_durations": [
+        11,
+        12,
+        12
+      ],
+      "energy_curve": "Starts high with frustration, maintains a high level of urgent energy, and climaxes with an enthusiastic call to action. There is no dip in energy.",
+      "music_description": "No background music. The soundtrack consists of the speaker's voice and subtle ambient noise (wind, garage sounds), which enhances the testimonial feel. Sharp sound effects punctuate the text overlays.",
+      "voice_pacing": "Rapid delivery with minimal pauses. The speakers sound slightly out of breath, adding to the sense of urgency and excitement."
+    },
+    "storytelling": {
+      "framework": "PAS (Problem, Agitate, Solution)",
+      "emotional_arc": [
+        "Frustration",
+        "Urgency",
+        "Hope",
+        "Action"
+      ],
+      "hook_strategy": "The ad opens with an extreme close-up of a frustrated person stating a common and significant pain point: the high cost of car insurance ($120/month).",
+      "problem_presented": "Drivers are significantly overpaying for car insurance.",
+      "solution_offered": "A special link that allows qualified drivers to access a much lower rate ($39/month) in just two minutes.",
+      "proof_elements": [
+        "Testimonials (the three spokespeople act as case studies)",
+        "Authority (the mention of a 'new law' suggests an official, legitimate reason for the discount)",
+        "Data (specific dollar amounts: '$120' vs '$39')"
+      ],
+      "urgency_tactics": [
+        "Implied Scarcity: 'You have to request it, it's not automatic' suggests the opportunity could be missed.",
+        "Direct Commands: 'Click the link below.'",
+        "Fast Pacing: The rapid cuts and speech patterns create a psychological need to act quickly."
+      ]
+    },
+    "why_it_works": [
+      "Relatability and Authenticity: Using three different 'everyday people' in common settings (gas station, garage, car) makes the message feel like a genuine tip from a friend rather than a corporate ad. The handheld camera style reinforces this.",
+      "Problem-Centric Opening: It immediately hooks the viewer by addressing a widespread and frustrating financial pain point, making the audience instantly receptive to a solution.",
+      "Psychological Triggers: The ad effectively uses Loss Aversion ('Don't overpay like I did'), Authority Bias ('a new law'), and Specificity (using '$120' and '$39' instead of vague percentages) to make the offer compelling and credible."
+    ]
+  },
+  "prompts_used": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "purpose": "Hook - establish relatable problem",
+      "prompt": "[00:00-+03s] EXTREME CLOSE-UP: Woman aged 30-35, professional but approachable style, relatable and authentic, At a gas station, standing next to car, casual outdoor setting. Woman aged 30-35 speaking directly to camera.. \nHigh-contrast lighting. Fed up and taking action expression.\n\n[+03s-+06s] FAST WHIP PAN to medium close-up. \nShallow depth of field. Eye contact with camera. Natural hand gestures.\n\n[+06s-+09s] DYNAMIC FAST WHIP PAN. \nLighting high-contrast. Expression intensifies.\n\n[+09s-+12s] FINAL SHOT: Holds on fed up and taking action expression. \nDirect address to viewer. Urgent energy.\n\nAUDIO: urgent female voice, fast pace, determined tone. Emotion: fed up and taking action. Says: \"I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.\". Background music: intense electronic with driving beat, 140 BPM, urgent and compelling, dynamic and engaging. immediate energy at 0:00, climax at 0:08, explosive drop at 0:10. Sound effect at 0:06: sharp whoosh.\n\nTEXT OVERLAYS: At 0:06, bold text crashes in from top: \"$120\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:06, bold text crashes in from top: \"$39\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11.\n\nTECHNICAL: 4K resolution, 1792x1024, high-energy testimonial, vibrant and punchy, cinematic audio mix.",
+      "script_segment": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.",
+      "has_character": true,
+      "scene_type": "actor_hook"
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "purpose": "Social proof - solution works for real people",
+      "prompt": "[00:12-+03s] EXTREME CLOSE-UP: Man aged 35-45, business casual attire, relatable and authentic, Inside a car repair shop, cars in background. Man aged 35-45 speaking directly to camera.. \nHigh-contrast lighting. Boldly assertive expression.\n\n[+03s-+06s] FAST WHIP PAN to medium close-up. \nShallow depth of field. Eye contact with camera. Natural hand gestures.\n\n[+06s-+09s] DYNAMIC FAST WHIP PAN. \nLighting high-contrast. Expression intensifies.\n\n[+09s-+12s] FINAL SHOT: Holds on boldly assertive expression. \nDirect address to viewer. Urgent energy.\n\nAUDIO: urgent female voice, fast pace, determined tone. Emotion: boldly assertive. Says: \"Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12 plus months, don't overpay like I did.\". Background music: intense electronic with driving beat, 140 BPM, urgent and compelling, dynamic and engaging. immediate energy at 0:00, climax at 0:08, explosive drop at 0:10. Sound effect at 0:06: sharp whoosh.\n\nTEXT OVERLAYS: At 0:06, bold text crashes in from top: \"$120\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:06, bold text crashes in from top: \"$39\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11.\n\nTECHNICAL: 4K resolution, 1792x1024, high-energy testimonial, vibrant and punchy, cinematic audio mix.",
+      "script_segment": "Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12 plus months, don't overpay like I did.",
+      "has_character": true,
+      "scene_type": "actor_proof"
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:24-00:36",
+      "purpose": "Call to action - create urgency to act",
+      "prompt": "[00:24-+03s] EXTREME CLOSE-UP: Woman aged 45-55, casual trendy style, relatable and authentic, Inside a modern car, driver seat, parked in bright daylight. Woman aged 45-55 speaking directly to camera.. \nHigh-contrast lighting. Intensely driven expression.\n\n[+03s-+06s] FAST WHIP PAN to medium close-up. \nShallow depth of field. Eye contact with camera. Natural hand gestures.\n\n[+06s-+09s] DYNAMIC FAST WHIP PAN. \nLighting high-contrast. Expression intensifies.\n\n[+09s-+12s] FINAL SHOT: Holds on intensely driven expression. \nDirect address to viewer. Urgent energy.\n\nAUDIO: urgent female voice, fast pace, determined tone. Emotion: intensely driven. Says: \"Click the link below to check if you qualify. It's fast, free, and could save you hundreds.\". Background music: intense electronic with driving beat, 140 BPM, urgent and compelling, dynamic and engaging. immediate energy at 0:00, climax at 0:08, explosive drop at 0:10. Sound effect at 0:06: sharp whoosh.\n\nTEXT OVERLAYS: At 0:06, bold text crashes in from top: \"$120\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:06, bold text crashes in from top: \"$39\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:09, bold text slides in: \"CLICK THE LINK BELOW TO!\" (Montserrat Black, 96pt, white). Fades out at 0:12.\n\nTECHNICAL: 4K resolution, 1792x1024, high-energy testimonial, vibrant and punchy, cinematic audio mix.",
+      "script_segment": "Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+      "has_character": true,
+      "scene_type": "actor_cta"
+    }
+  ],
+  "comparison": {
+    "script_similarity": 0.9166666666666666,
+    "original_script": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12 plus months, don't overpay like I did. Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+    "generated_script": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. ...you're qualified. Click the link below to check if you qualify. It's fast, free, and could save you hundreds. Click the link below to!",
+    "original_vertical": "auto_insurance",
+    "generated_vertical": "auto_insurance",
+    "vertical_match": true,
+    "original_scenes": 3,
+    "generated_scenes": 3,
+    "original_has_characters": true,
+    "generated_has_characters": true
+  },
+  "ratings": {
+    "visual_quality": 10.0,
+    "message_clarity": 10.0,
+    "pacing": 10.0,
+    "storytelling": 10.0,
+    "overall_score": 10.0,
+    "predicted_performance": "EXCELLENT - High conversion potential"
+  },
+  "recommendations": [
+    {
+      "severity": "MEDIUM",
+      "issue": "Multiple character scenes detected",
+      "details": "Found 3 scenes with characters",
+      "fix": "Use transformation to limit to 1 character scene + B-roll only"
+    }
+  ]
+}

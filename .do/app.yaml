@@ -1,0 +1,59 @@
+name: soraking-ad-cloner
+region: nyc
+
+services:
+  - name: web
+    github:
+      repo: soraking/soraking
+      branch: main
+      deploy_on_push: true
+
+    dockerfile_path: Dockerfile
+
+    http_port: 8080
+
+    instance_count: 1
+    instance_size_slug: basic-xxs
+
+    envs:
+      - key: OPENAI_API_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: GEMINI_API_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: SUPABASE_URL
+        scope: RUN_AND_BUILD_TIME
+        value: https://douctvwttvkfqbvzdwdj.supabase.co
+      - key: SUPABASE_ANON_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: DO_SPACES_ACCESS_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: DO_SPACES_SECRET_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: DO_SPACES_BUCKET
+        scope: RUN_AND_BUILD_TIME
+        value: soraking-videos
+      - key: DO_SPACES_REGION
+        scope: RUN_AND_BUILD_TIME
+        value: nyc3
+      - key: PORT
+        scope: RUN_AND_BUILD_TIME
+        value: "8080"
+      - key: FLASK_ENV
+        scope: RUN_AND_BUILD_TIME
+        value: production
+
+    health_check:
+      http_path: /api/health
+      initial_delay_seconds: 30
+      period_seconds: 10
+      timeout_seconds: 5
+      success_threshold: 1
+      failure_threshold: 3
+
+    routes:
+      - path: /

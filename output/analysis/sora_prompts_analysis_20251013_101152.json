@@ -1,0 +1,31 @@
+{
+  "aggressive": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "purpose": "Hook - establish relatable problem",
+      "prompt": "[00:00-+03s] EXTREME CLOSE-UP: Woman aged 30-35, professional but approachable style, relatable and authentic, At a gas station, standing next to car, casual outdoor setting. Woman aged 30-35 speaking directly to camera.. \nHigh-contrast lighting. Fed up and taking action expression.\n\n[+03s-+06s] FAST WHIP PAN to medium close-up. \nShallow depth of field. Eye contact with camera. Natural hand gestures.\n\n[+06s-+09s] DYNAMIC FAST WHIP PAN. \nLighting high-contrast. Expression intensifies.\n\n[+09s-+12s] FINAL SHOT: Holds on fed up and taking action expression. \nDirect address to viewer. Urgent energy.\n\nAUDIO: urgent female voice, fast pace, determined tone. Emotion: fed up and taking action. Says: \"I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.\". Background music: intense electronic with driving beat, 140 BPM, urgent and compelling, dynamic and engaging. immediate energy at 0:00, climax at 0:08, explosive drop at 0:10. Sound effect at 0:06: sharp whoosh.\n\nTEXT OVERLAYS: At 0:06, bold text crashes in from top: \"$120\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:06, bold text crashes in from top: \"$39\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11.\n\nTECHNICAL: 4K resolution, 1792x1024, high-energy testimonial, vibrant and punchy, cinematic audio mix.",
+      "script_segment": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.",
+      "has_character": true,
+      "scene_type": "actor_hook"
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "purpose": "Social proof - solution works for real people",
+      "prompt": "[00:12-+03s] EXTREME CLOSE-UP: Man aged 35-45, business casual attire, relatable and authentic, Inside a car repair shop, cars in background. Man aged 35-45 speaking directly to camera.. \nHigh-contrast lighting. Boldly assertive expression.\n\n[+03s-+06s] FAST WHIP PAN to medium close-up. \nShallow depth of field. Eye contact with camera. Natural hand gestures.\n\n[+06s-+09s] DYNAMIC FAST WHIP PAN. \nLighting high-contrast. Expression intensifies.\n\n[+09s-+12s] FINAL SHOT: Holds on boldly assertive expression. \nDirect address to viewer. Urgent energy.\n\nAUDIO: urgent female voice, fast pace, determined tone. Emotion: boldly assertive. Says: \"Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12 plus months, don't overpay like I did.\". Background music: intense electronic with driving beat, 140 BPM, urgent and compelling, dynamic and engaging. immediate energy at 0:00, climax at 0:08, explosive drop at 0:10. Sound effect at 0:06: sharp whoosh.\n\nTEXT OVERLAYS: At 0:06, bold text crashes in from top: \"$120\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:06, bold text crashes in from top: \"$39\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11.\n\nTECHNICAL: 4K resolution, 1792x1024, high-energy testimonial, vibrant and punchy, cinematic audio mix.",
+      "script_segment": "Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12 plus months, don't overpay like I did.",
+      "has_character": true,
+      "scene_type": "actor_proof"
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:24-00:36",
+      "purpose": "Call to action - create urgency to act",
+      "prompt": "[00:24-+03s] EXTREME CLOSE-UP: Woman aged 45-55, casual trendy style, relatable and authentic, Inside a modern car, driver seat, parked in bright daylight. Woman aged 45-55 speaking directly to camera.. \nHigh-contrast lighting. Intensely driven expression.\n\n[+03s-+06s] FAST WHIP PAN to medium close-up. \nShallow depth of field. Eye contact with camera. Natural hand gestures.\n\n[+06s-+09s] DYNAMIC FAST WHIP PAN. \nLighting high-contrast. Expression intensifies.\n\n[+09s-+12s] FINAL SHOT: Holds on intensely driven expression. \nDirect address to viewer. Urgent energy.\n\nAUDIO: urgent female voice, fast pace, determined tone. Emotion: intensely driven. Says: \"Click the link below to check if you qualify. It's fast, free, and could save you hundreds.\". Background music: intense electronic with driving beat, 140 BPM, urgent and compelling, dynamic and engaging. immediate energy at 0:00, climax at 0:08, explosive drop at 0:10. Sound effect at 0:06: sharp whoosh.\n\nTEXT OVERLAYS: At 0:06, bold text crashes in from top: \"$120\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:06, bold text crashes in from top: \"$39\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:09, bold text slides in: \"CLICK THE LINK BELOW TO!\" (Montserrat Black, 96pt, white). Fades out at 0:12.\n\nTECHNICAL: 4K resolution, 1792x1024, high-energy testimonial, vibrant and punchy, cinematic audio mix.",
+      "script_segment": "Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+      "has_character": true,
+      "scene_type": "actor_cta"
+    }
+  ]
+}

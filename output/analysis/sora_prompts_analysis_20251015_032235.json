@@ -1,0 +1,28 @@
+{
+  "aggressive": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "purpose": "Extreme visual hook - grab attention with shock value",
+      "prompt": "EXTREME VISUAL HOOK: A tow truck slowly backs into a dimly lit suburban driveway. The sound of gravel crunching fills the air as it hooks onto a parked car. In slow motion, the car lifts off the ground, wheels dangling helplessly, revealing an empty spot where it once stood.\n\nNO PEOPLE. Environment and object-focused cinematography only.\n\nCAMERA: Close-up on the tow truck's hook connecting to the car, then a wide shot as the car is lifted and dragged away, leaving an oil stain on the driveway.. Intense and visceral movement.\n\nTIMING: 0-4s: Close-up of the tow truck backing up. 4-8s: Hook connects to the car, tension builds. 8-12s: Car lifts and is dragged away.\n\nLIGHTING: Soft, moody lighting focusing on the driveway, casting long shadows.. Cinematic color grading.\n\nAUDIO DESIGN: Sound of gravel crunching, mechanical whir of the tow truck, and the sound of the car scraping as it's lifted.. Build tension to impact.\n\nTEXT OVERLAY (appears mid-scene): \"Miss one payment. Lose everything.\"\n\nEMOTION: urgent. Maximum visual impact.\n\nSHOT STYLE: Cinematic commercial. High production value. Dramatic reveals.\n\n4K cinematic. 12 seconds. Repo Reality Check.",
+      "script_segment": "(Spanish) 2024 acaba de mejorar mucho. Quiero explicar por qu\u00e9. Acaban de lanzar este programa. Se llama el Alivio Econ\u00f3mico para 24. Y usted no... esta es la mejor parte de esto.",
+      "has_character": false
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:24-00:36",
+      "purpose": "social_proof",
+      "prompt": "Bank app showing savings balance. female, 35-45, casual outfit, Home living room.\nUrgent: \"I was hesitant at first, but my coworker showed me her statement \u2014 she saved over $2,000! I jumped on board and couldn\u2019t believe the relief.\"\nVisual: Sitting at a desk, smiling with a statement in hand.\nDynamic push-in. Eye contact. Natural gestures. UGC testimonial style.\n4K. 12s.",
+      "script_segment": "Usted no tiene que pagar este dinero siempre y cuando utilice los fondos hacia sus tarjetas de cr\u00e9dito o sus pr\u00e9stamos. De hecho, est\u00e1 en las directrices del programa, as\u00ed que tenlo en cuenta. Ahora bien, si usted va y toma el dinero y lo utiliza en unas vacaciones, usted va a devolverlo. Pero si coges este dinero y lo utilizas para tus tarjetas de cr\u00e9dito o para cualquier pr\u00e9stamo que tengas, no tendr\u00e1s que devolverlo. Es b\u00e1sicamente una manera de restablecer la econom\u00eda porque las cosas se han puesto tan mal, especialmente en los \u00faltimos 12 meses.",
+      "has_character": true
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:36-00:48",
+      "purpose": "urgent_cta",
+      "prompt": "Bank app showing savings balance. female, 45-55, casual outfit, Home office with laptop.\nUrgent: \"Limited spots are filling fast \u2014 only 30 left in your area! Don\u2019t miss out on this financial relief. Call now \u2014 it takes just five minutes!\"\nVisual: Standing with urgency, hand up as if counting down.\nDynamic push-in. Eye contact. Natural gestures. UGC testimonial style.\n4K. 12s.",
+      "script_segment": "As\u00ed que echa un vistazo a este programa. En realidad, tengo esta declaraci\u00f3n de Chase Bank. Todo fue perdonado y s\u00ed, en realidad te dan un cheque como este y lo que haces es tomar ese cheque y puedes ponerlo en cualquier tarjeta de cr\u00e9dito que tengas, cualquier pr\u00e9stamo que tengas y no tienes que devolverlo. Pero si usted toma el dinero y lo utilizan para otras cosas, como si usted sale y freaking tomar unas vacaciones o comprar un coche...",
+      "has_character": true
+    }
+  ]
+}

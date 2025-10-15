@@ -1,0 +1,1734 @@
+{
+  "script": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+  "vertical": "auto_insurance",
+  "director_scenes": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "scene_type": "character",
+      "purpose": "hook/problem",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:00-00:03",
+            "shot_type": "medium",
+            "subject": "spokesperson looking directly at the camera",
+            "camera_move": "push-in",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:03-00:06",
+            "shot_type": "close-up",
+            "subject": "spokesperson's face",
+            "camera_move": "whip pan to right",
+            "lighting": "bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:06-00:09",
+            "shot_type": "medium",
+            "subject": "spokesperson",
+            "camera_move": "pull-back",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:09-00:12",
+            "shot_type": "wide",
+            "subject": "spokesperson in the center of the frame",
+            "camera_move": "static",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "urgent"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "I was paying $120 a month for car insurance until I found a link that changed everything.",
+          "tone": "urgent",
+          "pace": "fast",
+          "emotion": "frustrated"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 140,
+          "intensity": "builds",
+          "key_moments": [
+            "0:03 music intensifies",
+            "0:09 beat drop"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:03",
+            "effect": "whoosh"
+          },
+          {
+            "time": "0:09",
+            "effect": "thud"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "$120 A MONTH",
+          "start": "0:02",
+          "end": "0:05",
+          "position": "center",
+          "font": "Impact",
+          "size": "160pt",
+          "color": "red",
+          "animation": "crash-in",
+          "outline": "black"
+        },
+        {
+          "text": "CHANGED EVERYTHING",
+          "start": "0:06",
+          "end": "0:09",
+          "position": "bottom-center",
+          "font": "Bebas Neue",
+          "size": "120pt",
+          "color": "yellow",
+          "animation": "fade",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:03",
+          "event": "text pops in + music intensifies"
+        },
+        {
+          "time": "0:09",
+          "event": "beat drop + second text appears"
+        }
+      ]
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "scene_type": "character",
+      "purpose": "solution/proof",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:12-00:15",
+            "shot_type": "medium",
+            "subject": "spokesperson with a confident expression",
+            "camera_move": "zoom-in",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:15-00:18",
+            "shot_type": "close-up",
+            "subject": "spokesperson's hand showing numbers on phone screen",
+            "camera_move": "pan down",
+            "lighting": "bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:18-00:21",
+            "shot_type": "medium",
+            "subject": "spokesperson",
+            "camera_move": "slide left",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:21-00:24",
+            "shot_type": "wide",
+            "subject": "spokesperson gesturing towards the camera",
+            "camera_move": "static",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "energetic"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.",
+          "tone": "confident",
+          "pace": "medium",
+          "emotion": "hopeful"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 145,
+          "intensity": "steady",
+          "key_moments": [
+            "0:15 music steady",
+            "0:22 small beat rise"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:18",
+            "effect": "ding"
+          },
+          {
+            "time": "0:22",
+            "effect": "cha-ching"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "TWO-MINUTE CHECK",
+          "start": "0:13",
+          "end": "0:16",
+          "position": "top-center",
+          "font": "Montserrat Black",
+          "size": "90pt",
+          "color": "white",
+          "animation": "slide",
+          "outline": "black"
+        },
+        {
+          "text": "$39 A MONTH",
+          "start": "0:17",
+          "end": "0:20",
+          "position": "center",
+          "font": "Impact",
+          "size": "140pt",
+          "color": "green",
+          "animation": "pop",
+          "outline": "none"
+        },
+        {
+          "text": "SAME COVERAGE",
+          "start": "0:21",
+          "end": "0:24",
+          "position": "bottom-center",
+          "font": "Bebas Neue",
+          "size": "100pt",
+          "color": "yellow",
+          "animation": "fade",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:15",
+          "event": "text slides in + music steady"
+        },
+        {
+          "time": "0:18",
+          "event": "text pop + ding SFX"
+        },
+        {
+          "time": "0:22",
+          "event": "small beat rise + cha-ching SFX"
+        }
+      ]
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:24-00:36",
+      "scene_type": "character",
+      "purpose": "justification/urgency",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:24-00:27",
+            "shot_type": "medium",
+            "subject": "spokesperson pointing to a screen showing law text",
+            "camera_move": "pan right",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:27-00:30",
+            "shot_type": "close-up",
+            "subject": "screen showing text",
+            "camera_move": "zoom-in",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:30-00:33",
+            "shot_type": "medium",
+            "subject": "spokesperson with intense look",
+            "camera_move": "whip pan left",
+            "lighting": "bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:33-00:36",
+            "shot_type": "wide",
+            "subject": "spokesperson gesturing",
+            "camera_move": "static",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "urgent"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic.",
+          "tone": "urgent",
+          "pace": "fast",
+          "emotion": "intense"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 150,
+          "intensity": "builds",
+          "key_moments": [
+            "0:27 build",
+            "0:34 tension release"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:27",
+            "effect": "whoosh"
+          },
+          {
+            "time": "0:34",
+            "effect": "swoosh"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "NEW LAW",
+          "start": "0:25",
+          "end": "0:28",
+          "position": "top-center",
+          "font": "Montserrat Black",
+          "size": "110pt",
+          "color": "red",
+          "animation": "crash-in",
+          "outline": "black"
+        },
+        {
+          "text": "NOT AUTOMATIC",
+          "start": "0:31",
+          "end": "0:34",
+          "position": "bottom-center",
+          "font": "Bebas Neue",
+          "size": "100pt",
+          "color": "white",
+          "animation": "fade",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:27",
+          "event": "whoosh + text crash-in"
+        },
+        {
+          "time": "0:33",
+          "event": "text fade + swoosh"
+        }
+      ]
+    },
+    {
+      "scene_number": 4,
+      "timestamp": "00:36-00:48",
+      "scene_type": "character",
+      "purpose": "direct address/qualification",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:36-00:39",
+            "shot_type": "medium",
+            "subject": "spokesperson extending hand to camera",
+            "camera_move": "slow zoom",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:39-00:42",
+            "shot_type": "close-up",
+            "subject": "spokesperson's face",
+            "camera_move": "pan up",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:42-00:45",
+            "shot_type": "medium",
+            "subject": "spokesperson nodding",
+            "camera_move": "slide right",
+            "lighting": "bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:45-00:48",
+            "shot_type": "wide",
+            "subject": "spokesperson with arms open",
+            "camera_move": "static",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "energetic"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "If you've had insurance for 12+ months, don't overpay like I did.",
+          "tone": "urgent",
+          "pace": "medium",
+          "emotion": "compelling"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 145,
+          "intensity": "steady",
+          "key_moments": [
+            "0:39 steady",
+            "0:46 small lift"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:39",
+            "effect": "ding"
+          },
+          {
+            "time": "0:46",
+            "effect": "pop"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "12+ MONTHS",
+          "start": "0:37",
+          "end": "0:40",
+          "position": "top-center",
+          "font": "Impact",
+          "size": "100pt",
+          "color": "blue",
+          "animation": "slide",
+          "outline": "black"
+        },
+        {
+          "text": "DON'T OVERPAY",
+          "start": "0:44",
+          "end": "0:48",
+          "position": "center",
+          "font": "Bebas Neue",
+          "size": "120pt",
+          "color": "yellow",
+          "animation": "fade",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:39",
+          "event": "text slide + ding SFX"
+        },
+        {
+          "time": "0:46",
+          "event": "text fade + pop SFX"
+        }
+      ]
+    },
+    {
+      "scene_number": 5,
+      "timestamp": "00:48-01:00",
+      "scene_type": "character",
+      "purpose": "call to action",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:48-00:51",
+            "shot_type": "medium",
+            "subject": "spokesperson pointing downwards",
+            "camera_move": "zoom-in",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:51-00:54",
+            "shot_type": "close-up",
+            "subject": "spokesperson's face",
+            "camera_move": "pan left",
+            "lighting": "bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:54-00:57",
+            "shot_type": "medium",
+            "subject": "spokesperson with a reassuring gesture",
+            "camera_move": "slide left",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:57-01:00",
+            "shot_type": "wide",
+            "subject": "spokesperson with open arms",
+            "camera_move": "static",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "urgent"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+          "tone": "confident",
+          "pace": "medium",
+          "emotion": "hopeful"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 150,
+          "intensity": "drops",
+          "key_moments": [
+            "0:51 drop",
+            "0:58 final lift"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:51",
+            "effect": "thud"
+          },
+          {
+            "time": "0:58",
+            "effect": "clap"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "CLICK BELOW",
+          "start": "00:49",
+          "end": "00:52",
+          "position": "top-center",
+          "font": "Impact",
+          "size": "110pt",
+          "color": "red",
+          "animation": "crash-in",
+          "outline": "none"
+        },
+        {
+          "text": "FAST, FREE, SAVE",
+          "start": "00:55",
+          "end": "01:00",
+          "position": "bottom-center",
+          "font": "Bebas Neue",
+          "size": "100pt",
+          "color": "green",
+          "animation": "fade",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:51",
+          "event": "thud + text crash-in"
+        },
+        {
+          "time": "0:58",
+          "event": "final lift + clap SFX"
+        }
+      ]
+    }
+  ],
+  "validation_result": {
+    "conversion_score": 7,
+    "issues_found": [
+      "Scene 2 shows spokesperson - change to B-roll phone screen",
+      "Scene 3 shows spokesperson - change to B-roll screen with law text",
+      "Scene 4 shows spokesperson - change to B-roll insurance documents",
+      "Text overlay too long - reduce to 5 words max",
+      "Missing urgency in CTA"
+    ],
+    "marketing_analysis": {
+      "hook_strength": "Strong",
+      "problem_clarity": "Clear",
+      "solution_appeal": "High",
+      "urgency_level": "Medium",
+      "cta_effectiveness": "Medium"
+    },
+    "refined_scenes": [
+      {
+        "scene_number": 1,
+        "changes_made": [
+          "None"
+        ],
+        "timestamp": "00:00-00:12",
+        "scene_type": "character",
+        "purpose": "hook/problem",
+        "visual": {
+          "shot_progression": [
+            {
+              "time": "00:00-00:03",
+              "shot_type": "medium",
+              "subject": "spokesperson looking directly at the camera",
+              "camera_move": "push-in",
+              "lighting": "high-contrast",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:03-00:06",
+              "shot_type": "close-up",
+              "subject": "spokesperson's face",
+              "camera_move": "whip pan to right",
+              "lighting": "bold shadows",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:06-00:09",
+              "shot_type": "medium",
+              "subject": "spokesperson",
+              "camera_move": "pull-back",
+              "lighting": "dramatic",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:09-00:12",
+              "shot_type": "wide",
+              "subject": "spokesperson in the center of the frame",
+              "camera_move": "static",
+              "lighting": "high-contrast",
+              "focus": "sharp"
+            }
+          ],
+          "color_grade": "vibrant",
+          "energy_level": "urgent"
+        },
+        "audio": {
+          "voiceover": {
+            "script": "I was paying $120 a month for car insurance until I found a link that changed everything.",
+            "tone": "urgent",
+            "pace": "fast",
+            "emotion": "frustrated"
+          },
+          "music": {
+            "genre": "electronic",
+            "bpm": 140,
+            "intensity": "builds",
+            "key_moments": [
+              "0:03 music intensifies",
+              "0:09 beat drop"
+            ]
+          },
+          "sound_effects": [
+            {
+              "time": "0:03",
+              "effect": "whoosh"
+            },
+            {
+              "time": "0:09",
+              "effect": "thud"
+            }
+          ]
+        },
+        "text_overlays": [
+          {
+            "text": "$120 A MONTH",
+            "start": "0:02",
+            "end": "0:05",
+            "position": "center",
+            "font": "Impact",
+            "size": "160pt",
+            "color": "red",
+            "animation": "crash-in",
+            "outline": "black"
+          },
+          {
+            "text": "CHANGED EVERYTHING",
+            "start": "0:06",
+            "end": "0:09",
+            "position": "bottom-center",
+            "font": "Bebas Neue",
+            "size": "120pt",
+            "color": "yellow",
+            "animation": "fade",
+            "outline": "none"
+          }
+        ],
+        "sync_points": [
+          {
+            "time": "0:03",
+            "event": "text pops in + music intensifies"
+          },
+          {
+            "time": "0:09",
+            "event": "beat drop + second text appears"
+          }
+        ]
+      },
+      {
+        "scene_number": 2,
+        "changes_made": [
+          "replaced spokesperson with B-roll of phone screen"
+        ],
+        "timestamp": "00:12-00:24",
+        "scene_type": "b-roll",
+        "purpose": "solution/proof",
+        "visual": {
+          "shot_progression": [
+            {
+              "time": "00:12-00:15",
+              "shot_type": "medium",
+              "subject": "phone screen showing $39/month",
+              "camera_move": "zoom-in",
+              "lighting": "high-contrast",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:15-00:18",
+              "shot_type": "close-up",
+              "subject": "phone screen with insurance app",
+              "camera_move": "pan down",
+              "lighting": "bold shadows",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:18-00:21",
+              "shot_type": "medium",
+              "subject": "phone screen with confirmation message",
+              "camera_move": "slide left",
+              "lighting": "dramatic",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:21-00:24",
+              "shot_type": "wide",
+              "subject": "phone on table with insurance documents",
+              "camera_move": "static",
+              "lighting": "high-contrast",
+              "focus": "sharp"
+            }
+          ],
+          "color_grade": "vibrant",
+          "energy_level": "energetic"
+        },
+        "audio": {
+          "voiceover": {
+            "script": "After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.",
+            "tone": "confident",
+            "pace": "medium",
+            "emotion": "hopeful"
+          },
+          "music": {
+            "genre": "electronic",
+            "bpm": 145,
+            "intensity": "steady",
+            "key_moments": [
+              "0:15 music steady",
+              "0:22 small beat rise"
+            ]
+          },
+          "sound_effects": [
+            {
+              "time": "0:18",
+              "effect": "ding"
+            },
+            {
+              "time": "0:22",
+              "effect": "cha-ching"
+            }
+          ]
+        },
+        "text_overlays": [
+          {
+            "text": "TWO-MINUTE CHECK",
+            "start": "0:13",
+            "end": "0:16",
+            "position": "top-center",
+            "font": "Montserrat Black",
+            "size": "90pt",
+            "color": "white",
+            "animation": "slide",
+            "outline": "black"
+          },
+          {
+            "text": "$39 A MONTH",
+            "start": "0:17",
+            "end": "0:20",
+            "position": "center",
+            "font": "Impact",
+            "size": "140pt",
+            "color": "green",
+            "animation": "pop",
+            "outline": "none"
+          },
+          {
+            "text": "SAME COVERAGE",
+            "start": "0:21",
+            "end": "0:24",
+            "position": "bottom-center",
+            "font": "Bebas Neue",
+            "size": "100pt",
+            "color": "yellow",
+            "animation": "fade",
+            "outline": "none"
+          }
+        ],
+        "sync_points": [
+          {
+            "time": "0:15",
+            "event": "text slides in + music steady"
+          },
+          {
+            "time": "0:18",
+            "event": "text pop + ding SFX"
+          },
+          {
+            "time": "0:22",
+            "event": "small beat rise + cha-ching SFX"
+          }
+        ]
+      },
+      {
+        "scene_number": 3,
+        "changes_made": [
+          "replaced spokesperson with B-roll of screen showing law text"
+        ],
+        "timestamp": "00:24-00:36",
+        "scene_type": "b-roll",
+        "purpose": "justification/urgency",
+        "visual": {
+          "shot_progression": [
+            {
+              "time": "00:24-00:27",
+              "shot_type": "medium",
+              "subject": "screen showing law text",
+              "camera_move": "pan right",
+              "lighting": "high-contrast",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:27-00:30",
+              "shot_type": "close-up",
+              "subject": "highlighted law text",
+              "camera_move": "zoom-in",
+              "lighting": "dramatic",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:30-00:33",
+              "shot_type": "medium",
+              "subject": "screen with urgent message",
+              "camera_move": "whip pan left",
+              "lighting": "bold shadows",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:33-00:36",
+              "shot_type": "wide",
+              "subject": "insurance documents on table",
+              "camera_move": "static",
+              "lighting": "high-contrast",
+              "focus": "sharp"
+            }
+          ],
+          "color_grade": "vibrant",
+          "energy_level": "urgent"
+        },
+        "audio": {
+          "voiceover": {
+            "script": "Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic.",
+            "tone": "urgent",
+            "pace": "fast",
+            "emotion": "intense"
+          },
+          "music": {
+            "genre": "electronic",
+            "bpm": 150,
+            "intensity": "builds",
+            "key_moments": [
+              "0:27 build",
+              "0:34 tension release"
+            ]
+          },
+          "sound_effects": [
+            {
+              "time": "0:27",
+              "effect": "whoosh"
+            },
+            {
+              "time": "0:34",
+              "effect": "swoosh"
+            }
+          ]
+        },
+        "text_overlays": [
+          {
+            "text": "NEW LAW",
+            "start": "0:25",
+            "end": "0:28",
+            "position": "top-center",
+            "font": "Montserrat Black",
+            "size": "110pt",
+            "color": "red",
+            "animation": "crash-in",
+            "outline": "black"
+          },
+          {
+            "text": "NOT AUTOMATIC",
+            "start": "0:31",
+            "end": "0:34",
+            "position": "bottom-center",
+            "font": "Bebas Neue",
+            "size": "100pt",
+            "color": "white",
+            "animation": "fade",
+            "outline": "none"
+          }
+        ],
+        "sync_points": [
+          {
+            "time": "0:27",
+            "event": "whoosh + text crash-in"
+          },
+          {
+            "time": "0:33",
+            "event": "text fade + swoosh"
+          }
+        ]
+      },
+      {
+        "scene_number": 4,
+        "changes_made": [
+          "replaced spokesperson with B-roll of insurance documents"
+        ],
+        "timestamp": "00:36-00:48",
+        "scene_type": "b-roll",
+        "purpose": "direct address/qualification",
+        "visual": {
+          "shot_progression": [
+            {
+              "time": "00:36-00:39",
+              "shot_type": "medium",
+              "subject": "insurance documents with highlighted text",
+              "camera_move": "slow zoom",
+              "lighting": "high-contrast",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:39-00:42",
+              "shot_type": "close-up",
+              "subject": "highlighted text on document",
+              "camera_move": "pan up",
+              "lighting": "dramatic",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:42-00:45",
+              "shot_type": "medium",
+              "subject": "document with approval stamp",
+              "camera_move": "slide right",
+              "lighting": "bold shadows",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:45-00:48",
+              "shot_type": "wide",
+              "subject": "documents spread out on table",
+              "camera_move": "static",
+              "lighting": "high-contrast",
+              "focus": "sharp"
+            }
+          ],
+          "color_grade": "vibrant",
+          "energy_level": "energetic"
+        },
+        "audio": {
+          "voiceover": {
+            "script": "If you've had insurance for 12+ months, don't overpay like I did.",
+            "tone": "urgent",
+            "pace": "medium",
+            "emotion": "compelling"
+          },
+          "music": {
+            "genre": "electronic",
+            "bpm": 145,
+            "intensity": "steady",
+            "key_moments": [
+              "0:39 steady",
+              "0:46 small lift"
+            ]
+          },
+          "sound_effects": [
+            {
+              "time": "0:39",
+              "effect": "ding"
+            },
+            {
+              "time": "0:46",
+              "effect": "pop"
+            }
+          ]
+        },
+        "text_overlays": [
+          {
+            "text": "12+ MONTHS",
+            "start": "0:37",
+            "end": "0:40",
+            "position": "top-center",
+            "font": "Impact",
+            "size": "100pt",
+            "color": "blue",
+            "animation": "slide",
+            "outline": "black"
+          },
+          {
+            "text": "DON'T OVERPAY",
+            "start": "0:44",
+            "end": "0:48",
+            "position": "center",
+            "font": "Bebas Neue",
+            "size": "120pt",
+            "color": "yellow",
+            "animation": "fade",
+            "outline": "none"
+          }
+        ],
+        "sync_points": [
+          {
+            "time": "0:39",
+            "event": "text slide + ding SFX"
+          },
+          {
+            "time": "0:46",
+            "event": "text fade + pop SFX"
+          }
+        ]
+      },
+      {
+        "scene_number": 5,
+        "changes_made": [
+          "None"
+        ],
+        "timestamp": "00:48-01:00",
+        "scene_type": "character",
+        "purpose": "call to action",
+        "visual": {
+          "shot_progression": [
+            {
+              "time": "00:48-00:51",
+              "shot_type": "medium",
+              "subject": "spokesperson pointing downwards",
+              "camera_move": "zoom-in",
+              "lighting": "high-contrast",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:51-00:54",
+              "shot_type": "close-up",
+              "subject": "spokesperson's face",
+              "camera_move": "pan left",
+              "lighting": "bold shadows",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:54-00:57",
+              "shot_type": "medium",
+              "subject": "spokesperson with a reassuring gesture",
+              "camera_move": "slide left",
+              "lighting": "dramatic",
+              "focus": "sharp"
+            },
+            {
+              "time": "00:57-01:00",
+              "shot_type": "wide",
+              "subject": "spokesperson with open arms",
+              "camera_move": "static",
+              "lighting": "high-contrast",
+              "focus": "sharp"
+            }
+          ],
+          "color_grade": "vibrant",
+          "energy_level": "urgent"
+        },
+        "audio": {
+          "voiceover": {
+            "script": "Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+            "tone": "confident",
+            "pace": "medium",
+            "emotion": "hopeful"
+          },
+          "music": {
+            "genre": "electronic",
+            "bpm": 150,
+            "intensity": "drops",
+            "key_moments": [
+              "0:51 drop",
+              "0:58 final lift"
+            ]
+          },
+          "sound_effects": [
+            {
+              "time": "0:51",
+              "effect": "thud"
+            },
+            {
+              "time": "0:58",
+              "effect": "clap"
+            }
+          ]
+        },
+        "text_overlays": [
+          {
+            "text": "CLICK BELOW",
+            "start": "00:49",
+            "end": "00:52",
+            "position": "top-center",
+            "font": "Impact",
+            "size": "110pt",
+            "color": "red",
+            "animation": "crash-in",
+            "outline": "none"
+          },
+          {
+            "text": "FAST, FREE, SAVE",
+            "start": "00:55",
+            "end": "01:00",
+            "position": "bottom-center",
+            "font": "Bebas Neue",
+            "size": "100pt",
+            "color": "green",
+            "animation": "fade",
+            "outline": "none"
+          }
+        ],
+        "sync_points": [
+          {
+            "time": "0:51",
+            "event": "thud + text crash-in"
+          },
+          {
+            "time": "0:58",
+            "event": "final lift + clap SFX"
+          }
+        ]
+      }
+    ],
+    "recommendations": [
+      "Add scarcity text like 'Limited Time' to scene 3",
+      "Sync bass drop with price reveal at 0:18",
+      "Use directive CTA like 'CLICK NOW' in scene 5"
+    ]
+  },
+  "refined_scenes": [
+    {
+      "scene_number": 1,
+      "changes_made": [
+        "None"
+      ],
+      "timestamp": "00:00-00:12",
+      "scene_type": "character",
+      "purpose": "hook/problem",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:00-00:03",
+            "shot_type": "medium",
+            "subject": "spokesperson looking directly at the camera",
+            "camera_move": "push-in",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:03-00:06",
+            "shot_type": "close-up",
+            "subject": "spokesperson's face",
+            "camera_move": "whip pan to right",
+            "lighting": "bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:06-00:09",
+            "shot_type": "medium",
+            "subject": "spokesperson",
+            "camera_move": "pull-back",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:09-00:12",
+            "shot_type": "wide",
+            "subject": "spokesperson in the center of the frame",
+            "camera_move": "static",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "urgent"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "I was paying $120 a month for car insurance until I found a link that changed everything.",
+          "tone": "urgent",
+          "pace": "fast",
+          "emotion": "frustrated"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 140,
+          "intensity": "builds",
+          "key_moments": [
+            "0:03 music intensifies",
+            "0:09 beat drop"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:03",
+            "effect": "whoosh"
+          },
+          {
+            "time": "0:09",
+            "effect": "thud"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "$120 A MONTH",
+          "start": "0:02",
+          "end": "0:05",
+          "position": "center",
+          "font": "Impact",
+          "size": "160pt",
+          "color": "red",
+          "animation": "crash-in",
+          "outline": "black"
+        },
+        {
+          "text": "CHANGED EVERYTHING",
+          "start": "0:06",
+          "end": "0:09",
+          "position": "bottom-center",
+          "font": "Bebas Neue",
+          "size": "120pt",
+          "color": "yellow",
+          "animation": "fade",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:03",
+          "event": "text pops in + music intensifies"
+        },
+        {
+          "time": "0:09",
+          "event": "beat drop + second text appears"
+        }
+      ]
+    },
+    {
+      "scene_number": 2,
+      "changes_made": [
+        "replaced spokesperson with B-roll of phone screen"
+      ],
+      "timestamp": "00:12-00:24",
+      "scene_type": "b-roll",
+      "purpose": "solution/proof",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:12-00:15",
+            "shot_type": "medium",
+            "subject": "phone screen showing $39/month",
+            "camera_move": "zoom-in",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:15-00:18",
+            "shot_type": "close-up",
+            "subject": "phone screen with insurance app",
+            "camera_move": "pan down",
+            "lighting": "bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:18-00:21",
+            "shot_type": "medium",
+            "subject": "phone screen with confirmation message",
+            "camera_move": "slide left",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:21-00:24",
+            "shot_type": "wide",
+            "subject": "phone on table with insurance documents",
+            "camera_move": "static",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "energetic"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.",
+          "tone": "confident",
+          "pace": "medium",
+          "emotion": "hopeful"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 145,
+          "intensity": "steady",
+          "key_moments": [
+            "0:15 music steady",
+            "0:22 small beat rise"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:18",
+            "effect": "ding"
+          },
+          {
+            "time": "0:22",
+            "effect": "cha-ching"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "TWO-MINUTE CHECK",
+          "start": "0:13",
+          "end": "0:16",
+          "position": "top-center",
+          "font": "Montserrat Black",
+          "size": "90pt",
+          "color": "white",
+          "animation": "slide",
+          "outline": "black"
+        },
+        {
+          "text": "$39 A MONTH",
+          "start": "0:17",
+          "end": "0:20",
+          "position": "center",
+          "font": "Impact",
+          "size": "140pt",
+          "color": "green",
+          "animation": "pop",
+          "outline": "none"
+        },
+        {
+          "text": "SAME COVERAGE",
+          "start": "0:21",
+          "end": "0:24",
+          "position": "bottom-center",
+          "font": "Bebas Neue",
+          "size": "100pt",
+          "color": "yellow",
+          "animation": "fade",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:15",
+          "event": "text slides in + music steady"
+        },
+        {
+          "time": "0:18",
+          "event": "text pop + ding SFX"
+        },
+        {
+          "time": "0:22",
+          "event": "small beat rise + cha-ching SFX"
+        }
+      ]
+    },
+    {
+      "scene_number": 3,
+      "changes_made": [
+        "replaced spokesperson with B-roll of screen showing law text"
+      ],
+      "timestamp": "00:24-00:36",
+      "scene_type": "b-roll",
+      "purpose": "justification/urgency",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:24-00:27",
+            "shot_type": "medium",
+            "subject": "screen showing law text",
+            "camera_move": "pan right",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:27-00:30",
+            "shot_type": "close-up",
+            "subject": "highlighted law text",
+            "camera_move": "zoom-in",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:30-00:33",
+            "shot_type": "medium",
+            "subject": "screen with urgent message",
+            "camera_move": "whip pan left",
+            "lighting": "bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:33-00:36",
+            "shot_type": "wide",
+            "subject": "insurance documents on table",
+            "camera_move": "static",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "urgent"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic.",
+          "tone": "urgent",
+          "pace": "fast",
+          "emotion": "intense"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 150,
+          "intensity": "builds",
+          "key_moments": [
+            "0:27 build",
+            "0:34 tension release"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:27",
+            "effect": "whoosh"
+          },
+          {
+            "time": "0:34",
+            "effect": "swoosh"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "NEW LAW",
+          "start": "0:25",
+          "end": "0:28",
+          "position": "top-center",
+          "font": "Montserrat Black",
+          "size": "110pt",
+          "color": "red",
+          "animation": "crash-in",
+          "outline": "black"
+        },
+        {
+          "text": "NOT AUTOMATIC",
+          "start": "0:31",
+          "end": "0:34",
+          "position": "bottom-center",
+          "font": "Bebas Neue",
+          "size": "100pt",
+          "color": "white",
+          "animation": "fade",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:27",
+          "event": "whoosh + text crash-in"
+        },
+        {
+          "time": "0:33",
+          "event": "text fade + swoosh"
+        }
+      ]
+    },
+    {
+      "scene_number": 4,
+      "changes_made": [
+        "replaced spokesperson with B-roll of insurance documents"
+      ],
+      "timestamp": "00:36-00:48",
+      "scene_type": "b-roll",
+      "purpose": "direct address/qualification",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:36-00:39",
+            "shot_type": "medium",
+            "subject": "insurance documents with highlighted text",
+            "camera_move": "slow zoom",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:39-00:42",
+            "shot_type": "close-up",
+            "subject": "highlighted text on document",
+            "camera_move": "pan up",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:42-00:45",
+            "shot_type": "medium",
+            "subject": "document with approval stamp",
+            "camera_move": "slide right",
+            "lighting": "bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:45-00:48",
+            "shot_type": "wide",
+            "subject": "documents spread out on table",
+            "camera_move": "static",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "energetic"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "If you've had insurance for 12+ months, don't overpay like I did.",
+          "tone": "urgent",
+          "pace": "medium",
+          "emotion": "compelling"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 145,
+          "intensity": "steady",
+          "key_moments": [
+            "0:39 steady",
+            "0:46 small lift"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:39",
+            "effect": "ding"
+          },
+          {
+            "time": "0:46",
+            "effect": "pop"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "12+ MONTHS",
+          "start": "0:37",
+          "end": "0:40",
+          "position": "top-center",
+          "font": "Impact",
+          "size": "100pt",
+          "color": "blue",
+          "animation": "slide",
+          "outline": "black"
+        },
+        {
+          "text": "DON'T OVERPAY",
+          "start": "0:44",
+          "end": "0:48",
+          "position": "center",
+          "font": "Bebas Neue",
+          "size": "120pt",
+          "color": "yellow",
+          "animation": "fade",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:39",
+          "event": "text slide + ding SFX"
+        },
+        {
+          "time": "0:46",
+          "event": "text fade + pop SFX"
+        }
+      ]
+    },
+    {
+      "scene_number": 5,
+      "changes_made": [
+        "None"
+      ],
+      "timestamp": "00:48-01:00",
+      "scene_type": "character",
+      "purpose": "call to action",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:48-00:51",
+            "shot_type": "medium",
+            "subject": "spokesperson pointing downwards",
+            "camera_move": "zoom-in",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:51-00:54",
+            "shot_type": "close-up",
+            "subject": "spokesperson's face",
+            "camera_move": "pan left",
+            "lighting": "bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:54-00:57",
+            "shot_type": "medium",
+            "subject": "spokesperson with a reassuring gesture",
+            "camera_move": "slide left",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:57-01:00",
+            "shot_type": "wide",
+            "subject": "spokesperson with open arms",
+            "camera_move": "static",
+            "lighting": "high-contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "urgent"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+          "tone": "confident",
+          "pace": "medium",
+          "emotion": "hopeful"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 150,
+          "intensity": "drops",
+          "key_moments": [
+            "0:51 drop",
+            "0:58 final lift"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:51",
+            "effect": "thud"
+          },
+          {
+            "time": "0:58",
+            "effect": "clap"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "CLICK BELOW",
+          "start": "00:49",
+          "end": "00:52",
+          "position": "top-center",
+          "font": "Impact",
+          "size": "110pt",
+          "color": "red",
+          "animation": "crash-in",
+          "outline": "none"
+        },
+        {
+          "text": "FAST, FREE, SAVE",
+          "start": "00:55",
+          "end": "01:00",
+          "position": "bottom-center",
+          "font": "Bebas Neue",
+          "size": "100pt",
+          "color": "green",
+          "animation": "fade",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:51",
+          "event": "thud + text crash-in"
+        },
+        {
+          "time": "0:58",
+          "event": "final lift + clap SFX"
+        }
+      ]
+    }
+  ],
+  "sora_prompts": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "scene_type": "character",
+      "purpose": "hook/problem",
+      "prompt": "[00:00-00:03] MEDIUM: spokesperson looking directly at the camera. Push-in camera. High-contrast lighting. Sharp focus.\n[00:03-00:06] CLOSE-UP: spokesperson's face. Whip pan to right camera. Bold shadows lighting. Sharp focus.\n[00:06-00:09] MEDIUM: spokesperson. Pull-back camera. Dramatic lighting. Sharp focus.\n[00:09-00:12] WIDE: spokesperson in the center of the frame. High-contrast lighting. Sharp focus.\nAUDIO: urgent voice, fast pace, frustrated emotion. Says: \"I was paying $120 a month for car insurance until I found a link that changed everything.\". Background music: electronic, 140 BPM, builds. 0:03 music intensifies, 0:09 beat drop. Sound effect at 0:03: whoosh. Sound effect at 0:09: thud.\nTEXT OVERLAYS: At 0:02, crash-in: \"$120 A MONTH\" (Impact, 160pt, red with black outline). Fades out at 0:05. At 0:06, fade: \"CHANGED EVERYTHING\" (Bebas Neue, 120pt, yellow). Fades out at 0:09.\nTECHNICAL: 4K resolution, 1792x1024, urgent style, vibrant grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 2
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "scene_type": "b-roll",
+      "purpose": "solution/proof",
+      "prompt": "[00:12-00:15] MEDIUM: phone screen showing $39/month. Zoom-in camera. High-contrast lighting. Sharp focus.\n[00:15-00:18] CLOSE-UP: phone screen with insurance app. Pan down camera. Bold shadows lighting. Sharp focus.\n[00:18-00:21] MEDIUM: phone screen with confirmation message. Slide left camera. Dramatic lighting. Sharp focus.\n[00:21-00:24] WIDE: phone on table with insurance documents. High-contrast lighting. Sharp focus.\nAUDIO: confident voice, medium pace, hopeful emotion. Says: \"After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.\". Background music: electronic, 145 BPM, steady. 0:15 music steady, 0:22 small beat rise. Sound effect at 0:18: ding. Sound effect at 0:22: cha-ching.\nTEXT OVERLAYS: At 0:13, slide: \"TWO-MINUTE CHECK\" (Montserrat Black, 90pt, white with black outline). Fades out at 0:16. At 0:17, pop: \"$39 A MONTH\" (Impact, 140pt, green). Fades out at 0:20. At 0:21, fade: \"SAME COVERAGE\" (Bebas Neue, 100pt, yellow). Fades out at 0:24.\nTECHNICAL: 4K resolution, 1792x1024, energetic style, vibrant grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 3
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:24-00:36",
+      "scene_type": "b-roll",
+      "purpose": "justification/urgency",
+      "prompt": "[00:24-00:27] MEDIUM: screen showing law text. Pan right camera. High-contrast lighting. Sharp focus.\n[00:27-00:30] CLOSE-UP: highlighted law text. Zoom-in camera. Dramatic lighting. Sharp focus.\n[00:30-00:33] MEDIUM: screen with urgent message. Whip pan left camera. Bold shadows lighting. Sharp focus.\n[00:33-00:36] WIDE: insurance documents on table. High-contrast lighting. Sharp focus.\nAUDIO: urgent voice, fast pace, intense emotion. Says: \"Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic.\". Background music: electronic, 150 BPM, builds. 0:27 build, 0:34 tension release. Sound effect at 0:27: whoosh. Sound effect at 0:34: swoosh.\nTEXT OVERLAYS: At 0:25, crash-in: \"NEW LAW\" (Montserrat Black, 110pt, red with black outline). Fades out at 0:28. At 0:31, fade: \"NOT AUTOMATIC\" (Bebas Neue, 100pt, white). Fades out at 0:34.\nTECHNICAL: 4K resolution, 1792x1024, urgent style, vibrant grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 2
+    },
+    {
+      "scene_number": 4,
+      "timestamp": "00:36-00:48",
+      "scene_type": "b-roll",
+      "purpose": "direct address/qualification",
+      "prompt": "[00:36-00:39] MEDIUM: insurance documents with highlighted text. Slow zoom camera. High-contrast lighting. Sharp focus.\n[00:39-00:42] CLOSE-UP: highlighted text on document. Pan up camera. Dramatic lighting. Sharp focus.\n[00:42-00:45] MEDIUM: document with approval stamp. Slide right camera. Bold shadows lighting. Sharp focus.\n[00:45-00:48] WIDE: documents spread out on table. High-contrast lighting. Sharp focus.\nAUDIO: urgent voice, medium pace, compelling emotion. Says: \"If you've had insurance for 12+ months, don't overpay like I did.\". Background music: electronic, 145 BPM, steady. 0:39 steady, 0:46 small lift. Sound effect at 0:39: ding. Sound effect at 0:46: pop.\nTEXT OVERLAYS: At 0:37, slide: \"12+ MONTHS\" (Impact, 100pt, blue with black outline). Fades out at 0:40. At 0:44, fade: \"DON'T OVERPAY\" (Bebas Neue, 120pt, yellow). Fades out at 0:48.\nTECHNICAL: 4K resolution, 1792x1024, energetic style, vibrant grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 2
+    },
+    {
+      "scene_number": 5,
+      "timestamp": "00:48-01:00",
+      "scene_type": "character",
+      "purpose": "call to action",
+      "prompt": "[00:48-00:51] MEDIUM: spokesperson pointing downwards. Zoom-in camera. High-contrast lighting. Sharp focus.\n[00:51-00:54] CLOSE-UP: spokesperson's face. Pan left camera. Bold shadows lighting. Sharp focus.\n[00:54-00:57] MEDIUM: spokesperson with a reassuring gesture. Slide left camera. Dramatic lighting. Sharp focus.\n[00:57-01:00] WIDE: spokesperson with open arms. High-contrast lighting. Sharp focus.\nAUDIO: confident voice, medium pace, hopeful emotion. Says: \"Click the link below to check if you qualify. It's fast, free, and could save you hundreds.\". Background music: electronic, 150 BPM, drops. 0:51 drop, 0:58 final lift. Sound effect at 0:51: thud. Sound effect at 0:58: clap.\nTEXT OVERLAYS: At 00:49, crash-in: \"CLICK BELOW\" (Impact, 110pt, red). Fades out at 00:52. At 00:55, fade: \"FAST, FREE, SAVE\" (Bebas Neue, 100pt, green). Fades out at 01:00.\nTECHNICAL: 4K resolution, 1792x1024, urgent style, vibrant grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 2
+    }
+  ]
+}

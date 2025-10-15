@@ -1,0 +1,137 @@
+{
+  "video_metadata": {
+    "duration_seconds": 35,
+    "estimated_fps": 30,
+    "aspect_ratio": "9:16"
+  },
+  "spokesperson": {
+    "physical_description": "A female in her early-to-mid 20s. She has long, wavy, dark brown hair with subtle lighter brown highlights, parted slightly off-center and styled to frame her face. Her facial features include large, expressive dark brown eyes, thick and perfectly shaped dark eyebrows, and a prominent, friendly smile with very white, straight teeth. She has a clear, fair-to-olive complexion with a defined jawline. Her build is slender. She is dressed in a simple, relatable, casual style: a plain white, short-sleeved, crew-neck t-shirt and light-wash, high-waisted denim jeans.",
+    "speaking_style": "Highly energetic, enthusiastic, and friendly. Her tone is conversational and trustworthy, as if sharing a secret with a friend. The pace is fast but articulate, designed to hold attention in a short-form video format. She uses frequent, expressive hand gestures and animated facial expressions (widening eyes, broad smiles) to emphasize her points and convey excitement.",
+    "presence_timestamps": [
+      "00:00-00:35"
+    ],
+    "total_screen_time_seconds": 35
+  },
+  "script": {
+    "full_transcript": "I was paying $120 a month for car insurance, until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+    "key_phrases": [
+      "paying $120 a month",
+      "changed everything",
+      "qualified for $39 a month",
+      "a new law",
+      "you have to request it",
+      "It's not automatic",
+      "don't overpay like I did",
+      "fast, free, and could save you hundreds"
+    ],
+    "call_to_action": "Click the link below to check if you qualify."
+  },
+  "scene_breakdown": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:35",
+      "duration_seconds": 35,
+      "purpose": "A complete Problem-Agitate-Solve (PAS) sequence. It starts with a hook (the problem), presents the amazing solution, explains the mechanism (the 'why'), creates urgency, and ends with a clear call to action.",
+      "shot_type": "Medium Close-Up",
+      "camera_angle": "Eye-Level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "A brightly lit, modern indoor space, likely a home or office. The background is softly blurred (shallow depth of field) to keep all focus on the spokesperson and the prop she is holding.",
+      "lighting": "Soft, professional, and flattering. It appears to be a multi-point lighting setup (key and fill lights) that eliminates harsh shadows and creates a bright, clean, and trustworthy atmosphere.",
+      "visual_elements": [
+        "Text Overlay 'paying' (00:00)",
+        "Text Overlay '$120' (00:01)",
+        "Text Overlay 'month' (00:02)",
+        "Text Overlay 'insurance' (00:03)",
+        "Text Overlay 'a' (00:04)",
+        "Text Overlay 'link' (00:04)",
+        "Text Overlay 'changed' (00:05)",
+        "Text Overlay 'everything' (00:06)",
+        "Text Overlay '2' (00:07)",
+        "Text Overlay 'I' (00:08)",
+        "Text Overlay 'for' (00:09)",
+        "Text Overlay '$39' (00:10)",
+        "Text Overlay 'coverage' (00:12)",
+        "Text Overlay 'money' (00:13)",
+        "Text Overlay 'a' (00:14)",
+        "Text Overlay 'drivers' (00:15)",
+        "Text Overlay 'for' (00:16)",
+        "Text Overlay 'could' (00:17)",
+        "Text Overlay 'rate' (00:18)",
+        "Text Overlay 'rate' (00:19)",
+        "Text Overlay 'request' (00:20)",
+        "Text Overlay 'it's' (00:21)",
+        "Text Overlay 'automatic' (00:22)",
+        "Text Overlay 'insurance' (00:23)",
+        "Text Overlay '12+' (00:24)",
+        "Text Overlay 'months' (00:25)",
+        "Text Overlay 'overpay' (00:26)",
+        "Text Overlay 'I' (00:27)",
+        "Text Overlay 'link' (00:28)",
+        "Text Overlay 'check' (00:29)",
+        "Text Overlay 'qualify' (00:30)",
+        "Text Overlay 'fast' (00:31)",
+        "Text Overlay 'free' (00:32)",
+        "Text Overlay 'you' (00:33)",
+        "Text Overlay 'hundreds' (00:34)"
+      ],
+      "message": "You are likely overpaying for car insurance due to a new law, but there is a fast, free, and easy way to claim a significantly lower rate, just like I did.",
+      "emotion": "Starts with relatable frustration, quickly shifts to excitement and relief, and ends with an encouraging and helpful tone."
+    }
+  ],
+  "visual_style": {
+    "color_palette": [
+      "White (#FFFFFF)",
+      "Blue (#3A7CA5, from jeans and product box)",
+      "Neutral Gray/Beige (background)",
+      "Warm Skin Tones",
+      "Yellow (#FFD700, for text overlays)"
+    ],
+    "lighting_style": "High-key, soft, and clean. Designed to be bright, optimistic, and professional, building trust with the viewer.",
+    "cinematography": "Direct-to-camera, personal, and static. The medium close-up and eye-level angle create a sense of intimacy and direct conversation, mimicking a FaceTime call or a personal video from a friend.",
+    "text_overlays": [
+      "Large, bold, sans-serif font.",
+      "Bright yellow fill with a thick black stroke for maximum readability.",
+      "Each word or number pops on screen in sync with the spokesperson's words, adding visual rhythm and reinforcing the key message."
+    ],
+    "graphics_style": "Minimalist and impactful. The only graphics are the text overlays and the prop (product box).",
+    "brand_elements": [
+      "The brand 'QUOTENTM' is visible on the prop box held by the spokesperson.",
+      "The blue and white color scheme of the box is a key brand element."
+    ]
+  },
+  "pacing": {
+    "overall_tempo": "Fast",
+    "scene_durations": [
+      35
+    ],
+    "energy_curve": "Starts high, maintains a high level of energy and enthusiasm throughout, and ends on a peak with the final call to action.",
+    "music_description": "No discernible music; the focus is entirely on the spokesperson's voice to create a more authentic, testimonial-style feel.",
+    "voice_pacing": "Rapid and energetic delivery. The speaker rarely pauses, keeping the information flowing quickly to maintain viewer engagement and fit the entire pitch within the short runtime."
+  },
+  "storytelling": {
+    "framework": "Problem-Agitate-Solve (PAS). Problem: Paying too much ($120/mo). Agitate: The idea that you're overpaying unnecessarily ('don't overpay like I did'). Solution: A special link to get a lower rate ($39/mo).",
+    "emotional_arc": [
+      "Relatability/Frustration",
+      "Discovery/Hope",
+      "Excitement/Success",
+      "Empowerment/Urgency"
+    ],
+    "hook_strategy": "Starts immediately with a specific, high-cost pain point ('I was paying $120 a month') that is highly relatable to a broad audience of drivers, instantly grabbing their attention.",
+    "problem_presented": "The common and frustrating experience of paying high monthly premiums for car insurance.",
+    "solution_offered": "A simple, quick online tool ('a link') that leverages a 'new law' to find a drastically reduced insurance rate with the same coverage.",
+    "proof_elements": [
+      "Personal Testimonial: The entire ad is framed as a personal success story.",
+      "Specificity: Using exact numbers ('$120', '$39', '2-minute', '12+ months') makes the claims feel more concrete and believable.",
+      "Appeal to Authority: Mentioning a 'new law' provides a logical justification for the discount, making it seem more legitimate and less like a random gimmick."
+    ],
+    "urgency_tactics": [
+      "Exclusivity/Action-Required: The statements 'but you have to request it' and 'It's not automatic' create urgency by implying that this benefit is not given to everyone and requires immediate, specific action, triggering FOMO (Fear Of Missing Out)."
+    ]
+  },
+  "why_it_works": [
+    "Relatability and Authenticity: The spokesperson looks and sounds like a peer, not a corporate actor. Her casual dress, direct-to-camera delivery, and enthusiastic tone build trust and make the message feel like a genuine tip from a friend.",
+    "Psychological Trigger of Specificity: Using concrete numbers like '$120' vs '$39' makes the value proposition incredibly clear and compelling. The brain latches onto these specific figures, making the potential savings feel real and substantial.",
+    "FOMO and Urgency Creation: The ad masterfully creates a fear of missing out by suggesting a special opportunity exists ('a new law') but is only available to those who take action ('you have to request it'). This motivates viewers to click immediately rather than putting it off."
+  ]
+}

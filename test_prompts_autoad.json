@@ -1,0 +1,442 @@
+{
+  "script": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+  "scenes": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "scene_type": "character",
+      "purpose": "hook/problem",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:00-00:04",
+            "shot_type": "medium close-up",
+            "subject": "spokesperson looking directly at the camera",
+            "camera_move": "dynamic push-in",
+            "lighting": "dramatic, bold shadows",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:04-00:06",
+            "shot_type": "cutaway",
+            "subject": "insurance bill showing $120",
+            "camera_move": "quick zoom-out",
+            "lighting": "high contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "urgent"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "I was paying $120 a month for car insurance until I found a link that changed everything.",
+          "tone": "urgent",
+          "pace": "medium",
+          "emotion": "frustrated"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 140,
+          "intensity": "builds",
+          "key_moments": [
+            "0:06 music pause"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:04",
+            "effect": "cash register ding"
+          },
+          {
+            "time": "0:06",
+            "effect": "whoosh"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "PAYING $120/MONTH",
+          "start": "0:03",
+          "end": "0:06",
+          "position": "center",
+          "font": "Impact",
+          "size": "100pt",
+          "color": "red",
+          "animation": "crash-in",
+          "outline": "black"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:04",
+          "event": "text pops in + SFX"
+        },
+        {
+          "time": "0:06",
+          "event": "music pause + camera shift"
+        }
+      ]
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "scene_type": "character",
+      "purpose": "solution/proof",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:12-00:16",
+            "shot_type": "medium",
+            "subject": "spokesperson smiling confidently",
+            "camera_move": "steady cam",
+            "lighting": "soft, high-key",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:16-00:18",
+            "shot_type": "overlay",
+            "subject": "comparison of $120 and $39",
+            "camera_move": "split screen",
+            "lighting": "bright",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "cinematic",
+        "energy_level": "energetic"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.",
+          "tone": "excited",
+          "pace": "fast",
+          "emotion": "confident"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 145,
+          "intensity": "steady",
+          "key_moments": [
+            "0:18 bass drop"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:16",
+            "effect": "cha-ching"
+          },
+          {
+            "time": "0:18",
+            "effect": "bass drop"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "$39 A MONTH",
+          "start": "0:15",
+          "end": "0:18",
+          "position": "bottom-center",
+          "font": "Bebas Neue",
+          "size": "110pt",
+          "color": "green",
+          "animation": "pop",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:16",
+          "event": "text appears + SFX"
+        },
+        {
+          "time": "0:18",
+          "event": "bass drop + camera split"
+        }
+      ]
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:24-00:36",
+      "scene_type": "b-roll",
+      "purpose": "justification/urgency",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:24-00:28",
+            "shot_type": "wide",
+            "subject": "cars on a highway, emphasizing busy drivers",
+            "camera_move": "tracking shot",
+            "lighting": "natural daylight",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:28-00:30",
+            "shot_type": "close-up",
+            "subject": "a phone showing insurance app",
+            "camera_move": "slow pan",
+            "lighting": "focused light",
+            "focus": "shallow depth"
+          }
+        ],
+        "color_grade": "natural",
+        "energy_level": "urgent"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic.",
+          "tone": "informative",
+          "pace": "medium",
+          "emotion": "hopeful"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 148,
+          "intensity": "builds",
+          "key_moments": [
+            "0:30 music crescendo"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:28",
+            "effect": "notification ping"
+          },
+          {
+            "time": "0:30",
+            "effect": "urgent whoosh"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "NEW LAW ALERT!",
+          "start": "0:26",
+          "end": "0:29",
+          "position": "top-center",
+          "font": "Montserrat Black",
+          "size": "90pt",
+          "color": "yellow",
+          "animation": "slide",
+          "outline": "black"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:28",
+          "event": "text slide in + SFX"
+        },
+        {
+          "time": "0:30",
+          "event": "music crescendo + camera shift"
+        }
+      ]
+    },
+    {
+      "scene_number": 4,
+      "timestamp": "00:36-00:48",
+      "scene_type": "character",
+      "purpose": "direct address/qualification",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:36-00:40",
+            "shot_type": "close-up",
+            "subject": "spokesperson pointing to the camera",
+            "camera_move": "zoom in",
+            "lighting": "bright, spotlight effect",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:40-00:42",
+            "shot_type": "medium",
+            "subject": "spokesperson emphasizing with hand gestures",
+            "camera_move": "slight tilt",
+            "lighting": "high contrast",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "high"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "If you've had insurance for 12+ months, don't overpay like I did.",
+          "tone": "convincing",
+          "pace": "medium",
+          "emotion": "empathetic"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 150,
+          "intensity": "steady",
+          "key_moments": [
+            "0:42 beat drop"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:40",
+            "effect": "heartbeat"
+          },
+          {
+            "time": "0:42",
+            "effect": "bass thump"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "12+ MONTHS?",
+          "start": "0:38",
+          "end": "0:42",
+          "position": "center",
+          "font": "Impact",
+          "size": "95pt",
+          "color": "blue",
+          "animation": "fade",
+          "outline": "white"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:40",
+          "event": "heartbeat + visual cue"
+        },
+        {
+          "time": "0:42",
+          "event": "beat drop + text fade"
+        }
+      ]
+    },
+    {
+      "scene_number": 5,
+      "timestamp": "00:48-01:00",
+      "scene_type": "b-roll",
+      "purpose": "call to action (CTA)",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:48-00:52",
+            "shot_type": "wide",
+            "subject": "website interface showing easy navigation",
+            "camera_move": "smooth dolly",
+            "lighting": "bright and inviting",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:52-00:54",
+            "shot_type": "close-up",
+            "subject": "finger tapping 'check now' button",
+            "camera_move": "slow motion",
+            "lighting": "highlighted focus",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "intense"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+          "tone": "compelling",
+          "pace": "fast",
+          "emotion": "confident"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 145,
+          "intensity": "drops",
+          "key_moments": [
+            "0:54 music climax"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:52",
+            "effect": "button click"
+          },
+          {
+            "time": "0:54",
+            "effect": "explosive reveal"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "SAVE HUNDREDS!",
+          "start": "0:50",
+          "end": "0:54",
+          "position": "bottom-center",
+          "font": "Montserrat Black",
+          "size": "120pt",
+          "color": "green",
+          "animation": "crash-in",
+          "outline": "black"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:52",
+          "event": "text crash-in + SFX"
+        },
+        {
+          "time": "0:54",
+          "event": "music climax + visual peak"
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "scene_type": "character",
+      "purpose": "hook/problem",
+      "prompt": "[00:00-00:04] MEDIUM CLOSE-UP: spokesperson looking directly at the camera. Dynamic push-in camera. Dramatic, bold shadows lighting. Sharp focus.\n[00:04-00:06] CUTAWAY: insurance bill showing $120. Quick zoom-out camera. High contrast lighting. Sharp focus.\nAUDIO: urgent voice, medium pace, frustrated emotion. Says: \"I was paying $120 a month for car insurance until I found a link that changed everything.\". Background music: electronic, 140 BPM, builds. 0:06 music pause. Sound effect at 0:04: cash register ding. Sound effect at 0:06: whoosh.\nTEXT OVERLAYS: At 0:03, crash-in: \"PAYING $120/MONTH\" (Impact, 100pt, red with black outline). Fades out at 0:06.\nTECHNICAL: 4K resolution, 1792x1024, urgent style, vibrant grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 1
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "scene_type": "character",
+      "purpose": "solution/proof",
+      "prompt": "[00:12-00:16] MEDIUM: spokesperson smiling confidently. Steady cam camera. Soft, high-key lighting. Sharp focus.\n[00:16-00:18] OVERLAY: comparison of $120 and $39. Split screen camera. Bright lighting. Sharp focus.\nAUDIO: excited voice, fast pace, confident emotion. Says: \"After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money.\". Background music: electronic, 145 BPM, steady. 0:18 bass drop. Sound effect at 0:16: cha-ching. Sound effect at 0:18: bass drop.\nTEXT OVERLAYS: At 0:15, pop: \"$39 A MONTH\" (Bebas Neue, 110pt, green). Fades out at 0:18.\nTECHNICAL: 4K resolution, 1792x1024, energetic style, cinematic grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 1
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:24-00:36",
+      "scene_type": "b-roll",
+      "purpose": "justification/urgency",
+      "prompt": "[00:24-00:28] WIDE: cars on a highway, emphasizing busy drivers. Tracking shot camera. Natural daylight lighting. Sharp focus.\n[00:28-00:30] CLOSE-UP: a phone showing insurance app. Slow pan camera. Focused light lighting. Shallow depth focus.\nAUDIO: informative voice, medium pace, hopeful emotion. Says: \"Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic.\". Background music: electronic, 148 BPM, builds. 0:30 music crescendo. Sound effect at 0:28: notification ping. Sound effect at 0:30: urgent whoosh.\nTEXT OVERLAYS: At 0:26, slide: \"NEW LAW ALERT!\" (Montserrat Black, 90pt, yellow with black outline). Fades out at 0:29.\nTECHNICAL: 4K resolution, 1792x1024, urgent style, natural grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 1
+    },
+    {
+      "scene_number": 4,
+      "timestamp": "00:36-00:48",
+      "scene_type": "character",
+      "purpose": "direct address/qualification",
+      "prompt": "[00:36-00:40] CLOSE-UP: spokesperson pointing to the camera. Zoom in camera. Bright, spotlight effect lighting. Sharp focus.\n[00:40-00:42] MEDIUM: spokesperson emphasizing with hand gestures. Slight tilt camera. High contrast lighting. Sharp focus.\nAUDIO: convincing voice, medium pace, empathetic emotion. Says: \"If you've had insurance for 12+ months, don't overpay like I did.\". Background music: electronic, 150 BPM, steady. 0:42 beat drop. Sound effect at 0:40: heartbeat. Sound effect at 0:42: bass thump.\nTEXT OVERLAYS: At 0:38, fade: \"12+ MONTHS?\" (Impact, 95pt, blue with white outline). Fades out at 0:42.\nTECHNICAL: 4K resolution, 1792x1024, high style, vibrant grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 1
+    },
+    {
+      "scene_number": 5,
+      "timestamp": "00:48-01:00",
+      "scene_type": "b-roll",
+      "purpose": "call to action (CTA)",
+      "prompt": "[00:48-00:52] WIDE: website interface showing easy navigation. Smooth dolly camera. Bright and inviting lighting. Sharp focus.\n[00:52-00:54] CLOSE-UP: finger tapping 'check now' button. Slow motion camera. Highlighted focus lighting. Sharp focus.\nAUDIO: compelling voice, fast pace, confident emotion. Says: \"Click the link below to check if you qualify. It's fast, free, and could save you hundreds.\". Background music: electronic, 145 BPM, drops. 0:54 music climax. Sound effect at 0:52: button click. Sound effect at 0:54: explosive reveal.\nTEXT OVERLAYS: At 0:50, crash-in: \"SAVE HUNDREDS!\" (Montserrat Black, 120pt, green with black outline). Fades out at 0:54.\nTECHNICAL: 4K resolution, 1792x1024, intense style, vibrant grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 1
+    }
+  ]
+}

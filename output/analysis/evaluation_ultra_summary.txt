@@ -1,0 +1,30 @@
+======================================================================
+AD EVALUATION REPORT
+======================================================================
+
+RATINGS:
+----------------------------------------------------------------------
+Visual Quality: 10.0/10
+Message Clarity: 10.0/10
+Pacing: 10.0/10
+Storytelling: 10.0/10
+Overall Score: 10.0/10
+
+Overall Score: 10.0/10
+Predicted Performance: EXCELLENT - High conversion potential
+
+
+COMPARISON TO ORIGINAL:
+----------------------------------------------------------------------
+Original Vertical: unknown
+Generated Vertical: auto_insurance
+Vertical Match: ✗ NO
+Scene Count: 5 → 5
+
+
+RECOMMENDATIONS:
+----------------------------------------------------------------------
+
+1. [MEDIUM] Multiple character scenes detected
+   Details: Found 5 scenes with characters
+   Fix: Use transformation to limit to 1 character scene + B-roll only

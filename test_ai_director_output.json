@@ -1,0 +1,205 @@
+{
+  "director_scenes": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "scene_type": "character",
+      "purpose": "hook/problem",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:00-00:03",
+            "shot_type": "medium close-up",
+            "subject": "female spokesperson looking at a bill",
+            "camera_move": "quick whip pan to face",
+            "lighting": "dramatic",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:03-00:06",
+            "shot_type": "close-up",
+            "subject": "spokesperson's frustrated expression",
+            "camera_move": "slow zoom-in",
+            "lighting": "high-contrast",
+            "focus": "shallow depth"
+          },
+          {
+            "time": "00:06-00:09",
+            "shot_type": "medium shot",
+            "subject": "spokesperson's face lighting up",
+            "camera_move": "subtle dolly out",
+            "lighting": "warm",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "vibrant",
+        "energy_level": "urgent"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "I was paying $120 a month for car insurance until I found a link that changed everything.",
+          "tone": "urgent",
+          "pace": "fast",
+          "emotion": "frustrated"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 140,
+          "intensity": "builds",
+          "key_moments": [
+            "0:03 beat intensifies",
+            "0:08 climax"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:03",
+            "effect": "cash register cha-ching"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "$120 A MONTH?!",
+          "start": "0:02",
+          "end": "0:05",
+          "position": "top-center",
+          "font": "Impact",
+          "size": "130pt",
+          "color": "red",
+          "animation": "crash-in",
+          "outline": "black"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:03",
+          "event": "music intensifies + text crashes in"
+        },
+        {
+          "time": "0:08",
+          "event": "emotional shift as lighting warms"
+        }
+      ]
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "scene_type": "b-roll",
+      "purpose": "solution/cta",
+      "visual": {
+        "shot_progression": [
+          {
+            "time": "00:12-00:15",
+            "shot_type": "close-up",
+            "subject": "phone screen showing insurance comparison",
+            "camera_move": "steady tilt up",
+            "lighting": "natural",
+            "focus": "sharp"
+          },
+          {
+            "time": "00:15-00:18",
+            "shot_type": "extreme close-up",
+            "subject": "finger tapping 'Check Now' button",
+            "camera_move": "static",
+            "lighting": "highlighted",
+            "focus": "shallow depth"
+          },
+          {
+            "time": "00:18-00:21",
+            "shot_type": "medium shot",
+            "subject": "screen with $39/month price highlighted",
+            "camera_move": "dynamic zoom-in",
+            "lighting": "bright",
+            "focus": "sharp"
+          }
+        ],
+        "color_grade": "cinematic",
+        "energy_level": "energetic"
+      },
+      "audio": {
+        "voiceover": {
+          "script": "After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Click below to check if you qualify.",
+          "tone": "confident",
+          "pace": "medium",
+          "emotion": "hopeful"
+        },
+        "music": {
+          "genre": "electronic",
+          "bpm": 145,
+          "intensity": "steady",
+          "key_moments": [
+            "0:15 bass drop on button tap",
+            "0:21 music peaks with price reveal"
+          ]
+        },
+        "sound_effects": [
+          {
+            "time": "0:15",
+            "effect": "button click"
+          },
+          {
+            "time": "0:21",
+            "effect": "success chime"
+          }
+        ]
+      },
+      "text_overlays": [
+        {
+          "text": "ONLY $39/MONTH",
+          "start": "0:18",
+          "end": "0:21",
+          "position": "center",
+          "font": "Bebas Neue",
+          "size": "150pt",
+          "color": "green",
+          "animation": "pop",
+          "outline": "black"
+        },
+        {
+          "text": "CHECK IF YOU QUALIFY",
+          "start": "0:21",
+          "end": "0:24",
+          "position": "lower-third",
+          "font": "Montserrat Black",
+          "size": "80pt",
+          "color": "yellow",
+          "animation": "slide",
+          "outline": "none"
+        }
+      ],
+      "sync_points": [
+        {
+          "time": "0:15",
+          "event": "button click SFX + music bass drop"
+        },
+        {
+          "time": "0:21",
+          "event": "price reveal + success chime"
+        }
+      ]
+    }
+  ],
+  "sora_prompts": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "scene_type": "character",
+      "purpose": "hook/problem",
+      "prompt": "[00:00-00:03] MEDIUM CLOSE-UP: female spokesperson looking at a bill. Quick whip pan to face camera. Dramatic lighting. Sharp focus.\n[00:03-00:06] CLOSE-UP: spokesperson's frustrated expression. Slow zoom-in camera. High-contrast lighting. Shallow depth focus.\n[00:06-00:09] MEDIUM SHOT: spokesperson's face lighting up. Subtle dolly out camera. Warm lighting. Sharp focus.\nAUDIO: urgent voice, fast pace, frustrated emotion. Says: \"I was paying $120 a month for car insurance until I found a link that changed everything.\". Background music: electronic, 140 BPM, builds. 0:03 beat intensifies, 0:08 climax. Sound effect at 0:03: cash register cha-ching.\nTEXT OVERLAYS: At 0:02, crash-in: \"$120 A MONTH?!\" (Impact, 130pt, red with black outline). Fades out at 0:05.\nTECHNICAL: 4K resolution, 1792x1024, urgent style, vibrant grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 1
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "scene_type": "b-roll",
+      "purpose": "solution/cta",
+      "prompt": "[00:12-00:15] CLOSE-UP: phone screen showing insurance comparison. Steady tilt up camera. Natural lighting. Sharp focus.\n[00:15-00:18] EXTREME CLOSE-UP: finger tapping 'Check Now' button. Highlighted lighting. Shallow depth focus.\n[00:18-00:21] MEDIUM SHOT: screen with $39/month price highlighted. Dynamic zoom-in camera. Bright lighting. Sharp focus.\nAUDIO: confident voice, medium pace, hopeful emotion. Says: \"After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Click below to check if you qualify.\". Background music: electronic, 145 BPM, steady. 0:15 bass drop on button tap, 0:21 music peaks with price reveal. Sound effect at 0:15: button click. Sound effect at 0:21: success chime.\nTEXT OVERLAYS: At 0:18, pop: \"ONLY $39/MONTH\" (Bebas Neue, 150pt, green with black outline). Fades out at 0:21. At 0:21, slide: \"CHECK IF YOU QUALIFY\" (Montserrat Black, 80pt, yellow). Fades out at 0:24.\nTECHNICAL: 4K resolution, 1792x1024, energetic style, cinematic grade, cinematic audio mix.",
+      "has_audio": true,
+      "has_text": true,
+      "text_count": 2
+    }
+  ]
+}

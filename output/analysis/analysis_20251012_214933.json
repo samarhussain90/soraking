@@ -1,0 +1,161 @@
+{
+  "video_metadata": {
+    "duration_seconds": 35,
+    "estimated_fps": 30,
+    "aspect_ratio": "9:16"
+  },
+  "spokesperson": {
+    "physical_description": "A female in her early-to-mid 20s with a friendly and approachable appearance. She has long, shoulder-length dark brown hair styled in soft waves with subtle lighter brown highlights, parted slightly off-center. Her facial features include large, expressive dark brown eyes, prominent and well-defined dark eyebrows, and a wide, genuine smile revealing straight, white teeth. She has a slender build and is dressed in a casual, relatable style: a plain white, short-sleeved, crew-neck t-shirt and light-wash, high-waisted denim jeans.",
+    "speaking_style": "Her tone is highly enthusiastic, friendly, and persuasive. She speaks at a fast but very clear pace, maintaining high energy throughout the video. She makes consistent, direct eye contact with the camera and uses frequent, natural hand gestures to emphasize her points, making her delivery feel authentic and engaging.",
+    "presence_timestamps": [
+      "00:00-00:35"
+    ],
+    "total_screen_time_seconds": 35
+  },
+  "script": {
+    "full_transcript": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+    "key_phrases": [
+      "$120 a month",
+      "$39 a month",
+      "changed everything",
+      "new law",
+      "you have to request it",
+      "It's not automatic",
+      "don't overpay like I did",
+      "fast, free",
+      "save you hundreds"
+    ],
+    "call_to_action": "Click the link below to check if you qualify."
+  },
+  "scene_breakdown": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:08",
+      "duration_seconds": 8,
+      "purpose": "Hook/Problem",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "A brightly lit, modern indoor space with a clean, minimalist aesthetic. The background is softly blurred, keeping the focus entirely on the spokesperson.",
+      "lighting": "Soft, high-key studio lighting that is even and flattering, creating a trustworthy and professional feel.",
+      "visual_elements": [
+        "Spokesperson holds a blue and white box for 'AUTO CAR INSURANCE'.",
+        "Text overlays (yellow with black outline): 'paying', '$120', 'month', 'insurance', 'a', 'changed', 'everything'."
+      ],
+      "message": "I was overpaying for car insurance, a common and frustrating problem, but I found a simple solution that changed everything.",
+      "emotion": "Relatable frustration quickly shifting to excitement and discovery."
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:08-00:18",
+      "duration_seconds": 10,
+      "purpose": "Solution/Proof",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "Same as Scene 1.",
+      "lighting": "Same as Scene 1.",
+      "visual_elements": [
+        "Text overlays: 'for', '$39', 'coverage', 'money', 'a', 'drivers', 'for'."
+      ],
+      "message": "The solution is a massive discount ($39 vs $120) for the same coverage, made possible by a new law.",
+      "emotion": "Triumph, satisfaction, and helpfulness."
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:18-00:27",
+      "duration_seconds": 9,
+      "purpose": "Urgency/Mechanism",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "Same as Scene 1.",
+      "lighting": "Same as Scene 1.",
+      "visual_elements": [
+        "Text overlays: 'rate', 'request', 'it's', 'automatic', 'insurance', '12+', 'months', 'overpay'."
+      ],
+      "message": "There's a catch: this benefit isn't automatic. You must actively request it, creating urgency to act now or risk continuing to overpay.",
+      "emotion": "Informative, cautionary, and urgent."
+    },
+    {
+      "scene_number": 4,
+      "timestamp": "00:27-00:35",
+      "duration_seconds": 8,
+      "purpose": "Call to Action (CTA)",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "Same as Scene 1.",
+      "lighting": "Same as Scene 1.",
+      "visual_elements": [
+        "Spokesperson points towards the camera/viewer.",
+        "Text overlays: 'I', 'link', 'check', 'qualify', 'fast', 'free', 'you', 'hundreds'."
+      ],
+      "message": "Take action now. Click the link to see if you qualify; the process is quick, free, and could result in significant savings.",
+      "emotion": "Encouraging, persuasive, and confident."
+    }
+  ],
+  "visual_style": {
+    "color_palette": [
+      "White (#FFFFFF)",
+      "Royal Blue (#00529B on box)",
+      "Bright Yellow (#FFD700 for text)",
+      "Black (#000000 for text outline)",
+      "Neutral Grays/Beiges (background)"
+    ],
+    "lighting_style": "High-key, soft, and diffused lighting. This eliminates harsh shadows, creating a clean, professional, and trustworthy atmosphere.",
+    "cinematography": "Direct-to-camera, user-generated content (UGC) style, but with professional production quality. A shallow depth of field isolates the spokesperson, making her the sole focus.",
+    "text_overlays": [
+      "Large, bold, sans-serif font.",
+      "Bright yellow fill with a thick black outline for maximum readability.",
+      "Text appears word-by-word, synchronized with the spokesperson's speech to enhance retention."
+    ],
+    "graphics_style": "Minimalist. The only graphic is the product box she holds, which serves as a visual anchor for the service being offered.",
+    "brand_elements": [
+      "The 'QUOTENTM' logo on the box.",
+      "The prominent number '25' on the box.",
+      "The blue and white color scheme of the box."
+    ]
+  },
+  "pacing": {
+    "overall_tempo": "Fast",
+    "scene_durations": [
+      8,
+      10,
+      9,
+      8
+    ],
+    "energy_curve": "Starts high and maintains a consistently high level of energy throughout, peaking with the direct call to action at the end.",
+    "music_description": "No background music is used. The absence of music places 100% of the auditory focus on the spokesperson's voice, enhancing the feeling of a personal, direct message.",
+    "voice_pacing": "Rapid delivery with very short pauses. The rhythm is energetic and continuous, designed to hold attention in a short-form video format."
+  },
+  "storytelling": {
+    "framework": "Problem-Agitate-Solution (PAS)",
+    "emotional_arc": [
+      "Relatability",
+      "Surprise",
+      "Hope",
+      "Urgency",
+      "Empowerment"
+    ],
+    "hook_strategy": "The ad opens with a specific, high dollar amount ('$120 a month') that establishes a strong, relatable pain point for anyone paying for car insurance.",
+    "problem_presented": "Paying excessively high premiums for car insurance.",
+    "solution_offered": "A quick, free online tool that leverages a 'new law' to potentially lower insurance rates to as little as $39/month.",
+    "proof_elements": [
+      "Personal Testimonial: The entire ad is framed as a first-person success story.",
+      "Data/Specificity: Using concrete numbers ('$120' vs. '$39', '2-minute check', '12+ months') makes the claims feel more credible and impactful."
+    ],
+    "urgency_tactics": [
+      "Fear of Missing Out (FOMO): The statement 'you have to request it. It's not automatic' implies that inaction will result in missing out on savings that others are getting."
+    ]
+  },
+  "why_it_works": [
+    "Relatability and Specificity: The ad uses a common frustration (high insurance costs) and presents a highly specific, desirable outcome ($120 down to $39). This numerical contrast makes the value proposition incredibly clear and compelling.",
+    "Authentic UGC Feel: The direct-to-camera, single-person format mimics the style of a genuine social media post or a tip from a friend. This builds trust and bypasses the skepticism often associated with traditional advertising.",
+    "Creates Actionable Urgency: By mentioning a 'new law' but clarifying that the benefit 'isn't automatic,' the ad provides a logical reason for the offer and a strong psychological nudge (FOMO) for the viewer to act immediately, rather than putting it off."
+  ]
+}

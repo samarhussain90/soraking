@@ -1,0 +1,411 @@
+{
+  "video_path": "/Users/samarm3/soraking/output/videos/final_ultra.mp4",
+  "original_analysis": {
+    "video_metadata": {
+      "duration_seconds": 35,
+      "estimated_fps": 30,
+      "aspect_ratio": "9:16"
+    },
+    "spokesperson": {
+      "physical_description": "A female in her early to mid-20s with a friendly and approachable appearance. She has shoulder-length, dark brown hair styled in soft waves with subtle lighter brown highlights, parted slightly off-center. Her facial features include large, expressive brown eyes, well-defined but natural-looking eyebrows, and a prominent, wide smile with straight, white teeth. She has a clear complexion and an oval face shape. Her build is slender, and she is dressed in a casual, relatable style: a plain, white, short-sleeved crew-neck t-shirt and light-wash, high-waisted denim jeans.",
+      "speaking_style": "Her tone is consistently upbeat, enthusiastic, and highly energetic. She speaks at a fast pace but maintains clear enunciation. Her delivery is persuasive and friendly, using frequent smiles, expressive eye-widening to emphasize points, and natural hand gestures to add dynamism.",
+      "presence_timestamps": [
+        "00:00-00:35"
+      ],
+      "total_screen_time_seconds": 35
+    },
+    "script": {
+      "full_transcript": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+      "key_phrases": [
+        "$120 a month",
+        "changed everything",
+        "$39 a month",
+        "same coverage",
+        "a new law",
+        "you have to request it",
+        "it's not automatic",
+        "don't overpay",
+        "fast, free",
+        "save you hundreds"
+      ],
+      "call_to_action": "Click the link below to check if you qualify."
+    },
+    "scene_breakdown": [
+      {
+        "scene_number": 1,
+        "timestamp": "00:00-00:06",
+        "duration_seconds": 6,
+        "purpose": "Hook/Problem",
+        "shot_type": "Medium Shot",
+        "camera_angle": "Eye-Level",
+        "camera_movement": "Static",
+        "characters": "Spokesperson",
+        "setting": "A brightly lit, modern indoor space with a minimalist aesthetic (likely a living room or home office). The background is softly blurred to keep focus on the speaker.",
+        "lighting": "High-key, soft, and even lighting that creates a clean and friendly mood.",
+        "visual_elements": [
+          "Spokesperson holds a blue and white box for 'AUTO CAR INSURANCE'.",
+          "Yellow text overlays timed to her speech: 'paying', '$120', 'month', 'insurance', 'a', 'changed', 'everything'."
+        ],
+        "message": "The ad immediately introduces a common and relatable financial pain point: expensive car insurance.",
+        "emotion": "Relatable frustration transitioning to hopeful excitement."
+      },
+      {
+        "scene_number": 2,
+        "timestamp": "00:06-00:13",
+        "duration_seconds": 7,
+        "purpose": "Solution/Proof",
+        "shot_type": "Medium Shot",
+        "camera_angle": "Eye-Level",
+        "camera_movement": "Static",
+        "characters": "Spokesperson",
+        "setting": "Same as Scene 1.",
+        "lighting": "Same as Scene 1.",
+        "visual_elements": [
+          "Yellow text overlays: '2', 'I', 'for', '$39', 'coverage', 'money'."
+        ],
+        "message": "A dramatic and specific solution is presented, showing a significant cost reduction for the exact same service.",
+        "emotion": "Excitement, relief, and satisfaction."
+      },
+      {
+        "scene_number": 3,
+        "timestamp": "00:13-00:21",
+        "duration_seconds": 8,
+        "purpose": "Justification",
+        "shot_type": "Medium Shot",
+        "camera_angle": "Eye-Level",
+        "camera_movement": "Static",
+        "characters": "Spokesperson",
+        "setting": "Same as Scene 1.",
+        "lighting": "Same as Scene 1.",
+        "visual_elements": [
+          "Yellow text overlays: 'a', 'drivers', 'for', 'could', 'rate', 'request'."
+        ],
+        "message": "The ad provides a reason for the discount (a 'new law'), which adds credibility and makes the offer feel exclusive.",
+        "emotion": "Informative, sharing an 'insider tip'."
+      },
+      {
+        "scene_number": 4,
+        "timestamp": "00:21-00:28",
+        "duration_seconds": 7,
+        "purpose": "Urgency/Empathy",
+        "shot_type": "Medium Shot",
+        "camera_angle": "Eye-Level",
+        "camera_movement": "Static",
+        "characters": "Spokesperson",
+        "setting": "Same as Scene 1.",
+        "lighting": "Same as Scene 1.",
+        "visual_elements": [
+          "Yellow text overlays: 'automatic', 'insurance', '12+', 'months', 'overpay', 'I'."
+        ],
+        "message": "This scene creates urgency by stating the discount isn't automatic, compelling the viewer to act. It also builds empathy by saying 'like I did'.",
+        "emotion": "Urgent, cautionary, and empathetic."
+      },
+      {
+        "scene_number": 5,
+        "timestamp": "00:28-00:35",
+        "duration_seconds": 7,
+        "purpose": "Call to Action (CTA)",
+        "shot_type": "Medium Shot",
+        "camera_angle": "Eye-Level",
+        "camera_movement": "Static",
+        "characters": "Spokesperson",
+        "setting": "Same as Scene 1.",
+        "lighting": "Same as Scene 1.",
+        "visual_elements": [
+          "Yellow text overlays: 'link', 'check', 'qualify', 'fast', 'free', 'you', 'hundreds'."
+        ],
+        "message": "The final scene clearly instructs the viewer on the next step and reinforces the key benefits: it's quick, costs nothing, and has a high potential reward.",
+        "emotion": "Encouraging, helpful, and positive."
+      }
+    ],
+    "visual_style": {
+      "color_palette": [
+        "White (#FFFFFF)",
+        "Bright Blue (#007BFF)",
+        "Denim Blue (#6F8FAF)",
+        "Bright Yellow (for text, #FFD700)",
+        "Neutral Greys/Beiges (background)"
+      ],
+      "lighting_style": "High-key, softbox lighting. It's flat and even, eliminating harsh shadows to create a clean, trustworthy, and professional aesthetic.",
+      "cinematography": "Simple and direct. A static medium shot with a shallow depth of field keeps the spokesperson as the sole focus, mimicking a personal video call or a message from a friend.",
+      "text_overlays": [
+        "Large, bold, sans-serif font.",
+        "Bright yellow fill with a thick black outline for maximum readability.",
+        "Text appears word-by-word, perfectly synchronized with the spokesperson's speech to reinforce the message."
+      ],
+      "graphics_style": "Minimalist. The only graphics are the text overlays and the design on the product box she holds.",
+      "brand_elements": [
+        "The 'QUOTENTM' logo on the box.",
+        "The number '25' is featured prominently on the box, possibly indicating a price or plan.",
+        "The consistent blue and white color scheme on the box."
+      ]
+    },
+    "pacing": {
+      "overall_tempo": "Fast",
+      "scene_durations": [
+        6,
+        7,
+        8,
+        7,
+        7
+      ],
+      "energy_curve": "Starts high, maintains a consistently high level of energy throughout, and concludes on a strong, encouraging peak to drive action.",
+      "music_description": "No background music is used. This choice places 100% of the auditory focus on the spokesperson's voice, making her message more direct and impactful.",
+      "voice_pacing": "Rapid but articulate. The speed conveys enthusiasm and urgency, while strategic micro-pauses before key numbers ('$120', '$39') give them emphasis."
+    },
+    "storytelling": {
+      "framework": "PAS (Problem, Agitate, Solution). The ad clearly identifies a problem (high insurance cost), agitates it by suggesting the viewer is also overpaying, and presents a simple solution (click the link).",
+      "emotional_arc": [
+        "Relatability",
+        "Surprise",
+        "Intrigue",
+        "Urgency",
+        "Motivation"
+      ],
+      "hook_strategy": "The ad opens with a specific, relatable pain point: a high monthly bill ($120). This immediately captures the attention of anyone paying for car insurance.",
+      "problem_presented": "Paying too much for car insurance without realizing there's a cheaper alternative for the same coverage.",
+      "solution_offered": "A quick, free, and easy online check (via a link) that leverages a 'new law' to potentially lower insurance rates significantly.",
+      "proof_elements": [
+        "Personal Testimonial: The spokesperson's entire story acts as a testimonial.",
+        "Data/Specificity: The contrast between '$120' and '$39' serves as a powerful data point.",
+        "Implied Authority: The mention of a 'new law' adds a layer of external validation and credibility."
+      ],
+      "urgency_tactics": [
+        "Fear of Missing Out (FOMO): The statement 'It's not automatic' implies that inaction will lead to missing out on savings that others are getting.",
+        "Exclusivity: The framing of the 'new law' makes the information feel like an insider secret that requires action to benefit from."
+      ]
+    },
+    "why_it_works": [
+      "The spokesperson's direct-to-camera, friendly delivery creates a strong sense of authenticity and trust, making it feel like advice from a peer rather than a corporate ad.",
+      "The use of extreme contrast with specific numbers ('$120' down to '$39') provides a clear, compelling, and instantly understandable value proposition. The brain can quickly calculate the massive savings.",
+      "The ad masterfully removes friction by repeatedly emphasizing that the solution is 'quick' (2 minutes), 'fast', and 'free'. This lowers the barrier to entry and makes the call to action seem like a low-effort, high-reward task."
+    ]
+  },
+  "generated_analysis": {
+    "video_metadata": {
+      "duration_seconds": 60,
+      "estimated_fps": 25,
+      "aspect_ratio": "16:9"
+    },
+    "spokesperson": {
+      "physical_description": "The video features a series of 5 different actresses who are styled to represent a single, relatable archetype. They are young women, appearing to be in their mid-to-late 20s, with an ethnically ambiguous or Latina appearance. All have long, shoulder-length or longer, wavy dark brown hair. They have expressive brown eyes, well-defined eyebrows, and a warm skin tone. Their build is slim to average. Their clothing is consistently casual and uniform: a plain, slightly loose-fitting white short-sleeve t-shirt and light-wash blue jeans, creating a 'girl-next-door' aesthetic.",
+      "speaking_style": "Highly energetic and emotive. The delivery starts with relatable frustration, quickly shifts to wide-eyed excitement and surprise, and then escalates to intense, almost aggressive urgency. The pace is fast, with very few pauses, designed to convey a rush of important information. They use direct address, looking straight into the camera, and employ significant hand gestures and facial expressions to emphasize key points.",
+      "presence_timestamps": [
+        "00:00-00:12",
+        "00:12-00:24",
+        "00:24-00:36",
+        "00:36-00:48",
+        "00:48-01:00"
+      ],
+      "total_screen_time_seconds": 60
+    },
+    "script": {
+      "full_transcript": "I was paying 120 bucks a month for car insurance every single month until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12 plus months, don't overpay like I did. Call, ask, get the loyalty discount or switch. It's your money. I learned the hard way so you don't have to. [Audio becomes garbled/AI-generated] ...stronger... the same messages our bodies... the importance of this challenge can be clarified... so in man... he's gone into the question center's estimates... or the... triple-coated media or outcomes... curious you... it's that's on a good thing and means you can stay... it's a fast, free and could save you hundreds... I'm we said talking be one heart of where the time.",
+      "key_phrases": [
+        "120 bucks a month",
+        "39 dollars a month",
+        "Same coverage, way less money",
+        "a new law",
+        "you have to request it",
+        "It's not automatic",
+        "It's your money"
+      ],
+      "call_to_action": "Call, ask, get the loyalty discount or switch."
+    },
+    "scene_breakdown": [
+      {
+        "scene_number": 1,
+        "timestamp": "00:00-00:12",
+        "duration_seconds": 12,
+        "purpose": "Hook / Problem & Solution",
+        "shot_type": "Medium Shot",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "characters": "Spokesperson 1",
+        "setting": "A bright, modern, open-plan living room. A wooden shelving unit is visible in the background, along with a couch. The setting feels clean and aspirational.",
+        "lighting": "Bright, soft, natural-style lighting, likely from large windows or studio softboxes.",
+        "visual_elements": [],
+        "message": "The high cost of car insurance is a frustrating problem, but a surprisingly simple and fast solution exists that offers massive savings.",
+        "emotion": "Starts with frustration, transitions rapidly to excitement and relief."
+      },
+      {
+        "scene_number": 2,
+        "timestamp": "00:12-00:24",
+        "duration_seconds": 12,
+        "purpose": "Mechanism / Proof & Urgency",
+        "shot_type": "Medium Close-Up",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "characters": "Spokesperson 2",
+        "setting": "A different, warmer interior setting. A lamp and framed pictures are softly blurred in the background, creating a cozier, more intimate feel.",
+        "lighting": "Warmer tones, still soft and flattering.",
+        "visual_elements": [],
+        "message": "The savings are possible because of a 'new law,' but it's not automatic. This introduces the mechanism and the first hint of urgency.",
+        "emotion": "Enthusiasm, revelation, and urgency."
+      },
+      {
+        "scene_number": 3,
+        "timestamp": "00:24-00:36",
+        "duration_seconds": 12,
+        "purpose": "Agitation / Call to Action",
+        "shot_type": "Close-Up",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static, but the actress leans into the camera, creating a sense of movement and intensity.",
+        "characters": "Spokesperson 3",
+        "setting": "Another indoor setting, distinguished by warm fairy lights in the background bokeh, enhancing the direct, personal appeal.",
+        "lighting": "Soft with warm background highlights.",
+        "visual_elements": [],
+        "message": "You are actively losing money if you don't take immediate action. The responsibility is on you to call and claim your discount.",
+        "emotion": "High-intensity urgency, directness, almost confrontational."
+      },
+      {
+        "scene_number": 4,
+        "timestamp": "00:36-00:48",
+        "duration_seconds": 12,
+        "purpose": "Visual Reinforcement (Audio is defective)",
+        "shot_type": "Medium Shot",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "characters": "Spokesperson 4",
+        "setting": "Returns to a setting similar to the first scene, with a couch and neutral decor.",
+        "lighting": "Bright, naturalistic lighting.",
+        "visual_elements": [],
+        "message": "Visually, this scene reinforces the relatable persona. However, the audio is nonsensical and appears to be a production error, completely disconnecting from the ad's narrative.",
+        "emotion": "Visually calm and pleasant; audibly confusing."
+      },
+      {
+        "scene_number": 5,
+        "timestamp": "00:48-01:00",
+        "duration_seconds": 12,
+        "purpose": "Concluding Statement (Audio is defective)",
+        "shot_type": "Medium Shot",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "characters": "Spokesperson 5",
+        "setting": "A bright, slightly different interior with soft, out-of-focus background elements.",
+        "lighting": "Bright and airy.",
+        "visual_elements": [],
+        "message": "The intended message was likely about how fast, free, and beneficial the service is. The defective audio makes the actual message incoherent, though the actress's positive expression conveys a positive outcome.",
+        "emotion": "Visually positive and encouraging; audibly confusing."
+      }
+    ],
+    "visual_style": {
+      "color_palette": [
+        "White (#FFFFFF)",
+        "Light Beige (#F5F5DC)",
+        "Wood Tones (#DEB887)",
+        "Light Blue (from jeans) (#ADD8E6)"
+      ],
+      "lighting_style": "Soft, bright, and flattering high-key lighting that mimics natural daylight to create a clean, trustworthy, and modern feel.",
+      "cinematography": "The style mimics User-Generated Content (UGC) or a direct-to-camera vlog. It uses static, eye-level shots with a shallow depth of field to focus entirely on the spokesperson and create a personal connection.",
+      "text_overlays": [],
+      "graphics_style": "None used.",
+      "brand_elements": []
+    },
+    "pacing": {
+      "overall_tempo": "Fast",
+      "scene_durations": [
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "energy_curve": "Starts at a medium level of frustration, rapidly spikes to high excitement, peaks at intense urgency around the 30-second mark, and then visually maintains a positive tone while the audio energy becomes chaotic and confusing.",
+      "music_description": "No background music is present, which focuses all attention on the spokesperson's dialogue and enhances the feeling of a personal testimonial.",
+      "voice_pacing": "Very rapid delivery with minimal pauses. The rhythm is conversational but accelerated, designed to pack information in and create a sense of breathless discovery."
+    },
+    "storytelling": {
+      "framework": "Problem-Agitate-Solution (PAS)",
+      "emotional_arc": [
+        "Frustration",
+        "Surprise",
+        "Excitement",
+        "Urgency",
+        "Empowerment"
+      ],
+      "hook_strategy": "The ad hooks the viewer immediately by stating a specific, high monthly bill ($120) that many can relate to, followed by a drastically lower number ($39), creating an instant desire to know how.",
+      "problem_presented": "Viewers are likely overpaying for car insurance every single month.",
+      "solution_offered": "A 'link' or a phone call can unlock a special lower rate based on a 'new law' for loyal customers.",
+      "proof_elements": [
+        "Testimonial format (the entire ad)",
+        "Implied authority by mentioning a 'new law'"
+      ],
+      "urgency_tactics": [
+        "The discount is 'not automatic.'",
+        "You 'have to request it.'",
+        "Framing inaction as 'overpaying' and wasting 'your money.'"
+      ]
+    },
+    "why_it_works": [
+      "The ad masterfully uses a UGC (User-Generated Content) aesthetic with a series of relatable actresses. This builds immediate trust and authenticity, making the pitch feel like a helpful tip from a friend rather than a corporate advertisement.",
+      "Specificity is a key psychological trigger. Using concrete numbers like '$120', '$39', 'two-minute check', and '12 plus months' makes the claims feel tangible and believable, significantly increasing the ad's persuasive power.",
+      "It creates powerful FOMO (Fear Of Missing Out) and urgency by suggesting a 'new law' that provides benefits only to those who actively seek them out. The phrase 'It's not automatic' transforms the viewer from a passive observer to someone who must act now to avoid losing money."
+    ]
+  },
+  "prompts_used": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:06",
+      "purpose": "Hook/Problem",
+      "prompt": "A medium shot of a person speaking directly to camera in a A brightly lit, modern indoor space with a minimalist aesthetic (likely a living room or home office). The background is softly blurred to keep focus on the speaker..\n\nCHARACTER: A female in her early to mid-20s with a friendly and approachable appearance. She has shoulder-length, dark brown hair styled in soft waves with subtle lighter brown highlights, parted slightly off-center. Her facial features include large, expressive brown eyes, well-defined but natural-looking eyebrows, and a prominent, wide smile with straight, white teeth. She has a clear complexion and an oval face shape. Her build is slender, and she is dressed in a casual, relatable style: a plain, white, short-sleeved crew-neck t-shirt and light-wash, high-waisted denim jeans.\n\nSETTING: A brightly lit, modern indoor space with a minimalist aesthetic (likely a living room or home office). The background is softly blurred to keep focus on the speaker.\nLIGHTING: High-key, soft, and even lighting that creates a clean and friendly mood.\nEMOTION: Relatable frustration transitioning to hopeful excitement., explosive, confrontational\nCAMERA: intense, dramatic camera movement\n\nVOICEOVER (person speaks directly to camera with conviction):\n\"I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month.\"\n\nThe person maintains eye contact with camera, uses natural hand gestures, and delivers the message with Relatable frustration transitioning to hopeful excitement., explosive, confrontational energy. Intense, dramatic camera movement.\n\nDuration: 12 seconds\nStyle: Professional advertising, direct-to-camera testimonial, authentic and relatable\nQuality: 4K, sharp focus, well-lit, professional production value",
+      "script_segment": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month."
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:06-00:13",
+      "purpose": "Solution/Proof",
+      "prompt": "A medium shot of a person speaking directly to camera in a Same as Scene 1..\n\nCHARACTER: A female in her early to mid-20s with a friendly and approachable appearance. She has shoulder-length, dark brown hair styled in soft waves with subtle lighter brown highlights, parted slightly off-center. Her facial features include large, expressive brown eyes, well-defined but natural-looking eyebrows, and a prominent, wide smile with straight, white teeth. She has a clear complexion and an oval face shape. Her build is slender, and she is dressed in a casual, relatable style: a plain, white, short-sleeved crew-neck t-shirt and light-wash, high-waisted denim jeans.\n\nSETTING: Same as Scene 1.\nLIGHTING: Same as Scene 1.\nEMOTION: Excitement, relief, and satisfaction., explosive, confrontational\nCAMERA: intense, dramatic camera movement\n\nVOICEOVER (person speaks directly to camera with conviction):\n\"Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it.\"\n\nThe person maintains eye contact with camera, uses natural hand gestures, and delivers the message with Excitement, relief, and satisfaction., explosive, confrontational energy. Intense, dramatic camera movement.\n\nDuration: 12 seconds\nStyle: Professional advertising, direct-to-camera testimonial, authentic and relatable\nQuality: 4K, sharp focus, well-lit, professional production value",
+      "script_segment": "Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it."
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:13-00:21",
+      "purpose": "Justification",
+      "prompt": "A medium shot of a person speaking directly to camera in a Same as Scene 1..\n\nCHARACTER: A female in her early to mid-20s with a friendly and approachable appearance. She has shoulder-length, dark brown hair styled in soft waves with subtle lighter brown highlights, parted slightly off-center. Her facial features include large, expressive brown eyes, well-defined but natural-looking eyebrows, and a prominent, wide smile with straight, white teeth. She has a clear complexion and an oval face shape. Her build is slender, and she is dressed in a casual, relatable style: a plain, white, short-sleeved crew-neck t-shirt and light-wash, high-waisted denim jeans.\n\nSETTING: Same as Scene 1.\nLIGHTING: Same as Scene 1.\nEMOTION: Informative, sharing an 'insider tip'., explosive, confrontational\nCAMERA: intense, dramatic camera movement\n\nVOICEOVER (person speaks directly to camera with conviction):\n\"It's not automatic. If you've had insurance for 12+ months, don't overpay like I did.\"\n\nThe person maintains eye contact with camera, uses natural hand gestures, and delivers the message with Informative, sharing an 'insider tip'., explosive, confrontational energy. Intense, dramatic camera movement.\n\nDuration: 12 seconds\nStyle: Professional advertising, direct-to-camera testimonial, authentic and relatable\nQuality: 4K, sharp focus, well-lit, professional production value",
+      "script_segment": "It's not automatic. If you've had insurance for 12+ months, don't overpay like I did."
+    },
+    {
+      "scene_number": 4,
+      "timestamp": "00:21-00:28",
+      "purpose": "Urgency/Empathy",
+      "prompt": "A medium shot of a person speaking directly to camera in a Same as Scene 1..\n\nCHARACTER: A female in her early to mid-20s with a friendly and approachable appearance. She has shoulder-length, dark brown hair styled in soft waves with subtle lighter brown highlights, parted slightly off-center. Her facial features include large, expressive brown eyes, well-defined but natural-looking eyebrows, and a prominent, wide smile with straight, white teeth. She has a clear complexion and an oval face shape. Her build is slender, and she is dressed in a casual, relatable style: a plain, white, short-sleeved crew-neck t-shirt and light-wash, high-waisted denim jeans.\n\nSETTING: Same as Scene 1.\nLIGHTING: Same as Scene 1.\nEMOTION: Urgent, cautionary, and empathetic., explosive, confrontational\nCAMERA: intense, dramatic camera movement\n\nVOICEOVER (person speaks directly to camera with conviction):\n\"Click the link below to check if you qualify.\"\n\nThe person maintains eye contact with camera, uses natural hand gestures, and delivers the message with Urgent, cautionary, and empathetic., explosive, confrontational energy. Intense, dramatic camera movement.\n\nDuration: 12 seconds\nStyle: Professional advertising, direct-to-camera testimonial, authentic and relatable\nQuality: 4K, sharp focus, well-lit, professional production value",
+      "script_segment": "Click the link below to check if you qualify."
+    },
+    {
+      "scene_number": 5,
+      "timestamp": "00:28-00:35",
+      "purpose": "Call to Action (CTA)",
+      "prompt": "A medium shot of a person speaking directly to camera in a Same as Scene 1..\n\nCHARACTER: A female in her early to mid-20s with a friendly and approachable appearance. She has shoulder-length, dark brown hair styled in soft waves with subtle lighter brown highlights, parted slightly off-center. Her facial features include large, expressive brown eyes, well-defined but natural-looking eyebrows, and a prominent, wide smile with straight, white teeth. She has a clear complexion and an oval face shape. Her build is slender, and she is dressed in a casual, relatable style: a plain, white, short-sleeved crew-neck t-shirt and light-wash, high-waisted denim jeans.\n\nSETTING: Same as Scene 1.\nLIGHTING: Same as Scene 1.\nEMOTION: Encouraging, helpful, and positive., explosive, confrontational\nCAMERA: intense, dramatic camera movement\n\nVOICEOVER (person speaks directly to camera with conviction):\n\"It's fast, free, and could save you hundreds.\"\n\nThe person maintains eye contact with camera, uses natural hand gestures, and delivers the message with Encouraging, helpful, and positive., explosive, confrontational energy. Intense, dramatic camera movement.\n\nDuration: 12 seconds\nStyle: Professional advertising, direct-to-camera testimonial, authentic and relatable\nQuality: 4K, sharp focus, well-lit, professional production value",
+      "script_segment": "It's fast, free, and could save you hundreds."
+    }
+  ],
+  "comparison": {
+    "script_similarity": 0.4645669291338583,
+    "original_script": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+    "generated_script": "I was paying 120 bucks a month for car insurance every single month until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12 plus months, don't overpay like I did. Call, ask, get the loyalty discount or switch. It's your money. I learned the hard way so you don't have to. [Audio becomes garbled/AI-generated] ...stronger... the same messages our bodies... the importance of this challenge can be clarified... so in man... he's gone into the question center's estimates... or the... triple-coated media or outcomes... curious you... it's that's on a good thing and means you can stay... it's a fast, free and could save you hundreds... I'm we said talking be one heart of where the time.",
+    "original_vertical": "unknown",
+    "generated_vertical": "auto_insurance",
+    "vertical_match": false,
+    "original_scenes": 5,
+    "generated_scenes": 5,
+    "original_has_characters": true,
+    "generated_has_characters": true
+  },
+  "ratings": {
+    "visual_quality": 10.0,
+    "message_clarity": 10.0,
+    "pacing": 10.0,
+    "storytelling": 10.0,
+    "overall_score": 10.0,
+    "predicted_performance": "EXCELLENT - High conversion potential"
+  },
+  "recommendations": [
+    {
+      "severity": "MEDIUM",
+      "issue": "Multiple character scenes detected",
+      "details": "Found 5 scenes with characters",
+      "fix": "Use transformation to limit to 1 character scene + B-roll only"
+    }
+  ]
+}

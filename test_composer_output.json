@@ -1,0 +1,20 @@
+[
+  {
+    "scene_number": 1,
+    "timestamp": "00:00-00:12",
+    "purpose": "Hook with problem",
+    "prompt": "[00:00-+03s] EXTREME CLOSE-UP: female, mid-20s, wavy hair, modern home office. \nHigh-contrast lighting. Frustrated expression.\n\n[+03s-+06s] FAST WHIP PAN to medium close-up. \nShallow depth of field. Eye contact with camera. Natural hand gestures.\n\n[+06s-+09s] DYNAMIC FAST WHIP PAN. \nLighting high-contrast. Expression intensifies.\n\n[+09s-+12s] FINAL SHOT: Holds on frustrated expression. \nDirect address to viewer. Urgent energy.\n\nAUDIO: urgent female voice, fast pace, determined tone. Emotion: frustrated. Says: \"I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month.\". Background music: intense electronic with driving beat, 140 BPM, urgent and compelling, dynamic and engaging. immediate energy at 0:00, climax at 0:08, explosive drop at 0:10. Sound effect at 0:06: sharp whoosh.\n\nTEXT OVERLAYS: At 0:06, bold text crashes in from top: \"$120\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:06, bold text crashes in from top: \"$39\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11.\n\nTECHNICAL: 4K resolution, 1792x1024, high-energy testimonial, vibrant and punchy, cinematic audio mix.",
+    "script_segment": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month.",
+    "has_character": true,
+    "scene_type": "actor_hook"
+  },
+  {
+    "scene_number": 2,
+    "timestamp": "00:12-00:24",
+    "purpose": "Show solution",
+    "prompt": "[00:12-+04s] ESTABLISHING: Phone screen showing low rate. \nFast whip pan shot. high-contrast.\n\n[+04s-+08s] DETAIL SHOTS: solution visuals. \nEnvironment-only (NO people visible). Cinematic vibrant and punchy.\n\n[+08s-+12s] CLIMACTIC: Final reveal of solution. \nMood: hopeful. Urgent pacing.\n\nAUDIO: urgent female voice, fast pace, determined tone. Emotion: confident. Says: \"Same coverage, way less money. Click below to check if you qualify.\". Background music: intense electronic with driving beat, 140 BPM, urgent and compelling, dynamic and engaging. immediate energy at 0:00, climax at 0:08, explosive drop at 0:10. Sound effect at 0:06: sharp whoosh.\n\nTEXT OVERLAYS: At 0:06, bold text crashes in from top: \"$120\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:06, bold text crashes in from top: \"$39\" (Bebas Neue, 240pt, red with black outline). Fades out at 0:11. At 0:09, bold text slides in: \"CLICK BELOW TO CHECK IF!\" (Montserrat Black, 96pt, white). Fades out at 0:12.\n\nTECHNICAL: 4K resolution, 1792x1024, high-energy testimonial, vibrant and punchy, cinematic audio mix.",
+    "script_segment": "Same coverage, way less money. Click below to check if you qualify.",
+    "has_character": false,
+    "scene_type": "broll_solution"
+  }
+]

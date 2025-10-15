@@ -1,0 +1,56 @@
+{
+  "spec": {
+    "name": "soraking-ad-cloner",
+    "region": "nyc",
+    "services": [
+      {
+        "name": "web",
+        "dockerfile_path": "Dockerfile",
+        "github": {
+          "repo": "soraking/soraking",
+          "branch": "main",
+          "deploy_on_push": true
+        },
+        "http_port": 8080,
+        "instance_count": 1,
+        "instance_size_slug": "basic-xxs",
+        "environment_slug": "python",
+        "envs": [
+          {
+            "key": "PORT",
+            "value": "8080"
+          },
+          {
+            "key": "FLASK_ENV",
+            "value": "production"
+          },
+          {
+            "key": "SUPABASE_URL",
+            "value": "https://douctvwttvkfqbvzdwdj.supabase.co"
+          },
+          {
+            "key": "DO_SPACES_BUCKET",
+            "value": "soraking-videos"
+          },
+          {
+            "key": "DO_SPACES_REGION",
+            "value": "nyc3"
+          }
+        ],
+        "health_check": {
+          "http_path": "/api/health",
+          "initial_delay_seconds": 30,
+          "period_seconds": 10,
+          "timeout_seconds": 5,
+          "success_threshold": 1,
+          "failure_threshold": 3
+        },
+        "routes": [
+          {
+            "path": "/"
+          }
+        ]
+      }
+    ]
+  }
+}

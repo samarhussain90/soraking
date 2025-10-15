@@ -1,0 +1,22 @@
+{
+  "aggressive": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "purpose": "Hook - grab attention with relatable problem",
+      "prompt": "[00:00-00:04] Medium Close-Up: Character:  in Clean, modern background.\nHigh contrast, dramatic, bold shadows. Emotion: urgent, intense, dynamic. Camera rushes slowly, establishing the scene.\nEstablish problem and create relatability\n\n[00:04-00:08] The scene morphs into as camera rushes.\nFaster cuts, rapid delivery, momentum. Visual elements emphasize the transformation.\n\n\n[00:08-00:12] Emotional peak: urgent, intense.\nCamera rushes to final composition. Scene resolves with clear impact.\nEstablish problem and create relatability\n\nCinematography: Eye-Level, Dynamic movements, tight shots, energetic\nMood: Urgent, intense, high energy, compelling, High, intense, urgent energy\nMotion: rushes, surges, sweeps\nLighting: High contrast, dramatic, bold shadows\nAudio: Clean, modern background sounds, clear voiceover\n\nParallel Framing: Foreground: main subject in focus.\nBackground: Clean, modern background slightly out of focus, providing depth and context."
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "purpose": "Show the problem/context visually",
+      "prompt": "[00:12-00:16] Car driving smoothly on highway at sunset, aerial view tracking shot\n\nIMPORTANT: This is B-roll footage. NO people, NO faces, NO characters should appear in this scene. Only objects, environments, and abstract visuals related to the topic.\n\n[00:16-00:20] Camera rushes, revealing more details. dynamic, energetic camera movement.\nMood: confident, secure. Visual storytelling continues with fast, urgent pacing.\n\nContinue showing ONLY the environment and objects. NO people visible.\n\n[00:20-00:24] Final composition achieved. Scene resolves with clear visual impact.\n\nStill NO people - maintain focus on objects, settings, and visual metaphors related to driving.\n\nCinematography: Cinematic, high production value, professional\nCamera: dynamic, energetic camera movement\nPacing: fast, urgent pacing\nMood: confident, secure\nLighting: Professional, dramatic where appropriate\nQuality: 4K, sharp focus, no blur\nStyle: Commercial/advertising quality\nContent: Pure B-roll - NO PEOPLE, NO FACES, NO CHARACTERS at all"
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:24-00:36",
+      "purpose": "Show solution and call-to-action",
+      "prompt": "[00:24-00:28] Dash cam POV of sudden brake, narrowly avoiding collision, dramatic moment\n\nIMPORTANT: This is B-roll footage. NO people, NO faces, NO characters should appear in this scene. Only objects, environments, and abstract visuals related to the topic.\n\n[00:28-00:32] Camera rushes, revealing more details. dynamic, energetic camera movement.\nMood: tension, relief. Visual storytelling continues with fast, urgent pacing.\n\nContinue showing ONLY the environment and objects. NO people visible.\n\n[00:32-00:36] Final composition achieved. Scene resolves with clear visual impact.\n\nStill NO people - maintain focus on objects, settings, and visual metaphors related to near_miss.\n\nCinematography: Cinematic, high production value, professional\nCamera: dynamic, energetic camera movement\nPacing: fast, urgent pacing\nMood: tension, relief\nLighting: Professional, dramatic where appropriate\nQuality: 4K, sharp focus, no blur\nStyle: Commercial/advertising quality\nContent: Pure B-roll - NO PEOPLE, NO FACES, NO CHARACTERS at all"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "video_metadata": {
+    "duration_seconds": 40,
+    "estimated_fps": 30,
+    "aspect_ratio": "16:9"
+  },
+  "spokesperson": {
+    "physical_description": "A female in her early-to-mid 20s with an olive skin tone. She has long, wavy, dark brown hair parted slightly off-center. Her facial features include large, expressive brown eyes, thick, well-defined eyebrows, a straight nose, and a prominent, warm smile with very white teeth. She has a slender, athletic build. Her clothing is casual and relatable: a plain white, short-sleeved, crew-neck t-shirt tucked into high-waisted, light-wash denim jeans. She wears no visible jewelry.",
+    "speaking_style": "Her tone is highly enthusiastic, friendly, and confident. The pace of her speech is moderately fast but remains clear and articulate, creating a sense of excitement and urgency. She uses frequent, natural hand gestures for emphasis, such as open palms to present an idea and pointing to highlight key information. Her energy is consistently high and positive, and her facial expressions are very animated, enhancing the relatability of her message.",
+    "presence_timestamps": [
+      "00:00-00:40"
+    ],
+    "total_screen_time_seconds": 40
+  },
+  "script": {
+    "full_transcript": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it. It's not automatic. If you've had insurance for 12 plus months, don't overpay like I did. Click the link below to check if you qualify. It's fast, free, and could save you hundreds.",
+    "key_phrases": [
+      "I was paying $120 a month",
+      "I qualified for $39 a month",
+      "Same coverage, way less money",
+      "a new law means...",
+      "you have to request it",
+      "It's not automatic",
+      "Don't overpay like I did",
+      "fast, free, and could save you hundreds"
+    ],
+    "call_to_action": "Click the link below to check if you qualify."
+  },
+  "scene_breakdown": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:08",
+      "duration_seconds": 8,
+      "purpose": "Hook/Problem",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "A clean, well-lit modern garage or workshop. A wooden workbench with tools and a potted plant is visible behind her to the left. A large, red rolling tool chest is in the background to the right.",
+      "lighting": "Bright, soft, high-key lighting that feels clean and professional. It mimics natural light coming from the large window in the background.",
+      "visual_elements": [
+        "Spokesperson holds a blue and white product box labeled 'AUTO INSURANCE'."
+      ],
+      "message": "The spokesperson establishes a common and expensive problem: paying too much for car insurance.",
+      "emotion": "Relatable frustration followed by hopeful excitement."
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:08-00:15",
+      "duration_seconds": 7,
+      "purpose": "Solution",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Subtle dolly-in to increase focus and intimacy.",
+      "characters": "Spokesperson",
+      "setting": "Same as Scene 1.",
+      "lighting": "Consistent with Scene 1.",
+      "visual_elements": [
+        "Spokesperson gestures towards the product box and then towards the camera."
+      ],
+      "message": "A dramatically lower price ($39) is available for the exact same coverage.",
+      "emotion": "Triumphant, happy, and relieved."
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:16-00:25",
+      "duration_seconds": 9,
+      "purpose": "Proof/Justification",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "Same as Scene 1.",
+      "lighting": "Consistent with Scene 1.",
+      "visual_elements": [],
+      "message": "The savings are possible because of a 'new law', but it requires proactive effort from the consumer.",
+      "emotion": "Informative, helpful, and slightly urgent."
+    },
+    {
+      "scene_number": 4,
+      "timestamp": "00:25-00:32",
+      "duration_seconds": 7,
+      "purpose": "Urgency/Warning",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static, with a quick cut to a smiling close-up at 00:31.",
+      "characters": "Spokesperson",
+      "setting": "The main shot is the garage. The quick cut at 00:31 shows her in front of a white pegboard wall with neatly organized tools.",
+      "lighting": "Consistent.",
+      "visual_elements": [],
+      "message": "Emphasizes that inaction will lead to continued overpayment, creating fear of missing out (FOMO).",
+      "emotion": "Cautionary, empathetic, and encouraging."
+    },
+    {
+      "scene_number": 5,
+      "timestamp": "00:32-00:40",
+      "duration_seconds": 8,
+      "purpose": "Call to Action (CTA)",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson",
+      "setting": "Returns to the primary garage setting.",
+      "lighting": "Consistent.",
+      "visual_elements": [
+        "A subtle ghosting/dissolve effect at 00:39 where a semi-transparent image of her smiling is overlaid."
+      ],
+      "message": "A clear, direct instruction on what to do next, highlighting the benefits: it's fast, free, and saves money.",
+      "emotion": "Confident, direct, and persuasive."
+    }
+  ],
+  "visual_style": {
+    "color_palette": [
+      "#FFFFFF (White Shirt, Box)",
+      "#D3D3D3 (Grey Walls)",
+      "#0072CE (Blue on Box)",
+      "#C8102E (Red Tool Chest)",
+      "#C19A6B (Wood Workbench)"
+    ],
+    "lighting_style": "High-key, soft, and diffused lighting. Creates a bright, clean, and trustworthy atmosphere with minimal shadows.",
+    "cinematography": "Clean commercial aesthetic with a shallow depth of field that keeps the spokesperson in sharp focus while softly blurring the background, eliminating distractions.",
+    "text_overlays": [
+      "QUOTERMA",
+      "AUTO INSURANCE",
+      "25"
+    ],
+    "graphics_style": "Minimalist. The only graphic element is the physical product box held by the spokesperson.",
+    "brand_elements": [
+      "QUOTERMA logo",
+      "Blue and white brand colors on the product box"
+    ]
+  },
+  "pacing": {
+    "overall_tempo": "Medium-fast",
+    "scene_durations": [
+      8,
+      7,
+      9,
+      7,
+      8
+    ],
+    "energy_curve": "Starts at a medium energy level (stating the problem), quickly ramps up to high energy (revealing the solution), maintains a medium-high informative energy, and concludes with a high-energy, direct call to action.",
+    "music_description": "None. The absence of music places 100% of the auditory focus on the spokesperson's voice and message, enhancing clarity and directness.",
+    "voice_pacing": "Consistently quick and conversational, designed to hold attention in a short format. There are deliberate pauses for emphasis after key numbers like '$120' and '$39'."
+  },
+  "storytelling": {
+    "framework": "Problem-Agitate-Solution (PAS)",
+    "emotional_arc": [
+      "Relatability",
+      "Surprise",
+      "Hope",
+      "Urgency",
+      "Empowerment"
+    ],
+    "hook_strategy": "The ad opens immediately with a specific, high dollar amount ('$120 a month') that serves as a strong pain point for anyone with car insurance, instantly grabbing their attention.",
+    "problem_presented": "Consumers are unknowingly overpaying for their auto insurance.",
+    "solution_offered": "A quick, free online check (via the provided link) that leverages a 'new law' to find significantly cheaper rates for the same coverage.",
+    "proof_elements": [
+      "Anecdotal Testimonial (the spokesperson's own story)",
+      "Appeal to Authority (mention of a 'new law')"
+    ],
+    "urgency_tactics": [
+      "The statement 'you have to request it, it's not automatic' creates urgency by implying that the savings are available but will be missed without immediate action."
+    ]
+  },
+  "why_it_works": [
+    "**Anchoring Bias & Contrast:** The ad masterfully uses the anchoring bias by stating the high price of '$120' first. This 'anchors' the viewer's perception of value, making the subsequent offer of '$39' seem like an exceptionally large and irresistible discount.",
+    "**Relatability and Social Proof:** The spokesperson is styled as an 'everyperson' rather than a celebrity. This makes her story feel authentic and trustworthy, functioning as powerful social proof that the system works for 'people like me'.",
+    "**Justification and Reduced Skepticism:** Mentioning a 'new law' provides a plausible reason for the massive discount. This preemptively answers the viewer's skepticism ('What's the catch?') and makes the offer feel more legitimate and less like a scam.",
+    "**Low-Friction Call to Action:** The CTA emphasizes ease and no cost ('quick two-minute check,' 'fast, free'). This removes psychological barriers, making it easy for the viewer to take the next step since there is seemingly nothing to lose."
+  ]
+}

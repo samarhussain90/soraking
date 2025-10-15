@@ -1,0 +1,138 @@
+{
+  "pattern_interrupts": {
+    "description": "Visual hooks to grab attention in first 2 seconds",
+    "by_vertical": {
+      "auto_insurance": [
+        "Phone notification: high insurance bill alert",
+        "Insurance renewal letter dropping onto desk",
+        "Calculator showing yearly total with shocked reaction",
+        "Frustrated glance at monthly payment statement"
+      ],
+      "health_insurance": [
+        "Medical bill stack suddenly appearing",
+        "Prescription receipt with high cost",
+        "Health insurance denial letter being opened"
+      ],
+      "finance": [
+        "Bank app notification: low balance alert",
+        "Credit score update appearing on phone",
+        "Investment portfolio showing losses"
+      ],
+      "fitness": [
+        "Mirror reflection showing current state",
+        "Scale showing unwanted number",
+        "Photo comparison reveal"
+      ],
+      "ecommerce": [
+        "Product unboxing moment",
+        "Before/after comparison",
+        "Problem demonstration"
+      ],
+      "default": [
+        "Unexpected phone notification",
+        "Document reveal",
+        "Sudden realization moment"
+      ]
+    }
+  },
+
+  "social_proof_cues": {
+    "description": "Subtle indicators that others are using/benefiting",
+    "visual_elements": [
+      "Notification: '10,000+ people qualified today'",
+      "Success counter incrementing",
+      "5-star rating appearing",
+      "Testimonial quote overlay",
+      "Check marks appearing next to benefits",
+      "Crowd-sourced validation indicator"
+    ]
+  },
+
+  "urgency_builders": {
+    "description": "Visual elements that create time pressure or scarcity",
+    "time_based": [
+      "Clock ticking animation",
+      "Calendar pages flipping rapidly",
+      "Countdown timer appearing",
+      "Sand hourglass visual",
+      "Time running out indicator"
+    ],
+    "scarcity": [
+      "Limited spots remaining counter",
+      "Offer expiring banner",
+      "Exclusive access badge",
+      "Only X left indicator",
+      "Demand exceeding supply visual"
+    ]
+  },
+
+  "scroll_stoppers": {
+    "description": "Unexpected moments that break scroll pattern",
+    "by_aggression": {
+      "soft": [
+        "Genuine surprise expression",
+        "Unexpected but pleasant reveal",
+        "Authentic spontaneous reaction"
+      ],
+      "medium": [
+        "Dramatic gesture at key point",
+        "Important information reveal",
+        "Clear before/after contrast"
+      ],
+      "aggressive": [
+        "Bold attention-grabbing action",
+        "High-energy unexpected movement",
+        "Dramatic visual contrast"
+      ],
+      "ultra": [
+        "Explosive reaction",
+        "Shocking visual transformation",
+        "Impossible-to-ignore moment"
+      ]
+    }
+  },
+
+  "cta_reinforcement": {
+    "description": "Visual elements that reinforce call-to-action",
+    "elements": [
+      "Arrow pointing toward CTA area",
+      "Gesture directing attention downward",
+      "Glowing/pulsing indicator",
+      "Hand reaching toward screen edge",
+      "Forward momentum visual",
+      "Magnetic pull effect"
+    ]
+  },
+
+  "emotional_transitions": {
+    "description": "Visual cues for emotional arc progression",
+    "problem_to_solution": {
+      "visual_cues": [
+        "Color shift: cool to warm",
+        "Lighting change: dim to bright",
+        "Facial expression: concerned to relieved",
+        "Environment: cluttered to organized"
+      ]
+    },
+    "hesitation_to_confidence": {
+      "visual_cues": [
+        "Posture change: slouched to upright",
+        "Eye contact: averted to direct",
+        "Movement: tentative to assured",
+        "Expression: doubtful to certain"
+      ]
+    }
+  },
+
+  "trust_indicators": {
+    "description": "Subtle elements that build credibility",
+    "visual_elements": [
+      "Official-looking documentation",
+      "Verification badge/checkmark",
+      "Professional setting background",
+      "Clear, legitimate information display",
+      "Authentic testimonial indicators"
+    ]
+  }
+}
+

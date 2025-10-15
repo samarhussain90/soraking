@@ -1,0 +1,131 @@
+{
+  "character_ugc_testimonial": {
+    "name": "UGC Testimonial (Direct-to-Camera)",
+    "description": "Authentic person sharing their story directly to camera",
+    "structure": "{pattern_interrupt}. Camera pulls back: {character_desc}, {setting}.\n\n{emotion} delivery: \"{script}\"\n\n{camera_movement}. Direct eye contact. Natural gestures emphasize key points. Authentic UGC energy.\n\nStyle: {style}\nQuality: 4K\nDuration: 12 seconds",
+    "variables": [
+      "pattern_interrupt",
+      "character_desc",
+      "setting",
+      "emotion",
+      "script",
+      "camera_movement",
+      "style"
+    ],
+    "proven_patterns": {
+      "soft": {
+        "camera_movement": "Slow, gentle push-in",
+        "style": "Calm, conversational, natural lighting"
+      },
+      "medium": {
+        "camera_movement": "Steady dolly forward",
+        "style": "Professional, balanced, clear"
+      },
+      "aggressive": {
+        "camera_movement": "Dynamic push-in with urgency",
+        "style": "High-energy, bold, attention-grabbing"
+      },
+      "ultra": {
+        "camera_movement": "Fast dolly-in, intense energy",
+        "style": "Explosive, confrontational, can't ignore"
+      }
+    }
+  },
+
+  "broll_problem_agitation": {
+    "name": "B-Roll Problem/Agitation",
+    "description": "Visual representation of the problem being solved",
+    "structure": "{establishing_shot}\n\nCRITICAL: Pure B-roll - NO people, NO faces, NO characters.\nFocus: {problem_visuals}\n\n{camera_style}. {pacing}.\nMood: {mood}\nColor grade: {color_grade}\n\nVOICEOVER (audio only): \"{script}\"\n\nVisuals show problem through symbolic imagery.\n\nStyle: {style}\nQuality: 4K\nDuration: 12 seconds",
+    "variables": [
+      "establishing_shot",
+      "problem_visuals",
+      "camera_style",
+      "pacing",
+      "mood",
+      "color_grade",
+      "script",
+      "style"
+    ],
+    "proven_patterns": {
+      "auto_insurance": {
+        "establishing_shot": "Dashboard showing high insurance bill",
+        "problem_visuals": "Bills, worried documents, expensive notifications",
+        "mood": "Frustration, concern",
+        "color_grade": "Desaturated, cool tones"
+      },
+      "health_insurance": {
+        "establishing_shot": "Medical bills stacking up",
+        "problem_visuals": "Prescription costs, hospital paperwork",
+        "mood": "Overwhelmed, stressed",
+        "color_grade": "Cold, clinical tones"
+      },
+      "finance": {
+        "establishing_shot": "Empty bank account screen",
+        "problem_visuals": "Low balance, debts, financial stress indicators",
+        "mood": "Worried, anxious",
+        "color_grade": "Muted, low saturation"
+      }
+    }
+  },
+
+  "broll_solution_payoff": {
+    "name": "B-Roll Solution/Payoff",
+    "description": "Visual transformation showing solution/benefit",
+    "structure": "{transformation_shot}\n\nCRITICAL: Pure B-roll - NO people visible.\nFocus: {solution_visuals}\n\n{camera_style}. {pacing}.\nMood: {mood}\nColor grade: {color_grade}\n\nVOICEOVER (audio only): \"{script}\"\n\nVisuals show transformation from problem to solution through symbolic storytelling.\n\nStyle: {style}\nQuality: 4K\nDuration: 12 seconds",
+    "variables": [
+      "transformation_shot",
+      "solution_visuals",
+      "camera_style",
+      "pacing",
+      "mood",
+      "color_grade",
+      "script",
+      "style"
+    ],
+    "proven_patterns": {
+      "auto_insurance": {
+        "transformation_shot": "New lower rate confirmation appearing",
+        "solution_visuals": "Open road, freedom, affordable documents",
+        "mood": "Relief, liberation, excitement",
+        "color_grade": "Warm, saturated, golden tones"
+      },
+      "health_insurance": {
+        "transformation_shot": "Approved coverage notification",
+        "solution_visuals": "Peace of mind visuals, protection symbols",
+        "mood": "Relief, security, confidence",
+        "color_grade": "Warm, comforting tones"
+      },
+      "finance": {
+        "transformation_shot": "Savings growing, balance increasing",
+        "solution_visuals": "Financial security symbols, growth indicators",
+        "mood": "Confidence, success, empowerment",
+        "color_grade": "Rich, vibrant, optimistic tones"
+      }
+    }
+  },
+
+  "broll_cta_urgency": {
+    "name": "B-Roll CTA with Urgency",
+    "description": "Final B-roll with call-to-action and urgency",
+    "structure": "{action_visual}\n\nCRITICAL: NO people visible.\nFocus: {cta_visuals}\n\n{camera_style}. {pacing}.\nMood: {mood}\nUrgency: {urgency_element}\n\nVOICEOVER (audio only): \"{script}\"\n\nVisuals emphasize taking action now.\n\nStyle: {style}\nQuality: 4K\nDuration: 12 seconds",
+    "variables": [
+      "action_visual",
+      "cta_visuals",
+      "camera_style",
+      "pacing",
+      "mood",
+      "urgency_element",
+      "script",
+      "style"
+    ],
+    "proven_patterns": {
+      "default": {
+        "action_visual": "Motion toward action/next step",
+        "cta_visuals": "Forward momentum, opportunity symbols",
+        "mood": "Urgent, compelling, action-oriented",
+        "urgency_element": "Time-sensitive indicators, momentum cues"
+      }
+    }
+  }
+}
+

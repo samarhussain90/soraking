@@ -1,0 +1,28 @@
+{
+  "aggressive": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "purpose": "Extreme visual hook - grab attention with shock value",
+      "prompt": "EXTREME VISUAL HOOK: A close-up of an electricity bill, the total amount highlighted in red and growing larger, cracking the paper as if it were under immense stress. The background darkens, emphasizing the overwhelming nature of the bill.\n\nNO PEOPLE. Environment and object-focused cinematography only.\n\nCAMERA: Slow zoom in on the bill, with quick cuts to the numbers increasing dramatically.. Intense and visceral movement.\n\nTIMING: 0-4s: Close-up of the bill, total amount highlighted; 4-8s: Numbers rapidly increasing; 8-12s: Darkened background, emphasis on stress.\n\nLIGHTING: Low light with a spotlight on the bill, casting shadows.. Cinematic color grading.\n\nAUDIO DESIGN: Heartbeat pounding, rising tension music as the bill increases.. Build tension to impact.\n\nTEXT OVERLAY (appears mid-scene): \"Your bill might be about to explode!\"\n\nEMOTION: urgent. Maximum visual impact.\n\nSHOT STYLE: Cinematic commercial. High production value. Dramatic reveals.\n\n4K cinematic. 12 seconds. Electricity Bill Shock.",
+      "script_segment": "Female VO: I'm not supposed to be sharing this with you, so listen closely before it gets taken down. Spokesperson 1: So my neighbor's always sitting outside in his Tesla and I was kind of curious how he was able to do this. Well, my wife who's friends with his wife told me about this little secret, so I'm just gonna let him explain it to you. Spokesperson 2: Yo, what's up guys? Um, I just figured out how to use the browser on this, so let me pull it up. Um, so if you haven't seen this yet, it's going around Facebook and TikTok.",
+      "has_character": false
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:24-00:36",
+      "purpose": "social_proof",
+      "prompt": "Bank app showing savings balance. female, 25-35, casual outfit, Coffee shop with laptop.\nUrgent: \"I was curious when my neighbor's electric bill was only $30. I finally asked him, and he shared this solar program. I switched, and I'm now saving $2,000 a year!\"\nVisual: Actor smiling, casually leaning against a fence.\nDynamic push-in. Eye contact. Natural gestures. UGC testimonial style.\n4K. 12s.",
+      "script_segment": "Basically, there's a new solar tax credit program for homeowners. If you own a home and you live in a qualified zip code, they're actually going to just install one of these funky little panels near your house. And in exchange for doing that, they're going to give you an incentive of anywhere from $8,000 to $10,000 into your bank for you. Um, and it will completely eliminate your electric bill as well. So you're saving on your electric bill on top of it.",
+      "has_character": true
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:36-00:48",
+      "purpose": "urgent_cta",
+      "prompt": "Bank app showing savings balance. female, 35-45, Home office with laptop.\nUrgent: \"This deal is vanishing fast! Only 25 spots available this week. Make the call \u2014 five minutes could change your entire year!\"\nVisual: Actor urgently gesturing with hands, leaning in slightly.\nDynamic push-in. Eye contact. Natural gestures. UGC testimonial style.\n4K. 12s.",
+      "script_segment": "And to qualify, all you got to do is, um, I'll show him how to put a link below this video. You just have to take a free 30-second quiz and let them know what zip code your home is in and you'll find out instantly if you qualify. So, I guess tap the link below now if you want to try it. Spokesperson 1: I told you guys.",
+      "has_character": true
+    }
+  ]
+}

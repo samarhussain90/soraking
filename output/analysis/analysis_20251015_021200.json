@@ -1,0 +1,204 @@
+{
+  "video_metadata": {
+    "duration_seconds": 60,
+    "estimated_fps": 30,
+    "aspect_ratio": "9:16"
+  },
+  "spokesperson": {
+    "physical_description": "Two spokespeople are featured. \nSpokesperson 1 (Introducer): Male, early-to-mid 20s, Caucasian. He has light blue eyes, fair skin, and a short, reddish-blond goatee. He wears a black zip-up hoodie with white drawstrings and a blue and white mesh trucker-style baseball cap. He has a friendly, approachable look. \nSpokesperson 2 (Expert/Neighbor): Male, mid-to-late 20s, Caucasian. He has striking light green eyes, short brown hair, and a well-groomed short beard. He is wearing a black Champion brand sweatshirt, a silver curb-link chain necklace, and a black baseball cap with a white front panel. He appears confident and knowledgeable.",
+    "speaking_style": "Both spokespeople use a conversational, friendly, and slightly urgent tone. The pace is quick but clear, typical of user-generated content on platforms like TikTok. They speak directly to the camera in a selfie style, creating a personal connection with the viewer. Their energy is high and engaging.",
+    "presence_timestamps": [
+      "00:04-00:15",
+      "00:15-01:00"
+    ],
+    "total_screen_time_seconds": 56
+  },
+  "script": {
+    "full_transcript": "Voiceover: I'm not supposed to be sharing this with you, so listen closely before it gets taken down. \nSpokesperson 1: So my neighbor's always sitting outside in his Tesla and I was kind of curious how he was able to do this. Well, my wife who's friends with his wife told me about this little secret, so I'm just gonna let him explain it to you. \nSpokesperson 2: Yo, what's up guys? Um, I just figured out how to use the browser on this, so let me pull it up. Um, so if you haven't seen this yet, it's going around Facebook and TikTok. Basically, there's a new solar tax credit program for homeowners. If you own a home and you live in a qualified zip code, they're actually going to just install one of these funky little panels near your house. And in exchange for doing that, they're going to give you an incentive of anywhere from $8,000 to $10,000 into your bank for you. Um, and it will completely eliminate your electric bill as well. So you're saving on your electric bill on top of it. And to qualify, all you got to do is, um, I'll show him how to put a link below this video. You just have to take a free 30-second quiz and let them know what zip code your home is in and you'll find out instantly if you qualify. So, I guess tap the link below now if you want to try it. \nSpokesperson 1: I told you guys.",
+    "key_phrases": [
+      "I'm not supposed to be sharing this",
+      "listen closely before it gets taken down",
+      "this little secret",
+      "new solar tax credit program",
+      "incentive of anywhere from $8,000 to $10,000",
+      "completely eliminate your electric bill",
+      "free 30-second quiz",
+      "find out instantly if you qualify"
+    ],
+    "call_to_action": "Tap the link below now if you want to try it."
+  },
+  "scene_breakdown": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:04",
+      "duration_seconds": 4,
+      "purpose": "Hook",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static (Slow motion)",
+      "characters": "Unidentified male",
+      "setting": "Outdoor backyard with a trampoline",
+      "lighting": "Overcast, natural daylight",
+      "visual_elements": [
+        "Slow-motion video of a man jumping on a trampoline covered in colorful water beads (Orbeez)."
+      ],
+      "message": "This is an important, secret message you need to see now.",
+      "emotion": "Curiosity, Urgency"
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:04-00:15",
+      "duration_seconds": 11,
+      "purpose": "Problem/Curiosity",
+      "shot_type": "Extreme Close-up (Selfie)",
+      "camera_angle": "Low-angle",
+      "camera_movement": "Handheld, slight movement",
+      "characters": "Spokesperson 1",
+      "setting": "Outdoors, likely a suburban neighborhood, with a blue sky and clouds in the background.",
+      "lighting": "Bright, natural daylight",
+      "visual_elements": [],
+      "message": "I discovered a secret about my successful neighbor, and he's about to share it.",
+      "emotion": "Intrigue, Relatability"
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:15-00:25",
+      "duration_seconds": 10,
+      "purpose": "Solution Introduction",
+      "shot_type": "Close-up (Selfie)",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Handheld, pans slightly to show car interior",
+      "characters": "Spokesperson 2",
+      "setting": "Inside a Tesla, showing the panoramic glass roof and minimalist interior.",
+      "lighting": "Natural light from car windows and roof",
+      "visual_elements": [
+        "Tesla infotainment screen"
+      ],
+      "message": "The secret is a program I found online, and I'll show you exactly what it is.",
+      "emotion": "Confidence, Authority"
+    },
+    {
+      "scene_number": 4,
+      "timestamp": "00:25-00:36",
+      "duration_seconds": 11,
+      "purpose": "Proof/Demonstration",
+      "shot_type": "Close-up / Point-of-View",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static shot of the screen, then a pan to the outside.",
+      "characters": "Spokesperson 2's hand",
+      "setting": "Inside the Tesla, looking at the screen and then out the window at a suburban street.",
+      "lighting": "Natural daylight",
+      "visual_elements": [
+        "Forbes article titled 'Solar Tax Credit By State In 2023' on the Tesla screen",
+        "View of a standalone solar panel on a post outside"
+      ],
+      "message": "This is a legitimate government program, featured in Forbes, that provides solar panels.",
+      "emotion": "Credibility, Trust"
+    },
+    {
+      "scene_number": 5,
+      "timestamp": "00:36-00:48",
+      "duration_seconds": 12,
+      "purpose": "Benefits",
+      "shot_type": "Close-up (Selfie)",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Handheld, static",
+      "characters": "Spokesperson 2",
+      "setting": "Inside the Tesla.",
+      "lighting": "Natural daylight",
+      "visual_elements": [],
+      "message": "You get a large cash incentive ($8k-$10k) AND your electric bill is eliminated.",
+      "emotion": "Excitement, Aspiration"
+    },
+    {
+      "scene_number": 6,
+      "timestamp": "00:48-00:57",
+      "duration_seconds": 9,
+      "purpose": "Call to Action (How-to)",
+      "shot_type": "Close-up (Selfie)",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Handheld, static",
+      "characters": "Spokesperson 2",
+      "setting": "Inside the Tesla.",
+      "lighting": "Natural daylight",
+      "visual_elements": [],
+      "message": "Qualifying is fast, free, and easy: just take a 30-second quiz by clicking the link.",
+      "emotion": "Helpfulness, Simplicity"
+    },
+    {
+      "scene_number": 7,
+      "timestamp": "00:57-01:00",
+      "duration_seconds": 3,
+      "purpose": "Final CTA/Social Proof",
+      "shot_type": "Medium Shot",
+      "camera_angle": "Eye-level",
+      "camera_movement": "Static",
+      "characters": "Spokesperson 1 and Spokesperson 2",
+      "setting": "Spokesperson 2 is in the car, Spokesperson 1 leans in through the open window.",
+      "lighting": "Natural daylight",
+      "visual_elements": [],
+      "message": "This is a real tip from a real person. Don't miss out.",
+      "emotion": "Authenticity, Reinforcement"
+    }
+  ],
+  "visual_style": {
+    "color_palette": [
+      "Natural tones (greens, browns from the outdoors)",
+      "Neutral grays and blacks (clothing, car interior)",
+      "Sky blue",
+      "Vibrant multi-color (from the intro clip's water beads)"
+    ],
+    "lighting_style": "Natural, bright daylight throughout. The style is unpolished and authentic, avoiding any professional studio lighting.",
+    "cinematography": "The aesthetic is pure User-Generated Content (UGC). It uses selfie-style, handheld shots with a vertical 9:16 aspect ratio, mimicking content native to TikTok and Instagram Reels.",
+    "text_overlays": [
+      "Forbes article title: 'Solar Tax Credit By State In 2023: What You Need To Know'"
+    ],
+    "graphics_style": "Minimalist. The only graphic element is the user interface of the Tesla screen and the Forbes website.",
+    "brand_elements": [
+      "Tesla logo (on screen)",
+      "Champion logo (on sweatshirt)",
+      "Forbes logo (on website)"
+    ]
+  },
+  "pacing": {
+    "overall_tempo": "Fast",
+    "scene_durations": [
+      4,
+      11,
+      10,
+      11,
+      12,
+      9,
+      3
+    ],
+    "energy_curve": "Starts high with urgency, transitions to intrigue, builds to excitement while explaining the benefits, and ends with a clear, simple call to action.",
+    "music_description": "No background music is used, which enhances the feeling of authenticity and personal testimony.",
+    "voice_pacing": "Rapid and conversational. The speakers deliver their lines quickly without sounding rushed, maintaining an energetic and engaging rhythm."
+  },
+  "storytelling": {
+    "framework": "Testimonial / Social Proof narrative combined with PAS (Problem-Agitate-Solution). The implied problem is high living costs/electric bills. The agitation is seeing a neighbor's success (Tesla). The solution is the solar program.",
+    "emotional_arc": [
+      "Curiosity",
+      "Intrigue",
+      "Trust",
+      "Excitement",
+      "Action"
+    ],
+    "hook_strategy": "It uses a combination of a visually unrelated but 'satisfying' clip to stop the scroll, paired with a voiceover that creates a strong curiosity gap ('I'm not supposed to be sharing this') and urgency ('before it gets taken down').",
+    "problem_presented": "The implied problem is the high cost of living and expensive electricity bills, which prevents people from affording luxuries like a Tesla.",
+    "solution_offered": "A government solar tax credit program that not only provides a large cash incentive but also eliminates monthly electric bills.",
+    "proof_elements": [
+      "Social Proof: The entire 'neighbor' framing acts as a powerful testimonial.",
+      "Authority: Showing a Forbes article on the Tesla's large screen lends significant credibility.",
+      "Aspirational Proof: The setting within a Tesla subtly links the program to financial success."
+    ],
+    "urgency_tactics": [
+      "Scarcity of Information: The opening line, 'I'm not supposed to be sharing this... before it gets taken down,' creates FOMO (Fear Of Missing Out) and encourages immediate attention."
+    ]
+  },
+  "why_it_works": [
+    "Authenticity Over Polish: The ad's UGC style feels genuine and trustworthy. It mimics a video from a friend or trusted creator, breaking down the skepticism viewers often have towards polished, corporate advertisements.",
+    "Powerful Social Proof Framework: The 'neighbor' narrative is highly effective. People are more inclined to trust a recommendation from a peer than a direct ad. The story of discovering a neighbor's 'secret' is relatable and compelling.",
+    "Strategic Use of Authority and Aspiration: Casually displaying a Forbes article on a Tesla's screen is a masterstroke. It simultaneously borrows credibility from a respected publication (Forbes) and associates the product with a symbol of modern success and tech-savviness (Tesla), making the offer seem both legitimate and desirable."
+  ]
+}

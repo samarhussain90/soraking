@@ -1,0 +1,31 @@
+{
+  "aggressive": [
+    {
+      "scene_number": 1,
+      "timestamp": "00:00-00:12",
+      "purpose": "Hook - establish relatable problem",
+      "prompt": "Phone screen showing ${amount}/month bill notification. female, 20, brown hair, white tee, Inside a car repair shop.\n\nFed up and taking action: \"I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it.\"\n\nDynamic push-in. Eye contact. Natural gestures. UGC testimonial style.\n4K. 12s.\n\nCONVERSION ELEMENTS:\n- Pattern interrupt: Suddenly noticing high insurance bill on phone\n\nSCROLL-STOPPER: High-energy unexpected movement at key moment to break pattern",
+      "script_segment": "I was paying $120 a month for car insurance until I found a link that changed everything. After a quick two-minute check, I qualified for $39 a month. Same coverage, way less money. Apparently, a new law means drivers insured for over a year could get a lower rate, but you have to request it.",
+      "has_character": true,
+      "optimized": true
+    },
+    {
+      "scene_number": 2,
+      "timestamp": "00:12-00:24",
+      "purpose": "Social proof - solution works for real people",
+      "prompt": "Phone screen showing ${amount}/month bill notification. female, 20, brown hair, white tee, Inside a modern car.\n\nBoldly assertive: \"It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. Click the link below to check if you qualify.\"\n\nDynamic push-in. Eye contact. Natural gestures. UGC testimonial style.\n4K. 12s.\n\nSCROLL-STOPPER: Bold, attention-grabbing action at key moment to break pattern",
+      "script_segment": "It's not automatic. If you've had insurance for 12+ months, don't overpay like I did. Click the link below to check if you qualify.",
+      "has_character": true,
+      "optimized": true
+    },
+    {
+      "scene_number": 3,
+      "timestamp": "00:24-00:36",
+      "purpose": "Call to action - create urgency to act",
+      "prompt": "Phone screen showing ${amount}/month bill notification. female, 20, brown hair, white tee, Inside dealership showroom.\n\nIntensely driven: \"It's fast, free, and could save you hundreds.\"\n\nDynamic push-in. Eye contact. Natural gestures. UGC testimonial style.\n4K. 12s.\n\nSCROLL-STOPPER: High-energy unexpected movement at key moment to break pattern",
+      "script_segment": "It's fast, free, and could save you hundreds.",
+      "has_character": true,
+      "optimized": true
+    }
+  ]
+}
