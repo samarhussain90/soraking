@@ -21,7 +21,7 @@ from modules.settings_manager import get_settings_manager
 app = Flask(__name__, static_folder='frontend', static_url_path='')
 app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024  # 500MB max file size
 CORS(app)
-socketio = SocketIO(app, cors_allowed_origins="*", max_http_buffer_size=500 * 1024 * 1024)
+socketio = SocketIO(app, cors_allowed_origins="*", max_http_buffer_size=500 * 1024 * 1024, async_mode='threading')
 
 # Initialize cloud clients
 try:

@@ -281,6 +281,8 @@
             <div class="tab active" data-tab="gemini">Gemini Prompt</div>
             <div class="tab" data-tab="aggression">Aggression Presets</div>
             <div class="tab" data-tab="sora">Sora Config</div>
+            <div class="tab" data-tab="openai">OpenAI Prompts</div>
+            <div class="tab" data-tab="transformer">Transformer Config</div>
         </div>
 
         <!-- Gemini Prompt Tab -->
@@ -431,6 +433,102 @@
                 </form>
             </div>
         </div>
+
+        <!-- OpenAI Prompts Tab -->
+        <div id="openai-tab" class="tab-content">
+            <div class="setting-card">
+                <h2>🤖 OpenAI Prompts</h2>
+                <p class="description">Configure GPT-4o-mini prompts used for hook generation and scene script creation.</p>
+
+                <!-- Hook Generator Prompt -->
+                <div class="form-group">
+                    <label for="hook-generator-prompt">Hook Generator Prompt</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Used to generate custom extreme hooks when no preset hook matches.</p>
+                    <textarea id="hook-generator-prompt" style="min-height: 200px;" placeholder="Loading..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="button" id="save-hook-prompt">Save Hook Prompt</button>
+                    <button type="button" class="button button-secondary" id="reset-hook-prompt">Reset</button>
+                </div>
+
+                <hr style="margin: 30px 0; border: none; border-top: 2px solid #e0e0e0;">
+
+                <!-- Scene Script Generator Prompt -->
+                <div class="form-group">
+                    <label for="script-generator-prompt">Scene Script Generator Prompt</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Used to generate creative scripts for actor scenes (Scene 2 & 3).</p>
+                    <textarea id="script-generator-prompt" style="min-height: 200px;" placeholder="Loading..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="button" id="save-script-prompt">Save Script Prompt</button>
+                    <button type="button" class="button button-secondary" id="reset-script-prompt">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transformer Config Tab -->
+        <div id="transformer-tab" class="tab-content">
+            <div class="setting-card">
+                <h2>⚙️ Transformer Configuration</h2>
+                <p class="description">Configure hook scenarios, location pools, camera angles, and pattern interrupts used in scene transformation.</p>
+
+                <!-- Hook Scenarios -->
+                <div class="form-group">
+                    <label for="hook-scenarios-json">Hook Scenarios (JSON)</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Pre-written extreme hooks organized by vertical. Format: {"vertical_name": [array of hooks]}</p>
+                    <textarea id="hook-scenarios-json" style="min-height: 250px; font-family: 'Courier New', monospace;" placeholder="Loading..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="button" id="save-hook-scenarios">Save Hook Scenarios</button>
+                    <button type="button" class="button button-secondary" id="reset-hook-scenarios">Reset</button>
+                </div>
+
+                <hr style="margin: 30px 0; border: none; border-top: 2px solid #e0e0e0;">
+
+                <!-- Location Pools -->
+                <div class="form-group">
+                    <label for="location-pools-json">Location Pools (JSON)</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Default locations by vertical. Format: {"vertical_name": "default location"}</p>
+                    <textarea id="location-pools-json" style="min-height: 150px; font-family: 'Courier New', monospace;" placeholder="Loading..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="button" id="save-location-pools">Save Location Pools</button>
+                    <button type="button" class="button button-secondary" id="reset-location-pools">Reset</button>
+                </div>
+
+                <hr style="margin: 30px 0; border: none; border-top: 2px solid #e0e0e0;">
+
+                <!-- Camera Angles -->
+                <div class="form-group">
+                    <label for="camera-angles-json">Camera Angles (JSON Array)</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">List of camera angle presets. Format: ["angle 1", "angle 2", ...]</p>
+                    <textarea id="camera-angles-json" style="min-height: 100px; font-family: 'Courier New', monospace;" placeholder="Loading..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="button" id="save-camera-angles">Save Camera Angles</button>
+                    <button type="button" class="button button-secondary" id="reset-camera-angles">Reset</button>
+                </div>
+
+                <hr style="margin: 30px 0; border: none; border-top: 2px solid #e0e0e0;">
+
+                <!-- Pattern Interrupts -->
+                <div class="form-group">
+                    <label for="pattern-interrupts-json">Pattern Interrupts (JSON)</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Visual hooks for character scenes. Format: {"vertical_name": [array of interrupts]}</p>
+                    <textarea id="pattern-interrupts-json" style="min-height: 200px; font-family: 'Courier New', monospace;" placeholder="Loading..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="button" id="save-pattern-interrupts">Save Pattern Interrupts</button>
+                    <button type="button" class="button button-secondary" id="reset-pattern-interrupts">Reset</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -555,6 +653,103 @@
             }
         }
 
+        // Load OpenAI hook generator prompt
+        async function loadHookPrompt() {
+            try {
+                const response = await fetch('/api/settings/openai_prompt/hook_generator');
+                const data = await response.json();
+
+                if (data.success && data.setting) {
+                    const prompt = data.setting.value.prompt || '';
+                    document.getElementById('hook-generator-prompt').value = prompt;
+                    originalData.hookPrompt = prompt;
+                }
+            } catch (error) {
+                showAlert('Failed to load hook prompt: ' + error.message, 'error');
+            }
+        }
+
+        // Load OpenAI script generator prompt
+        async function loadScriptPrompt() {
+            try {
+                const response = await fetch('/api/settings/openai_prompt/scene_script_generator');
+                const data = await response.json();
+
+                if (data.success && data.setting) {
+                    const prompt = data.setting.value.prompt || '';
+                    document.getElementById('script-generator-prompt').value = prompt;
+                    originalData.scriptPrompt = prompt;
+                }
+            } catch (error) {
+                showAlert('Failed to load script prompt: ' + error.message, 'error');
+            }
+        }
+
+        // Load transformer settings
+        async function loadHookScenarios() {
+            try {
+                const response = await fetch('/api/settings/transformer/hook_scenarios');
+                const data = await response.json();
+
+                if (data.success && data.setting) {
+                    const scenarios = data.setting.value;
+                    const jsonStr = JSON.stringify(scenarios, null, 2);
+                    document.getElementById('hook-scenarios-json').value = jsonStr;
+                    originalData.hookScenarios = jsonStr;
+                }
+            } catch (error) {
+                showAlert('Failed to load hook scenarios: ' + error.message, 'error');
+            }
+        }
+
+        async function loadLocationPools() {
+            try {
+                const response = await fetch('/api/settings/transformer/location_pools');
+                const data = await response.json();
+
+                if (data.success && data.setting) {
+                    const pools = data.setting.value;
+                    const jsonStr = JSON.stringify(pools, null, 2);
+                    document.getElementById('location-pools-json').value = jsonStr;
+                    originalData.locationPools = jsonStr;
+                }
+            } catch (error) {
+                showAlert('Failed to load location pools: ' + error.message, 'error');
+            }
+        }
+
+        async function loadCameraAngles() {
+            try {
+                const response = await fetch('/api/settings/transformer/camera_angles');
+                const data = await response.json();
+
+                if (data.success && data.setting) {
+                    const angles = data.setting.value;
+                    const jsonStr = JSON.stringify(angles, null, 2);
+                    document.getElementById('camera-angles-json').value = jsonStr;
+                    originalData.cameraAngles = jsonStr;
+                }
+            } catch (error) {
+                showAlert('Failed to load camera angles: ' + error.message, 'error');
+            }
+        }
+
+        async function loadPatternInterrupts() {
+            try {
+                const response = await fetch('/api/settings/transformer/pattern_interrupts');
+                const data = await response.json();
+
+                if (data.success && data.setting) {
+                    const interrupts = data.setting.value;
+                    const jsonStr = JSON.stringify(interrupts, null, 2);
+                    document.getElementById('pattern-interrupts-json').value = jsonStr;
+                    originalData.patternInterrupts = jsonStr;
+                }
+            } catch (error) {
+                showAlert('Failed to load pattern interrupts: ' + error.message, 'error');
+            }
+        }
+
         // Save Gemini prompt
         document.getElementById('gemini-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -655,6 +850,158 @@
             }
         });
 
+        // Save hook generator prompt
+        document.getElementById('save-hook-prompt').addEventListener('click', async () => {
+            const prompt = document.getElementById('hook-generator-prompt').value;
+
+            try {
+                const response = await fetch('/api/settings/openai_prompt/hook_generator', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ value: { prompt: prompt } })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showAlert('Hook generator prompt saved successfully!');
+                    originalData.hookPrompt = prompt;
+                } else {
+                    showAlert('Failed to save: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
+        });
+
+        // Save script generator prompt
+        document.getElementById('save-script-prompt').addEventListener('click', async () => {
+            const prompt = document.getElementById('script-generator-prompt').value;
+
+            try {
+                const response = await fetch('/api/settings/openai_prompt/scene_script_generator', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ value: { prompt: prompt } })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showAlert('Script generator prompt saved successfully!');
+                    originalData.scriptPrompt = prompt;
+                } else {
+                    showAlert('Failed to save: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
+        });
+
+        // Save hook scenarios
+        document.getElementById('save-hook-scenarios').addEventListener('click', async () => {
+            const jsonStr = document.getElementById('hook-scenarios-json').value;
+
+            try {
+                const scenarios = JSON.parse(jsonStr);
+
+                const response = await fetch('/api/settings/transformer/hook_scenarios', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ value: scenarios })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showAlert('Hook scenarios saved successfully!');
+                    originalData.hookScenarios = jsonStr;
+                } else {
+                    showAlert('Failed to save: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
+        });
+
+        // Save location pools
+        document.getElementById('save-location-pools').addEventListener('click', async () => {
+            const jsonStr = document.getElementById('location-pools-json').value;
+
+            try {
+                const pools = JSON.parse(jsonStr);
+
+                const response = await fetch('/api/settings/transformer/location_pools', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ value: pools })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showAlert('Location pools saved successfully!');
+                    originalData.locationPools = jsonStr;
+                } else {
+                    showAlert('Failed to save: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
+        });
+
+        // Save camera angles
+        document.getElementById('save-camera-angles').addEventListener('click', async () => {
+            const jsonStr = document.getElementById('camera-angles-json').value;
+
+            try {
+                const angles = JSON.parse(jsonStr);
+
+                const response = await fetch('/api/settings/transformer/camera_angles', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ value: angles })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showAlert('Camera angles saved successfully!');
+                    originalData.cameraAngles = jsonStr;
+                } else {
+                    showAlert('Failed to save: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
+        });
+
+        // Save pattern interrupts
+        document.getElementById('save-pattern-interrupts').addEventListener('click', async () => {
+            const jsonStr = document.getElementById('pattern-interrupts-json').value;
+
+            try {
+                const interrupts = JSON.parse(jsonStr);
+
+                const response = await fetch('/api/settings/transformer/pattern_interrupts', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ value: interrupts })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showAlert('Pattern interrupts saved successfully!');
+                    originalData.patternInterrupts = jsonStr;
+                } else {
+                    showAlert('Failed to save: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
+        });
+
         // Reset buttons
         document.getElementById('reset-gemini').addEventListener('click', () => {
             if (originalData.gemini) {
@@ -673,10 +1020,48 @@
             showAlert('Reset to last saved version', 'success');
         });
 
-        // Initialize
+        // Reset OpenAI prompts
+        document.getElementById('reset-hook-prompt').addEventListener('click', () => {
+            loadHookPrompt();
+            showAlert('Reset to last saved version', 'success');
+        });
+
+        document.getElementById('reset-script-prompt').addEventListener('click', () => {
+            loadScriptPrompt();
+            showAlert('Reset to last saved version', 'success');
+        });
+
+        // Reset transformer settings
+        document.getElementById('reset-hook-scenarios').addEventListener('click', () => {
+            loadHookScenarios();
+            showAlert('Reset to last saved version', 'success');
+        });
+
+        document.getElementById('reset-location-pools').addEventListener('click', () => {
+            loadLocationPools();
+            showAlert('Reset to last saved version', 'success');
+        });
+
+        document.getElementById('reset-camera-angles').addEventListener('click', () => {
+            loadCameraAngles();
+            showAlert('Reset to last saved version', 'success');
+        });
+
+        document.getElementById('reset-pattern-interrupts').addEventListener('click', () => {
+            loadPatternInterrupts();
+            showAlert('Reset to last saved version', 'success');
+        });
+
+        // Initialize - Load all settings
         loadGeminiPrompt();
         loadAggressionPreset('soft');
         loadSoraConfig();
+        loadHookPrompt();
+        loadScriptPrompt();
+        loadHookScenarios();
+        loadLocationPools();
+        loadCameraAngles();
+        loadPatternInterrupts();
     </script>
 </body>
 </html>
