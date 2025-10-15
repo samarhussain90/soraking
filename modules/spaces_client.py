@@ -30,7 +30,8 @@ class SpacesClient:
         self.region = region
         self.bucket_name = bucket_name
         self.endpoint_url = f'https://{region}.digitaloceanspaces.com'
-        self.cdn_url = f'https://{bucket_name}.{region}.cdn.digitaloceanspaces.com'
+        # Use direct endpoint URL instead of CDN (CDN may require explicit enablement)
+        self.public_url = f'https://{bucket_name}.{region}.digitaloceanspaces.com'
 
         # Initialize S3 client
         self.client = boto3.client(
@@ -97,8 +98,8 @@ class SpacesClient:
             ExtraArgs=extra_args
         )
 
-        # Return CDN URL
-        return f"{self.cdn_url}/{remote_path}"
+        # Return public URL
+        return f"{self.public_url}/{remote_path}"
 
     def download_video(
         self,
@@ -150,8 +151,8 @@ class SpacesClient:
         return [obj['Key'] for obj in response['Contents']]
 
     def get_public_url(self, remote_path: str) -> str:
-        """Get public CDN URL for a file"""
-        return f"{self.cdn_url}/{remote_path}"
+        """Get public URL for a file"""
+        return f"{self.public_url}/{remote_path}"
 
     def generate_presigned_url(
         self,
