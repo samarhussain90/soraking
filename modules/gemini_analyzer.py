@@ -9,6 +9,7 @@ from typing import Dict, List, Optional
 import google.generativeai as genai
 
 from config import Config
+from modules.settings_manager import get_settings_manager
 
 
 class GeminiVideoAnalyzer:
@@ -147,8 +148,63 @@ class GeminiVideoAnalyzer:
         # Upload video
         video_file = self.upload_video(video_path)
 
-        # Comprehensive analysis prompt
-        prompt = """
+        # Load analysis prompt from settings
+        try:
+            settings_manager = get_settings_manager()
+            prompt = settings_manager.get_gemini_prompt()
+
+            if not prompt:
+                # Fallback to default prompt if settings not available
+                print("⚠ Could not load prompt from settings, using default")
+                prompt = self._get_default_prompt()
+        except Exception as e:
+            print(f"⚠ Settings error: {e}, using default prompt")
+            prompt = self._get_default_prompt()
+
+        print("Analyzing video with Gemini 2.5...")
+        response = self.model.generate_content(
+            [video_file, prompt],
+            generation_config=genai.GenerationConfig(
+                temperature=0.2,  # Low temperature for consistency
+            )
+        )
+
+        print("Analysis complete!")
+
+        # Parse JSON response
+        try:
+            # Extract JSON from response
+            response_text = response.text
+
+            # Find JSON in response (might be wrapped in markdown)
+            if "```json" in response_text:
+                json_start = response_text.find("```json") + 7
+                json_end = response_text.find("```", json_start)
+                response_text = response_text[json_start:json_end]
+            elif "```" in response_text:
+                json_start = response_text.find("```") + 3
+                json_end = response_text.find("```", json_start)
+                response_text = response_text[json_start:json_end]
+
+            analysis = json.loads(response_text.strip())
+
+        except json.JSONDecodeError as e:
+            print(f"Failed to parse JSON, saving raw response")
+            analysis = {
+                "raw_response": response.text,
+                "error": str(e)
+            }
+
+        return analysis
+
+    def _get_default_prompt(self) -> str:
+        """
+        Get default analysis prompt (fallback)
+
+        Returns:
+            Default system prompt
+        """
+        return """
         Analyze this advertising video in extreme detail. I need a comprehensive breakdown to recreate its structure.
 
         CRITICAL: You MUST break the video into MULTIPLE scenes, each NO LONGER than 12 seconds.
@@ -251,42 +307,6 @@ class GeminiVideoAnalyzer:
         Include exact timestamps for everything.
         Analyze what makes this ad effective from a marketing psychology perspective.
         """
-
-        print("Analyzing video with Gemini 2.5...")
-        response = self.model.generate_content(
-            [video_file, prompt],
-            generation_config=genai.GenerationConfig(
-                temperature=0.2,  # Low temperature for consistency
-            )
-        )
-
-        print("Analysis complete!")
-
-        # Parse JSON response
-        try:
-            # Extract JSON from response
-            response_text = response.text
-
-            # Find JSON in response (might be wrapped in markdown)
-            if "```json" in response_text:
-                json_start = response_text.find("```json") + 7
-                json_end = response_text.find("```", json_start)
-                response_text = response_text[json_start:json_end]
-            elif "```" in response_text:
-                json_start = response_text.find("```") + 3
-                json_end = response_text.find("```", json_start)
-                response_text = response_text[json_start:json_end]
-
-            analysis = json.loads(response_text.strip())
-
-        except json.JSONDecodeError as e:
-            print(f"Failed to parse JSON, saving raw response")
-            analysis = {
-                "raw_response": response.text,
-                "error": str(e)
-            }
-
-        return analysis
 
     def save_analysis(self, analysis: Dict, output_path: Optional[str] = None) -> str:
         """

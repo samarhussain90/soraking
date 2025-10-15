@@ -6,16 +6,26 @@ import json
 from pathlib import Path
 from typing import Dict, List
 from config import Config
+from modules.settings_manager import get_settings_manager
 
 
 class AggressionVariantGenerator:
     """Generates variations of ads with different aggression/energy levels"""
 
     def __init__(self):
-        """Load aggression presets"""
-        presets_path = Config.TEMPLATES_DIR / 'aggression_presets.json'
-        with open(presets_path, 'r') as f:
-            self.presets = json.load(f)
+        """Load aggression presets from settings"""
+        try:
+            settings_manager = get_settings_manager()
+            self.presets = settings_manager.get_aggression_presets()
+
+            # Verify we got all 4 presets
+            required_levels = ['soft', 'medium', 'aggressive', 'ultra']
+            if not all(level in self.presets for level in required_levels):
+                print("⚠ Missing presets in settings, loading from fallback")
+                self.presets = self._get_default_presets()
+        except Exception as e:
+            print(f"⚠ Settings error: {e}, loading default presets")
+            self.presets = self._get_default_presets()
 
     def generate_variants(self, analysis: Dict) -> List[Dict]:
         """
@@ -166,6 +176,68 @@ class AggressionVariantGenerator:
         
         # Fallback to primary emotion keyword
         return emotion_keywords[0] if emotion_keywords else 'confident'
+
+    def _get_default_presets(self) -> Dict:
+        """
+        Get default aggression presets (fallback)
+
+        Returns:
+            Dictionary of default presets
+        """
+        return {
+            "soft": {
+                "name": "Soft/Consultative",
+                "description": "Calm, educational, friendly approach",
+                "lighting": "Soft, warm, natural, gentle shadows",
+                "tone": "Friendly, educational, calm, reassuring",
+                "pacing": "Slower, thoughtful pauses, deliberate",
+                "camera_movement": "Gentle, smooth movements, comfortable distance",
+                "music": "Ambient, subtle, non-intrusive background",
+                "energy_level": "Low-medium, relaxed, conversational",
+                "color_palette": "Warm tones, soft pastels, inviting",
+                "transitions": "Slow fades, gentle dissolves",
+                "emotion_keywords": ["calm", "peaceful", "thoughtful", "gentle", "reassuring"]
+            },
+            "medium": {
+                "name": "Medium/Professional",
+                "description": "Confident, direct, balanced approach",
+                "lighting": "Balanced, clean, professional, clear definition",
+                "tone": "Confident, direct, clear, authoritative",
+                "pacing": "Moderate, steady rhythm, measured",
+                "camera_movement": "Standard movements, eye-level, stable",
+                "music": "Modern, present but not dominating, professional",
+                "energy_level": "Medium, professional, focused",
+                "color_palette": "Balanced colors, professional tones, crisp",
+                "transitions": "Clean cuts, simple transitions",
+                "emotion_keywords": ["confident", "professional", "clear", "focused", "authoritative"]
+            },
+            "aggressive": {
+                "name": "Aggressive/Urgent",
+                "description": "Urgent, intense, high-energy approach",
+                "lighting": "High contrast, dramatic, bold shadows",
+                "tone": "Urgent, intense, high energy, compelling",
+                "pacing": "Faster cuts, rapid delivery, momentum",
+                "camera_movement": "Dynamic movements, tight shots, energetic",
+                "music": "Driving, bold, attention-grabbing, pulsing",
+                "energy_level": "High, intense, urgent",
+                "color_palette": "Bold colors, high saturation, dramatic",
+                "transitions": "Quick cuts, dynamic transitions",
+                "emotion_keywords": ["urgent", "intense", "dynamic", "powerful", "compelling"]
+            },
+            "ultra": {
+                "name": "Ultra-Aggressive/Disruptive",
+                "description": "Confrontational, bold, impossible to ignore",
+                "lighting": "Bold, high energy, vibrant, extreme contrast",
+                "tone": "Confrontational, challenging, provocative, explosive",
+                "pacing": "Rapid cuts, no pause, constant momentum, relentless",
+                "camera_movement": "Handheld feel, fast zooms, intense, chaotic energy",
+                "music": "Loud, aggressive, overwhelming, can't ignore",
+                "energy_level": "Maximum, explosive, overwhelming",
+                "color_palette": "Vibrant, extreme saturation, shocking",
+                "transitions": "Jump cuts, smash cuts, aggressive",
+                "emotion_keywords": ["explosive", "confrontational", "shocking", "disruptive", "overwhelming"]
+            }
+        }
 
     def save_variants(self, variants: List[Dict], base_filename: str = None) -> List[str]:
         """

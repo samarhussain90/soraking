@@ -7,8 +7,8 @@
         "name": "web",
         "dockerfile_path": "Dockerfile",
         "github": {
-          "repo": "soraking/soraking",
-          "branch": "main",
+          "repo": "samarhussain90/soraking",
+          "branch": "master",
           "deploy_on_push": true
         },
         "http_port": 8080,

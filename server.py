@@ -16,6 +16,7 @@ from ad_cloner import AdCloner
 from modules.logger import PipelineLogger, get_logger
 from modules.supabase_client import SupabaseClient
 from modules.spaces_client import SpacesClient
+from modules.settings_manager import get_settings_manager
 
 app = Flask(__name__, static_folder='frontend', static_url_path='')
 app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024  # 500MB max file size
@@ -447,6 +448,143 @@ def broadcast_event(session_id: str, event: dict):
         'session_id': session_id,
         'event': event
     }, room=session_id)
+
+
+# Settings Management Endpoints
+
+@app.route('/settings')
+def settings_page():
+    """Serve settings page"""
+    return send_from_directory('frontend', 'settings.html')
+
+
+@app.route('/api/settings', methods=['GET'])
+def get_all_settings():
+    """Get all settings"""
+    try:
+        settings_manager = get_settings_manager()
+        settings = settings_manager.get_all_settings()
+        return jsonify({
+            'success': True,
+            'settings': settings
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/settings/<category>', methods=['GET'])
+def get_settings_by_category(category):
+    """Get all settings for a category"""
+    try:
+        settings_manager = get_settings_manager()
+        settings = settings_manager.get_settings_by_category(category)
+        return jsonify({
+            'success': True,
+            'category': category,
+            'settings': settings
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/settings/<category>/<key>', methods=['GET'])
+def get_setting(category, key):
+    """Get a specific setting"""
+    try:
+        settings_manager = get_settings_manager()
+        setting = settings_manager.get_setting(category, key, use_cache=False)
+
+        if setting:
+            return jsonify({
+                'success': True,
+                'setting': setting
+            })
+        else:
+            return jsonify({'error': 'Setting not found'}), 404
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/settings/<category>/<key>', methods=['PUT'])
+def update_setting(category, key):
+    """Update a setting"""
+    try:
+        data = request.json
+        value = data.get('value')
+        description = data.get('description')
+
+        if value is None:
+            return jsonify({'error': 'value required'}), 400
+
+        settings_manager = get_settings_manager()
+        success = settings_manager.update_setting(category, key, value, description)
+
+        if success:
+            return jsonify({
+                'success': True,
+                'message': f'Setting {category}:{key} updated'
+            })
+        else:
+            return jsonify({'error': 'Update failed'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/settings/<category>/<key>', methods=['POST'])
+def create_setting(category, key):
+    """Create a new setting"""
+    try:
+        data = request.json
+        value = data.get('value')
+        description = data.get('description')
+
+        if value is None:
+            return jsonify({'error': 'value required'}), 400
+
+        settings_manager = get_settings_manager()
+        success = settings_manager.create_setting(category, key, value, description)
+
+        if success:
+            return jsonify({
+                'success': True,
+                'message': f'Setting {category}:{key} created'
+            })
+        else:
+            return jsonify({'error': 'Creation failed'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/settings/<category>/<key>', methods=['DELETE'])
+def delete_setting(category, key):
+    """Delete a setting"""
+    try:
+        settings_manager = get_settings_manager()
+        success = settings_manager.delete_setting(category, key)
+
+        if success:
+            return jsonify({
+                'success': True,
+                'message': f'Setting {category}:{key} deleted'
+            })
+        else:
+            return jsonify({'error': 'Deletion failed'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/settings/cache/clear', methods=['POST'])
+def clear_settings_cache():
+    """Clear settings cache"""
+    try:
+        settings_manager = get_settings_manager()
+        settings_manager.clear_cache()
+        return jsonify({
+            'success': True,
+            'message': 'Cache cleared'
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 if __name__ == '__main__':
