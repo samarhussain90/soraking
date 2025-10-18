@@ -3,179 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ad Cloner Platform</title>
-    <link rel="stylesheet" href="styles.css?v=3">
+    <title>Ad Cloner Studio</title>
+    <link rel="stylesheet" href="styles.css?v=4">
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1>🎬 Ad Cloner Platform</h1>
-            <p>Reverse-engineer winning ads with AI-powered variations</p>
-            <div>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🎬</span>
+                <span class="logo-text">Ad Cloner Studio</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">
+                <span class="nav-icon">⚡</span>
+                <span class="nav-text">Generate</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">Analytics</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Library</span>
+            </a>
+            <a href="#" class="nav-item">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-text">Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="status-indicator">
+                <div class="connection-dot connected" id="connection-dot"></div>
+                <span class="status-text" id="connection-text">Connected</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="top-bar-left">
+                <h1 class="page-title">Generate New Variant</h1>
+                <p class="page-subtitle">AI-powered ad variations at scale</p>
+            </div>
+            <div class="top-bar-right">
                 <span class="status-badge status-ok" id="api-status">API Ready</span>
-                <span class="status-badge status-ok" id="ws-status">WebSocket Connected</span>
+                <span class="status-badge status-ok" id="ws-status">Live</span>
             </div>
         </header>
 
-        <!-- Main Grid -->
-        <div class="main-grid">
-            <!-- Start Section -->
-            <section class="card" id="start-section">
-                <h2>📹 Start Cloning</h2>
+        <!-- Content Grid -->
+        <div class="content-wrapper">
+            <!-- Left Column: Input Form -->
+            <section class="form-panel">
+                <div class="panel-header">
+                    <h2>Source Video</h2>
+                    <p class="panel-description">Upload or provide URL to your original ad</p>
+                </div>
 
-                <div class="form-group">
-                    <label for="video-path">Video Path or URL</label>
+                <div class="input-group">
+                    <label class="input-label">Video URL</label>
                     <input
                         type="text"
                         id="video-path"
-                        placeholder="/path/to/video.mp4 or YouTube URL"
+                        class="input-field"
+                        placeholder="https://youtube.com/watch?v=... or /path/to/video.mp4"
                         autocomplete="off"
                     >
                 </div>
 
-                <div class="form-group">
-                    <label>Or Upload Video</label>
-                    <div class="upload-area" id="upload-area">
-                        <input type="file" id="video-file" accept="video/*" style="display: none;">
-                        <div class="upload-content">
-                            <div class="upload-icon">📹</div>
-                            <div class="upload-text">
-                                <strong>Click to upload</strong> or drag and drop
-                            </div>
-                            <div class="upload-hint">MP4, MOV, AVI, MKV, WEBM (max 500MB)</div>
+                <div class="divider">
+                    <span class="divider-text">or</span>
+                </div>
+
+                <div class="upload-zone" id="upload-area">
+                    <input type="file" id="video-file" accept="video/*" style="display: none;">
+                    <div class="upload-content">
+                        <div class="upload-icon">📹</div>
+                        <div class="upload-label">Drop video file here</div>
+                        <div class="upload-hint">or click to browse</div>
+                        <div class="upload-formats">MP4, MOV, AVI, MKV, WEBM • Max 500MB</div>
+                    </div>
+                    <div class="upload-progress" id="upload-progress" style="display: none;">
+                        <div class="progress-track">
+                            <div class="progress-fill" id="upload-progress-fill"></div>
                         </div>
-                        <div class="upload-progress" id="upload-progress" style="display: none;">
-                            <div class="upload-progress-bar">
-                                <div class="upload-progress-fill" id="upload-progress-fill"></div>
-                            </div>
-                            <div class="upload-progress-text" id="upload-progress-text">Uploading...</div>
-                        </div>
+                        <div class="progress-label" id="upload-progress-text">Uploading...</div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Select Variants (default: medium)</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-item">
-                            <input type="checkbox" value="soft" onchange="updateCostEstimate()">
-                            <span>Soft (Calm)</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" value="medium" checked onchange="updateCostEstimate()">
-                            <span>Medium (Balanced)</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" value="aggressive" onchange="updateCostEstimate()">
-                            <span>Aggressive (Urgent)</span>
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" value="ultra" onchange="updateCostEstimate()">
-                            <span>Ultra (Explosive)</span>
-                        </label>
-                    </div>
+                <div class="panel-header" style="margin-top: 40px;">
+                    <h2>Variant Configuration</h2>
+                    <p class="panel-description">Select intensity levels for generation</p>
                 </div>
 
-                <!-- Cost Estimator -->
-                <div class="cost-estimate" id="cost-estimate">
-                    <div class="cost-header">
-                        <span class="cost-label">💰 Estimated Cost</span>
-                        <span class="cost-amount" id="cost-amount">$0.77</span>
+                <div class="variant-selector">
+                    <label class="variant-option">
+                        <input type="checkbox" value="soft" onchange="updateCostEstimate()">
+                        <div class="variant-card">
+                            <div class="variant-header">
+                                <span class="variant-name">Soft</span>
+                                <span class="variant-badge">Calm</span>
+                            </div>
+                            <p class="variant-desc">Subtle variations, minimal changes</p>
+                        </div>
+                    </label>
+
+                    <label class="variant-option">
+                        <input type="checkbox" value="medium" checked onchange="updateCostEstimate()">
+                        <div class="variant-card variant-recommended">
+                            <div class="variant-header">
+                                <span class="variant-name">Medium</span>
+                                <span class="variant-badge variant-badge-primary">Recommended</span>
+                            </div>
+                            <p class="variant-desc">Balanced approach, proven results</p>
+                        </div>
+                    </label>
+
+                    <label class="variant-option">
+                        <input type="checkbox" value="aggressive" onchange="updateCostEstimate()">
+                        <div class="variant-card">
+                            <div class="variant-header">
+                                <span class="variant-name">Aggressive</span>
+                                <span class="variant-badge">Urgent</span>
+                            </div>
+                            <p class="variant-desc">Strong hooks, high energy</p>
+                        </div>
+                    </label>
+
+                    <label class="variant-option">
+                        <input type="checkbox" value="ultra" onchange="updateCostEstimate()">
+                        <div class="variant-card">
+                            <div class="variant-header">
+                                <span class="variant-name">Ultra</span>
+                                <span class="variant-badge">Explosive</span>
+                            </div>
+                            <p class="variant-desc">Maximum impact, bold changes</p>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="cost-panel" id="cost-estimate">
+                    <div class="cost-row">
+                        <div class="cost-info">
+                            <div class="cost-label">Estimated Cost</div>
+                            <div class="cost-breakdown" id="cost-details">1 variant × 4 scenes × 12s</div>
+                        </div>
+                        <div class="cost-value" id="cost-amount">$3.07</div>
                     </div>
-                    <div class="cost-details" id="cost-details">
-                        1 variant × 4 scenes × 12s × $0.064/s = $3.07
-                    </div>
-                    <div class="cost-note">
+                    <div class="cost-note" id="cost-note">
                         Using Sora 2 (regular) • 80% cheaper than Pro
                     </div>
                 </div>
 
-                <button class="btn" id="start-btn" onclick="startCloning()">Start Cloning</button>
+                <button class="btn-primary btn-large" id="start-btn" onclick="startCloning()">
+                    <span>Generate Variants</span>
+                    <span class="btn-arrow">→</span>
+                </button>
             </section>
 
-            <!-- Progress Section -->
-            <section class="card progress-section" id="progress-section">
-                <h2>⚡ Pipeline Progress</h2>
-                <div id="stages-container"></div>
+            <!-- Right Column: Progress & Results -->
+            <section class="results-panel">
+                <!-- Pipeline Progress -->
+                <div class="progress-card" id="progress-section">
+                    <div class="card-header">
+                        <h3>Pipeline Status</h3>
+                    </div>
+                    <div class="card-content" id="stages-container">
+                        <!-- Stages will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Variants Progress -->
+                <div class="progress-card" id="variants-section">
+                    <div class="card-header">
+                        <h3>Variant Generation</h3>
+                    </div>
+                    <div class="variants-grid" id="variants-grid">
+                        <!-- Variants will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Live Logs -->
+                <div class="progress-card" id="logs-section">
+                    <div class="card-header">
+                        <h3>Live Logs</h3>
+                    </div>
+                    <div class="logs-view" id="log-container">
+                        <!-- Logs will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Detailed Logs -->
+                <div class="progress-card" id="detailed-logs-section">
+                    <div class="card-header">
+                        <h3>Detailed Analysis</h3>
+                        <button class="btn-text" onclick="toggleDetailedLogs()" id="detailed-logs-toggle">
+                            Show Details ▼
+                        </button>
+                    </div>
+                    <div class="detailed-content" id="detailed-logs-content" style="display: none;">
+                        <div class="detail-group">
+                            <div class="detail-header" onclick="toggleSection('analysis-detail')">
+                                <span>📊 Original Video Analysis</span>
+                                <span class="detail-toggle">▼</span>
+                            </div>
+                            <div class="detail-body" id="analysis-detail">
+                                <pre id="analysis-data">Waiting for analysis...</pre>
+                            </div>
+                        </div>
+
+                        <div class="detail-group">
+                            <div class="detail-header" onclick="toggleSection('transform-detail')">
+                                <span>🔄 Ad Transformation</span>
+                                <span class="detail-toggle">▼</span>
+                            </div>
+                            <div class="detail-body" id="transform-detail">
+                                <pre id="transform-data">Waiting for transformation...</pre>
+                            </div>
+                        </div>
+
+                        <div class="detail-group">
+                            <div class="detail-header" onclick="toggleSection('prompts-detail')">
+                                <span>✍️ Sora Prompts</span>
+                                <span class="detail-toggle">▼</span>
+                            </div>
+                            <div class="detail-body" id="prompts-detail">
+                                <pre id="prompts-data">Waiting for prompts...</pre>
+                            </div>
+                        </div>
+
+                        <div class="detail-group">
+                            <div class="detail-header" onclick="toggleSection('eval-detail')">
+                                <span>⭐ Evaluation & Rating</span>
+                                <span class="detail-toggle">▼</span>
+                            </div>
+                            <div class="detail-body" id="eval-detail">
+                                <pre id="eval-data">Waiting for evaluation...</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Results -->
+                <div class="progress-card results-section" id="results-section">
+                    <div class="card-header">
+                        <h3>Generated Variants</h3>
+                    </div>
+                    <div class="card-content" id="results-content">
+                        <!-- Results will be inserted here -->
+                    </div>
+                </div>
             </section>
         </div>
-
-        <!-- Variants Progress -->
-        <section class="card progress-section" id="variants-section">
-            <h2>🎨 Variants Generation</h2>
-            <div class="variant-grid" id="variants-grid"></div>
-        </section>
-
-        <!-- Logs -->
-        <section class="card progress-section" id="logs-section">
-            <h2>📋 Live Logs</h2>
-            <div class="log-container" id="log-container"></div>
-        </section>
-
-        <!-- Detailed Logs Viewer -->
-        <section class="card progress-section" id="detailed-logs-section">
-            <h2>
-                🔍 Detailed Logs
-                <button class="btn-toggle" onclick="toggleDetailedLogs()" id="detailed-logs-toggle">
-                    Show Details ▼
-                </button>
-            </h2>
-            <div class="detailed-logs-content" id="detailed-logs-content" style="display: none;">
-                <!-- Analysis -->
-                <div class="detail-section">
-                    <h3 class="detail-header" onclick="toggleSection('analysis-detail')">
-                        📊 Original Video Analysis <span class="toggle-icon">▼</span>
-                    </h3>
-                    <div class="detail-content" id="analysis-detail">
-                        <pre id="analysis-data">Waiting for analysis...</pre>
-                    </div>
-                </div>
-
-                <!-- Transformation -->
-                <div class="detail-section">
-                    <h3 class="detail-header" onclick="toggleSection('transform-detail')">
-                        🔄 Ad Transformation <span class="toggle-icon">▼</span>
-                    </h3>
-                    <div class="detail-content" id="transform-detail">
-                        <pre id="transform-data">Waiting for transformation...</pre>
-                    </div>
-                </div>
-
-                <!-- Sora Prompts -->
-                <div class="detail-section">
-                    <h3 class="detail-header" onclick="toggleSection('prompts-detail')">
-                        ✍️ Sora Prompts (Full Text) <span class="toggle-icon">▼</span>
-                    </h3>
-                    <div class="detail-content" id="prompts-detail">
-                        <pre id="prompts-data">Waiting for prompts...</pre>
-                    </div>
-                </div>
-
-                <!-- Evaluation -->
-                <div class="detail-section">
-                    <h3 class="detail-header" onclick="toggleSection('eval-detail')">
-                        ⭐ Final Evaluation & Rating <span class="toggle-icon">▼</span>
-                    </h3>
-                    <div class="detail-content" id="eval-detail">
-                        <pre id="eval-data">Waiting for evaluation...</pre>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Results -->
-        <section class="card results-section" id="results-section">
-            <h2>✅ Results</h2>
-            <div id="results-content"></div>
-        </section>
-    </div>
-
-    <!-- Connection Status -->
-    <aside class="connection-status">
-        <div class="connection-dot connected" id="connection-dot"></div>
-        <span id="connection-text">Connected</span>
-    </aside>
+    </main>
 
     <script src="app.js"></script>
 </body>
