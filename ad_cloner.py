@@ -11,58 +11,40 @@ from config import Config
 from modules.gemini_analyzer import GeminiVideoAnalyzer
 from modules.sora_transformer import SoraAdTransformer
 from modules.aggression_variants import AggressionVariantGenerator
-from modules.ad_director import AdDirector  # AI-driven scene generation
-from modules.marketing_validator import MarketingValidator  # Conversion optimization
-from modules.sora_prompt_composer import SoraPromptComposer
+from modules.sora_prompt_builder import SoraPromptBuilder
 from modules.sora_client import SoraClient
 from modules.video_assembler import VideoAssembler
 from modules.ad_evaluator import AdEvaluator
 from modules.prompt_validator import PromptValidator
+from modules.utils import normalize_spokesperson
 
 
 class AdCloner:
     """Main orchestrator for ad cloning pipeline"""
 
-    def __init__(self, logger=None):
-        """Initialize all components"""
+    def __init__(self, logger=None, spaces_client=None, session_id=None):
+        """
+        Initialize all components
+
+        Args:
+            logger: Optional logger for web interface
+            spaces_client: Optional SpacesClient for cloud uploads
+            session_id: Optional session ID for organizing uploads
+        """
         print("Initializing Ad Cloner...")
         Config.validate_api_keys()
 
         self.analyzer = GeminiVideoAnalyzer()
         self.transformer = SoraAdTransformer()  # Transform ads for Sora
         self.variant_generator = AggressionVariantGenerator()
-        self.ad_director = AdDirector()  # AI-driven scene generation with OpenAI
-        self.marketing_validator = MarketingValidator()  # Validate & optimize for conversions
-        self.prompt_composer = SoraPromptComposer()  # Converts AI scenes to Sora prompts
+        self.prompt_builder = SoraPromptBuilder()  # Build Sora prompts (active)
         self.prompt_validator = PromptValidator()  # Validate before API calls
-        self.sora_client = SoraClient()
+        self.sora_client = SoraClient(spaces_client=spaces_client, session_id=session_id)
         self.assembler = VideoAssembler()
         self.evaluator = AdEvaluator()  # Evaluate generated ads
         self.logger = logger  # Optional logger for web interface
 
         print("✓ All systems ready\n")
-
-    def _normalize_spokesperson(self, analysis: Dict) -> Dict:
-        """
-        Normalize spokesperson data - handle both dict and list formats
-
-        Gemini sometimes returns spokesperson as a list (when multiple people),
-        sometimes as a dict (when one person). We normalize to always use the first/primary person.
-        """
-        spokesperson = analysis.get('spokesperson', {})
-
-        # If it's a list, take the first spokesperson
-        if isinstance(spokesperson, list):
-            if len(spokesperson) > 0:
-                return spokesperson[0]
-            else:
-                return {}
-        # If it's already a dict, use it
-        elif isinstance(spokesperson, dict):
-            return spokesperson
-        # Fallback to empty dict
-        else:
-            return {}
 
     def clone_ad(self, video_path: str, variants: Optional[List[str]] = None) -> Dict:
         """
@@ -99,7 +81,7 @@ class AdCloner:
                 self.logger.log(LogLevel.VERBOSE, "Video analysis completed", {'analysis_path': analysis_path})
 
             # Extract spokesperson description (normalize list/dict formats)
-            spokesperson = self._normalize_spokesperson(analysis)
+            spokesperson = normalize_spokesperson(analysis)
             spokesperson_desc = spokesperson.get('physical_description', 'person')
             print(f"\nSpokesperson: {spokesperson_desc[:100]}...")
 
@@ -235,9 +217,6 @@ class AdCloner:
             self.logger.log(LogLevel.VERBOSE, "Building prompts directly from transformer scenes (extreme hooks)", {})
 
         try:
-            from modules.sora_prompt_builder import SoraPromptBuilder
-            prompt_builder = SoraPromptBuilder()
-
             variant_prompts = {}
 
             for variant in all_variants:
@@ -251,12 +230,12 @@ class AdCloner:
                 print(f"  🎬 Building {variant['variant_name']} prompts...")
 
                 # Extract spokesperson and script from analysis (normalize spokesperson format)
-                spokesperson = self._normalize_spokesperson(analysis)
+                spokesperson = normalize_spokesperson(analysis)
                 spokesperson_desc = spokesperson.get('physical_description', 'person')
                 full_script = analysis.get('script', {}).get('full_transcript', '')
 
                 # Build prompts using SoraPromptBuilder (handles extreme hooks + actors)
-                composed_prompts = prompt_builder.build_all_scene_prompts(
+                composed_prompts = self.prompt_builder.build_all_scene_prompts(
                     variant,
                     spokesperson_desc,
                     full_script

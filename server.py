@@ -259,8 +259,8 @@ def start_clone():
                 'session_id': session_id
             })
 
-            # Initialize cloner with WebSocket logger
-            cloner = AdCloner(logger=ws_logger)
+            # Initialize cloner with WebSocket logger, spaces_client, and session_id
+            cloner = AdCloner(logger=ws_logger, spaces_client=spaces_client, session_id=session_id)
 
             # Run pipeline (logger integrated)
             results = cloner.clone_ad(video_path, variants)
@@ -330,6 +330,68 @@ def list_session_videos(session_id):
                 })
 
     return jsonify({'videos': videos})
+
+
+@app.route('/api/sessions/<session_id>/generated-videos', methods=['GET'])
+def list_generated_videos(session_id):
+    """List all generated videos (scenes + final) from Spaces for a session"""
+    try:
+        if not spaces_client:
+            return jsonify({'error': 'Spaces client not configured'}), 503
+
+        # List all files for this session from Spaces
+        generated_videos = []
+        final_videos = []
+
+        # Get files from Spaces
+        try:
+            # List files under sessions/{session_id}/
+            files = spaces_client.list_session_files(session_id)
+
+            for file_info in files:
+                file_path = file_info['path']
+                file_url = file_info['url']
+                file_size = file_info.get('size', 0)
+
+                # Categorize by type
+                if '/generated/' in file_path:
+                    # Extract scene info from filename
+                    filename = file_path.split('/')[-1]
+                    generated_videos.append({
+                        'type': 'scene',
+                        'filename': filename,
+                        'url': file_url,
+                        'size_mb': round(file_size / (1024 * 1024), 2) if file_size else 0
+                    })
+                elif '/final/' in file_path:
+                    filename = file_path.split('/')[-1]
+                    # Extract variant from filename
+                    variant = filename.replace('final_', '').replace('.mp4', '')
+                    final_videos.append({
+                        'type': 'final',
+                        'variant': variant,
+                        'filename': filename,
+                        'url': file_url,
+                        'size_mb': round(file_size / (1024 * 1024), 2) if file_size else 0
+                    })
+
+        except Exception as e:
+            print(f"⚠ Error listing Spaces files: {e}")
+            # Fallback to local files if Spaces fails
+            return jsonify({
+                'generated_videos': [],
+                'final_videos': [],
+                'error': 'Could not fetch videos from cloud storage'
+            }), 500
+
+        return jsonify({
+            'generated_videos': sorted(generated_videos, key=lambda x: x['filename']),
+            'final_videos': sorted(final_videos, key=lambda x: x['filename']),
+            'total': len(generated_videos) + len(final_videos)
+        })
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 @app.route('/api/upload', methods=['POST'])

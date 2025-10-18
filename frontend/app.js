@@ -317,7 +317,7 @@ function startPolling(sessionId) {
 }
 
 // Show results
-function showResults(results) {
+async function showResults(results) {
     const section = document.getElementById('results-section');
     const content = document.getElementById('results-content');
 
@@ -327,6 +327,23 @@ function showResults(results) {
     const minutes = Math.floor(elapsed / 60);
     const seconds = Math.floor(elapsed % 60);
 
+    // Fetch generated videos from cloud
+    let generatedVideos = [];
+    let finalVideos = [];
+
+    if (currentSessionId) {
+        try {
+            const response = await fetch(`${API_BASE}/sessions/${currentSessionId}/generated-videos`);
+            if (response.ok) {
+                const data = await response.json();
+                generatedVideos = data.generated_videos || [];
+                finalVideos = data.final_videos || [];
+            }
+        } catch (error) {
+            console.error('Failed to fetch generated videos:', error);
+        }
+    }
+
     content.innerHTML = `
         <div style="margin-bottom: 20px;">
             <p><strong>Status:</strong> ✅ Complete</p>
@@ -334,22 +351,68 @@ function showResults(results) {
             <p><strong>Variants Generated:</strong> ${results.variants_generated.join(', ')}</p>
         </div>
 
-        <h3 style="margin-top: 30px; margin-bottom: 15px;">Generated Ads</h3>
-        <div class="video-grid">
-            ${Object.entries(results.final_ads).map(([variant, path]) => `
-                <div class="video-card">
-                    <h3>${variant} Variant</h3>
-                    <div class="video-preview">
-                        <video controls width="100%" height="100%">
-                            <source src="file://${path}" type="video/mp4">
-                        </video>
+        ${generatedVideos.length > 0 ? `
+            <h3 style="margin-top: 30px; margin-bottom: 15px;">📹 Generated Scene Videos (${generatedVideos.length})</h3>
+            <div class="video-grid">
+                ${generatedVideos.map(video => `
+                    <div class="video-card">
+                        <h3>${video.filename}</h3>
+                        <div class="video-preview">
+                            <video controls width="100%" style="max-height: 200px;">
+                                <source src="${video.url}" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            ${video.size_mb} MB
+                        </div>
+                        <a href="${video.url}" download="${video.filename}" class="btn" style="margin-top: 10px; display: block; text-decoration: none; padding: 10px;">
+                            ⬇️ Download
+                        </a>
                     </div>
-                    <div class="video-info">
-                        <code>${path}</code>
+                `).join('')}
+            </div>
+        ` : ''}
+
+        ${finalVideos.length > 0 ? `
+            <h3 style="margin-top: 30px; margin-bottom: 15px;">🎬 Final Assembled Videos (${finalVideos.length})</h3>
+            <div class="video-grid">
+                ${finalVideos.map(video => `
+                    <div class="video-card">
+                        <h3>${video.variant} Variant</h3>
+                        <div class="video-preview">
+                            <video controls width="100%">
+                                <source src="${video.url}" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            ${video.size_mb} MB
+                        </div>
+                        <a href="${video.url}" download="${video.filename}" class="btn" style="margin-top: 10px; display: block; text-decoration: none; padding: 10px;">
+                            ⬇️ Download
+                        </a>
                     </div>
-                </div>
-            `).join('')}
-        </div>
+                `).join('')}
+            </div>
+        ` : ''}
+
+        ${generatedVideos.length === 0 && finalVideos.length === 0 ? `
+            <div style="margin-top: 30px; padding: 20px; background: #f9fafb; border-radius: 8px; text-align: center;">
+                <p>No videos found in cloud storage. Videos are saved locally.</p>
+                ${results.final_ads ? `
+                    <h3 style="margin-top: 20px; margin-bottom: 15px;">Local Videos</h3>
+                    <div class="video-grid">
+                        ${Object.entries(results.final_ads).map(([variant, path]) => `
+                            <div class="video-card">
+                                <h3>${variant} Variant</h3>
+                                <div class="video-info">
+                                    <code>${path}</code>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                ` : ''}
+            </div>
+        ` : ''}
 
         <div style="margin-top: 30px;">
             <button class="btn" onclick="location.reload()">Clone Another Ad</button>

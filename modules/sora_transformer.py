@@ -5,6 +5,7 @@ Generates ads with DIFFERENT people in each scene (testimonial style)
 import json
 from typing import Dict, List
 from pathlib import Path
+from modules.utils import normalize_spokesperson
 
 
 class SoraAdTransformer:
@@ -247,28 +248,6 @@ class SoraAdTransformer:
         from config import Config
         self.openai_client = OpenAI(api_key=Config.OPENAI_API_KEY)
 
-    def _normalize_spokesperson(self, analysis: Dict) -> Dict:
-        """
-        Normalize spokesperson data - handle both dict and list formats
-
-        Gemini sometimes returns spokesperson as a list (when multiple people),
-        sometimes as a dict (when one person). We normalize to always use the first/primary person.
-        """
-        spokesperson = analysis.get('spokesperson', {})
-
-        # If it's a list, take the first spokesperson
-        if isinstance(spokesperson, list):
-            if len(spokesperson) > 0:
-                return spokesperson[0]
-            else:
-                return {}
-        # If it's already a dict, use it
-        elif isinstance(spokesperson, dict):
-            return spokesperson
-        # Fallback to empty dict
-        else:
-            return {}
-
     def _generate_dynamic_actors(self, analysis: Dict, vertical: str) -> List[Dict]:
         """
         Generate actor profiles dynamically based on original ad analysis
@@ -281,7 +260,7 @@ class SoraAdTransformer:
             List of 3 actor profiles tailored to the ad
         """
         # Extract target demographic hints from analysis (normalize spokesperson format)
-        original_spokesperson = self._normalize_spokesperson(analysis)
+        original_spokesperson = normalize_spokesperson(analysis)
         original_age = original_spokesperson.get('age_range', '30-40')
         script = analysis.get('script', {}).get('full_transcript', '').lower()
 

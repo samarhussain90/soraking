@@ -217,3 +217,40 @@ class SpacesClient:
             'generated': [f for f in all_files if '/generated/' in f],
             'final': [f for f in all_files if '/final/' in f]
         }
+
+    def list_session_files(self, session_id: str) -> list:
+        """
+        List all files for a session with detailed information
+
+        Args:
+            session_id: Pipeline session ID
+
+        Returns:
+            List of dicts with file info (path, url, size)
+        """
+        prefix = f"sessions/{session_id}/"
+
+        try:
+            response = self.client.list_objects_v2(
+                Bucket=self.bucket_name,
+                Prefix=prefix
+            )
+
+            if 'Contents' not in response:
+                return []
+
+            files = []
+            for obj in response['Contents']:
+                file_path = obj['Key']
+                files.append({
+                    'path': file_path,
+                    'url': self.get_public_url(file_path),
+                    'size': obj.get('Size', 0),
+                    'last_modified': obj.get('LastModified')
+                })
+
+            return files
+
+        except Exception as e:
+            print(f"Error listing session files: {e}")
+            return []

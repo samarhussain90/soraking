@@ -15,8 +15,14 @@ from config import Config
 class SoraClient:
     """Client for interacting with Sora API via direct REST calls"""
 
-    def __init__(self):
-        """Initialize OpenAI client and REST session"""
+    def __init__(self, spaces_client=None, session_id=None):
+        """
+        Initialize OpenAI client and REST session
+
+        Args:
+            spaces_client: Optional SpacesClient for cloud uploads
+            session_id: Optional session ID for organizing uploads
+        """
         self.client = OpenAI(api_key=Config.OPENAI_API_KEY)
         self.api_key = Config.OPENAI_API_KEY
         self.base_url = "https://api.openai.com/v1/videos"
@@ -24,6 +30,8 @@ class SoraClient:
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
         }
+        self.spaces_client = spaces_client
+        self.session_id = session_id
 
     def create_video(self, prompt: str, **kwargs) -> Dict:
         """
@@ -135,16 +143,16 @@ class SoraClient:
                 print(f"  Progress: {progress}% [{status['status']}]")
                 time.sleep(poll_interval)
 
-    def download_video(self, video_id: str, output_path: Optional[str] = None) -> str:
+    def download_video(self, video_id: str, output_path: Optional[str] = None) -> Dict:
         """
-        Download completed video
+        Download completed video and optionally upload to Spaces
 
         Args:
             video_id: Video job ID
             output_path: Optional custom output path
 
         Returns:
-            Path to downloaded file
+            Dict with local_path and cloud_url (if uploaded)
         """
         if output_path is None:
             output_path = Config.VIDEOS_DIR / f"{video_id}.mp4"
@@ -165,7 +173,25 @@ class SoraClient:
                 f.write(chunk)
 
         print(f"✓ Saved to: {output_path}")
-        return str(output_path)
+
+        # Upload to Spaces if client available
+        cloud_url = None
+        if self.spaces_client and self.session_id:
+            try:
+                print(f"  Uploading to Spaces...")
+                cloud_url = self.spaces_client.upload_session_video(
+                    self.session_id,
+                    str(output_path),
+                    'generated'
+                )
+                print(f"  ✓ Uploaded: {cloud_url}")
+            except Exception as e:
+                print(f"  ⚠ Spaces upload failed: {e}")
+
+        return {
+            'local_path': str(output_path),
+            'cloud_url': cloud_url
+        }
 
     def generate_scene(self, scene_prompt_data: Dict, output_dir: Optional[Path] = None) -> Dict:
         """
@@ -195,13 +221,14 @@ class SoraClient:
             else:
                 output_path = Config.VIDEOS_DIR / filename
 
-            video_path = self.download_video(job['id'], str(output_path))
+            download_result = self.download_video(job['id'], str(output_path))
 
             return {
                 'scene_number': scene_number,
                 'job_id': job['id'],
                 'status': 'completed',
-                'video_path': video_path
+                'video_path': download_result['local_path'],
+                'cloud_url': download_result.get('cloud_url')
             }
         else:
             return {
@@ -260,14 +287,15 @@ class SoraClient:
 
                     # Download video
                     filename = f"scene_{job['scene_number']:02d}.mp4"
-                    video_path = self.download_video(
+                    download_result = self.download_video(
                         job['job_id'],
                         str(variant_dir / filename)
                     )
 
                     completed_videos.append({
                         'scene_number': job['scene_number'],
-                        'video_path': video_path,
+                        'video_path': download_result['local_path'],
+                        'cloud_url': download_result.get('cloud_url'),
                         'job_id': job['job_id']
                     })
 
