@@ -55,7 +55,8 @@ class Scene1Generator:
 
     def generate_scene1(self, video_path: str, aggression_level: str = 'medium', 
                        product_script: str = '', output_dimension: str = '720x1280', 
-                       sora_model: str = 'sora-2') -> Dict:
+                       sora_model: str = 'sora-2', motion_description: str = '', 
+                       image_script: str = '') -> Dict:
         """
         Complete Scene 1 generation pipeline - SINGLE SCENE
 
@@ -107,6 +108,46 @@ class Scene1Generator:
             print(f"✓ Script-only mode ready")
             spokesperson_desc = analysis['spokesperson']['physical_description']
             print(f"\nSpokesperson: {spokesperson_desc}")
+        elif video_path.startswith('image-to-video:'):
+            print("\n[1/4] Using image-to-video mode...")
+            if self.logger:
+                from modules.logger import LogLevel
+                self.logger.start_stage('analysis')
+                self.logger.log(LogLevel.INFO, "Using image-to-video mode", {
+                    'image_url': video_path.replace('image-to-video:', ''),
+                    'motion_description': motion_description[:100] + '...' if motion_description else ''
+                })
+            
+            # Extract image URL from video_path
+            image_url = video_path.replace('image-to-video:', '')
+            
+            # Create a mock analysis for image-to-video mode
+            analysis = {
+                'script': image_script or motion_description,
+                'spokesperson': {
+                    'physical_description': 'animated product or object',
+                    'age_range': 'any',
+                    'gender': 'any'
+                },
+                'scenes': [
+                    {
+                        'timestamp': '00:00-00:12',
+                        'duration': 12,
+                        'purpose': 'hook',
+                        'description': f'Animated image: {motion_description}',
+                        'image_url': image_url,
+                        'motion_description': motion_description
+                    }
+                ],
+                'vertical': 'general',
+                'duration': 12,
+                'image_to_video': True
+            }
+            analysis_path = None
+            print(f"✓ Image-to-video mode ready")
+            print(f"Image URL: {image_url}")
+            print(f"Motion: {motion_description}")
+            spokesperson_desc = analysis['spokesperson']['physical_description']
         else:
             print("\n[1/4] Analyzing video with Gemini 2.5...")
             if self.logger:
@@ -450,7 +491,12 @@ class Scene1Generator:
                     })
 
                 try:
-                    result = self.sora_client.generate_variant_parallel(prompts, variant_level, sora_model, output_dimension)
+                    # Get image URL for image-to-video mode
+                    image_url = None
+                    if analysis.get('image_to_video') and analysis.get('scenes'):
+                        image_url = analysis['scenes'][0].get('image_url')
+                    
+                    result = self.sora_client.generate_variant_parallel(prompts, variant_level, sora_model, output_dimension, image_url)
                     generated_variants[variant_level] = result
 
                     # Process and save videos to Spaces if generation succeeded

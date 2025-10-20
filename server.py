@@ -187,6 +187,8 @@ def start_clone():
     output_dimension = data.get('output_dimension', '720x1280')  # Default to TikTok format
     sora_model = data.get('sora_model', 'sora-2')  # Default to Sora 2 regular
     input_method = data.get('input_method', 'video-url')  # Input method used
+    motion_description = data.get('motion_description', '')  # For image-to-video
+    image_script = data.get('image_script', '')  # For image-to-video
 
     # Validate input based on method
     if input_method == 'script-only':
@@ -194,6 +196,13 @@ def start_clone():
             return jsonify({'error': 'product_script required for script-only mode'}), 400
         # For script-only mode, we'll create a dummy video path
         video_path = 'script-only-mode'
+    elif input_method == 'image-upload':
+        if not video_path:
+            return jsonify({'error': 'video_path required for image upload'}), 400
+        if not motion_description:
+            return jsonify({'error': 'motion_description required for image-to-video'}), 400
+        # Convert image URL to image-to-video format
+        video_path = f'image-to-video:{video_path}'
     else:
         if not video_path:
             return jsonify({'error': 'video_path required'}), 400
@@ -304,7 +313,7 @@ def start_clone():
             )
 
             # Run pipeline (logger integrated)
-            results = cloner.generate_scene1(video_path, aggression_level, product_script, output_dimension, sora_model)
+            results = cloner.generate_scene1(video_path, aggression_level, product_script, output_dimension, sora_model, motion_description, image_script)
 
             # Log completion
             ws_logger.complete_pipeline(results)

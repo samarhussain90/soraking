@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeWebSocket();
     checkAPIHealth();
     initializeUpload();
+    initializeImageUpload();
     updateCostEstimate(); // Initialize cost estimate
     updateAggressionLevel(); // Initialize aggression slider
     initializeInputMethods(); // Initialize input method tabs
@@ -156,6 +157,28 @@ async function startCloning() {
         }
         // For script-only, we'll use a placeholder video path
         videoPath = 'script-only-mode';
+    } else if (inputMethod === 'image-upload') {
+        const fileInput = document.getElementById('image-file');
+        const motionDescription = document.getElementById('motion-description').value.trim();
+        
+        if (!fileInput.files || fileInput.files.length === 0) {
+            alert('Please select an image file to upload');
+            return;
+        }
+        if (!motionDescription) {
+            alert('Please describe the motion you want for the image');
+            return;
+        }
+        
+        // Handle image upload
+        videoPath = await handleImageUpload();
+        if (!videoPath) {
+            alert('Image upload failed');
+            return;
+        }
+        
+        // Get optional script
+        productScript = document.getElementById('image-script').value.trim();
     }
 
     // Get aggression level from slider
@@ -173,17 +196,27 @@ async function startCloning() {
     btn.textContent = 'Starting...';
 
     try {
+        // Prepare request body
+        const requestBody = { 
+            video_path: videoPath, 
+            aggression_level: aggressionLevel,
+            product_script: productScript,
+            output_dimension: outputDimension,
+            sora_model: soraModel,
+            input_method: inputMethod
+        };
+        
+        // Add image-specific parameters
+        if (inputMethod === 'image-upload') {
+            const motionDescription = document.getElementById('motion-description').value.trim();
+            requestBody.motion_description = motionDescription;
+            requestBody.image_script = productScript; // Use the image script as the script
+        }
+
         const response = await fetch(`${API_BASE}/clone`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                video_path: videoPath, 
-                aggression_level: aggressionLevel,
-                product_script: productScript,
-                output_dimension: outputDimension,
-                sora_model: soraModel,
-                input_method: inputMethod
-            })
+            body: JSON.stringify(requestBody)
         });
 
         const data = await response.json();
@@ -1016,6 +1049,124 @@ function getTimeAgo(date) {
     if (weeks < 4) return `${weeks}w ago`;
 
     return date.toLocaleDateString();
+}
+
+// Handle video file upload
+async function handleFileUpload() {
+    const fileInput = document.getElementById('video-file');
+    const file = fileInput.files[0];
+    
+    if (!file) {
+        return null;
+    }
+    
+    try {
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        const response = await fetch(`${API_BASE}/upload`, {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        return data.file_url;
+    } catch (error) {
+        console.error('Upload failed:', error);
+        return null;
+    }
+}
+
+// Initialize image upload functionality
+function initializeImageUpload() {
+    const imageUploadArea = document.getElementById('image-upload-area');
+    const imageFileInput = document.getElementById('image-file');
+    
+    if (!imageUploadArea || !imageFileInput) return;
+    
+    // Click to upload
+    imageUploadArea.addEventListener('click', () => {
+        imageFileInput.click();
+    });
+    
+    // Drag and drop
+    imageUploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        imageUploadArea.style.background = 'rgba(59, 130, 246, 0.1)';
+    });
+    
+    imageUploadArea.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        imageUploadArea.style.background = '';
+    });
+    
+    imageUploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        imageUploadArea.style.background = '';
+        
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            const file = files[0];
+            if (file.type.startsWith('image/')) {
+                imageFileInput.files = files;
+                updateImagePreview(file);
+            } else {
+                alert('Please select an image file (JPG, PNG, WEBP)');
+            }
+        }
+    });
+    
+    // File input change
+    imageFileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            updateImagePreview(e.target.files[0]);
+        }
+    });
+}
+
+// Update image preview
+function updateImagePreview(file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const uploadContent = document.querySelector('#image-upload-area .upload-content');
+        if (uploadContent) {
+            uploadContent.innerHTML = `
+                <div style="text-align: center;">
+                    <img src="${e.target.result}" style="max-width: 200px; max-height: 200px; border-radius: 8px; margin-bottom: 10px;">
+                    <div style="font-size: 14px; color: #666;">${file.name}</div>
+                    <div style="font-size: 12px; color: #999;">Click to change image</div>
+                </div>
+            `;
+        }
+    };
+    reader.readAsDataURL(file);
+}
+
+// Handle image file upload
+async function handleImageUpload() {
+    const fileInput = document.getElementById('image-file');
+    const file = fileInput.files[0];
+    
+    if (!file) {
+        return null;
+    }
+    
+    try {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('type', 'image');
+        
+        const response = await fetch(`${API_BASE}/upload`, {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        return data.file_url;
+    } catch (error) {
+        console.error('Image upload failed:', error);
+        return null;
+    }
 }
 
 // Export functions

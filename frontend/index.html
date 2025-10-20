@@ -83,6 +83,10 @@
                         <span class="tab-icon">📝</span>
                         <span class="tab-text">Script Only</span>
                     </button>
+                    <button type="button" class="method-tab" data-method="image-upload" onclick="switchInputMethod('image-upload')">
+                        <span class="tab-icon">🖼️</span>
+                        <span class="tab-text">Image Upload</span>
+                    </button>
                 </div>
 
                 <!-- Video URL Input -->
@@ -131,6 +135,47 @@
                             style="resize: vertical; min-height: 120px;"
                         ></textarea>
                         <div class="input-hint">Provide the full script for your product or service</div>
+                    </div>
+                </div>
+
+                <!-- Image Upload Input -->
+                <div id="image-upload-input" class="input-method-content">
+                    <div class="upload-zone" id="image-upload-area">
+                        <input type="file" id="image-file" accept="image/*" style="display: none;">
+                        <div class="upload-content">
+                            <div class="upload-icon">🖼️</div>
+                            <div class="upload-label">Drop image file here</div>
+                            <div class="upload-hint">or click to browse</div>
+                            <div class="upload-formats">JPG, PNG, WEBP • Max 50MB</div>
+                        </div>
+                        <div class="upload-progress" id="image-upload-progress" style="display: none;">
+                            <div class="progress-track">
+                                <div class="progress-fill" id="image-upload-progress-fill"></div>
+                            </div>
+                            <div class="progress-label" id="image-upload-progress-text">Uploading...</div>
+                        </div>
+                    </div>
+                    <div class="input-group" style="margin-top: 20px;">
+                        <label class="input-label">Motion Description</label>
+                        <textarea
+                            id="motion-description"
+                            class="input-field"
+                            rows="4"
+                            placeholder="Describe the motion you want (e.g., 'zoom in slowly', 'pan left to right', 'rotate 360 degrees')..."
+                            style="resize: vertical; min-height: 80px;"
+                        ></textarea>
+                        <div class="input-hint">Describe how you want the image to move and animate</div>
+                    </div>
+                    <div class="input-group" style="margin-top: 15px;">
+                        <label class="input-label">Product Script (Optional)</label>
+                        <textarea
+                            id="image-script"
+                            class="input-field"
+                            rows="3"
+                            placeholder="Optional: Add a script to overlay on the animated image..."
+                            style="resize: vertical; min-height: 60px;"
+                        ></textarea>
+                        <div class="input-hint">Optional script to overlay on the animated image</div>
                     </div>
                 </div>
 

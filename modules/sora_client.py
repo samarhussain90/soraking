@@ -33,7 +33,7 @@ class SoraClient:
         self.spaces_client = spaces_client
         self.session_id = session_id
 
-    def create_video(self, prompt: str, model: str = None, size: str = None, **kwargs) -> Dict:
+    def create_video(self, prompt: str, model: str = None, size: str = None, image_url: str = None, **kwargs) -> Dict:
         """
         Create a single video generation job
 
@@ -41,6 +41,7 @@ class SoraClient:
             prompt: Sora prompt
             model: Sora model to use ('sora-2' or 'sora-2-pro')
             size: Video dimensions (e.g., '720x1280', '1280x720')
+            image_url: Optional image URL for image-to-video generation
             **kwargs: Additional parameters (seconds)
 
         Returns:
@@ -52,6 +53,10 @@ class SoraClient:
             'size': size or Config.SORA_RESOLUTION,
             'seconds': kwargs.get('seconds', Config.SORA_DURATION)
         }
+        
+        # Add image input for image-to-video generation
+        if image_url:
+            params['image'] = image_url
 
         print(f"Creating video job... ({params['model']}, {params['size']}, {params['seconds']}s)")
         print(f"▸ API URL: {self.base_url}")
@@ -241,7 +246,7 @@ class SoraClient:
             }
 
     def generate_variant_parallel(self, scene_prompts: List[Dict], variant_name: str, 
-                                 model: str = None, size: str = None) -> Dict:
+                                 model: str = None, size: str = None, image_url: str = None) -> Dict:
         """
         Generate all scenes for a variant in parallel
 
@@ -267,7 +272,7 @@ class SoraClient:
         jobs = []
         for scene_data in scene_prompts:
             print(f"\nStarting Scene {scene_data.get('scene_number')}...")
-            job = self.create_video(scene_data['prompt'], model=model, size=size)
+            job = self.create_video(scene_data['prompt'], model=model, size=size, image_url=image_url)
             jobs.append({
                 'job_id': job['id'],
                 'scene_number': scene_data.get('scene_number'),
