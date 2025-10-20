@@ -17,6 +17,7 @@ from modules.video_assembler import VideoAssembler
 from modules.ad_evaluator import AdEvaluator
 from modules.prompt_validator import PromptValidator
 from modules.cost_optimizer import CostOptimizer
+from modules.ab_testing import ABTestingSuite
 from modules.utils import normalize_spokesperson
 from pipeline_integrator import PipelineIntegrator
 
@@ -47,6 +48,7 @@ class Scene1Generator:
         self.assembler = VideoAssembler()
         self.evaluator = AdEvaluator()  # Evaluate generated ads
         self.cost_optimizer = CostOptimizer()  # Cost optimization
+        self.ab_testing = ABTestingSuite()  # A/B testing suite
         self.logger = logger  # Optional logger for web interface
         self.generation_id = generation_id  # Generation ID for history tracking
         self.integrator = integrator  # PipelineIntegrator for saving history
@@ -414,9 +416,36 @@ class Scene1Generator:
                 self.logger.fail_stage('prompts', str(e))
             raise
 
-        # STEP 4: Cost Optimization Analysis
+        # STEP 4: A/B Testing Integration
+        ab_test_variant = None
+        if Config.ENABLE_AB_TESTING:
+            print("\n[4/6] A/B Testing integration...")
+            if self.logger:
+                self.logger.log(LogLevel.INFO, "Starting A/B testing integration")
+            
+            # Get active tests
+            active_tests = self.ab_testing.get_active_tests()
+            if active_tests:
+                # Select a test variant (simplified - in production, use user-based assignment)
+                test = active_tests[0]  # Use first active test
+                variant_id, variant_params = self.ab_testing.select_variant(test['test_id'])
+                ab_test_variant = {
+                    'test_id': test['test_id'],
+                    'variant_id': variant_id,
+                    'parameters': variant_params
+                }
+                print(f"✓ Selected A/B test variant: {variant_params}")
+                
+                if self.logger:
+                    self.logger.log(LogLevel.INFO, "A/B test variant selected", ab_test_variant)
+            else:
+                print("  No active A/B tests found")
+        else:
+            print("\n[4/6] A/B Testing disabled")
+
+        # STEP 5: Cost Optimization Analysis
         if Config.ENABLE_COST_OPTIMIZATION:
-            print("\n[4/5] Analyzing cost optimization...")
+            print("\n[5/6] Analyzing cost optimization...")
             if self.logger:
                 self.logger.log(LogLevel.VERBOSE, "Running cost optimization analysis", {})
             
@@ -465,8 +494,8 @@ class Scene1Generator:
                         'error': str(e)
                     })
 
-        # STEP 5: Generate viral hooks with Sora (parallel)
-        print(f"\n[{'5' if Config.ENABLE_COST_OPTIMIZATION else '4'}/{'5' if Config.ENABLE_COST_OPTIMIZATION else '4'}] Generating viral hooks with Sora...")
+        # STEP 6: Generate viral hooks with Sora (parallel)
+        print(f"\n[{'6' if Config.ENABLE_COST_OPTIMIZATION else '5'}/{'6' if Config.ENABLE_COST_OPTIMIZATION else '5'}] Generating viral hooks with Sora...")
         print(f"Total hooks to generate: {sum(len(p) for p in variant_prompts.values())}")
         print(f"This will take approximately 3-5 minutes (1 hook per variant)...\n")
 
@@ -578,6 +607,46 @@ class Scene1Generator:
 
         # Skip evaluation for speed - single hook generation
         evaluations = {}
+
+        # Record A/B Testing results
+        if ab_test_variant and Config.ENABLE_AB_TESTING:
+            print("\n[6.5/6] Recording A/B test results...")
+            try:
+                # Calculate metrics for the test
+                metrics = {
+                    'success': hook_result.get('success', False),
+                    'generation_time': elapsed,
+                    'cost': 1 * Config.SORA_2_PRO_COST_PER_SECOND * 12,  # 12 seconds
+                    'quality_score': 8.0 if hook_result.get('success') else 0.0,  # Simplified scoring
+                    'model_used': sora_model,
+                    'output_dimension': output_dimension
+                }
+                
+                # Record the result
+                result_id = self.ab_testing.record_result(
+                    test_id=ab_test_variant['test_id'],
+                    variant_id=ab_test_variant['variant_id'],
+                    session_id=session_id or 'unknown',
+                    generation_id=self.generation_id or 'unknown',
+                    metrics=metrics
+                )
+                
+                print(f"✓ A/B test result recorded: {result_id[:8]}...")
+                
+                if self.logger:
+                    self.logger.log(LogLevel.INFO, "A/B test result recorded", {
+                        'result_id': result_id,
+                        'test_id': ab_test_variant['test_id'],
+                        'variant_id': ab_test_variant['variant_id'],
+                        'metrics': metrics
+                    })
+                    
+            except Exception as e:
+                print(f"⚠ Failed to record A/B test result: {str(e)}")
+                if self.logger:
+                    self.logger.log(LogLevel.WARNING, f"A/B test recording failed: {str(e)}", {
+                        'error': str(e)
+                    })
 
         # Summary
         elapsed = time.time() - start_time
