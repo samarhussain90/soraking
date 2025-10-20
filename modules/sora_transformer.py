@@ -688,38 +688,29 @@ Generate Scene 2 and Scene 3 scripts. Make them CREATIVE and DIFFERENT from the 
 
         transformed_scenes = []
 
-        # SCENE 1: ENHANCED VISUAL SCENE - SCENE 1 GENERATOR
+        # SCENE 1: ORIGINAL SCENE 1 STRUCTURE - RESTORED
         scene_1 = {
             'scene_number': 1,
             'timestamp': '00:00-00:12',
             'duration_seconds': 12,
-            'type': 'enhanced_scene',
-            'purpose': 'High-quality visual scene with improved prompting',
-            'has_character': False,  # Focus on visual storytelling
+            'type': 'character',  # Back to character scenes like before
+            'purpose': 'hook/problem',
+            'has_character': True,  # Restore character scenes
             'vertical': vertical,
 
-            # Enhanced scenario details
-            'scenario_name': selected_scenario['name'],
-            'visual_description': selected_scenario['visual'],
-            'camera_movement': selected_scenario['camera'],
-            'emotion': selected_scenario['emotion'],
-            'text_overlay': selected_scenario['text_overlay'],
-            'beat_breakdown': selected_scenario['beat_breakdown'],
-            'audio_design': selected_scenario['audio'],
-            'lighting': selected_scenario['lighting'],
-            'scenario_type': selected_scenario['type'],
-
-            # Enhanced prompt structure for better generation
-            'shot_type': 'Dynamic - see camera_movement',
-            'camera_angle': 'Dynamic - see camera_movement',
-            'setting': selected_scenario['visual'],
-            'message': selected_scenario['text_overlay'],
+            # Original scene structure
+            'shot_type': 'medium close-up',
+            'camera_angle': 'eye-level',
+            'camera_movement': 'dynamic push-in',
+            'setting': 'modern home office, soft lighting',
+            'lighting': 'dramatic, bold shadows',
+            'message': 'Hook and problem presentation',
+            'emotion': 'urgent',
             
-            # Enhanced prompt elements for better Sora generation
-            'enhanced_prompting': True,
-            'cinematic_style': 'High production value, commercial quality',
-            'visual_effects': 'Natural lighting, realistic physics, authentic movement',
-            'audio_enhancement': 'Layered sound design, spatial audio, realistic acoustics'
+            # Original prompt elements
+            'visual_elements': ['text overlays', 'phone screen'],
+            'characters': 'spokesperson',
+            'visual_direction': 'confident, direct eye contact'
         }
         transformed_scenes.append(scene_1)
 

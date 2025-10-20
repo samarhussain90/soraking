@@ -48,80 +48,70 @@ class SoraPromptBuilder:
         Returns:
             Complete Sora prompt string
         """
-        # Check scene type
-        scene_type = scene.get('type', 'actor_hook')
+        # Check scene type - RESTORE ORIGINAL CHARACTER SCENES
+        scene_type = scene.get('type', 'character')
 
-        # EXTREME HOOK SCENARIOS (new)
-        if scene_type == 'extreme_hook':
-            return self._build_hook_scenario_prompt(scene, variant, full_script)
-        # B-ROLL SCENES (old fallback)
-        elif not scene.get('has_character', True):
-            return self._build_broll_prompt(scene, variant, full_script)
-        # CHARACTER SCENES (actors)
-        else:
+        # CHARACTER SCENES (restored original approach)
+        if scene.get('has_character', True):
             return self._build_character_prompt(scene, variant, spokesperson_description, full_script)
+        # B-ROLL SCENES (fallback)
+        else:
+            return self._build_broll_prompt(scene, variant, full_script)
 
     def _build_character_prompt(self, scene: Dict, variant: Dict, spokesperson_desc: str, script: str) -> str:
         """
-        Build UGC-style character scene with pattern interrupt + message delivery
+        Build ORIGINAL character scene with detailed prompt structure
 
-        Formula: HOOK (0-2s) → CHARACTER (2-4s) → MESSAGE (4-10s) → TRANSITION (10-12s)
+        Formula: DETAILED VISUAL + CHARACTER + MESSAGE + TECHNICAL SPECS
         """
         # Extract essentials
         vertical = scene.get('vertical', 'default')
         emotion = scene.get('emotion', 'confident')
         aggression = variant.get('variant_level', 'medium')
 
-        # Use CREATIVE SCRIPT if available (GPT-generated), otherwise use original
-        if scene.get('creative_script'):
-            actor_script = scene.get('creative_script')
-            print(f"  ✓ Using creative GPT script for Scene {scene.get('scene_number')}")
-        else:
-            actor_script = script
-            print(f"  ⚠ Using original script for Scene {scene.get('scene_number')}")
+        # Use original script (restore original approach)
+        actor_script = script
+        print(f"  ✓ Using original script for Scene {scene.get('scene_number')}")
 
-        # Get actor profile
-        actor_profile = scene.get('actor_profile', {})
-        actor_desc = actor_profile.get('description', spokesperson_desc)
+        # Get character description
+        char_desc = spokesperson_desc
 
-        # Condense character description (Sora has limits)
-        char_short = self._condense_character(actor_desc)
-
-        # Get setting (concise)
+        # Get scene details
         setting = scene.get('setting', 'modern home office, soft lighting')
-        # Simplify setting
-        if ',' in setting:
-            setting = setting.split(',')[0]  # Take first part only
-
-        # Get visual direction from creative script if available
+        shot_type = scene.get('shot_type', 'medium close-up')
+        camera_angle = scene.get('camera_angle', 'eye-level')
+        camera_movement = scene.get('camera_movement', 'dynamic push-in')
+        lighting = scene.get('lighting', 'dramatic, bold shadows')
+        visual_elements = scene.get('visual_elements', [])
         visual_direction = scene.get('visual_direction', '')
 
-        # Camera movement based on aggression
-        camera_moves = {
-            'soft': 'Slow push-in',
-            'medium': 'Steady dolly',
-            'aggressive': 'Dynamic push-in',
-            'ultra': 'Fast dolly-in'
-        }
-        camera = camera_moves.get(aggression, 'Steady')
+        # Build DETAILED prompt like the original
+        prompt_parts = []
 
-        # Get pattern interrupt
-        interrupts = self.pattern_interrupts.get(vertical, self.pattern_interrupts['default'])
-        hook = interrupts[0]  # Use first interrupt
-
-        # Build CONCISE prompt with creative script
-        prompt_parts = [f"{hook}. {char_short}, {setting}."]
-
-        # Add actor speaking with emotion
-        prompt_parts.append(f'\n{emotion.capitalize()}: "{actor_script}"')
-
-        # Add visual direction if available
+        # 1. VISUAL SETUP
+        prompt_parts.append(f"{shot_type.upper()}: {char_desc}, {setting}.")
+        
+        # 2. CAMERA WORK
+        prompt_parts.append(f"{camera_movement.capitalize()} camera, {camera_angle} angle.")
+        
+        # 3. LIGHTING
+        prompt_parts.append(f"{lighting.capitalize()} lighting.")
+        
+        # 4. CHARACTER SPEAKING
+        prompt_parts.append(f'\n{emotion.capitalize()} tone: "{actor_script}"')
+        
+        # 5. VISUAL ELEMENTS
+        if visual_elements:
+            elements_str = ', '.join(visual_elements)
+            prompt_parts.append(f'\nVisual elements: {elements_str}.')
+        
+        # 6. VISUAL DIRECTION
         if visual_direction:
-            prompt_parts.append(f'\nVisual: {visual_direction}.')
-
-        # Add camera and style
-        prompt_parts.append(f'\n{camera}. Eye contact. Natural gestures. UGC testimonial style.')
-        prompt_parts.append('\n4K. 12s.')
+            prompt_parts.append(f'\nVisual direction: {visual_direction}.')
+        
+        # 7. TECHNICAL SPECS
+        prompt_parts.append(f'\nEye contact with camera. Natural gestures. UGC testimonial style.')
+        prompt_parts.append(f'4K resolution, cinematic quality, 12 seconds.')
 
         prompt = ''.join(prompt_parts)
 
