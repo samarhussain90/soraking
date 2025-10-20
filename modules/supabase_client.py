@@ -180,3 +180,15 @@ class SupabaseClient:
         """Get events for session"""
         result = self.client.table('events').select('*').eq('session_id', session_id).order('timestamp', desc=True).limit(limit).execute()
         return result.data if result.data else []
+
+
+# Helper function for direct Supabase client access (used by GenerationManager)
+def get_supabase_client() -> Client:
+    """Get raw Supabase client for direct table operations"""
+    url = os.getenv('SUPABASE_URL')
+    key = os.getenv('SUPABASE_ANON_KEY')
+
+    if not url or not key:
+        raise ValueError("SUPABASE_URL and SUPABASE_ANON_KEY must be set")
+
+    return create_client(url, key)

@@ -17,11 +17,16 @@ from modules.logger import PipelineLogger, get_logger
 from modules.supabase_client import SupabaseClient
 from modules.spaces_client import SpacesClient
 from modules.settings_manager import get_settings_manager
+from history_api import register_history_api
+from pipeline_integrator import PipelineIntegrator
 
 app = Flask(__name__, static_folder='frontend', static_url_path='')
 app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024  # 500MB max file size
 CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*", max_http_buffer_size=500 * 1024 * 1024, async_mode='threading')
+
+# Register history API
+register_history_api(app)
 
 # Initialize cloud clients
 try:
@@ -182,9 +187,30 @@ def start_clone():
     if not video_path:
         return jsonify({'error': 'video_path required'}), 400
 
+    # Default variants if not specified
+    if not variants:
+        variants = ['soft', 'medium', 'aggressive', 'ultra']
+
     # Create session
     logger = PipelineLogger()
     session_id = logger.session_id
+
+    # Initialize history tracking
+    integrator = PipelineIntegrator()
+    generation_id = None
+
+    try:
+        # Start generation tracking
+        generation_id = integrator.start_generation(
+            source_video_url=video_path,
+            source_video_type='url' if video_path.startswith('http') else 'file',
+            variant_types=variants,
+            cost_estimate=len(variants) * 4 * 0.32  # Estimated: 4 scenes per variant * $0.32/scene
+        )
+        logger.log(logger.LogLevel.INFO, f"Generation tracking started: {generation_id}")
+    except Exception as e:
+        logger.log(logger.LogLevel.WARNING, f"Failed to start generation tracking: {e}")
+        # Continue without history tracking
 
     # Create Supabase session if available
     if supabase_client:
@@ -192,13 +218,13 @@ def start_clone():
             supabase_client.create_session(
                 session_id,
                 video_path,
-                variants or ['soft', 'medium', 'aggressive', 'ultra']
+                variants
             )
             supabase_client.log_event(
                 session_id,
                 'info',
                 'Pipeline session created',
-                {'video_path': video_path, 'variants': variants}
+                {'video_path': video_path, 'variants': variants, 'generation_id': generation_id}
             )
         except Exception as e:
             print(f"⚠ Supabase session creation failed: {e}")
@@ -206,7 +232,9 @@ def start_clone():
     # Store in active sessions
     active_sessions[session_id] = {
         'logger': logger,
-        'status': 'starting'
+        'status': 'starting',
+        'generation_id': generation_id,
+        'integrator': integrator
     }
 
     # Create a wrapper logger that broadcasts to WebSocket and Supabase
@@ -259,8 +287,14 @@ def start_clone():
                 'session_id': session_id
             })
 
-            # Initialize cloner with WebSocket logger, spaces_client, and session_id
-            cloner = AdCloner(logger=ws_logger, spaces_client=spaces_client, session_id=session_id)
+            # Initialize cloner with WebSocket logger, spaces_client, session_id, generation_id, and integrator
+            cloner = AdCloner(
+                logger=ws_logger,
+                spaces_client=spaces_client,
+                session_id=session_id,
+                generation_id=generation_id,
+                integrator=integrator
+            )
 
             # Run pipeline (logger integrated)
             results = cloner.clone_ad(video_path, variants)
@@ -290,6 +324,13 @@ def start_clone():
             active_sessions[session_id]['status'] = 'failed'
             active_sessions[session_id]['error'] = str(e)
 
+            # Mark generation as failed in history
+            if generation_id and integrator:
+                try:
+                    integrator.mark_generation_failed(generation_id, str(e))
+                except Exception as e2:
+                    print(f"⚠ Failed to mark generation as failed: {e2}")
+
             # Update Supabase session status
             if supabase_client:
                 try:
@@ -308,6 +349,7 @@ def start_clone():
 
     return jsonify({
         'session_id': session_id,
+        'generation_id': generation_id,
         'status': 'started',
         'log_dir': str(logger.log_dir)
     })

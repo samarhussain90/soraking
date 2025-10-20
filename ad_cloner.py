@@ -17,12 +17,13 @@ from modules.video_assembler import VideoAssembler
 from modules.ad_evaluator import AdEvaluator
 from modules.prompt_validator import PromptValidator
 from modules.utils import normalize_spokesperson
+from pipeline_integrator import PipelineIntegrator
 
 
 class AdCloner:
     """Main orchestrator for ad cloning pipeline"""
 
-    def __init__(self, logger=None, spaces_client=None, session_id=None):
+    def __init__(self, logger=None, spaces_client=None, session_id=None, generation_id=None, integrator=None):
         """
         Initialize all components
 
@@ -30,6 +31,8 @@ class AdCloner:
             logger: Optional logger for web interface
             spaces_client: Optional SpacesClient for cloud uploads
             session_id: Optional session ID for organizing uploads
+            generation_id: Optional generation ID for history tracking
+            integrator: Optional PipelineIntegrator for saving generation history
         """
         print("Initializing Ad Cloner...")
         Config.validate_api_keys()
@@ -43,6 +46,8 @@ class AdCloner:
         self.assembler = VideoAssembler()
         self.evaluator = AdEvaluator()  # Evaluate generated ads
         self.logger = logger  # Optional logger for web interface
+        self.generation_id = generation_id  # Generation ID for history tracking
+        self.integrator = integrator  # PipelineIntegrator for saving history
 
         print("✓ All systems ready\n")
 
@@ -76,6 +81,10 @@ class AdCloner:
         try:
             analysis, analysis_path = self.analyzer.analyze_and_save(video_path)
             print(f"✓ Analysis complete: {analysis_path}")
+
+            # Save analysis metadata to generation history
+            if self.integrator and self.generation_id:
+                self.integrator.save_analysis_metadata(self.generation_id, analysis)
 
             if self.logger:
                 self.logger.log(LogLevel.VERBOSE, "Video analysis completed", {'analysis_path': analysis_path})
@@ -155,6 +164,14 @@ class AdCloner:
             analysis['vertical'] = vertical
             analysis['vertical_name'] = vertical_name
             analysis['transformed'] = True
+
+            # Save transformation metadata to generation history
+            if self.integrator and self.generation_id:
+                self.integrator.save_transformation_metadata(self.generation_id, {
+                    'vertical': vertical,
+                    'vertical_name': vertical_name,
+                    'transformed_scenes': transformed_scenes
+                })
 
         except Exception as e:
             if self.logger:
@@ -282,6 +299,20 @@ class AdCloner:
                 json.dump(variant_prompts, f, indent=2)
             print(f"✓ All prompts saved to: {prompts_file}")
 
+            # Save prompts metadata and create scene records in generation history
+            if self.integrator and self.generation_id:
+                self.integrator.save_prompts_metadata(self.generation_id, variant_prompts)
+
+                # Create scene records for each variant
+                self.variant_scene_ids = {}  # Store scene IDs for later use
+                for variant_level, prompts in variant_prompts.items():
+                    scene_ids = self.integrator.create_scene_records(
+                        self.generation_id,
+                        variant_level,
+                        [p['prompt'] for p in prompts]
+                    )
+                    self.variant_scene_ids[variant_level] = scene_ids
+
             if self.logger:
                 total_scenes = sum(len(p) for p in variant_prompts.values())
                 self.logger.complete_stage('prompts', {
@@ -330,6 +361,28 @@ class AdCloner:
                 try:
                     result = self.sora_client.generate_variant_parallel(prompts, variant_level)
                     generated_variants[variant_level] = result
+
+                    # Process and save videos to Spaces if generation succeeded
+                    if result['success'] and self.integrator and self.generation_id:
+                        scene_ids = self.variant_scene_ids.get(variant_level, [])
+                        scenes = result.get('scenes', [])
+
+                        for idx, scene_data in enumerate(scenes):
+                            if idx < len(scene_ids):
+                                scene_id = scene_ids[idx]
+                                sora_video_id = scene_data.get('video_id')
+                                sora_content_url = scene_data.get('content_url')
+
+                                if sora_video_id and sora_content_url:
+                                    # Process video: download, generate thumbnail, upload to Spaces
+                                    self.integrator.process_sora_video(
+                                        scene_id,
+                                        sora_video_id,
+                                        sora_content_url,
+                                        self.generation_id,
+                                        variant_level,
+                                        idx + 1  # scene_number (1-indexed)
+                                    )
 
                     if self.logger:
                         status = 'completed' if result['success'] else 'failed'
@@ -416,6 +469,10 @@ class AdCloner:
                 ratings = evaluation.get('ratings', {})
                 print(f"  Overall Score: {ratings.get('overall_score', 0):.1f}/10")
                 print(f"  Prediction: {ratings.get('predicted_performance', 'Unknown')}")
+
+                # Save evaluation metadata to generation history
+                if self.integrator and self.generation_id:
+                    self.integrator.save_evaluation_metadata(self.generation_id, evaluations)
 
                 if self.logger:
                     self.logger.log(LogLevel.INFO, f"Evaluated {variant_level}: {ratings.get('overall_score', 0):.1f}/10", {
