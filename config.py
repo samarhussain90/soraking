@@ -43,15 +43,15 @@ class Config:
     SORA_2_COST_PER_SECOND = 0.064  # $0.064/second for Sora 2
     SORA_2_PRO_COST_PER_SECOND = 0.08  # $0.08/second for Sora 2 Pro
 
-# Cost Optimization Settings
-ENABLE_COST_OPTIMIZATION = True  # Enable intelligent model selection
-MAX_COST_PER_GENERATION = 5.0  # Maximum cost per generation (USD)
-COST_OPTIMIZATION_THRESHOLD = 0.50  # Minimum savings to recommend optimization
+    # Cost Optimization Settings
+    ENABLE_COST_OPTIMIZATION = True  # Enable intelligent model selection
+    MAX_COST_PER_GENERATION = 5.0  # Maximum cost per generation (USD)
+    COST_OPTIMIZATION_THRESHOLD = 0.50  # Minimum savings to recommend optimization
 
-# A/B Testing Settings
-ENABLE_AB_TESTING = True  # Enable A/B testing suite
-AB_TESTING_DATA_DIR = "output/ab_tests"  # Directory for A/B test data
-MIN_SAMPLE_SIZE = 30  # Minimum sample size for statistical significance
+    # A/B Testing Settings
+    ENABLE_AB_TESTING = True  # Enable A/B testing suite
+    AB_TESTING_DATA_DIR = "output/ab_tests"  # Directory for A/B test data
+    MIN_SAMPLE_SIZE = 30  # Minimum sample size for statistical significance
 
     # Video settings
     DEFAULT_AD_DURATION = 48  # Total ad length in seconds
