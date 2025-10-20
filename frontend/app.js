@@ -107,7 +107,7 @@ async function startCloning() {
     }
 
     // Get selected variants
-    const checkboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]:checked');
+    const checkboxes = document.querySelectorAll('.variant-option input[type="checkbox"]:checked');
     const variants = Array.from(checkboxes).map(cb => cb.value);
 
     if (variants.length === 0) {
