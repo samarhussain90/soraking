@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings - SoraKing Ad Cloner</title>
+    <title>Settings - Scene 1 Generator</title>
     <style>
         * {
             margin: 0;
@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -101,17 +101,10 @@
         .form-group select {
             width: 100%;
             padding: 12px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #e1e5e9;
             border-radius: 8px;
             font-size: 14px;
-            font-family: inherit;
             transition: border-color 0.3s;
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            font-family: 'Courier New', monospace;
-            resize: vertical;
         }
 
         .form-group input:focus,
@@ -121,35 +114,9 @@
             border-color: #667eea;
         }
 
-        .button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .button:active {
-            transform: translateY(0);
-        }
-
-        .button-secondary {
-            background: #e0e0e0;
-            color: #333;
-        }
-
-        .button-secondary:hover {
-            background: #d0d0d0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
         }
 
         .button-group {
@@ -158,71 +125,46 @@
             margin-top: 20px;
         }
 
-        .tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .tab {
+        .button {
             padding: 12px 24px;
-            background: white;
-            border: 2px solid #e0e0e0;
+            border: none;
             border-radius: 8px;
-            cursor: pointer;
+            font-size: 14px;
             font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s;
         }
 
-        .tab.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .button-primary {
+            background: #667eea;
             color: white;
-            border-color: transparent;
         }
 
-        .tab-content {
-            display: none;
+        .button-primary:hover {
+            background: #5a6fd8;
         }
 
-        .tab-content.active {
-            display: block;
-        }
-
-        .preset-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .preset-card {
+        .button-secondary {
             background: #f8f9fa;
-            border: 2px solid #e0e0e0;
+            color: #666;
+            border: 2px solid #e1e5e9;
+        }
+
+        .button-secondary:hover {
+            background: #e9ecef;
+        }
+
+        .json-editor {
+            background: #f8f9fa;
+            border: 1px solid #e1e5e9;
             border-radius: 8px;
             padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .preset-card:hover {
-            border-color: #667eea;
-            transform: translateY(-2px);
-        }
-
-        .preset-card.selected {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: transparent;
-        }
-
-        .preset-card h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .preset-card p {
-            font-size: 13px;
-            opacity: 0.8;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #333;
+            white-space: pre-wrap;
+            overflow-x: auto;
         }
 
         .alert {
@@ -244,24 +186,74 @@
             border: 1px solid #f5c6cb;
         }
 
-        .alert.show {
+        .tabs {
+            display: flex;
+            background: white;
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            background: #f8f9fa;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .tab:hover {
+            background: #e9ecef;
+            color: #333;
+        }
+
+        .tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tab-content.active {
             display: block;
         }
 
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #666;
+        .tab-content .setting-card {
+            border-radius: 0;
+            box-shadow: none;
         }
 
-        .json-editor {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            border-radius: 8px;
-            padding: 15px;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            overflow-x: auto;
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .setting-card {
+                padding: 20px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                border-radius: 0;
+            }
         }
     </style>
 </head>
@@ -269,7 +261,8 @@
     <div class="container">
         <div class="header">
             <h1>⚙️ Settings</h1>
-            <p>Configure system prompts and scene builder settings</p>
+            <p>Configure the prompts used in Scene 1 generation</p>
+            
             <div class="nav-links">
                 <a href="/">← Back to Home</a>
             </div>
@@ -278,31 +271,26 @@
         <div id="alert" class="alert"></div>
 
         <div class="tabs">
-            <div class="tab active" data-tab="gemini">Gemini Prompt</div>
-            <div class="tab" data-tab="scene1">Scene 1 Generation</div>
-            <div class="tab" data-tab="aggression">Aggression Presets</div>
-            <div class="tab" data-tab="sora">Sora Config</div>
-            <div class="tab" data-tab="openai">OpenAI Prompts</div>
-            <div class="tab" data-tab="transformer">Transformer Config</div>
+            <div class="tab active" data-tab="gemini">Gemini Analysis</div>
+            <div class="tab" data-tab="scene1">Scene 1 Prompts</div>
+            <div class="tab" data-tab="openai">Hook Generation</div>
         </div>
 
-        <!-- Gemini Prompt Tab -->
+        <!-- Gemini Analysis Tab -->
         <div id="gemini-tab" class="tab-content active">
             <div class="setting-card">
                 <h2>🤖 Gemini Analysis Prompt</h2>
                 <p class="description">System prompt used for video analysis with Gemini 2.5. This prompt guides how the AI analyzes and breaks down advertising videos.</p>
 
-                <form id="gemini-form">
-                    <div class="form-group">
-                        <label for="gemini-prompt">System Prompt</label>
-                        <textarea id="gemini-prompt" name="prompt" placeholder="Loading..."></textarea>
-                    </div>
+                <div class="form-group">
+                    <label for="gemini-prompt">System Prompt</label>
+                    <textarea id="gemini-prompt" placeholder="Loading current prompt..."></textarea>
+                </div>
 
-                    <div class="button-group">
-                        <button type="submit" class="button">Save Changes</button>
-                        <button type="button" class="button button-secondary" id="reset-gemini">Reset to Default</button>
-                    </div>
-                </form>
+                <div class="button-group">
+                    <button type="button" class="button button-primary" id="save-gemini-prompt">Save Changes</button>
+                    <button type="button" class="button button-secondary" id="reset-gemini-prompt">Reset to Default</button>
+                </div>
             </div>
         </div>
 
@@ -355,7 +343,7 @@
                 </div>
 
                 <div class="button-group">
-                    <button type="button" class="button" id="save-scene1-settings">Save Scene 1 Settings</button>
+                    <button type="button" class="button button-primary" id="save-scene1-settings">Save Scene 1 Settings</button>
                     <button type="button" class="button button-secondary" id="reset-scene1-settings">Reset to Default</button>
                 </div>
 
@@ -382,498 +370,96 @@ Eye contact with camera. Natural gestures. UGC testimonial style.
             </div>
         </div>
 
-        <!-- Aggression Presets Tab -->
-        <div id="aggression-tab" class="tab-content">
-            <div class="setting-card">
-                <h2>🎯 Aggression Presets</h2>
-                <p class="description">Configure the four intensity levels for ad generation: Soft, Medium, Aggressive, and Ultra.</p>
-
-                <div class="preset-grid">
-                    <div class="preset-card selected" data-level="soft">
-                        <h3>Soft</h3>
-                        <p>Calm, educational, friendly</p>
-                    </div>
-                    <div class="preset-card" data-level="medium">
-                        <h3>Medium</h3>
-                        <p>Confident, direct, balanced</p>
-                    </div>
-                    <div class="preset-card" data-level="aggressive">
-                        <h3>Aggressive</h3>
-                        <p>Urgent, intense, high-energy</p>
-                    </div>
-                    <div class="preset-card" data-level="ultra">
-                        <h3>Ultra</h3>
-                        <p>Confrontational, bold, disruptive</p>
-                    </div>
-                </div>
-
-                <form id="aggression-form">
-                    <div class="form-group">
-                        <label for="preset-name">Name</label>
-                        <input type="text" id="preset-name" name="name" placeholder="Preset name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="preset-description">Description</label>
-                        <input type="text" id="preset-description" name="description" placeholder="Brief description">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="preset-lighting">Lighting Style</label>
-                        <input type="text" id="preset-lighting" name="lighting" placeholder="e.g., Soft, warm, natural">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="preset-tone">Tone</label>
-                        <input type="text" id="preset-tone" name="tone" placeholder="e.g., Friendly, calm">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="preset-pacing">Pacing</label>
-                        <input type="text" id="preset-pacing" name="pacing" placeholder="e.g., Slower, thoughtful pauses">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="preset-camera">Camera Movement</label>
-                        <input type="text" id="preset-camera" name="camera_movement" placeholder="e.g., Gentle, smooth movements">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="preset-music">Music Style</label>
-                        <input type="text" id="preset-music" name="music" placeholder="e.g., Ambient, subtle">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="preset-energy">Energy Level</label>
-                        <input type="text" id="preset-energy" name="energy_level" placeholder="e.g., Low-medium, relaxed">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="preset-colors">Color Palette</label>
-                        <input type="text" id="preset-colors" name="color_palette" placeholder="e.g., Warm tones, soft pastels">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="preset-transitions">Transitions</label>
-                        <input type="text" id="preset-transitions" name="transitions" placeholder="e.g., Slow fades, gentle dissolves">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="preset-emotions">Emotion Keywords (comma-separated)</label>
-                        <input type="text" id="preset-emotions" name="emotion_keywords" placeholder="e.g., calm, peaceful, thoughtful">
-                    </div>
-
-                    <div class="button-group">
-                        <button type="submit" class="button">Save Preset</button>
-                        <button type="button" class="button button-secondary" id="reset-preset">Reset to Default</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Sora Config Tab -->
-        <div id="sora-tab" class="tab-content">
-            <div class="setting-card">
-                <h2>🎬 Sora Technical Configuration</h2>
-                <p class="description">Configure technical specifications for Sora video generation.</p>
-
-                <form id="sora-form">
-                    <div class="form-group">
-                        <label for="sora-resolution">Resolution</label>
-                        <input type="text" id="sora-resolution" name="resolution" placeholder="e.g., 4K">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sora-aspect">Aspect Ratio</label>
-                        <input type="text" id="sora-aspect" name="aspect_ratio" placeholder="e.g., 1792x1024">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sora-style">Default Style</label>
-                        <input type="text" id="sora-style" name="default_style" placeholder="e.g., engaging">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sora-grade">Default Color Grade</label>
-                        <input type="text" id="sora-grade" name="default_color_grade" placeholder="e.g., cinematic">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sora-audio">Audio Mix</label>
-                        <input type="text" id="sora-audio" name="audio_mix" placeholder="e.g., cinematic">
-                    </div>
-
-                    <div class="button-group">
-                        <button type="submit" class="button">Save Configuration</button>
-                        <button type="button" class="button button-secondary" id="reset-sora">Reset to Default</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
         <!-- OpenAI Prompts Tab -->
         <div id="openai-tab" class="tab-content">
             <div class="setting-card">
                 <h2>🤖 OpenAI Prompts</h2>
-                <p class="description">Configure GPT-4o-mini prompts used for hook generation and scene script creation.</p>
+                <p class="description">Configure GPT-4o prompts used for hook generation and scene script creation.</p>
 
-                <!-- Hook Generator Prompt -->
                 <div class="form-group">
-                    <label for="hook-generator-prompt">Hook Generator Prompt</label>
+                    <label for="hook-prompt">Hook Generator Prompt</label>
                     <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Used to generate custom extreme hooks when no preset hook matches.</p>
-                    <textarea id="hook-generator-prompt" style="min-height: 200px;" placeholder="Loading..."></textarea>
+                    <textarea id="hook-prompt" placeholder="Loading current prompt..."></textarea>
                 </div>
 
                 <div class="button-group">
-                    <button type="button" class="button" id="save-hook-prompt">Save Hook Prompt</button>
+                    <button type="button" class="button button-primary" id="save-hook-prompt">Save Hook Prompt</button>
                     <button type="button" class="button button-secondary" id="reset-hook-prompt">Reset</button>
                 </div>
 
                 <hr style="margin: 30px 0; border: none; border-top: 2px solid #e0e0e0;">
 
-                <!-- Scene Script Generator Prompt -->
                 <div class="form-group">
-                    <label for="script-generator-prompt">Scene Script Generator Prompt</label>
+                    <label for="script-prompt">Scene Script Generator Prompt</label>
                     <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Used to generate creative scripts for actor scenes (Scene 2 & 3).</p>
-                    <textarea id="script-generator-prompt" style="min-height: 200px;" placeholder="Loading..."></textarea>
+                    <textarea id="script-prompt" placeholder="Loading current prompt..."></textarea>
                 </div>
 
                 <div class="button-group">
-                    <button type="button" class="button" id="save-script-prompt">Save Script Prompt</button>
+                    <button type="button" class="button button-primary" id="save-script-prompt">Save Script Prompt</button>
                     <button type="button" class="button button-secondary" id="reset-script-prompt">Reset</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Transformer Config Tab -->
-        <div id="transformer-tab" class="tab-content">
-            <div class="setting-card">
-                <h2>⚙️ Transformer Configuration</h2>
-                <p class="description">Configure hook scenarios, location pools, camera angles, and pattern interrupts used in scene transformation.</p>
-
-                <!-- Hook Scenarios -->
-                <div class="form-group">
-                    <label for="hook-scenarios-json">Hook Scenarios (JSON)</label>
-                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Pre-written extreme hooks organized by vertical. Format: {"vertical_name": [array of hooks]}</p>
-                    <textarea id="hook-scenarios-json" style="min-height: 250px; font-family: 'Courier New', monospace;" placeholder="Loading..."></textarea>
-                </div>
-
-                <div class="button-group">
-                    <button type="button" class="button" id="save-hook-scenarios">Save Hook Scenarios</button>
-                    <button type="button" class="button button-secondary" id="reset-hook-scenarios">Reset</button>
-                </div>
-
-                <hr style="margin: 30px 0; border: none; border-top: 2px solid #e0e0e0;">
-
-                <!-- Location Pools -->
-                <div class="form-group">
-                    <label for="location-pools-json">Location Pools (JSON)</label>
-                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Default locations by vertical. Format: {"vertical_name": "default location"}</p>
-                    <textarea id="location-pools-json" style="min-height: 150px; font-family: 'Courier New', monospace;" placeholder="Loading..."></textarea>
-                </div>
-
-                <div class="button-group">
-                    <button type="button" class="button" id="save-location-pools">Save Location Pools</button>
-                    <button type="button" class="button button-secondary" id="reset-location-pools">Reset</button>
-                </div>
-
-                <hr style="margin: 30px 0; border: none; border-top: 2px solid #e0e0e0;">
-
-                <!-- Camera Angles -->
-                <div class="form-group">
-                    <label for="camera-angles-json">Camera Angles (JSON Array)</label>
-                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">List of camera angle presets. Format: ["angle 1", "angle 2", ...]</p>
-                    <textarea id="camera-angles-json" style="min-height: 100px; font-family: 'Courier New', monospace;" placeholder="Loading..."></textarea>
-                </div>
-
-                <div class="button-group">
-                    <button type="button" class="button" id="save-camera-angles">Save Camera Angles</button>
-                    <button type="button" class="button button-secondary" id="reset-camera-angles">Reset</button>
-                </div>
-
-                <hr style="margin: 30px 0; border: none; border-top: 2px solid #e0e0e0;">
-
-                <!-- Pattern Interrupts -->
-                <div class="form-group">
-                    <label for="pattern-interrupts-json">Pattern Interrupts (JSON)</label>
-                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Visual hooks for character scenes. Format: {"vertical_name": [array of interrupts]}</p>
-                    <textarea id="pattern-interrupts-json" style="min-height: 200px; font-family: 'Courier New', monospace;" placeholder="Loading..."></textarea>
-                </div>
-
-                <div class="button-group">
-                    <button type="button" class="button" id="save-pattern-interrupts">Save Pattern Interrupts</button>
-                    <button type="button" class="button button-secondary" id="reset-pattern-interrupts">Reset</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // State
-        let currentPreset = 'soft';
-        let presetData = {};
-        let originalData = {};
-
-        // Utilities
-        function showAlert(message, type = 'success') {
-            const alert = document.getElementById('alert');
-            alert.textContent = message;
-            alert.className = `alert ${type} show`;
-            setTimeout(() => {
-                alert.classList.remove('show');
-            }, 5000);
-        }
-
-        function parseEmotionKeywords(str) {
-            return str.split(',').map(s => s.trim()).filter(Boolean);
-        }
-
-        function formatEmotionKeywords(arr) {
-            return arr.join(', ');
-        }
-
         // Tab switching
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
-                const tabName = tab.dataset.tab;
-
-                // Update tabs
+                // Remove active from all tabs and content
                 document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-
-                // Update content
                 document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                document.getElementById(`${tabName}-tab`).classList.add('active');
+                
+                // Add active to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab + '-tab').classList.add('active');
             });
         });
 
-        // Preset selection
-        document.querySelectorAll('.preset-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const level = card.dataset.level;
-                currentPreset = level;
+        // Alert function
+        function showAlert(message, type = 'success') {
+            const alert = document.getElementById('alert');
+            alert.textContent = message;
+            alert.className = `alert ${type}`;
+            alert.style.display = 'block';
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 3000);
+        }
 
-                // Update UI
-                document.querySelectorAll('.preset-card').forEach(c => c.classList.remove('selected'));
-                card.classList.add('selected');
-
-                // Load preset data
-                loadAggressionPreset(level);
-            });
+        // Load settings on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadGeminiPrompt();
+            loadScene1Settings();
+            loadHookPrompt();
+            loadScriptPrompt();
         });
 
-        // Load Gemini prompt
+        // Gemini Prompt functions
         async function loadGeminiPrompt() {
             try {
-                const response = await fetch('/api/settings/system_prompt/gemini_analysis');
+                const response = await fetch('/api/settings/gemini_prompt');
                 const data = await response.json();
-
-                if (data.success && data.setting) {
-                    const prompt = data.setting.value.prompt || '';
-                    document.getElementById('gemini-prompt').value = prompt;
-                    originalData.gemini = prompt;
+                if (data.success) {
+                    document.getElementById('gemini-prompt').value = data.value;
                 }
             } catch (error) {
-                showAlert('Failed to load Gemini prompt: ' + error.message, 'error');
+                console.error('Failed to load Gemini prompt:', error);
             }
         }
 
-        // Load aggression preset
-        async function loadAggressionPreset(level) {
-            try {
-                const response = await fetch(`/api/settings/aggression_preset/${level}`);
-                const data = await response.json();
-
-                if (data.success && data.setting) {
-                    const preset = data.setting.value;
-                    presetData[level] = preset;
-
-                    // Fill form
-                    document.getElementById('preset-name').value = preset.name || '';
-                    document.getElementById('preset-description').value = preset.description || '';
-                    document.getElementById('preset-lighting').value = preset.lighting || '';
-                    document.getElementById('preset-tone').value = preset.tone || '';
-                    document.getElementById('preset-pacing').value = preset.pacing || '';
-                    document.getElementById('preset-camera').value = preset.camera_movement || '';
-                    document.getElementById('preset-music').value = preset.music || '';
-                    document.getElementById('preset-energy').value = preset.energy_level || '';
-                    document.getElementById('preset-colors').value = preset.color_palette || '';
-                    document.getElementById('preset-transitions').value = preset.transitions || '';
-                    document.getElementById('preset-emotions').value = formatEmotionKeywords(preset.emotion_keywords || []);
-
-                    originalData[`aggression_${level}`] = JSON.stringify(preset);
-                }
-            } catch (error) {
-                showAlert('Failed to load preset: ' + error.message, 'error');
-            }
-        }
-
-        // Load Sora config
-        async function loadSoraConfig() {
-            try {
-                const response = await fetch('/api/settings/sora_config/technical_specs');
-                const data = await response.json();
-
-                if (data.success && data.setting) {
-                    const config = data.setting.value;
-
-                    document.getElementById('sora-resolution').value = config.resolution || '';
-                    document.getElementById('sora-aspect').value = config.aspect_ratio || '';
-                    document.getElementById('sora-style').value = config.default_style || '';
-                    document.getElementById('sora-grade').value = config.default_color_grade || '';
-                    document.getElementById('sora-audio').value = config.audio_mix || '';
-
-                    originalData.sora = JSON.stringify(config);
-                }
-            } catch (error) {
-                showAlert('Failed to load Sora config: ' + error.message, 'error');
-            }
-        }
-
-        // Load OpenAI hook generator prompt
-        async function loadHookPrompt() {
-            try {
-                const response = await fetch('/api/settings/openai_prompt/hook_generator');
-                const data = await response.json();
-
-                if (data.success && data.setting) {
-                    const prompt = data.setting.value.prompt || '';
-                    document.getElementById('hook-generator-prompt').value = prompt;
-                    originalData.hookPrompt = prompt;
-                }
-            } catch (error) {
-                showAlert('Failed to load hook prompt: ' + error.message, 'error');
-            }
-        }
-
-        // Load OpenAI script generator prompt
-        async function loadScriptPrompt() {
-            try {
-                const response = await fetch('/api/settings/openai_prompt/scene_script_generator');
-                const data = await response.json();
-
-                if (data.success && data.setting) {
-                    const prompt = data.setting.value.prompt || '';
-                    document.getElementById('script-generator-prompt').value = prompt;
-                    originalData.scriptPrompt = prompt;
-                }
-            } catch (error) {
-                showAlert('Failed to load script prompt: ' + error.message, 'error');
-            }
-        }
-
-        // Load Scene 1 settings
-        async function loadScene1Settings() {
-            try {
-                // Load current Scene 1 prompt template
-                const template = `MEDIUM CLOSE-UP: [spokesperson description], [setting].
-[camera_movement] camera, [camera_angle] angle.
-[lighting] lighting.
-
-[emotion] tone: "[script_segment]"
-
-Visual elements: [visual_elements].
-Visual direction: [visual_direction].
-
-Eye contact with camera. Natural gestures. UGC testimonial style.
-4K resolution, cinematic quality, 12 seconds.`;
-                
-                document.getElementById('scene1-prompt-template').value = template;
-                originalData.scene1Template = template;
-                
-                // Set current script extraction method
-                document.getElementById('script-extraction').value = 'first_sentences';
-                
-            } catch (error) {
-                showAlert('Failed to load Scene 1 settings: ' + error.message, 'error');
-            }
-        }
-
-        // Load transformer settings
-        async function loadHookScenarios() {
-            try {
-                const response = await fetch('/api/settings/transformer/hook_scenarios');
-                const data = await response.json();
-
-                if (data.success && data.setting) {
-                    const scenarios = data.setting.value;
-                    const jsonStr = JSON.stringify(scenarios, null, 2);
-                    document.getElementById('hook-scenarios-json').value = jsonStr;
-                    originalData.hookScenarios = jsonStr;
-                }
-            } catch (error) {
-                showAlert('Failed to load hook scenarios: ' + error.message, 'error');
-            }
-        }
-
-        async function loadLocationPools() {
-            try {
-                const response = await fetch('/api/settings/transformer/location_pools');
-                const data = await response.json();
-
-                if (data.success && data.setting) {
-                    const pools = data.setting.value;
-                    const jsonStr = JSON.stringify(pools, null, 2);
-                    document.getElementById('location-pools-json').value = jsonStr;
-                    originalData.locationPools = jsonStr;
-                }
-            } catch (error) {
-                showAlert('Failed to load location pools: ' + error.message, 'error');
-            }
-        }
-
-        async function loadCameraAngles() {
-            try {
-                const response = await fetch('/api/settings/transformer/camera_angles');
-                const data = await response.json();
-
-                if (data.success && data.setting) {
-                    const angles = data.setting.value;
-                    const jsonStr = JSON.stringify(angles, null, 2);
-                    document.getElementById('camera-angles-json').value = jsonStr;
-                    originalData.cameraAngles = jsonStr;
-                }
-            } catch (error) {
-                showAlert('Failed to load camera angles: ' + error.message, 'error');
-            }
-        }
-
-        async function loadPatternInterrupts() {
-            try {
-                const response = await fetch('/api/settings/transformer/pattern_interrupts');
-                const data = await response.json();
-
-                if (data.success && data.setting) {
-                    const interrupts = data.setting.value;
-                    const jsonStr = JSON.stringify(interrupts, null, 2);
-                    document.getElementById('pattern-interrupts-json').value = jsonStr;
-                    originalData.patternInterrupts = jsonStr;
-                }
-            } catch (error) {
-                showAlert('Failed to load pattern interrupts: ' + error.message, 'error');
-            }
-        }
-
-        // Save Gemini prompt
-        document.getElementById('gemini-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
+        document.getElementById('save-gemini-prompt').addEventListener('click', async () => {
             const prompt = document.getElementById('gemini-prompt').value;
-
             try {
-                const response = await fetch('/api/settings/system_prompt/gemini_analysis', {
+                const response = await fetch('/api/settings/gemini_prompt', {
                     method: 'PUT',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        value: { prompt: prompt }
-                    })
+                    body: JSON.stringify({ value: prompt })
                 });
-
                 const data = await response.json();
-
                 if (data.success) {
                     showAlert('Gemini prompt saved successfully!');
-                    originalData.gemini = prompt;
                 } else {
                     showAlert('Failed to save: ' + data.error, 'error');
                 }
@@ -882,237 +468,30 @@ Eye contact with camera. Natural gestures. UGC testimonial style.
             }
         });
 
-        // Save aggression preset
-        document.getElementById('aggression-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
+        document.getElementById('reset-gemini-prompt').addEventListener('click', () => {
+            loadGeminiPrompt();
+            showAlert('Reset to last saved version', 'success');
+        });
 
-            const formData = new FormData(e.target);
-            const preset = {
-                name: formData.get('name'),
-                description: formData.get('description'),
-                lighting: formData.get('lighting'),
-                tone: formData.get('tone'),
-                pacing: formData.get('pacing'),
-                camera_movement: formData.get('camera_movement'),
-                music: formData.get('music'),
-                energy_level: formData.get('energy_level'),
-                color_palette: formData.get('color_palette'),
-                transitions: formData.get('transitions'),
-                emotion_keywords: parseEmotionKeywords(formData.get('emotion_keywords'))
-            };
-
+        // Scene 1 Settings functions
+        async function loadScene1Settings() {
             try {
-                const response = await fetch(`/api/settings/aggression_preset/${currentPreset}`, {
-                    method: 'PUT',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ value: preset })
-                });
-
+                const response = await fetch('/api/settings/scene1_config/prompt_template');
                 const data = await response.json();
-
-                if (data.success) {
-                    showAlert(`${preset.name} preset saved successfully!`);
-                    originalData[`aggression_${currentPreset}`] = JSON.stringify(preset);
-                } else {
-                    showAlert('Failed to save: ' + data.error, 'error');
+                if (data.success && data.value) {
+                    document.getElementById('scene1-prompt-template').value = data.value.template || '';
+                    document.getElementById('script-extraction').value = data.value.extraction_method || 'first_sentences';
                 }
             } catch (error) {
-                showAlert('Error: ' + error.message, 'error');
+                console.error('Failed to load Scene 1 settings:', error);
             }
-        });
+        }
 
-        // Save Sora config
-        document.getElementById('sora-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(e.target);
-            const config = {
-                resolution: formData.get('resolution'),
-                aspect_ratio: formData.get('aspect_ratio'),
-                default_style: formData.get('default_style'),
-                default_color_grade: formData.get('default_color_grade'),
-                audio_mix: formData.get('audio_mix')
-            };
-
-            try {
-                const response = await fetch('/api/settings/sora_config/technical_specs', {
-                    method: 'PUT',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ value: config })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showAlert('Sora configuration saved successfully!');
-                    originalData.sora = JSON.stringify(config);
-                } else {
-                    showAlert('Failed to save: ' + data.error, 'error');
-                }
-            } catch (error) {
-                showAlert('Error: ' + error.message, 'error');
-            }
-        });
-
-        // Save hook generator prompt
-        document.getElementById('save-hook-prompt').addEventListener('click', async () => {
-            const prompt = document.getElementById('hook-generator-prompt').value;
-
-            try {
-                const response = await fetch('/api/settings/openai_prompt/hook_generator', {
-                    method: 'PUT',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ value: { prompt: prompt } })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showAlert('Hook generator prompt saved successfully!');
-                    originalData.hookPrompt = prompt;
-                } else {
-                    showAlert('Failed to save: ' + data.error, 'error');
-                }
-            } catch (error) {
-                showAlert('Error: ' + error.message, 'error');
-            }
-        });
-
-        // Save script generator prompt
-        document.getElementById('save-script-prompt').addEventListener('click', async () => {
-            const prompt = document.getElementById('script-generator-prompt').value;
-
-            try {
-                const response = await fetch('/api/settings/openai_prompt/scene_script_generator', {
-                    method: 'PUT',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ value: { prompt: prompt } })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showAlert('Script generator prompt saved successfully!');
-                    originalData.scriptPrompt = prompt;
-                } else {
-                    showAlert('Failed to save: ' + data.error, 'error');
-                }
-            } catch (error) {
-                showAlert('Error: ' + error.message, 'error');
-            }
-        });
-
-        // Save hook scenarios
-        document.getElementById('save-hook-scenarios').addEventListener('click', async () => {
-            const jsonStr = document.getElementById('hook-scenarios-json').value;
-
-            try {
-                const scenarios = JSON.parse(jsonStr);
-
-                const response = await fetch('/api/settings/transformer/hook_scenarios', {
-                    method: 'PUT',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ value: scenarios })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showAlert('Hook scenarios saved successfully!');
-                    originalData.hookScenarios = jsonStr;
-                } else {
-                    showAlert('Failed to save: ' + data.error, 'error');
-                }
-            } catch (error) {
-                showAlert('Error: ' + error.message, 'error');
-            }
-        });
-
-        // Save location pools
-        document.getElementById('save-location-pools').addEventListener('click', async () => {
-            const jsonStr = document.getElementById('location-pools-json').value;
-
-            try {
-                const pools = JSON.parse(jsonStr);
-
-                const response = await fetch('/api/settings/transformer/location_pools', {
-                    method: 'PUT',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ value: pools })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showAlert('Location pools saved successfully!');
-                    originalData.locationPools = jsonStr;
-                } else {
-                    showAlert('Failed to save: ' + data.error, 'error');
-                }
-            } catch (error) {
-                showAlert('Error: ' + error.message, 'error');
-            }
-        });
-
-        // Save camera angles
-        document.getElementById('save-camera-angles').addEventListener('click', async () => {
-            const jsonStr = document.getElementById('camera-angles-json').value;
-
-            try {
-                const angles = JSON.parse(jsonStr);
-
-                const response = await fetch('/api/settings/transformer/camera_angles', {
-                    method: 'PUT',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ value: angles })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showAlert('Camera angles saved successfully!');
-                    originalData.cameraAngles = jsonStr;
-                } else {
-                    showAlert('Failed to save: ' + data.error, 'error');
-                }
-            } catch (error) {
-                showAlert('Error: ' + error.message, 'error');
-            }
-        });
-
-        // Save pattern interrupts
-        document.getElementById('save-pattern-interrupts').addEventListener('click', async () => {
-            const jsonStr = document.getElementById('pattern-interrupts-json').value;
-
-            try {
-                const interrupts = JSON.parse(jsonStr);
-
-                const response = await fetch('/api/settings/transformer/pattern_interrupts', {
-                    method: 'PUT',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ value: interrupts })
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    showAlert('Pattern interrupts saved successfully!');
-                    originalData.patternInterrupts = jsonStr;
-                } else {
-                    showAlert('Failed to save: ' + data.error, 'error');
-                }
-            } catch (error) {
-                showAlert('Error: ' + error.message, 'error');
-            }
-        });
-
-        // Scene 1 Settings Event Handlers
         document.getElementById('save-scene1-settings').addEventListener('click', async () => {
             const template = document.getElementById('scene1-prompt-template').value;
             const extractionMethod = document.getElementById('script-extraction').value;
 
             try {
-                // Save Scene 1 prompt template
                 const response = await fetch('/api/settings/scene1_config/prompt_template', {
                     method: 'PUT',
                     headers: {'Content-Type': 'application/json'},
@@ -1125,10 +504,8 @@ Eye contact with camera. Natural gestures. UGC testimonial style.
                 });
 
                 const data = await response.json();
-
                 if (data.success) {
                     showAlert('Scene 1 settings saved successfully!');
-                    originalData.scene1Template = template;
                 } else {
                     showAlert('Failed to save: ' + data.error, 'error');
                 }
@@ -1142,67 +519,79 @@ Eye contact with camera. Natural gestures. UGC testimonial style.
             showAlert('Reset to last saved version', 'success');
         });
 
-        // Reset buttons
-        document.getElementById('reset-gemini').addEventListener('click', () => {
-            if (originalData.gemini) {
-                document.getElementById('gemini-prompt').value = originalData.gemini;
-                showAlert('Reset to last saved version', 'success');
+        // Hook Prompt functions
+        async function loadHookPrompt() {
+            try {
+                const response = await fetch('/api/settings/hook_prompt');
+                const data = await response.json();
+                if (data.success) {
+                    document.getElementById('hook-prompt').value = data.value;
+                }
+            } catch (error) {
+                console.error('Failed to load hook prompt:', error);
+            }
+        }
+
+        document.getElementById('save-hook-prompt').addEventListener('click', async () => {
+            const prompt = document.getElementById('hook-prompt').value;
+            try {
+                const response = await fetch('/api/settings/hook_prompt', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ value: prompt })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    showAlert('Hook prompt saved successfully!');
+                } else {
+                    showAlert('Failed to save: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
             }
         });
 
-        document.getElementById('reset-preset').addEventListener('click', () => {
-            loadAggressionPreset(currentPreset);
-            showAlert('Reset to last saved version', 'success');
-        });
-
-        document.getElementById('reset-sora').addEventListener('click', () => {
-            loadSoraConfig();
-            showAlert('Reset to last saved version', 'success');
-        });
-
-        // Reset OpenAI prompts
         document.getElementById('reset-hook-prompt').addEventListener('click', () => {
             loadHookPrompt();
             showAlert('Reset to last saved version', 'success');
+        });
+
+        // Script Prompt functions
+        async function loadScriptPrompt() {
+            try {
+                const response = await fetch('/api/settings/script_prompt');
+                const data = await response.json();
+                if (data.success) {
+                    document.getElementById('script-prompt').value = data.value;
+                }
+            } catch (error) {
+                console.error('Failed to load script prompt:', error);
+            }
+        }
+
+        document.getElementById('save-script-prompt').addEventListener('click', async () => {
+            const prompt = document.getElementById('script-prompt').value;
+            try {
+                const response = await fetch('/api/settings/script_prompt', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ value: prompt })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    showAlert('Script prompt saved successfully!');
+                } else {
+                    showAlert('Failed to save: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
         });
 
         document.getElementById('reset-script-prompt').addEventListener('click', () => {
             loadScriptPrompt();
             showAlert('Reset to last saved version', 'success');
         });
-
-        // Reset transformer settings
-        document.getElementById('reset-hook-scenarios').addEventListener('click', () => {
-            loadHookScenarios();
-            showAlert('Reset to last saved version', 'success');
-        });
-
-        document.getElementById('reset-location-pools').addEventListener('click', () => {
-            loadLocationPools();
-            showAlert('Reset to last saved version', 'success');
-        });
-
-        document.getElementById('reset-camera-angles').addEventListener('click', () => {
-            loadCameraAngles();
-            showAlert('Reset to last saved version', 'success');
-        });
-
-        document.getElementById('reset-pattern-interrupts').addEventListener('click', () => {
-            loadPatternInterrupts();
-            showAlert('Reset to last saved version', 'success');
-        });
-
-        // Initialize - Load all settings
-        loadGeminiPrompt();
-        loadScene1Settings();
-        loadAggressionPreset('soft');
-        loadSoraConfig();
-        loadHookPrompt();
-        loadScriptPrompt();
-        loadHookScenarios();
-        loadLocationPools();
-        loadCameraAngles();
-        loadPatternInterrupts();
     </script>
 </body>
 </html>
