@@ -27,14 +27,21 @@ class Config:
 
     # Sora settings
     SORA_MODEL = 'sora-2-pro'  # Using Sora 2 Pro for better quality and character consistency
-    SORA_RESOLUTION = '1792x1024'  # Higher resolution (Sora 2 Pro supports up to 1792x1024)
-    SORA_DURATION = '12'  # Max duration per clip
+    
+    # Aspect ratios for different platforms
+    ASPECT_RATIOS = {
+        'tiktok': '1080x1920',      # 9:16 vertical for TikTok, Instagram Reels
+        'instagram': '1080x1080',   # 1:1 square for Instagram Feed
+        'youtube': '1920x1080',     # 16:9 horizontal for YouTube
+        'landscape': '1792x1024'    # High-res landscape (Sora 2 Pro max)
+    }
+    
+    SORA_RESOLUTION = ASPECT_RATIOS['tiktok']  # Default to TikTok (9:16 vertical)
+    SORA_DURATION = '12'  # Max duration per clip (viral hook length)
 
     # Sora pricing (per second)
     SORA_2_COST_PER_SECOND = 0.064  # $0.064/second for Sora 2
     SORA_2_PRO_COST_PER_SECOND = 0.32  # $0.32/second for Sora 2 Pro
-
-    # Note: Sora 2 Pro supports 1792x1024, but Sora 2 only supports 1280x720 (landscape) or 720x1280 (portrait)
 
     # Video settings
     DEFAULT_AD_DURATION = 48  # Total ad length in seconds

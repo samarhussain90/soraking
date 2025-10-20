@@ -1,6 +1,6 @@
 """
-Ad Cloner - Main Orchestrator
-Combines all modules to clone ads with aggression variations
+Viral Hook Generator - Main Orchestrator
+Generates viral 12-second hooks for any affiliate marketing vertical
 """
 import json
 import time
@@ -20,8 +20,8 @@ from modules.utils import normalize_spokesperson
 from pipeline_integrator import PipelineIntegrator
 
 
-class AdCloner:
-    """Main orchestrator for ad cloning pipeline"""
+class ViralHookGenerator:
+    """Main orchestrator for viral hook generation pipeline"""
 
     def __init__(self, logger=None, spaces_client=None, session_id=None, generation_id=None, integrator=None):
         """
@@ -34,7 +34,7 @@ class AdCloner:
             generation_id: Optional generation ID for history tracking
             integrator: Optional PipelineIntegrator for saving generation history
         """
-        print("Initializing Ad Cloner...")
+        print("Initializing Viral Hook Generator...")
         Config.validate_api_keys()
 
         self.analyzer = GeminiVideoAnalyzer()
@@ -51,9 +51,9 @@ class AdCloner:
 
         print("✓ All systems ready\n")
 
-    def clone_ad(self, video_path: str, variants: Optional[List[str]] = None) -> Dict:
+    def generate_hooks(self, video_path: str, variants: Optional[List[str]] = None) -> Dict:
         """
-        Complete ad cloning pipeline
+        Complete viral hook generation pipeline
 
         Args:
             video_path: Path to winning ad video
@@ -61,17 +61,17 @@ class AdCloner:
                      (default: all 4 - soft, medium, aggressive, ultra)
 
         Returns:
-            Results dictionary with all generated ads
+            Results dictionary with all generated viral hooks
         """
         start_time = time.time()
 
         print("="*70)
-        print("AD CLONER PIPELINE")
+        print("VIRAL HOOK GENERATOR")
         print("="*70)
         print(f"Input Video: {video_path}\n")
 
         # STEP 1: Analyze video with Gemini
-        print("\n[1/5] Analyzing video with Gemini 2.5...")
+        print("\n[1/4] Analyzing video with Gemini 2.5...")
         if self.logger:
             from modules.logger import LogLevel
             self.logger.start_stage('analysis')
@@ -183,7 +183,7 @@ class AdCloner:
             print(f"⚠ Transformation failed, using original structure: {str(e)}")
 
         # STEP 2: Generate aggression variants
-        print("\n[2/5] Generating aggression variants...")
+        print("\n[2/4] Generating hook variants (soft, medium, aggressive, ultra)...")
         if self.logger:
             self.logger.start_stage('variants')
             self.logger.log(LogLevel.VERBOSE, "Generating aggression level variations", {
@@ -227,8 +227,8 @@ class AdCloner:
                 self.logger.fail_stage('variants', str(e))
             raise
 
-        # STEP 3: Build Sora prompts from transformer scenes (DIRECT - no AI Director)
-        print("\n[3/5] Building Sora prompts from extreme hooks...")
+        # STEP 3: Build Sora prompts for viral hooks
+        print("\n[3/4] Building Sora prompts for viral hooks...")
         if self.logger:
             self.logger.start_stage('prompts')
             self.logger.log(LogLevel.VERBOSE, "Building prompts directly from transformer scenes (extreme hooks)", {})
@@ -333,10 +333,10 @@ class AdCloner:
                 self.logger.fail_stage('prompts', str(e))
             raise
 
-        # STEP 4: Generate videos with Sora (parallel)
-        print("\n[4/5] Generating videos with Sora...")
-        print(f"Total scenes to generate: {sum(len(p) for p in variant_prompts.values())}")
-        print(f"This will take approximately 15-20 minutes...\n")
+        # STEP 4: Generate viral hooks with Sora (parallel)
+        print("\n[4/4] Generating viral hooks with Sora...")
+        print(f"Total hooks to generate: {sum(len(p) for p in variant_prompts.values())}")
+        print(f"This will take approximately 3-5 minutes (1 hook per variant)...\n")
 
         if self.logger:
             total_scenes = sum(len(p) for p in variant_prompts.values())
@@ -420,29 +420,21 @@ class AdCloner:
                 self.logger.fail_stage('generation', str(e))
             raise
 
-        # STEP 5: Assemble final videos
-        print("\n[5/5] Assembling final ads...")
-        if self.logger:
-            self.logger.start_stage('assembly')
-
+        # No assembly needed - Each variant is a single 12s viral hook
+        print("\n✓ Viral hooks generated successfully!")
+        
         final_ads = {}
-
         for variant_level, variant_result in generated_variants.items():
-            if variant_result['success']:
-                try:
-                    final_path = self.assembler.assemble_variant(variant_result)
-                    final_ads[variant_level] = final_path
-                    print(f"✓ {variant_level.UPPER()}: {final_path}")
-                except Exception as e:
-                    print(f"✗ Failed to assemble {variant_level}: {e}")
+            if variant_result['success'] and variant_result.get('scenes'):
+                # Single hook per variant
+                hook_path = variant_result['scenes'][0].get('video_path')
+                if hook_path:
+                    final_ads[variant_level] = hook_path
+                    print(f"✓ {variant_level.upper()}: {hook_path}")
             else:
-                print(f"✗ Skipping {variant_level} (generation failed)")
+                print(f"✗ {variant_level} hook generation failed")
 
-        if self.logger:
-            self.logger.complete_stage('assembly', {'videos': len(final_ads)})
-
-        # STEP 6: Evaluate generated ads (NEW)
-        print("\n[6/6] Evaluating generated ads...")
+        # Optional: Evaluate generated hooks (skipped for speed)
         evaluations = {}
 
         for variant_level, video_path in final_ads.items():
@@ -493,10 +485,10 @@ class AdCloner:
         # Summary
         elapsed = time.time() - start_time
         print("\n" + "="*70)
-        print("PIPELINE COMPLETE")
+        print("VIRAL HOOK GENERATION COMPLETE")
         print("="*70)
         print(f"Time elapsed: {elapsed/60:.1f} minutes")
-        print(f"Ads generated: {len(final_ads)}")
+        print(f"Hooks generated: {len(final_ads)}")
         print("\nFinal ads:")
         for level, path in final_ads.items():
             score = evaluations.get(level, {}).get('ratings', {}).get('overall_score', 0)

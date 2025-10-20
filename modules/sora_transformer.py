@@ -659,15 +659,14 @@ Generate Scene 2 and Scene 3 scripts. Make them CREATIVE and DIFFERENT from the 
 
     def transform_to_sora_structure(self, analysis: Dict, vertical: str, variant_level: str = 'medium') -> List[Dict]:
         """
-        Transform ad into EXTREME HOOKS + ACTORS structure
+        Transform ad into VIRAL HOOK GENERATOR structure
 
-        NEW STRATEGY: Scene 1 = EXTREME visual hook (NO PEOPLE), Scenes 2-3 = Actors
+        VIRAL HOOK STRATEGY: Only Scene 1 = EXTREME visual hook (NO PEOPLE)
         - Scene 1 (12s): EXTREME HOOK - Dramatic visual scenario (NO PEOPLE)
-        - Scene 2 (12s): ACTOR 1 - Social Proof/Solution
-        - Scene 3 (12s): ACTOR 2 - Urgency/CTA
+        - NO ACTORS - Pure visual storytelling for maximum scroll-stopping power
 
         Scene 1 uses shock-value scenarios from HOOK_SCENARIOS pool.
-        Scenes 2-3 use dynamic actors for social proof and conversion.
+        Focus on viral, scroll-stopping visual hooks only.
         """
         import random
 
@@ -687,36 +686,15 @@ Generate Scene 2 and Scene 3 scripts. Make them CREATIVE and DIFFERENT from the 
             selected_hook = random.choice(custom_hooks)
             print(f"  ✓ Selected custom hook: {selected_hook['name']}")
 
-        # Generate dynamic actors for Scenes 2-3 only
-        actors = self._generate_dynamic_actors(analysis, vertical)
-
-        # Generate CREATIVE scripts for Scenes 2-3 (NOT just copying original)
-        creative_scene_scripts = self._generate_creative_actor_scenes(analysis, vertical)
-
-        # Get location pool for this vertical (for actor scenes only)
-        locations = self.LOCATION_POOLS.get(vertical, self.LOCATION_POOLS['ecommerce'])
-
-        # Randomly select 2 different locations (for scenes 2-3)
-        selected_locations = random.sample(locations, min(2, len(locations)))
-
-        # Randomly select 2 different camera angles (for scenes 2-3)
-        camera_angles = random.sample(self.CAMERA_ANGLES, min(2, len(self.CAMERA_ANGLES)))
-
-        # Define shot types and lighting for actor scenes
-        actor_shot_configs = [
-            {'shot_type': 'Medium Shot', 'lighting': 'Professional warm lighting, well-lit'},
-            {'shot_type': 'Medium Close-Up', 'lighting': 'Bright commercial lighting, vibrant'}
-        ]
-
         transformed_scenes = []
 
-        # SCENE 1: EXTREME HOOK SCENARIO (NO PEOPLE)
+        # SCENE 1: EXTREME HOOK SCENARIO (NO PEOPLE) - VIRAL HOOK GENERATOR
         hook_scene = {
             'scene_number': 1,
             'timestamp': '00:00-00:12',
             'duration_seconds': 12,
             'type': 'extreme_hook',
-            'purpose': 'Extreme visual hook - grab attention with shock value',
+            'purpose': 'Viral visual hook - maximum scroll-stopping power',
             'has_character': False,  # NO PEOPLE in hook scenes
             'vertical': vertical,
 
@@ -738,41 +716,6 @@ Generate Scene 2 and Scene 3 scripts. Make them CREATIVE and DIFFERENT from the 
             'message': selected_hook['text_overlay']
         }
         transformed_scenes.append(hook_scene)
-
-        # SCENES 2-3: ACTOR SCENES (Creative Social Proof + CTA)
-        for i in range(2):
-            actor_idx = i + 1  # Use actors 1 and 2 (skip actor 0 since Scene 1 has no people)
-            scene_number = i + 2
-            creative_script = creative_scene_scripts[i]  # Use GPT-generated creative script
-
-            scene = {
-                'scene_number': scene_number,
-                'timestamp': f'00:{scene_number*12:02d}-00:{(scene_number+1)*12:02d}',
-                'duration_seconds': 12,
-                'type': creative_script['purpose'],  # social_proof or urgent_cta
-                'purpose': creative_script['purpose'],
-                'has_character': True,
-                'vertical': vertical,
-                'actor_profile': actors[actor_idx],
-                'shot_type': actor_shot_configs[i]['shot_type'],
-                'camera_angle': 'Eye-Level',
-                'setting': f"{selected_locations[i]}. {actors[actor_idx]['description'].split(',')[0]} speaking directly to camera.",
-                'lighting': actor_shot_configs[i]['lighting'],
-                'emotion': creative_script['emotion'],
-                'message': creative_script['script'],  # Use CREATIVE GPT script, not original!
-                'camera_note': camera_angles[i],
-                'visual_direction': creative_script['visual_direction'],
-
-                # Store creative script for Sora prompt builder
-                'creative_script': creative_script['script'],
-                'actor_speaking': True
-            }
-
-            # Add CTA flag to final scene
-            if i == 1:  # Scene 3
-                scene['is_cta'] = True
-
-            transformed_scenes.append(scene)
 
         return transformed_scenes
 

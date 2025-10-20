@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """
-Simple CLI for Ad Cloner Platform
+Simple CLI for Viral Hook Generator
 """
 import sys
 import argparse
 from pathlib import Path
 
-from ad_cloner import AdCloner
+from ad_cloner import ViralHookGenerator
 
 
 def main():
     """Main CLI entry point"""
     parser = argparse.ArgumentParser(
-        description='Clone winning ads with aggression variations using Sora 2'
+        description='Generate viral 12-second hooks for any affiliate marketing vertical using Sora 2 Pro'
     )
 
     parser.add_argument(
@@ -35,20 +35,20 @@ def main():
 
     args = parser.parse_args()
 
-    # Initialize cloner
-    cloner = AdCloner()
+    # Initialize hook generator
+    generator = ViralHookGenerator()
 
     if args.analyze_only:
         # Just analyze
         print("Analyzing video only...")
-        analysis, path = cloner.analyzer.analyze_and_save(args.video)
+        analysis, path = generator.analyzer.analyze_and_save(args.video)
         print(f"\nAnalysis saved to: {path}")
         return
 
     # Full pipeline
-    results = cloner.clone_ad(args.video, variants=args.variants)
+    results = generator.generate_hooks(args.video, variants=args.variants)
 
-    print("\n✓ Done! Check the output/ directory for results.")
+    print("\n✓ Done! Check the output/ directory for viral hooks.")
 
 
 if __name__ == "__main__":
