@@ -33,6 +33,5 @@ ENV PYTHONUNBUFFERED=1
 ENV PORT=8080
 
 # Run with gunicorn for production (eventlet for WebSocket support)
-# Key: NO monkey_patch() in code - eventlet worker handles it internally
-# Multiple workers for concurrency, extended timeout for long video operations
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--worker-class", "eventlet", "--workers", "2", "--timeout", "600", "--worker-connections", "1000", "--keepalive", "5", "server:app"]
+# Single worker to avoid coordination issues, but with extended timeout
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--worker-class", "eventlet", "--workers", "1", "--timeout", "600", "--worker-connections", "1000", "server:app"]
