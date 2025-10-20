@@ -33,4 +33,5 @@ ENV PYTHONUNBUFFERED=1
 ENV PORT=8080
 
 # Run with gunicorn for production (using eventlet for WebSocket support)
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--worker-class", "eventlet", "--workers", "1", "--timeout", "300", "server:app"]
+# Multiple workers for better concurrency, higher timeout for long-running operations
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--worker-class", "eventlet", "--workers", "2", "--timeout", "600", "--worker-connections", "1000", "--keepalive", "5", "server:app"]

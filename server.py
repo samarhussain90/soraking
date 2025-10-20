@@ -2,6 +2,10 @@
 Web Server with API and WebSocket Support
 Provides REST API and real-time updates for frontend
 """
+# IMPORTANT: Monkey patch must be FIRST to make all I/O non-blocking
+import eventlet
+eventlet.monkey_patch()
+
 import os
 import json
 import threading
@@ -23,7 +27,7 @@ from pipeline_integrator import PipelineIntegrator
 app = Flask(__name__, static_folder='frontend', static_url_path='')
 app.config['MAX_CONTENT_LENGTH'] = 500 * 1024 * 1024  # 500MB max file size
 CORS(app)
-socketio = SocketIO(app, cors_allowed_origins="*", max_http_buffer_size=500 * 1024 * 1024, async_mode='threading')
+socketio = SocketIO(app, cors_allowed_origins="*", max_http_buffer_size=500 * 1024 * 1024, async_mode='eventlet', ping_timeout=120, ping_interval=25)
 
 # Register history API
 register_history_api(app)
