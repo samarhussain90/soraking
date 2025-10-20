@@ -20,8 +20,8 @@ from modules.utils import normalize_spokesperson
 from pipeline_integrator import PipelineIntegrator
 
 
-class ViralHookGenerator:
-    """Main orchestrator for viral hook generation pipeline"""
+class Scene1Generator:
+    """Main orchestrator for Scene 1 generation pipeline"""
 
     def __init__(self, logger=None, spaces_client=None, session_id=None, generation_id=None, integrator=None):
         """
@@ -51,21 +51,21 @@ class ViralHookGenerator:
 
         print("✓ All systems ready\n")
 
-    def generate_hook(self, video_path: str, aggression_level: str = 'medium') -> Dict:
+    def generate_scene1(self, video_path: str, aggression_level: str = 'medium') -> Dict:
         """
-        Complete viral hook generation pipeline - SINGLE HOOK
+        Complete Scene 1 generation pipeline - SINGLE SCENE
 
         Args:
             video_path: Path to winning ad video
-            aggression_level: Aggression level for the hook (soft, medium, aggressive, ultra)
+            aggression_level: Aggression level for the scene (soft, medium, aggressive, ultra)
 
         Returns:
-            Results dictionary with single generated viral hook
+            Results dictionary with single generated Scene 1
         """
         start_time = time.time()
 
         print("="*70)
-        print("VIRAL HOOK GENERATOR")
+        print("SCENE 1 GENERATOR")
         print("="*70)
         print(f"Input Video: {video_path}\n")
 
@@ -181,11 +181,11 @@ class ViralHookGenerator:
             # Continue with original analysis if transformation fails
             print(f"⚠ Transformation failed, using original structure: {str(e)}")
 
-        # STEP 2: Generate single hook with specified aggression level
-        print(f"\n[2/4] Generating {aggression_level} intensity hook...")
+        # STEP 2: Generate single Scene 1 with specified aggression level
+        print(f"\n[2/4] Generating {aggression_level} intensity Scene 1...")
         if self.logger:
             self.logger.start_stage('variants')
-            self.logger.log(LogLevel.VERBOSE, f"Generating single hook with {aggression_level} intensity", {
+            self.logger.log(LogLevel.VERBOSE, f"Generating single Scene 1 with {aggression_level} intensity", {
                 'aggression_level': aggression_level
             })
 
@@ -207,9 +207,9 @@ class ViralHookGenerator:
 
             all_variants = [target_variant]  # Only one variant
 
-            print(f"✓ Generated {target_variant['variant_name']} hook")
+            print(f"✓ Generated {target_variant['variant_name']} Scene 1")
             if self.logger:
-                self.logger.log(LogLevel.VERBOSE, f"Single hook: {target_variant['variant_name']}", {
+                self.logger.log(LogLevel.VERBOSE, f"Single Scene 1: {target_variant['variant_name']}", {
                     'level': target_variant['variant_level'],
                     'scenes': len(target_variant.get('modified_scenes', []))
                 })
@@ -229,11 +229,11 @@ class ViralHookGenerator:
                 self.logger.fail_stage('variants', str(e))
             raise
 
-        # STEP 3: Build Sora prompts for viral hooks
-        print("\n[3/4] Building Sora prompts for viral hooks...")
+        # STEP 3: Build Sora prompts for Scene 1
+        print("\n[3/4] Building Sora prompts for Scene 1...")
         if self.logger:
             self.logger.start_stage('prompts')
-            self.logger.log(LogLevel.VERBOSE, "Building prompts directly from transformer scenes (extreme hooks)", {})
+            self.logger.log(LogLevel.VERBOSE, "Building prompts directly from transformer scenes (enhanced Scene 1)", {})
 
         try:
             variant_prompts = {}

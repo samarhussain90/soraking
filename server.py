@@ -12,7 +12,7 @@ from flask_socketio import SocketIO, emit
 from werkzeug.utils import secure_filename
 
 from config import Config
-from ad_cloner import ViralHookGenerator
+from ad_cloner import Scene1Generator
 from modules.logger import PipelineLogger, get_logger
 from modules.supabase_client import SupabaseClient
 from modules.spaces_client import SpacesClient
@@ -284,7 +284,7 @@ def start_clone():
             })
 
             # Initialize cloner with WebSocket logger, spaces_client, session_id, generation_id, and integrator
-            cloner = ViralHookGenerator(
+            cloner = Scene1Generator(
                 logger=ws_logger,
                 spaces_client=spaces_client,
                 session_id=session_id,
@@ -293,7 +293,7 @@ def start_clone():
             )
 
             # Run pipeline (logger integrated)
-            results = cloner.generate_hook(video_path, aggression_level)
+            results = cloner.generate_scene1(video_path, aggression_level)
 
             # Log completion
             ws_logger.complete_pipeline(results)
@@ -708,7 +708,7 @@ def preview_prompts():
         return jsonify({'error': 'video_path required'}), 400
 
     try:
-        from ad_cloner import ViralHookGenerator
+        from ad_cloner import Scene1Generator
         
         cloner = AdCloner()
         
@@ -785,8 +785,8 @@ def generate_from_preview():
         
         # Start generation in background
         def run_generation():
-            from ad_cloner import ViralHookGenerator
-            cloner = ViralHookGenerator(logger=logger)
+            from ad_cloner import Scene1Generator
+            cloner = Scene1Generator(logger=logger)
             
             # Load analysis
             with open(preview_data['analysis_path']) as f:

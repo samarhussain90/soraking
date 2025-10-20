@@ -342,11 +342,11 @@ async function showResults(results) {
     }
 
     content.innerHTML = `
-        <div style="margin-bottom: 20px;">
-            <p><strong>Status:</strong> ✅ Complete</p>
-            <p><strong>Time Elapsed:</strong> ${minutes}m ${seconds}s</p>
-            <p><strong>Hook Generated:</strong> ${results.hook_result?.level || 'Unknown'} intensity</p>
-        </div>
+            <div style="margin-bottom: 20px;">
+                <p><strong>Status:</strong> ✅ Complete</p>
+                <p><strong>Time Elapsed:</strong> ${minutes}m ${seconds}s</p>
+                <p><strong>Scene 1 Generated:</strong> ${results.hook_result?.level || 'Unknown'} intensity</p>
+            </div>
 
         ${generatedVideos.length > 0 ? `
             <h3 style="margin-top: 30px; margin-bottom: 15px;">📹 Generated Scene Videos (${generatedVideos.length})</h3>
@@ -370,25 +370,25 @@ async function showResults(results) {
             </div>
         ` : ''}
 
-        ${results.hook_result?.success ? `
-            <h3 style="margin-top: 30px; margin-bottom: 15px;">🔥 Generated Viral Hook</h3>
-            <div class="video-grid">
-                <div class="video-card">
-                    <h3>${results.hook_result.level} Intensity Hook</h3>
-                    <div class="video-preview">
-                        <video controls width="100%">
-                            <source src="${results.hook_result.path}" type="video/mp4">
-                        </video>
+            ${results.hook_result?.success ? `
+                <h3 style="margin-top: 30px; margin-bottom: 15px;">🎬 Generated Scene 1</h3>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <h3>${results.hook_result.level} Intensity Scene 1</h3>
+                        <div class="video-preview">
+                            <video controls width="100%">
+                                <source src="${results.hook_result.path}" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-info">
+                            Enhanced Scene 1 ready!
+                        </div>
+                        <a href="${results.hook_result.path}" download="scene1_${results.hook_result.level}.mp4" class="btn" style="margin-top: 10px; display: block; text-decoration: none; padding: 10px;">
+                            ⬇️ Download Scene 1
+                        </a>
                     </div>
-                    <div class="video-info">
-                        Ready for social media!
-                    </div>
-                    <a href="${results.hook_result.path}" download="viral_hook_${results.hook_result.level}.mp4" class="btn" style="margin-top: 10px; display: block; text-decoration: none; padding: 10px;">
-                        ⬇️ Download Hook
-                    </a>
                 </div>
-            </div>
-        ` : ''}
+            ` : ''}
 
         ${generatedVideos.length === 0 && finalVideos.length === 0 ? `
             <div style="margin-top: 30px; padding: 20px; background: #f9fafb; border-radius: 8px; text-align: center;">
@@ -553,13 +553,13 @@ async function uploadFile(file) {
 
 // Cost estimation
 function updateCostEstimate() {
-    // Sora 2 pricing: $0.064 per second
-    const SORA_2_COST_PER_SECOND = 0.064;
-    const SECONDS_PER_HOOK = 12;
-    const HOOKS_GENERATED = 1; // Single hook only
+        // Sora 2 pricing: $0.064 per second
+        const SORA_2_COST_PER_SECOND = 0.064;
+        const SECONDS_PER_SCENE = 12;
+        const SCENES_GENERATED = 1; // Single Scene 1 only
 
-    // Calculate cost for single hook
-    const totalSeconds = HOOKS_GENERATED * SECONDS_PER_HOOK;
+        // Calculate cost for single Scene 1
+        const totalSeconds = SCENES_GENERATED * SECONDS_PER_SCENE;
     const totalCost = totalSeconds * SORA_2_COST_PER_SECOND;
 
     // Update UI
@@ -567,7 +567,7 @@ function updateCostEstimate() {
     const costDetails = document.getElementById('cost-details');
 
     costAmount.textContent = `$${totalCost.toFixed(2)}`;
-    costDetails.textContent = `1 hook × ${SECONDS_PER_HOOK}s × $${SORA_2_COST_PER_SECOND}/s = $${totalCost.toFixed(2)}`;
+    costDetails.textContent = `1 Scene 1 × ${SECONDS_PER_SCENE}s × $${SORA_2_COST_PER_SECOND}/s = $${totalCost.toFixed(2)}`;
 }
 
 // Update aggression level display

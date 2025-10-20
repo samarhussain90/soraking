@@ -659,63 +659,69 @@ Generate Scene 2 and Scene 3 scripts. Make them CREATIVE and DIFFERENT from the 
 
     def transform_to_sora_structure(self, analysis: Dict, vertical: str, variant_level: str = 'medium') -> List[Dict]:
         """
-        Transform ad into VIRAL HOOK GENERATOR structure
+        Transform ad into SCENE 1 GENERATOR structure
 
-        VIRAL HOOK STRATEGY: Only Scene 1 = EXTREME visual hook (NO PEOPLE)
-        - Scene 1 (12s): EXTREME HOOK - Dramatic visual scenario (NO PEOPLE)
-        - NO ACTORS - Pure visual storytelling for maximum scroll-stopping power
+        SCENE 1 STRATEGY: Only Scene 1 = Enhanced visual scene with better prompts
+        - Scene 1 (12s): Enhanced visual scene with improved prompting
+        - Focus on high-quality Scene 1 generation with better prompt structure
 
-        Scene 1 uses shock-value scenarios from HOOK_SCENARIOS pool.
-        Focus on viral, scroll-stopping visual hooks only.
+        Scene 1 uses enhanced scenarios with improved prompt generation.
+        Focus on high-quality Scene 1 generation only.
         """
         import random
 
         script = analysis.get('script', {}).get('full_transcript', '')
         video_duration = analysis.get('video_metadata', {}).get('duration_seconds', 40)
 
-        # Get hook scenarios for this vertical
+        # Get enhanced scenarios for this vertical
         if vertical in self.HOOK_SCENARIOS:
-            # Use pre-written hooks for verticals with existing scenarios
-            hook_scenarios = self.HOOK_SCENARIOS[vertical]
-            selected_hook = random.choice(hook_scenarios)
-            print(f"  ✓ Using pre-written hook: {selected_hook['name']}")
+            # Use pre-written scenarios for verticals with existing scenarios
+            scenarios = self.HOOK_SCENARIOS[vertical]
+            selected_scenario = random.choice(scenarios)
+            print(f"  ✓ Using pre-written scenario: {selected_scenario['name']}")
         else:
-            # Generate custom hooks using GPT for verticals without pre-written scenarios
-            print(f"  ⚡ No pre-written hooks for {vertical}, generating custom hooks...")
-            custom_hooks = self._generate_custom_hooks_with_gpt(analysis, vertical)
-            selected_hook = random.choice(custom_hooks)
-            print(f"  ✓ Selected custom hook: {selected_hook['name']}")
+            # Generate custom scenarios using GPT for verticals without pre-written scenarios
+            print(f"  ⚡ No pre-written scenarios for {vertical}, generating custom scenarios...")
+            custom_scenarios = self._generate_custom_hooks_with_gpt(analysis, vertical)
+            selected_scenario = random.choice(custom_scenarios)
+            print(f"  ✓ Selected custom scenario: {selected_scenario['name']}")
 
         transformed_scenes = []
 
-        # SCENE 1: EXTREME HOOK SCENARIO (NO PEOPLE) - VIRAL HOOK GENERATOR
-        hook_scene = {
+        # SCENE 1: ENHANCED VISUAL SCENE - SCENE 1 GENERATOR
+        scene_1 = {
             'scene_number': 1,
             'timestamp': '00:00-00:12',
             'duration_seconds': 12,
-            'type': 'extreme_hook',
-            'purpose': 'Viral visual hook - maximum scroll-stopping power',
-            'has_character': False,  # NO PEOPLE in hook scenes
+            'type': 'enhanced_scene',
+            'purpose': 'High-quality visual scene with improved prompting',
+            'has_character': False,  # Focus on visual storytelling
             'vertical': vertical,
 
-            # Hook scenario details
-            'scenario_name': selected_hook['name'],
-            'visual_description': selected_hook['visual'],
-            'camera_movement': selected_hook['camera'],
-            'emotion': selected_hook['emotion'],
-            'text_overlay': selected_hook['text_overlay'],
-            'beat_breakdown': selected_hook['beat_breakdown'],
-            'audio_design': selected_hook['audio'],
-            'lighting': selected_hook['lighting'],
-            'scenario_type': selected_hook['type'],
+            # Enhanced scenario details
+            'scenario_name': selected_scenario['name'],
+            'visual_description': selected_scenario['visual'],
+            'camera_movement': selected_scenario['camera'],
+            'emotion': selected_scenario['emotion'],
+            'text_overlay': selected_scenario['text_overlay'],
+            'beat_breakdown': selected_scenario['beat_breakdown'],
+            'audio_design': selected_scenario['audio'],
+            'lighting': selected_scenario['lighting'],
+            'scenario_type': selected_scenario['type'],
 
-            # For compatibility with prompt builder
+            # Enhanced prompt structure for better generation
             'shot_type': 'Dynamic - see camera_movement',
             'camera_angle': 'Dynamic - see camera_movement',
-            'setting': selected_hook['visual'],
-            'message': selected_hook['text_overlay']
+            'setting': selected_scenario['visual'],
+            'message': selected_scenario['text_overlay'],
+            
+            # Enhanced prompt elements for better Sora generation
+            'enhanced_prompting': True,
+            'cinematic_style': 'High production value, commercial quality',
+            'visual_effects': 'Natural lighting, realistic physics, authentic movement',
+            'audio_enhancement': 'Layered sound design, spatial audio, realistic acoustics'
         }
-        transformed_scenes.append(hook_scene)
+        transformed_scenes.append(scene_1)
 
         return transformed_scenes
 

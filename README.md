@@ -1,21 +1,21 @@
-# Viral Hook Generator
+# Scene 1 Generator
 
 Generate scroll-stopping 12-second viral hooks for any affiliate marketing vertical using Gemini 2.5 and Sora 2 Pro.
 
 ## Overview
 
-**Input**: Any product/offer video or URL
-**Output**: 4 viral hook variations (12s each) optimized for TikTok, Instagram Reels
-**Time**: ~5 minutes fully automated
+**Input**: Any product/offer video or URL  
+**Output**: Enhanced Scene 1 (12s) with improved prompting  
+**Time**: ~3 minutes fully automated
 
 ## Features
 
 - **AI Video Analysis**: Gemini 2.5 extracts complete breakdown (product, benefits, target audience)
-- **4 Hook Variations**: Soft, Medium, Aggressive, Ultra intensity levels
-- **Extreme Visual Hooks**: NO talking heads - pure visual storytelling for maximum scroll-stopping power
+- **Scene 1 Generation**: Enhanced visual scene with improved prompting
+- **Enhanced Visual Scenes**: High-quality visual storytelling with improved prompting
 - **Multi-Platform**: 9:16 (TikTok/Reels), 1:1 (Instagram Feed), 16:9 (YouTube)
 - **Works For Any Vertical**: Ecommerce, courses, crypto, health, insurance, solar, SaaS
-- **Parallel Generation**: All hooks generate simultaneously
+- **Single Scene Generation**: Focused on high-quality Scene 1
 - **Pure Sora 2 Pro**: Text overlays, audio, and effects baked directly into prompts
 
 ## Installation
@@ -225,4 +225,4 @@ Built with:
 - Google Gemini 2.5 (video analysis)
 - OpenAI Sora 2 Pro (video generation)
 - ffmpeg (video processing)
-# Viral Hook Generator - Deployed Mon Oct 20 13:15:07 EDT 2025
+# Scene 1 Generator - Deployed Mon Oct 20 13:15:07 EDT 2025

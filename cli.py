@@ -6,13 +6,13 @@ import sys
 import argparse
 from pathlib import Path
 
-from ad_cloner import ViralHookGenerator
+from ad_cloner import Scene1Generator
 
 
 def main():
     """Main CLI entry point"""
     parser = argparse.ArgumentParser(
-        description='Generate viral 12-second hooks for any affiliate marketing vertical using Sora 2 Pro'
+        description='Generate enhanced Scene 1 for any affiliate marketing vertical using Sora 2 Pro'
     )
 
     parser.add_argument(
@@ -35,8 +35,8 @@ def main():
 
     args = parser.parse_args()
 
-    # Initialize hook generator
-    generator = ViralHookGenerator()
+    # Initialize Scene 1 generator
+    generator = Scene1Generator()
 
     if args.analyze_only:
         # Just analyze
@@ -46,9 +46,9 @@ def main():
         return
 
     # Full pipeline
-    results = generator.generate_hook(args.video, aggression_level=args.aggression)
+        results = generator.generate_scene1(args.video, aggression_level=args.aggression)
 
-    print("\n✓ Done! Check the output/ directory for viral hooks.")
+    print("\n✓ Done! Check the output/ directory for Scene 1 videos.")
 
 
 if __name__ == "__main__":
