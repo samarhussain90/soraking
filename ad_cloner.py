@@ -502,6 +502,20 @@ class AdCloner:
             score = evaluations.get(level, {}).get('ratings', {}).get('overall_score', 0)
             print(f"  {level.upper()}: {path} (Score: {score:.1f}/10)")
 
+        # Mark generation as completed in history
+        if self.integrator and self.generation_id:
+            try:
+                # Calculate actual cost (4 scenes per variant * $0.32/scene)
+                actual_cost = len(final_ads) * 4 * Config.SORA_2_PRO_COST_PER_SECOND * 12  # 12 seconds per scene
+                self.integrator.gen_manager.update_generation_status(
+                    self.generation_id,
+                    'completed',
+                    actual_cost=actual_cost
+                )
+                print(f"✓ Generation {self.generation_id[:8]}... marked as completed")
+            except Exception as e:
+                print(f"⚠ Failed to mark generation as completed: {e}")
+
         return {
             'analysis_path': analysis_path,
             'variants_generated': list(final_ads.keys()),
