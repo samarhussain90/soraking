@@ -32,6 +32,7 @@ EXPOSE 8080
 ENV PYTHONUNBUFFERED=1
 ENV PORT=8080
 
-# Run with gunicorn for production (using eventlet for WebSocket support)
-# Multiple workers for better concurrency, higher timeout for long-running operations
+# Run with gunicorn for production (eventlet for WebSocket support)
+# Key: NO monkey_patch() in code - eventlet worker handles it internally
+# Multiple workers for concurrency, extended timeout for long video operations
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--worker-class", "eventlet", "--workers", "2", "--timeout", "600", "--worker-connections", "1000", "--keepalive", "5", "server:app"]
