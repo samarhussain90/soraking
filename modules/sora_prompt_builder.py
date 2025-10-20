@@ -314,7 +314,11 @@ Symbolic storytelling through objects/environment only.
         sentences = re.split(r'(?<=[.!?])\s+', script.strip())
         
         if len(scenes) == 1:
-            return [script]
+            # For Scene 1 only, extract just the opening hook (first 1-2 sentences)
+            sentences = re.split(r'(?<=[.!?])\s+', script.strip())
+            # Take only the first 1-2 sentences for the hook
+            hook_sentences = sentences[:2] if len(sentences) >= 2 else sentences[:1]
+            return [' '.join(hook_sentences)]
         
         # Map scene purposes to script segments
         parts = []
