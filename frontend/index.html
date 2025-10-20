@@ -58,6 +58,8 @@
             </div>
         </header>
 
+        <!-- Generate View -->
+        <div id="generate-view" class="view-container">
         <!-- Content Grid -->
         <div class="content-wrapper">
             <!-- Left Column: Input Form -->
@@ -262,6 +264,28 @@
                 </div>
             </section>
         </div>
+        </div>
+        <!-- End Generate View -->
+
+        <!-- Library View -->
+        <div id="library-view" class="view-container" style="display: none;">
+            <div class="library-header">
+                <h2>Generation Library</h2>
+                <p class="library-subtitle">Your generation history and completed videos</p>
+            </div>
+
+            <div class="library-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+                <button class="filter-btn" data-filter="processing">Processing</button>
+                <button class="filter-btn" data-filter="failed">Failed</button>
+            </div>
+
+            <div class="library-grid" id="library-grid">
+                <div class="loading-spinner">Loading generations...</div>
+            </div>
+        </div>
+        <!-- End Library View -->
     </main>
 
     <script src="app.js"></script>

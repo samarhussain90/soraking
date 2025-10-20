@@ -698,9 +698,230 @@ async function loadDetailedLogs(sessionId) {
     }
 }
 
+// Library View Functions
+let currentFilter = 'all';
+let allGenerations = [];
+
+// Initialize navigation
+document.addEventListener('DOMContentLoaded', () => {
+    // Attach nav item click handlers
+    document.querySelectorAll('.nav-item').forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Update active state
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+
+            // Switch views based on index
+            const views = ['generate-view', 'analytics-view', 'library-view', 'settings-view'];
+            const viewName = views[index];
+
+            // Hide all views
+            document.querySelectorAll('.view-container').forEach(v => v.style.display = 'none');
+
+            // Show selected view
+            const selectedView = document.getElementById(viewName);
+            if (selectedView) {
+                selectedView.style.display = 'block';
+
+                // Load library data if switching to library view
+                if (viewName === 'library-view') {
+                    loadLibrary();
+                }
+            }
+        });
+    });
+
+    // Attach filter button handlers
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active state
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Apply filter
+            currentFilter = btn.dataset.filter;
+            renderLibrary();
+        });
+    });
+});
+
+// Load library from API
+async function loadLibrary() {
+    const grid = document.getElementById('library-grid');
+    grid.innerHTML = '<div class="loading-spinner">Loading generations...</div>';
+
+    try {
+        const response = await fetch(`${API_BASE}/history/generations?limit=50`);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        allGenerations = data.generations || [];
+
+        renderLibrary();
+
+    } catch (error) {
+        console.error('Failed to load library:', error);
+        grid.innerHTML = `
+            <div style="text-align: center; padding: 40px; color: #6b7280;">
+                <p style="font-size: 18px; margin-bottom: 10px;">⚠️ Failed to load generation history</p>
+                <p style="font-size: 14px;">${error.message}</p>
+                <button class="btn" onclick="loadLibrary()" style="margin-top: 20px;">Retry</button>
+            </div>
+        `;
+    }
+}
+
+// Render library with current filter
+function renderLibrary() {
+    const grid = document.getElementById('library-grid');
+
+    // Filter generations
+    let filtered = allGenerations;
+    if (currentFilter !== 'all') {
+        filtered = allGenerations.filter(g => g.status === currentFilter);
+    }
+
+    // Sort by created_at descending (newest first)
+    filtered.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div style="text-align: center; padding: 40px; color: #6b7280;">
+                <p style="font-size: 18px;">No ${currentFilter === 'all' ? '' : currentFilter} generations found</p>
+            </div>
+        `;
+        return;
+    }
+
+    // Render generation cards
+    grid.innerHTML = filtered.map(gen => renderGenerationCard(gen)).join('');
+}
+
+// Render individual generation card
+function renderGenerationCard(gen) {
+    const createdDate = new Date(gen.created_at);
+    const timeAgo = getTimeAgo(createdDate);
+
+    // Get status badge
+    const statusBadges = {
+        'completed': '<span style="background: #10b981; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">✓ Completed</span>',
+        'processing': '<span style="background: #3b82f6; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">⏳ Processing</span>',
+        'failed': '<span style="background: #ef4444; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">✗ Failed</span>',
+        'pending': '<span style="background: #6b7280; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">⏸ Pending</span>'
+    };
+
+    const statusBadge = statusBadges[gen.status] || statusBadges['pending'];
+
+    // Count completed variants and scenes
+    const completedVariants = gen.variants?.filter(v => v.status === 'completed').length || 0;
+    const totalVariants = gen.variants?.length || 0;
+
+    const completedScenes = gen.variants?.reduce((sum, v) =>
+        sum + (v.scenes?.filter(s => s.status === 'completed').length || 0), 0) || 0;
+    const totalScenes = gen.variants?.reduce((sum, v) =>
+        sum + (v.scenes?.length || 0), 0) || 0;
+
+    // Get first available video thumbnail
+    let thumbnailUrl = null;
+    if (gen.variants) {
+        for (const variant of gen.variants) {
+            if (variant.scenes && variant.scenes.length > 0) {
+                const scene = variant.scenes.find(s => s.thumbnail_url);
+                if (scene) {
+                    thumbnailUrl = scene.thumbnail_url;
+                    break;
+                }
+            }
+        }
+    }
+
+    return `
+        <div class="generation-card" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; transition: all 0.2s;">
+            <div class="generation-thumbnail" style="aspect-ratio: 16/9; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); position: relative; overflow: hidden;">
+                ${thumbnailUrl ? `
+                    <img src="${thumbnailUrl}" alt="Thumbnail" style="width: 100%; height: 100%; object-fit: cover;">
+                ` : `
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: white; font-size: 48px;">
+                        🎬
+                    </div>
+                `}
+                <div style="position: absolute; top: 12px; right: 12px;">
+                    ${statusBadge}
+                </div>
+            </div>
+
+            <div style="padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                    <div>
+                        <div style="font-size: 14px; font-weight: 600; color: #111827; margin-bottom: 4px;">
+                            Generation ${gen.id.substring(0, 8)}
+                        </div>
+                        <div style="font-size: 12px; color: #6b7280;">
+                            ${timeAgo}
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; padding: 12px; background: #f9fafb; border-radius: 8px;">
+                    <div>
+                        <div style="font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Variants</div>
+                        <div style="font-size: 16px; font-weight: 600; color: #111827;">${completedVariants}/${totalVariants}</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Scenes</div>
+                        <div style="font-size: 16px; font-weight: 600; color: #111827;">${completedScenes}/${totalScenes}</div>
+                    </div>
+                </div>
+
+                ${gen.status === 'completed' && gen.actual_cost ? `
+                    <div style="font-size: 12px; color: #6b7280; margin-bottom: 12px;">
+                        Cost: <span style="font-weight: 600; color: #111827;">$${gen.actual_cost.toFixed(2)}</span>
+                    </div>
+                ` : ''}
+
+                ${gen.variants && gen.variants.length > 0 ? `
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        ${gen.variants.map(v => `
+                            <span style="padding: 4px 8px; background: #f3f4f6; border-radius: 6px; font-size: 11px; color: #6b7280; font-weight: 500;">
+                                ${v.variant_type}
+                            </span>
+                        `).join('')}
+                    </div>
+                ` : ''}
+            </div>
+        </div>
+    `;
+}
+
+// Get human-readable time ago
+function getTimeAgo(date) {
+    const seconds = Math.floor((new Date() - date) / 1000);
+
+    if (seconds < 60) return 'Just now';
+
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m ago`;
+
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days}d ago`;
+
+    const weeks = Math.floor(days / 7);
+    if (weeks < 4) return `${weeks}w ago`;
+
+    return date.toLocaleDateString();
+}
+
 // Export functions
 window.startCloning = startCloning;
 window.uploadFile = uploadFile;
 window.updateCostEstimate = updateCostEstimate;
 window.toggleDetailedLogs = toggleDetailedLogs;
 window.toggleSection = toggleSection;
+window.loadLibrary = loadLibrary;
