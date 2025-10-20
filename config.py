@@ -28,12 +28,12 @@ class Config:
     # Sora settings
     SORA_MODEL = 'sora-2-pro'  # Using Sora 2 Pro for better quality and character consistency
     
-    # Aspect ratios for different platforms
+    # Aspect ratios for different platforms (Sora 2 Pro supported resolutions)
     ASPECT_RATIOS = {
-        'tiktok': '1080x1920',      # 9:16 vertical for TikTok, Instagram Reels
-        'instagram': '1080x1080',   # 1:1 square for Instagram Feed
-        'youtube': '1920x1080',     # 16:9 horizontal for YouTube
-        'landscape': '1792x1024'    # High-res landscape (Sora 2 Pro max)
+        'tiktok': '720x1280',       # 9:16 vertical for TikTok, Instagram Reels (Sora supported)
+        'instagram': '720x1280',    # 9:16 vertical for Instagram Reels (Sora supported)
+        'youtube': '1280x720',      # 16:9 horizontal for YouTube (Sora supported)
+        'landscape': '1792x1024'     # High-res landscape (Sora 2 Pro max)
     }
     
     SORA_RESOLUTION = ASPECT_RATIOS['tiktok']  # Default to TikTok (9:16 vertical)
