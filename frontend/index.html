@@ -65,58 +65,75 @@
             <!-- Left Column: Input Form -->
             <section class="form-panel">
                 <div class="panel-header">
-                    <h2>Source Video</h2>
-                    <p class="panel-description">Upload or provide URL to your original ad</p>
+                    <h2>Input Source</h2>
+                    <p class="panel-description">Choose how you want to provide your content</p>
                 </div>
 
-                <div class="input-group">
-                    <label class="input-label">Video URL</label>
-                    <input
-                        type="text"
-                        id="video-path"
-                        class="input-field"
-                        placeholder="https://youtube.com/watch?v=... or /path/to/video.mp4"
-                        autocomplete="off"
-                    >
+                <!-- Input Method Selection -->
+                <div class="input-method-tabs">
+                    <button type="button" class="method-tab active" data-method="video-url" onclick="switchInputMethod('video-url')">
+                        <span class="tab-icon">🔗</span>
+                        <span class="tab-text">Video URL</span>
+                    </button>
+                    <button type="button" class="method-tab" data-method="video-upload" onclick="switchInputMethod('video-upload')">
+                        <span class="tab-icon">📹</span>
+                        <span class="tab-text">Video Upload</span>
+                    </button>
+                    <button type="button" class="method-tab" data-method="script-only" onclick="switchInputMethod('script-only')">
+                        <span class="tab-icon">📝</span>
+                        <span class="tab-text">Script Only</span>
+                    </button>
                 </div>
 
-                <div class="divider">
-                    <span class="divider-text">or</span>
-                </div>
-
-                <div class="upload-zone" id="upload-area">
-                    <input type="file" id="video-file" accept="video/*" style="display: none;">
-                    <div class="upload-content">
-                        <div class="upload-icon">📹</div>
-                        <div class="upload-label">Drop video file here</div>
-                        <div class="upload-hint">or click to browse</div>
-                        <div class="upload-formats">MP4, MOV, AVI, MKV, WEBM • Max 500MB</div>
+                <!-- Video URL Input -->
+                <div id="video-url-input" class="input-method-content active">
+                    <div class="input-group">
+                        <label class="input-label">Video URL</label>
+                        <input
+                            type="text"
+                            id="video-path"
+                            class="input-field"
+                            placeholder="https://youtube.com/watch?v=... or /path/to/video.mp4"
+                            autocomplete="off"
+                        >
+                        <div class="input-hint">Paste any video URL or local file path</div>
                     </div>
-                    <div class="upload-progress" id="upload-progress" style="display: none;">
-                        <div class="progress-track">
-                            <div class="progress-fill" id="upload-progress-fill"></div>
+                </div>
+
+                <!-- Video Upload Input -->
+                <div id="video-upload-input" class="input-method-content">
+                    <div class="upload-zone" id="upload-area">
+                        <input type="file" id="video-file" accept="video/*" style="display: none;">
+                        <div class="upload-content">
+                            <div class="upload-icon">📹</div>
+                            <div class="upload-label">Drop video file here</div>
+                            <div class="upload-hint">or click to browse</div>
+                            <div class="upload-formats">MP4, MOV, AVI, MKV, WEBM • Max 500MB</div>
                         </div>
-                        <div class="progress-label" id="upload-progress-text">Uploading...</div>
+                        <div class="upload-progress" id="upload-progress" style="display: none;">
+                            <div class="progress-track">
+                                <div class="progress-fill" id="upload-progress-fill"></div>
+                            </div>
+                            <div class="progress-label" id="upload-progress-text">Uploading...</div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Product Input Options -->
-                <div class="panel-header" style="margin-top: 40px;">
-                    <h2>Product Information</h2>
-                    <p class="panel-description">Provide product details or script for better generation</p>
+                <!-- Script Only Input -->
+                <div id="script-only-input" class="input-method-content">
+                    <div class="input-group">
+                        <label class="input-label">Product Script</label>
+                        <textarea
+                            id="script-only-text"
+                            class="input-field"
+                            rows="6"
+                            placeholder="Enter your complete product script here..."
+                            style="resize: vertical; min-height: 120px;"
+                        ></textarea>
+                        <div class="input-hint">Provide the full script for your product or service</div>
+                    </div>
                 </div>
 
-                <div class="input-group">
-                    <label class="input-label">Product Script (Optional)</label>
-                    <textarea
-                        id="product-script"
-                        class="input-field"
-                        rows="4"
-                        placeholder="Enter your product script or description here..."
-                        style="resize: vertical; min-height: 80px;"
-                    ></textarea>
-                    <div class="input-hint">This helps generate more relevant Scene 1 content</div>
-                </div>
 
                 <!-- Generation Settings -->
                 <div class="panel-header" style="margin-top: 40px;">

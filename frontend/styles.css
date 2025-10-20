@@ -1177,10 +1177,79 @@ textarea.input-field {
     min-height: 80px;
 }
 
+/* Input Method Tabs */
+.input-method-tabs {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-default);
+}
+
+.method-tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+    justify-content: center;
+}
+
+.method-tab:hover {
+    color: var(--text-primary);
+    background: var(--bg-hover);
+}
+
+.method-tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    background: var(--accent-bg);
+}
+
+.tab-icon {
+    font-size: 16px;
+}
+
+.tab-text {
+    font-weight: 500;
+}
+
+/* Input Method Content */
+.input-method-content {
+    display: none;
+}
+
+.input-method-content.active {
+    display: block;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .settings-grid {
         grid-template-columns: 1fr;
         gap: var(--space-3);
+    }
+    
+    .input-method-tabs {
+        flex-direction: column;
+        gap: var(--space-1);
+    }
+    
+    .method-tab {
+        justify-content: flex-start;
+        border-bottom: none;
+        border-left: 2px solid transparent;
+    }
+    
+    .method-tab.active {
+        border-left-color: var(--accent);
+        border-bottom-color: transparent;
     }
 }

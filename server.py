@@ -186,9 +186,17 @@ def start_clone():
     product_script = data.get('product_script', '')  # Optional product script
     output_dimension = data.get('output_dimension', '720x1280')  # Default to TikTok format
     sora_model = data.get('sora_model', 'sora-2')  # Default to Sora 2 regular
+    input_method = data.get('input_method', 'video-url')  # Input method used
 
-    if not video_path:
-        return jsonify({'error': 'video_path required'}), 400
+    # Validate input based on method
+    if input_method == 'script-only':
+        if not product_script:
+            return jsonify({'error': 'product_script required for script-only mode'}), 400
+        # For script-only mode, we'll create a dummy video path
+        video_path = 'script-only-mode'
+    else:
+        if not video_path:
+            return jsonify({'error': 'video_path required'}), 400
 
     # Create session
     logger = PipelineLogger()

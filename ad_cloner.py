@@ -74,59 +74,90 @@ class Scene1Generator:
         print("="*70)
         print(f"Input Video: {video_path}\n")
 
-        # STEP 1: Analyze video with Gemini
-        print("\n[1/4] Analyzing video with Gemini 2.5...")
-        if self.logger:
-            from modules.logger import LogLevel
-            self.logger.start_stage('analysis')
-            self.logger.log(LogLevel.INFO, "Starting Gemini video analysis", {'video_path': video_path})
-            self.logger.log(LogLevel.VERBOSE, "Uploading video to Gemini File API", {})
-
-        try:
-            analysis, analysis_path = self.analyzer.analyze_and_save(video_path)
-            print(f"✓ Analysis complete: {analysis_path}")
-
-            # Save analysis metadata to generation history
-            if self.integrator and self.generation_id:
-                self.integrator.save_analysis_metadata(self.generation_id, analysis)
-
+        # STEP 1: Analyze video with Gemini or use script-only mode
+        if video_path == 'script-only-mode':
+            print("\n[1/4] Using script-only mode...")
             if self.logger:
-                self.logger.log(LogLevel.VERBOSE, "Video analysis completed", {'analysis_path': analysis_path})
-
-            # Extract spokesperson description (normalize list/dict formats)
-            spokesperson = normalize_spokesperson(analysis)
-            spokesperson_desc = spokesperson.get('physical_description', 'person')
-            print(f"\nSpokesperson: {spokesperson_desc[:100]}...")
-
+                from modules.logger import LogLevel
+                self.logger.start_stage('analysis')
+                self.logger.log(LogLevel.INFO, "Using script-only mode", {'product_script': product_script[:100] + '...'})
+            
+            # Create a mock analysis for script-only mode
+            analysis = {
+                'script': product_script,
+                'spokesperson': {
+                    'physical_description': 'confident person in business attire',
+                    'age_range': '25-35',
+                    'gender': 'any'
+                },
+                'scenes': [
+                    {
+                        'timestamp': '00:00-00:12',
+                        'duration': 12,
+                        'purpose': 'hook',
+                        'description': 'Opening hook scene'
+                    }
+                ],
+                'vertical': 'general',
+                'duration': 12
+            }
+            analysis_path = None
+            print(f"✓ Script-only mode ready")
+            spokesperson_desc = analysis['spokesperson']['physical_description']
+            print(f"\nSpokesperson: {spokesperson_desc}")
+        else:
+            print("\n[1/4] Analyzing video with Gemini 2.5...")
             if self.logger:
-                num_scenes = len(analysis.get('scene_breakdown', []))
-                scene_info = {
-                    'scenes': num_scenes,
-                    'path': analysis_path,
-                    'duration': analysis.get('video_metadata', {}).get('duration_seconds', 0),
-                    'spokesperson_length': len(spokesperson_desc)
-                }
-                self.logger.log(LogLevel.VERBOSE, f"Detected {num_scenes} scenes in video", scene_info)
+                from modules.logger import LogLevel
+                self.logger.start_stage('analysis')
+                self.logger.log(LogLevel.INFO, "Starting Gemini video analysis", {'video_path': video_path})
+                self.logger.log(LogLevel.VERBOSE, "Uploading video to Gemini File API", {})
 
-                # Log each scene
-                for i, scene in enumerate(analysis.get('scene_breakdown', []), 1):
-                    self.logger.log(LogLevel.VERBOSE, f"Scene {i}: {scene.get('timestamp')} - {scene.get('purpose')}", {
-                        'timestamp': scene.get('timestamp'),
-                        'duration': scene.get('duration_seconds'),
-                        'purpose': scene.get('purpose')
+            try:
+                analysis, analysis_path = self.analyzer.analyze_and_save(video_path)
+                print(f"✓ Analysis complete: {analysis_path}")
+
+                # Save analysis metadata to generation history
+                if self.integrator and self.generation_id:
+                    self.integrator.save_analysis_metadata(self.generation_id, analysis)
+
+                if self.logger:
+                    self.logger.log(LogLevel.VERBOSE, "Video analysis completed", {'analysis_path': analysis_path})
+
+                # Extract spokesperson description (normalize list/dict formats)
+                spokesperson = normalize_spokesperson(analysis)
+                spokesperson_desc = spokesperson.get('physical_description', 'person')
+                print(f"\nSpokesperson: {spokesperson_desc[:100]}...")
+
+                if self.logger:
+                    num_scenes = len(analysis.get('scene_breakdown', []))
+                    scene_info = {
+                        'scenes': num_scenes,
+                        'path': analysis_path,
+                        'duration': analysis.get('video_metadata', {}).get('duration_seconds', 0),
+                        'spokesperson_length': len(spokesperson_desc)
+                    }
+                    self.logger.log(LogLevel.VERBOSE, f"Detected {num_scenes} scenes in video", scene_info)
+
+                    # Log each scene
+                    for i, scene in enumerate(analysis.get('scene_breakdown', []), 1):
+                        self.logger.log(LogLevel.VERBOSE, f"Scene {i}: {scene.get('timestamp')} - {scene.get('purpose')}", {
+                            'timestamp': scene.get('timestamp'),
+                            'duration': scene.get('duration_seconds'),
+                            'purpose': scene.get('purpose')
+                        })
+
+                    self.logger.complete_stage('analysis', scene_info)
+
+            except Exception as e:
+                if self.logger:
+                    self.logger.log(LogLevel.ERROR, f"Gemini analysis failed: {str(e)}", {
+                        'error': str(e),
+                        'error_type': type(e).__name__,
+                        'video_path': video_path
                     })
-
-                self.logger.complete_stage('analysis', scene_info)
-
-        except Exception as e:
-            if self.logger:
-                self.logger.log(LogLevel.ERROR, f"Gemini analysis failed: {str(e)}", {
-                    'error': str(e),
-                    'error_type': type(e).__name__,
-                    'video_path': video_path
-                })
-                self.logger.fail_stage('analysis', str(e))
-            raise
+                    self.logger.fail_stage('analysis', str(e))
+                raise
 
         # STEP 1.5: Transform to Sora-friendly structure
         print("\n[1.5/5] Transforming ad structure for Sora...")

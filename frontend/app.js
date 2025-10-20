@@ -11,7 +11,29 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeUpload();
     updateCostEstimate(); // Initialize cost estimate
     updateAggressionLevel(); // Initialize aggression slider
+    initializeInputMethods(); // Initialize input method tabs
 });
+
+// Initialize input method tabs
+function initializeInputMethods() {
+    // Set default active tab
+    switchInputMethod('video-url');
+}
+
+// Switch between input methods
+function switchInputMethod(method) {
+    // Remove active class from all tabs and content
+    document.querySelectorAll('.method-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    document.querySelectorAll('.input-method-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Add active class to selected tab and content
+    document.querySelector(`[data-method="${method}"]`).classList.add('active');
+    document.getElementById(`${method}-input`).classList.add('active');
+}
 
 // Check API health
 async function checkAPIHealth() {
@@ -100,11 +122,40 @@ function updateConnectionStatus(connected) {
 
 // Start cloning
 async function startCloning() {
-    const videoPath = document.getElementById('video-path').value.trim();
-
-    if (!videoPath) {
-        alert('Please enter a video path or URL');
-        return;
+    // Determine which input method is active
+    const activeTab = document.querySelector('.method-tab.active');
+    const inputMethod = activeTab ? activeTab.dataset.method : 'video-url';
+    
+    let videoPath = '';
+    let productScript = '';
+    
+    // Get input based on active method
+    if (inputMethod === 'video-url') {
+        videoPath = document.getElementById('video-path').value.trim();
+        if (!videoPath) {
+            alert('Please enter a video URL or file path');
+            return;
+        }
+    } else if (inputMethod === 'video-upload') {
+        const fileInput = document.getElementById('video-file');
+        if (!fileInput.files || fileInput.files.length === 0) {
+            alert('Please select a video file to upload');
+            return;
+        }
+        // Handle file upload (existing logic)
+        videoPath = await handleFileUpload();
+        if (!videoPath) {
+            alert('File upload failed');
+            return;
+        }
+    } else if (inputMethod === 'script-only') {
+        productScript = document.getElementById('script-only-text').value.trim();
+        if (!productScript) {
+            alert('Please enter your product script');
+            return;
+        }
+        // For script-only, we'll use a placeholder video path
+        videoPath = 'script-only-mode';
     }
 
     // Get aggression level from slider
@@ -112,8 +163,7 @@ async function startCloning() {
     const aggressionLevels = ['soft', 'medium', 'aggressive', 'ultra'];
     const aggressionLevel = aggressionLevels[parseInt(aggressionSlider.value)];
 
-    // Get new parameters
-    const productScript = document.getElementById('product-script').value.trim();
+    // Get other parameters
     const outputDimension = document.getElementById('output-dimension').value;
     const soraModel = document.getElementById('sora-model').value;
 
@@ -131,7 +181,8 @@ async function startCloning() {
                 aggression_level: aggressionLevel,
                 product_script: productScript,
                 output_dimension: outputDimension,
-                sora_model: soraModel
+                sora_model: soraModel,
+                input_method: inputMethod
             })
         });
 
