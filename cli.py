@@ -21,10 +21,10 @@ def main():
     )
 
     parser.add_argument(
-        '-v', '--variants',
-        nargs='+',
+        '-a', '--aggression',
         choices=['soft', 'medium', 'aggressive', 'ultra'],
-        help='Specific variants to generate (default: all 4)'
+        default='medium',
+        help='Aggression level for the hook (default: medium)'
     )
 
     parser.add_argument(
@@ -46,7 +46,7 @@ def main():
         return
 
     # Full pipeline
-    results = generator.generate_hooks(args.video, variants=args.variants)
+    results = generator.generate_hook(args.video, aggression_level=args.aggression)
 
     print("\n✓ Done! Check the output/ directory for viral hooks.")
 

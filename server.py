@@ -12,7 +12,7 @@ from flask_socketio import SocketIO, emit
 from werkzeug.utils import secure_filename
 
 from config import Config
-from ad_cloner import AdCloner
+from ad_cloner import ViralHookGenerator
 from modules.logger import PipelineLogger, get_logger
 from modules.supabase_client import SupabaseClient
 from modules.spaces_client import SpacesClient
@@ -182,14 +182,10 @@ def start_clone():
     data = request.json
 
     video_path = data.get('video_path')
-    variants = data.get('variants')  # Optional list like ['soft', 'aggressive']
+    aggression_level = data.get('aggression_level', 'medium')  # Single aggression level
 
     if not video_path:
         return jsonify({'error': 'video_path required'}), 400
-
-    # Default variants if not specified
-    if not variants:
-        variants = ['soft', 'medium', 'aggressive', 'ultra']
 
     # Create session
     logger = PipelineLogger()
@@ -204,8 +200,8 @@ def start_clone():
         generation_id = integrator.start_generation(
             source_video_url=video_path,
             source_video_type='url' if video_path.startswith('http') else 'file',
-            variant_types=variants,
-            cost_estimate=len(variants) * 4 * 0.32  # Estimated: 4 scenes per variant * $0.32/scene
+            variant_types=[aggression_level],  # Single aggression level
+            cost_estimate=1 * 12 * 0.32  # Estimated: 1 hook * 12 seconds * $0.32/second
         )
         logger.log(logger.LogLevel.INFO, f"Generation tracking started: {generation_id}")
     except Exception as e:
@@ -218,13 +214,13 @@ def start_clone():
             supabase_client.create_session(
                 session_id,
                 video_path,
-                variants
+                [aggression_level]
             )
             supabase_client.log_event(
                 session_id,
                 'info',
                 'Pipeline session created',
-                {'video_path': video_path, 'variants': variants, 'generation_id': generation_id}
+                {'video_path': video_path, 'aggression_level': aggression_level, 'generation_id': generation_id}
             )
         except Exception as e:
             print(f"⚠ Supabase session creation failed: {e}")
@@ -288,7 +284,7 @@ def start_clone():
             })
 
             # Initialize cloner with WebSocket logger, spaces_client, session_id, generation_id, and integrator
-            cloner = AdCloner(
+            cloner = ViralHookGenerator(
                 logger=ws_logger,
                 spaces_client=spaces_client,
                 session_id=session_id,
@@ -297,7 +293,7 @@ def start_clone():
             )
 
             # Run pipeline (logger integrated)
-            results = cloner.clone_ad(video_path, variants)
+            results = cloner.generate_hook(video_path, aggression_level)
 
             # Log completion
             ws_logger.complete_pipeline(results)
@@ -712,7 +708,7 @@ def preview_prompts():
         return jsonify({'error': 'video_path required'}), 400
 
     try:
-        from ad_cloner import AdCloner
+        from ad_cloner import ViralHookGenerator
         
         cloner = AdCloner()
         
@@ -789,8 +785,8 @@ def generate_from_preview():
         
         # Start generation in background
         def run_generation():
-            from ad_cloner import AdCloner
-            cloner = AdCloner(logger=logger)
+            from ad_cloner import ViralHookGenerator
+            cloner = ViralHookGenerator(logger=logger)
             
             # Load analysis
             with open(preview_data['analysis_path']) as f:

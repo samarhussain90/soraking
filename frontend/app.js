@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkAPIHealth();
     initializeUpload();
     updateCostEstimate(); // Initialize cost estimate
+    updateAggressionLevel(); // Initialize aggression slider
 });
 
 // Check API health
@@ -106,14 +107,10 @@ async function startCloning() {
         return;
     }
 
-    // Get selected variants
-    const checkboxes = document.querySelectorAll('.variant-option input[type="checkbox"]:checked');
-    const variants = Array.from(checkboxes).map(cb => cb.value);
-
-    if (variants.length === 0) {
-        alert('Please select at least one variant');
-        return;
-    }
+    // Get aggression level from slider
+    const aggressionSlider = document.getElementById('aggression-slider');
+    const aggressionLevels = ['soft', 'medium', 'aggressive', 'ultra'];
+    const aggressionLevel = aggressionLevels[parseInt(aggressionSlider.value)];
 
     // Disable button
     const btn = document.getElementById('start-btn');
@@ -124,7 +121,7 @@ async function startCloning() {
         const response = await fetch(`${API_BASE}/clone`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ video_path: videoPath, variants })
+            body: JSON.stringify({ video_path: videoPath, aggression_level: aggressionLevel })
         });
 
         const data = await response.json();
@@ -348,7 +345,7 @@ async function showResults(results) {
         <div style="margin-bottom: 20px;">
             <p><strong>Status:</strong> ✅ Complete</p>
             <p><strong>Time Elapsed:</strong> ${minutes}m ${seconds}s</p>
-            <p><strong>Variants Generated:</strong> ${results.variants_generated.join(', ')}</p>
+            <p><strong>Hook Generated:</strong> ${results.hook_result?.level || 'Unknown'} intensity</p>
         </div>
 
         ${generatedVideos.length > 0 ? `
@@ -373,25 +370,23 @@ async function showResults(results) {
             </div>
         ` : ''}
 
-        ${finalVideos.length > 0 ? `
-            <h3 style="margin-top: 30px; margin-bottom: 15px;">🎬 Final Assembled Videos (${finalVideos.length})</h3>
+        ${results.hook_result?.success ? `
+            <h3 style="margin-top: 30px; margin-bottom: 15px;">🔥 Generated Viral Hook</h3>
             <div class="video-grid">
-                ${finalVideos.map(video => `
-                    <div class="video-card">
-                        <h3>${video.variant} Variant</h3>
-                        <div class="video-preview">
-                            <video controls width="100%">
-                                <source src="${video.url}" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="video-info">
-                            ${video.size_mb} MB
-                        </div>
-                        <a href="${video.url}" download="${video.filename}" class="btn" style="margin-top: 10px; display: block; text-decoration: none; padding: 10px;">
-                            ⬇️ Download
-                        </a>
+                <div class="video-card">
+                    <h3>${results.hook_result.level} Intensity Hook</h3>
+                    <div class="video-preview">
+                        <video controls width="100%">
+                            <source src="${results.hook_result.path}" type="video/mp4">
+                        </video>
                     </div>
-                `).join('')}
+                    <div class="video-info">
+                        Ready for social media!
+                    </div>
+                    <a href="${results.hook_result.path}" download="viral_hook_${results.hook_result.level}.mp4" class="btn" style="margin-top: 10px; display: block; text-decoration: none; padding: 10px;">
+                        ⬇️ Download Hook
+                    </a>
+                </div>
             </div>
         ` : ''}
 
@@ -560,16 +555,11 @@ async function uploadFile(file) {
 function updateCostEstimate() {
     // Sora 2 pricing: $0.064 per second
     const SORA_2_COST_PER_SECOND = 0.064;
-    const SECONDS_PER_SCENE = 12;
-    const SCENES_PER_VARIANT = 4; // Default, will be dynamic later
+    const SECONDS_PER_HOOK = 12;
+    const HOOKS_GENERATED = 1; // Single hook only
 
-    // Count selected variants
-    const checkboxes = document.querySelectorAll('.checkbox-item input[type="checkbox"]:checked');
-    const numVariants = checkboxes.length;
-
-    // Calculate cost
-    const totalScenes = numVariants * SCENES_PER_VARIANT;
-    const totalSeconds = totalScenes * SECONDS_PER_SCENE;
+    // Calculate cost for single hook
+    const totalSeconds = HOOKS_GENERATED * SECONDS_PER_HOOK;
     const totalCost = totalSeconds * SORA_2_COST_PER_SECOND;
 
     // Update UI
@@ -577,7 +567,26 @@ function updateCostEstimate() {
     const costDetails = document.getElementById('cost-details');
 
     costAmount.textContent = `$${totalCost.toFixed(2)}`;
-    costDetails.textContent = `${numVariants} variant${numVariants !== 1 ? 's' : ''} × ${SCENES_PER_VARIANT} scenes × ${SECONDS_PER_SCENE}s × $${SORA_2_COST_PER_SECOND}/s = $${totalCost.toFixed(2)}`;
+    costDetails.textContent = `1 hook × ${SECONDS_PER_HOOK}s × $${SORA_2_COST_PER_SECOND}/s = $${totalCost.toFixed(2)}`;
+}
+
+// Update aggression level display
+function updateAggressionLevel() {
+    const slider = document.getElementById('aggression-slider');
+    const valueDisplay = document.getElementById('aggression-value');
+    const description = document.getElementById('aggression-desc');
+    
+    const levels = ['Soft', 'Medium', 'Aggressive', 'Ultra'];
+    const descriptions = [
+        'Gentle persuasion with subtle emotional appeal',
+        'Balanced approach with proven viral potential',
+        'High energy with strong emotional impact',
+        'Maximum intensity for explosive viral potential'
+    ];
+    
+    const levelIndex = parseInt(slider.value);
+    valueDisplay.textContent = levels[levelIndex];
+    description.textContent = descriptions[levelIndex];
 }
 
 // Toggle detailed logs panel
@@ -922,6 +931,7 @@ function getTimeAgo(date) {
 window.startCloning = startCloning;
 window.uploadFile = uploadFile;
 window.updateCostEstimate = updateCostEstimate;
+window.updateAggressionLevel = updateAggressionLevel;
 window.toggleDetailedLogs = toggleDetailedLogs;
 window.toggleSection = toggleSection;
 window.loadLibrary = loadLibrary;

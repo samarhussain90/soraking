@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viral Hook Generator</title>
+    <title>Ad Cloner Studio</title>
     <link rel="stylesheet" href="styles.css?v=4">
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 </head>
@@ -12,8 +10,8 @@
     <aside class="sidebar">
         <div class="sidebar-header">
             <div class="logo">
-                <span class="logo-icon">🔥</span>
-                <span class="logo-text">Viral Hook Generator</span>
+                <span class="logo-icon">🎬</span>
+                <span class="logo-text">Ad Cloner Studio</span>
             </div>
         </div>
 
@@ -54,12 +52,10 @@
             </div>
             <div class="top-bar-right">
                 <span class="status-badge status-ok" id="api-status">API Ready</span>
-                <span class="status-badge status-ok" id="ws-status">Live</span>
+                <span class="status-badge status-ok" id="ws-status">WebSocket Connected</span>
             </div>
         </header>
 
-        <!-- Generate View -->
-        <div id="generate-view" class="view-container">
         <!-- Content Grid -->
         <div class="content-wrapper">
             <!-- Left Column: Input Form -->
@@ -71,13 +67,7 @@
 
                 <div class="input-group">
                     <label class="input-label">Video URL</label>
-                    <input
-                        type="text"
-                        id="video-path"
-                        class="input-field"
-                        placeholder="https://youtube.com/watch?v=... or /path/to/video.mp4"
-                        autocomplete="off"
-                    >
+                    <input type="text" id="video-path" class="input-field" placeholder="https://youtube.com/watch?v=... or /path/to/video.mp4" autocomplete="off">
                 </div>
 
                 <div class="divider">
@@ -101,34 +91,63 @@
                 </div>
 
                 <div class="panel-header" style="margin-top: 40px;">
-                    <h2>Hook Configuration</h2>
-                    <p class="panel-description">Adjust aggression level for your viral hook</p>
+                    <h2>Variant Configuration</h2>
+                    <p class="panel-description">Select intensity levels for generation</p>
                 </div>
 
-                <div class="aggression-slider-container">
-                    <div class="slider-wrapper">
-                        <div class="slider-labels">
-                            <span class="slider-label">Soft</span>
-                            <span class="slider-label">Medium</span>
-                            <span class="slider-label">Aggressive</span>
-                            <span class="slider-label">Ultra</span>
+                <div class="variant-selector">
+                    <label class="variant-option">
+                        <input type="checkbox" value="soft" onchange="updateCostEstimate()">
+                        <div class="variant-card">
+                            <div class="variant-header">
+                                <span class="variant-name">Soft</span>
+                                <span class="variant-badge">Calm</span>
+                            </div>
+                            <p class="variant-desc">Subtle variations, minimal changes</p>
                         </div>
-                        <input type="range" id="aggression-slider" min="0" max="3" value="1" step="1" 
-                               class="aggression-slider" onchange="updateAggressionLevel()">
-                        <div class="slider-value" id="aggression-value">Medium</div>
-                    </div>
-                    <div class="aggression-description" id="aggression-desc">
-                        Balanced approach with proven viral potential
-                    </div>
+                    </label>
+
+                    <label class="variant-option">
+                        <input type="checkbox" value="medium" checked="" onchange="updateCostEstimate()">
+                        <div class="variant-card variant-recommended">
+                            <div class="variant-header">
+                                <span class="variant-name">Medium</span>
+                                <span class="variant-badge variant-badge-primary">Recommended</span>
+                            </div>
+                            <p class="variant-desc">Balanced approach, proven results</p>
+                        </div>
+                    </label>
+
+                    <label class="variant-option">
+                        <input type="checkbox" value="aggressive" onchange="updateCostEstimate()">
+                        <div class="variant-card">
+                            <div class="variant-header">
+                                <span class="variant-name">Aggressive</span>
+                                <span class="variant-badge">Urgent</span>
+                            </div>
+                            <p class="variant-desc">Strong hooks, high energy</p>
+                        </div>
+                    </label>
+
+                    <label class="variant-option">
+                        <input type="checkbox" value="ultra" onchange="updateCostEstimate()">
+                        <div class="variant-card">
+                            <div class="variant-header">
+                                <span class="variant-name">Ultra</span>
+                                <span class="variant-badge">Explosive</span>
+                            </div>
+                            <p class="variant-desc">Maximum impact, bold changes</p>
+                        </div>
+                    </label>
                 </div>
 
                 <div class="cost-panel" id="cost-estimate">
                     <div class="cost-row">
                         <div class="cost-info">
                             <div class="cost-label">Estimated Cost</div>
-                            <div class="cost-breakdown" id="cost-details">1 variant × 4 scenes × 12s</div>
+                            <div class="cost-breakdown" id="cost-details">0 variants × 4 scenes × 12s × $0.064/s = $0.00</div>
                         </div>
-                        <div class="cost-value" id="cost-amount">$3.07</div>
+                        <div class="cost-value" id="cost-amount">$0.00</div>
                     </div>
                     <div class="cost-note" id="cost-note">
                         Using Sora 2 (regular) • 80% cheaper than Pro
@@ -214,7 +233,7 @@
 
                         <div class="detail-group">
                             <div class="detail-header" onclick="toggleSection('eval-detail')">
-                                <span>⭐ Evaluation & Rating</span>
+                                <span>⭐ Evaluation &amp; Rating</span>
                                 <span class="detail-toggle">▼</span>
                             </div>
                             <div class="detail-body" id="eval-detail">
@@ -235,30 +254,9 @@
                 </div>
             </section>
         </div>
-        </div>
-        <!-- End Generate View -->
-
-        <!-- Library View -->
-        <div id="library-view" class="view-container" style="display: none;">
-            <div class="library-header">
-                <h2>Generation Library</h2>
-                <p class="library-subtitle">Your generation history and completed videos</p>
-            </div>
-
-            <div class="library-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="completed">Completed</button>
-                <button class="filter-btn" data-filter="processing">Processing</button>
-                <button class="filter-btn" data-filter="failed">Failed</button>
-            </div>
-
-            <div class="library-grid" id="library-grid">
-                <div class="loading-spinner">Loading generations...</div>
-            </div>
-        </div>
-        <!-- End Library View -->
     </main>
 
     <script src="app.js"></script>
-</body>
-</html>
+
+
+</body></html>

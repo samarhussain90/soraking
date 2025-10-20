@@ -51,17 +51,16 @@ class ViralHookGenerator:
 
         print("✓ All systems ready\n")
 
-    def generate_hooks(self, video_path: str, variants: Optional[List[str]] = None) -> Dict:
+    def generate_hook(self, video_path: str, aggression_level: str = 'medium') -> Dict:
         """
-        Complete viral hook generation pipeline
+        Complete viral hook generation pipeline - SINGLE HOOK
 
         Args:
             video_path: Path to winning ad video
-            variants: Optional list of variant levels to generate
-                     (default: all 4 - soft, medium, aggressive, ultra)
+            aggression_level: Aggression level for the hook (soft, medium, aggressive, ultra)
 
         Returns:
-            Results dictionary with all generated viral hooks
+            Results dictionary with single generated viral hook
         """
         start_time = time.time()
 
@@ -182,40 +181,43 @@ class ViralHookGenerator:
             # Continue with original analysis if transformation fails
             print(f"⚠ Transformation failed, using original structure: {str(e)}")
 
-        # STEP 2: Generate aggression variants
-        print("\n[2/4] Generating hook variants (soft, medium, aggressive, ultra)...")
+        # STEP 2: Generate single hook with specified aggression level
+        print(f"\n[2/4] Generating {aggression_level} intensity hook...")
         if self.logger:
             self.logger.start_stage('variants')
-            self.logger.log(LogLevel.VERBOSE, "Generating aggression level variations", {
-                'requested_variants': variants if variants else 'all'
+            self.logger.log(LogLevel.VERBOSE, f"Generating single hook with {aggression_level} intensity", {
+                'aggression_level': aggression_level
             })
 
         try:
+            # Generate single variant with specified aggression level
             all_variants = self.variant_generator.generate_variants(analysis)
-
-            # Filter variants if specified
-            if variants:
-                original_count = len(all_variants)
-                all_variants = [v for v in all_variants if v['variant_level'] in variants]
-                if self.logger:
-                    self.logger.log(LogLevel.VERBOSE, f"Filtered variants: {original_count} → {len(all_variants)}", {
-                        'requested': variants,
-                        'generated': [v['variant_level'] for v in all_variants]
-                    })
-
-            print(f"✓ Generated {len(all_variants)} variants")
+            
+            # Filter to only the requested aggression level
+            target_variant = None
             for v in all_variants:
-                print(f"  - {v['variant_name']}")
-                if self.logger:
-                    self.logger.log(LogLevel.VERBOSE, f"Variant: {v['variant_name']}", {
-                        'level': v['variant_level'],
-                        'scenes': len(v.get('modified_scenes', []))
-                    })
+                if v['variant_level'] == aggression_level:
+                    target_variant = v
+                    break
+            
+            if not target_variant:
+                # Fallback to medium if requested level not found
+                target_variant = next((v for v in all_variants if v['variant_level'] == 'medium'), all_variants[0])
+                print(f"⚠ Requested {aggression_level} not found, using {target_variant['variant_level']}")
+
+            all_variants = [target_variant]  # Only one variant
+
+            print(f"✓ Generated {target_variant['variant_name']} hook")
+            if self.logger:
+                self.logger.log(LogLevel.VERBOSE, f"Single hook: {target_variant['variant_name']}", {
+                    'level': target_variant['variant_level'],
+                    'scenes': len(target_variant.get('modified_scenes', []))
+                })
 
             if self.logger:
                 self.logger.complete_stage('variants', {
-                    'count': len(all_variants),
-                    'levels': [v['variant_level'] for v in all_variants]
+                    'count': 1,
+                    'level': target_variant['variant_level']
                 })
 
         except Exception as e:
@@ -420,67 +422,27 @@ class ViralHookGenerator:
                 self.logger.fail_stage('generation', str(e))
             raise
 
-        # No assembly needed - Each variant is a single 12s viral hook
-        print("\n✓ Viral hooks generated successfully!")
+        # No assembly needed - Single 12s viral hook
+        print("\n✓ Viral hook generated successfully!")
         
-        final_ads = {}
+        # Get the single hook result
+        hook_result = None
         for variant_level, variant_result in generated_variants.items():
             if variant_result['success'] and variant_result.get('scenes'):
-                # Single hook per variant
-                hook_path = variant_result['scenes'][0].get('video_path')
-                if hook_path:
-                    final_ads[variant_level] = hook_path
-                    print(f"✓ {variant_level.upper()}: {hook_path}")
-            else:
-                print(f"✗ {variant_level} hook generation failed")
+                hook_result = {
+                    'level': variant_level,
+                    'path': variant_result['scenes'][0].get('video_path'),
+                    'success': True
+                }
+                print(f"✓ {variant_level.upper()} Hook: {hook_result['path']}")
+                break
+        
+        if not hook_result:
+            print("✗ Hook generation failed")
+            hook_result = {'success': False, 'error': 'Generation failed'}
 
-        # Optional: Evaluate generated hooks (skipped for speed)
+        # Skip evaluation for speed - single hook generation
         evaluations = {}
-
-        for variant_level, video_path in final_ads.items():
-            try:
-                print(f"\n▸ Evaluating {variant_level} variant...")
-
-                # Get the prompts used for this variant
-                prompts_used = variant_prompts.get(variant_level, [])
-
-                # Evaluate
-                evaluation = self.evaluator.evaluate_generated_ad(
-                    video_path,
-                    analysis,
-                    prompts_used
-                )
-
-                evaluations[variant_level] = evaluation
-
-                # Save evaluation report
-                eval_path = Path(analysis_path).parent / f"evaluation_{variant_level}.json"
-                self.evaluator.save_evaluation_report(evaluation, str(eval_path))
-
-                # Print ratings
-                ratings = evaluation.get('ratings', {})
-                print(f"  Overall Score: {ratings.get('overall_score', 0):.1f}/10")
-                print(f"  Prediction: {ratings.get('predicted_performance', 'Unknown')}")
-
-                # Save evaluation metadata to generation history
-                if self.integrator and self.generation_id:
-                    self.integrator.save_evaluation_metadata(self.generation_id, evaluations)
-
-                if self.logger:
-                    self.logger.log(LogLevel.INFO, f"Evaluated {variant_level}: {ratings.get('overall_score', 0):.1f}/10", {
-                        'variant': variant_level,
-                        'score': ratings.get('overall_score', 0),
-                        'prediction': ratings.get('predicted_performance', 'Unknown'),
-                        'eval_path': str(eval_path)
-                    })
-
-            except Exception as e:
-                print(f"  ✗ Evaluation failed: {e}")
-                if self.logger:
-                    self.logger.log(LogLevel.WARNING, f"Evaluation failed for {variant_level}: {str(e)}", {
-                        'variant': variant_level,
-                        'error': str(e)
-                    })
 
         # Summary
         elapsed = time.time() - start_time
@@ -488,17 +450,15 @@ class ViralHookGenerator:
         print("VIRAL HOOK GENERATION COMPLETE")
         print("="*70)
         print(f"Time elapsed: {elapsed/60:.1f} minutes")
-        print(f"Hooks generated: {len(final_ads)}")
-        print("\nFinal ads:")
-        for level, path in final_ads.items():
-            score = evaluations.get(level, {}).get('ratings', {}).get('overall_score', 0)
-            print(f"  {level.upper()}: {path} (Score: {score:.1f}/10)")
+        print(f"Hook generated: {hook_result['level'].upper() if hook_result.get('success') else 'FAILED'}")
+        if hook_result.get('success'):
+            print(f"  Path: {hook_result['path']}")
 
         # Mark generation as completed in history
         if self.integrator and self.generation_id:
             try:
-                # Calculate actual cost (4 scenes per variant * $0.32/scene)
-                actual_cost = len(final_ads) * 4 * Config.SORA_2_PRO_COST_PER_SECOND * 12  # 12 seconds per scene
+                # Calculate actual cost (1 hook * $0.32/second * 12 seconds)
+                actual_cost = 1 * Config.SORA_2_PRO_COST_PER_SECOND * 12  # 12 seconds per hook
                 self.integrator.gen_manager.update_generation_status(
                     self.generation_id,
                     'completed',
@@ -510,8 +470,7 @@ class ViralHookGenerator:
 
         return {
             'analysis_path': analysis_path,
-            'variants_generated': list(final_ads.keys()),
-            'final_ads': final_ads,
+            'hook_result': hook_result,
             'evaluations': evaluations,
             'elapsed_time': elapsed
         }
