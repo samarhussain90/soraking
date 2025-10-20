@@ -1169,6 +1169,36 @@ async function handleImageUpload() {
     }
 }
 
+// Show analytics function
+function showAnalytics() {
+    alert('Analytics feature coming soon! This will show generation statistics and performance metrics.');
+}
+
+// Show generate view
+function showGenerateView() {
+    // Hide all views
+    document.querySelectorAll('.view-container').forEach(v => v.style.display = 'none');
+    
+    // Show generate view
+    const generateView = document.getElementById('generate-view');
+    if (generateView) {
+        generateView.style.display = 'block';
+    }
+}
+
+// Show library view
+function showLibraryView() {
+    // Hide all views
+    document.querySelectorAll('.view-container').forEach(v => v.style.display = 'none');
+    
+    // Show library view
+    const libraryView = document.getElementById('library-view');
+    if (libraryView) {
+        libraryView.style.display = 'block';
+        loadLibrary();
+    }
+}
+
 // Export functions
 window.startCloning = startCloning;
 window.uploadFile = uploadFile;
@@ -1177,3 +1207,6 @@ window.updateAggressionLevel = updateAggressionLevel;
 window.toggleDetailedLogs = toggleDetailedLogs;
 window.toggleSection = toggleSection;
 window.loadLibrary = loadLibrary;
+window.showAnalytics = showAnalytics;
+window.showGenerateView = showGenerateView;
+window.showLibraryView = showLibraryView;
