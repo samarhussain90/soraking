@@ -51,13 +51,18 @@ class Scene1Generator:
 
         print("✓ All systems ready\n")
 
-    def generate_scene1(self, video_path: str, aggression_level: str = 'medium') -> Dict:
+    def generate_scene1(self, video_path: str, aggression_level: str = 'medium', 
+                       product_script: str = '', output_dimension: str = '720x1280', 
+                       sora_model: str = 'sora-2') -> Dict:
         """
         Complete Scene 1 generation pipeline - SINGLE SCENE
 
         Args:
             video_path: Path to winning ad video
             aggression_level: Aggression level for the scene (soft, medium, aggressive, ultra)
+            product_script: Optional product script for better generation
+            output_dimension: Output video dimensions (e.g., '720x1280', '1280x720')
+            sora_model: Sora model to use ('sora-2' or 'sora-2-pro')
 
         Returns:
             Results dictionary with single generated Scene 1
@@ -361,7 +366,7 @@ class Scene1Generator:
                     })
 
                 try:
-                    result = self.sora_client.generate_variant_parallel(prompts, variant_level)
+                    result = self.sora_client.generate_variant_parallel(prompts, variant_level, sora_model, output_dimension)
                     generated_variants[variant_level] = result
 
                     # Process and save videos to Spaces if generation succeeded

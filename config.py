@@ -41,7 +41,7 @@ class Config:
 
     # Sora pricing (per second)
     SORA_2_COST_PER_SECOND = 0.064  # $0.064/second for Sora 2
-    SORA_2_PRO_COST_PER_SECOND = 0.32  # $0.32/second for Sora 2 Pro
+    SORA_2_PRO_COST_PER_SECOND = 0.08  # $0.08/second for Sora 2 Pro
 
     # Video settings
     DEFAULT_AD_DURATION = 48  # Total ad length in seconds

@@ -100,6 +100,52 @@
                     </div>
                 </div>
 
+                <!-- Product Input Options -->
+                <div class="panel-header" style="margin-top: 40px;">
+                    <h2>Product Information</h2>
+                    <p class="panel-description">Provide product details or script for better generation</p>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Product Script (Optional)</label>
+                    <textarea
+                        id="product-script"
+                        class="input-field"
+                        rows="4"
+                        placeholder="Enter your product script or description here..."
+                        style="resize: vertical; min-height: 80px;"
+                    ></textarea>
+                    <div class="input-hint">This helps generate more relevant Scene 1 content</div>
+                </div>
+
+                <!-- Generation Settings -->
+                <div class="panel-header" style="margin-top: 40px;">
+                    <h2>Generation Settings</h2>
+                    <p class="panel-description">Configure output dimensions and Sora model</p>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="setting-group">
+                        <label class="input-label">Output Dimension</label>
+                        <select id="output-dimension" class="input-field">
+                            <option value="720x1280">TikTok/Instagram (9:16)</option>
+                            <option value="1280x720">YouTube (16:9)</option>
+                            <option value="1792x1024">Landscape (16:9 HD)</option>
+                            <option value="1024x1792">Portrait (9:16 HD)</option>
+                        </select>
+                        <div class="input-hint">Choose the platform format</div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="input-label">Sora Model</label>
+                        <select id="sora-model" class="input-field" onchange="updateCostEstimate()">
+                            <option value="sora-2">Sora 2 (Regular) - $0.064/s</option>
+                            <option value="sora-2-pro">Sora 2 Pro - $0.08/s</option>
+                        </select>
+                        <div class="input-hint">Pro has better quality and consistency</div>
+                    </div>
+                </div>
+
                 <div class="panel-header" style="margin-top: 40px;">
             <h2>Scene 1 Configuration</h2>
             <p class="panel-description">Adjust aggression level for your Scene 1</p>

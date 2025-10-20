@@ -33,21 +33,23 @@ class SoraClient:
         self.spaces_client = spaces_client
         self.session_id = session_id
 
-    def create_video(self, prompt: str, **kwargs) -> Dict:
+    def create_video(self, prompt: str, model: str = None, size: str = None, **kwargs) -> Dict:
         """
         Create a single video generation job
 
         Args:
             prompt: Sora prompt
-            **kwargs: Additional parameters (model, size, seconds)
+            model: Sora model to use ('sora-2' or 'sora-2-pro')
+            size: Video dimensions (e.g., '720x1280', '1280x720')
+            **kwargs: Additional parameters (seconds)
 
         Returns:
             Job dictionary with id and status
         """
         params = {
-            'model': kwargs.get('model', Config.SORA_MODEL),
+            'model': model or Config.SORA_MODEL,
             'prompt': prompt,
-            'size': kwargs.get('size', Config.SORA_RESOLUTION),
+            'size': size or Config.SORA_RESOLUTION,
             'seconds': kwargs.get('seconds', Config.SORA_DURATION)
         }
 
@@ -238,13 +240,16 @@ class SoraClient:
                 'error': result.get('error')
             }
 
-    def generate_variant_parallel(self, scene_prompts: List[Dict], variant_name: str) -> Dict:
+    def generate_variant_parallel(self, scene_prompts: List[Dict], variant_name: str, 
+                                 model: str = None, size: str = None) -> Dict:
         """
         Generate all scenes for a variant in parallel
 
         Args:
             scene_prompts: List of scene prompt dictionaries
             variant_name: Name of variant (e.g., "soft", "aggressive")
+            model: Sora model to use ('sora-2' or 'sora-2-pro')
+            size: Video dimensions (e.g., '720x1280', '1280x720')
 
         Returns:
             Dictionary with all scene results
@@ -262,7 +267,7 @@ class SoraClient:
         jobs = []
         for scene_data in scene_prompts:
             print(f"\nStarting Scene {scene_data.get('scene_number')}...")
-            job = self.create_video(scene_data['prompt'])
+            job = self.create_video(scene_data['prompt'], model=model, size=size)
             jobs.append({
                 'job_id': job['id'],
                 'scene_number': scene_data.get('scene_number'),

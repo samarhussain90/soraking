@@ -112,6 +112,11 @@ async function startCloning() {
     const aggressionLevels = ['soft', 'medium', 'aggressive', 'ultra'];
     const aggressionLevel = aggressionLevels[parseInt(aggressionSlider.value)];
 
+    // Get new parameters
+    const productScript = document.getElementById('product-script').value.trim();
+    const outputDimension = document.getElementById('output-dimension').value;
+    const soraModel = document.getElementById('sora-model').value;
+
     // Disable button
     const btn = document.getElementById('start-btn');
     btn.disabled = true;
@@ -121,7 +126,13 @@ async function startCloning() {
         const response = await fetch(`${API_BASE}/clone`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ video_path: videoPath, aggression_level: aggressionLevel })
+            body: JSON.stringify({ 
+                video_path: videoPath, 
+                aggression_level: aggressionLevel,
+                product_script: productScript,
+                output_dimension: outputDimension,
+                sora_model: soraModel
+            })
         });
 
         const data = await response.json();
@@ -553,21 +564,38 @@ async function uploadFile(file) {
 
 // Cost estimation
 function updateCostEstimate() {
-        // Sora 2 pricing: $0.064 per second
-        const SORA_2_COST_PER_SECOND = 0.064;
-        const SECONDS_PER_SCENE = 12;
-        const SCENES_GENERATED = 1; // Single Scene 1 only
+    // Get selected Sora model
+    const soraModelSelect = document.getElementById('sora-model');
+    const selectedModel = soraModelSelect ? soraModelSelect.value : 'sora-2';
+    
+    // Pricing based on model selection
+    const SORA_2_COST_PER_SECOND = 0.064;
+    const SORA_2_PRO_COST_PER_SECOND = 0.08;
+    
+    const costPerSecond = selectedModel === 'sora-2-pro' ? SORA_2_PRO_COST_PER_SECOND : SORA_2_COST_PER_SECOND;
+    const SECONDS_PER_SCENE = 12;
+    const SCENES_GENERATED = 1; // Single Scene 1 only
 
-        // Calculate cost for single Scene 1
-        const totalSeconds = SCENES_GENERATED * SECONDS_PER_SCENE;
-    const totalCost = totalSeconds * SORA_2_COST_PER_SECOND;
+    // Calculate cost for single Scene 1
+    const totalSeconds = SCENES_GENERATED * SECONDS_PER_SCENE;
+    const totalCost = totalSeconds * costPerSecond;
 
     // Update UI
     const costAmount = document.getElementById('cost-amount');
     const costDetails = document.getElementById('cost-details');
+    const costNote = document.getElementById('cost-note');
 
     costAmount.textContent = `$${totalCost.toFixed(2)}`;
-    costDetails.textContent = `1 Scene 1 × ${SECONDS_PER_SCENE}s × $${SORA_2_COST_PER_SECOND}/s = $${totalCost.toFixed(2)}`;
+    costDetails.textContent = `1 Scene 1 × ${SECONDS_PER_SCENE}s × $${costPerSecond}/s = $${totalCost.toFixed(2)}`;
+    
+    // Update cost note based on model
+    if (costNote) {
+        if (selectedModel === 'sora-2-pro') {
+            costNote.textContent = 'Using Sora 2 Pro • Higher quality and consistency';
+        } else {
+            costNote.textContent = 'Using Sora 2 (regular) • 80% cheaper than Pro';
+        }
+    }
 }
 
 // Update aggression level display

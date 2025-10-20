@@ -183,6 +183,9 @@ def start_clone():
 
     video_path = data.get('video_path')
     aggression_level = data.get('aggression_level', 'medium')  # Single aggression level
+    product_script = data.get('product_script', '')  # Optional product script
+    output_dimension = data.get('output_dimension', '720x1280')  # Default to TikTok format
+    sora_model = data.get('sora_model', 'sora-2')  # Default to Sora 2 regular
 
     if not video_path:
         return jsonify({'error': 'video_path required'}), 400
@@ -201,7 +204,7 @@ def start_clone():
             source_video_url=video_path,
             source_video_type='url' if video_path.startswith('http') else 'file',
             variant_types=[aggression_level],  # Single aggression level
-            cost_estimate=1 * 12 * 0.32  # Estimated: 1 hook * 12 seconds * $0.32/second
+            cost_estimate=1 * 12 * (0.08 if sora_model == 'sora-2-pro' else 0.064)  # Estimated cost based on model
         )
         logger.log(logger.LogLevel.INFO, f"Generation tracking started: {generation_id}")
     except Exception as e:
@@ -293,7 +296,7 @@ def start_clone():
             )
 
             # Run pipeline (logger integrated)
-            results = cloner.generate_scene1(video_path, aggression_level)
+            results = cloner.generate_scene1(video_path, aggression_level, product_script, output_dimension, sora_model)
 
             # Log completion
             ws_logger.complete_pipeline(results)
