@@ -279,6 +279,7 @@
 
         <div class="tabs">
             <div class="tab active" data-tab="gemini">Gemini Prompt</div>
+            <div class="tab" data-tab="scene1">Scene 1 Generation</div>
             <div class="tab" data-tab="aggression">Aggression Presets</div>
             <div class="tab" data-tab="sora">Sora Config</div>
             <div class="tab" data-tab="openai">OpenAI Prompts</div>
@@ -302,6 +303,82 @@
                         <button type="button" class="button button-secondary" id="reset-gemini">Reset to Default</button>
                     </div>
                 </form>
+            </div>
+        </div>
+
+        <!-- Scene 1 Generation Tab -->
+        <div id="scene1-tab" class="tab-content">
+            <div class="setting-card">
+                <h2>🎬 Scene 1 Generation Settings</h2>
+                <p class="description">Configure how Scene 1 (opening hook) is generated. Scene 1 uses character-based prompts with the original script's opening hook.</p>
+
+                <!-- Scene 1 Structure -->
+                <div class="form-group">
+                    <label>Current Scene 1 Structure</label>
+                    <div class="json-editor" style="max-height: 200px; overflow-y: auto;">
+{
+  "scene_number": 1,
+  "timestamp": "00:00-00:12",
+  "duration_seconds": 12,
+  "type": "character",
+  "purpose": "hook/problem",
+  "has_character": true,
+  "shot_type": "medium close-up",
+  "camera_angle": "eye-level",
+  "camera_movement": "dynamic push-in",
+  "setting": "modern home office, soft lighting",
+  "lighting": "dramatic, bold shadows",
+  "emotion": "urgent",
+  "visual_elements": ["text overlays", "phone screen"],
+  "characters": "spokesperson",
+  "visual_direction": "confident, direct eye contact"
+}
+                    </div>
+                </div>
+
+                <!-- Script Extraction -->
+                <div class="form-group">
+                    <label for="script-extraction">Script Extraction Method</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">How the opening hook is extracted from the full script</p>
+                    <select id="script-extraction" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="first_sentences">First 1-2 sentences (Current)</option>
+                        <option value="first_paragraph">First paragraph</option>
+                        <option value="custom_length">Custom character length</option>
+                    </select>
+                </div>
+
+                <!-- Prompt Template -->
+                <div class="form-group">
+                    <label for="scene1-prompt-template">Scene 1 Prompt Template</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Template used to build Sora prompts for Scene 1</p>
+                    <textarea id="scene1-prompt-template" style="min-height: 150px;" placeholder="Loading current template..."></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="button" id="save-scene1-settings">Save Scene 1 Settings</button>
+                    <button type="button" class="button button-secondary" id="reset-scene1-settings">Reset to Default</button>
+                </div>
+
+                <hr style="margin: 30px 0; border: none; border-top: 2px solid #e0e0e0;">
+
+                <!-- Current Prompt Example -->
+                <div class="form-group">
+                    <label>Current Scene 1 Prompt Example</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Example of how Scene 1 prompts are currently generated</p>
+                    <div class="json-editor" style="max-height: 200px; overflow-y: auto;">
+MEDIUM CLOSE-UP: [spokesperson description], modern home office, soft lighting.
+Dynamic push-in camera, eye-level angle.
+Dramatic, bold shadows lighting.
+
+Urgent tone: "[Opening hook from original script]"
+
+Visual elements: text overlays, phone screen.
+Visual direction: confident, direct eye contact.
+
+Eye contact with camera. Natural gestures. UGC testimonial style.
+4K resolution, cinematic quality, 12 seconds.
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -685,6 +762,33 @@
             }
         }
 
+        // Load Scene 1 settings
+        async function loadScene1Settings() {
+            try {
+                // Load current Scene 1 prompt template
+                const template = `MEDIUM CLOSE-UP: [spokesperson description], [setting].
+[camera_movement] camera, [camera_angle] angle.
+[lighting] lighting.
+
+[emotion] tone: "[script_segment]"
+
+Visual elements: [visual_elements].
+Visual direction: [visual_direction].
+
+Eye contact with camera. Natural gestures. UGC testimonial style.
+4K resolution, cinematic quality, 12 seconds.`;
+                
+                document.getElementById('scene1-prompt-template').value = template;
+                originalData.scene1Template = template;
+                
+                // Set current script extraction method
+                document.getElementById('script-extraction').value = 'first_sentences';
+                
+            } catch (error) {
+                showAlert('Failed to load Scene 1 settings: ' + error.message, 'error');
+            }
+        }
+
         // Load transformer settings
         async function loadHookScenarios() {
             try {
@@ -1002,6 +1106,42 @@
             }
         });
 
+        // Scene 1 Settings Event Handlers
+        document.getElementById('save-scene1-settings').addEventListener('click', async () => {
+            const template = document.getElementById('scene1-prompt-template').value;
+            const extractionMethod = document.getElementById('script-extraction').value;
+
+            try {
+                // Save Scene 1 prompt template
+                const response = await fetch('/api/settings/scene1_config/prompt_template', {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ 
+                        value: { 
+                            template: template,
+                            extraction_method: extractionMethod 
+                        } 
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showAlert('Scene 1 settings saved successfully!');
+                    originalData.scene1Template = template;
+                } else {
+                    showAlert('Failed to save: ' + data.error, 'error');
+                }
+            } catch (error) {
+                showAlert('Error: ' + error.message, 'error');
+            }
+        });
+
+        document.getElementById('reset-scene1-settings').addEventListener('click', () => {
+            loadScene1Settings();
+            showAlert('Reset to last saved version', 'success');
+        });
+
         // Reset buttons
         document.getElementById('reset-gemini').addEventListener('click', () => {
             if (originalData.gemini) {
@@ -1054,6 +1194,7 @@
 
         // Initialize - Load all settings
         loadGeminiPrompt();
+        loadScene1Settings();
         loadAggressionPreset('soft');
         loadSoraConfig();
         loadHookPrompt();
