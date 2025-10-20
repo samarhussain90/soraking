@@ -14,6 +14,7 @@ from werkzeug.utils import secure_filename
 from config import Config
 from ad_cloner import Scene1Generator
 from modules.ab_testing import ABTestingSuite
+from modules.video_extension import VideoExtensionEngine
 from modules.logger import PipelineLogger, get_logger
 from modules.supabase_client import SupabaseClient
 from modules.spaces_client import SpacesClient
