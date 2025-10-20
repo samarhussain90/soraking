@@ -274,6 +274,7 @@
             <div class="tab active" data-tab="gemini">Gemini Analysis</div>
             <div class="tab" data-tab="scene1">Scene 1 Prompts</div>
             <div class="tab" data-tab="openai">Hook Generation</div>
+            <div class="tab" data-tab="cost">Cost Optimization</div>
         </div>
 
         <!-- Gemini Analysis Tab -->
@@ -398,6 +399,60 @@ Eye contact with camera. Natural gestures. UGC testimonial style.
                 <div class="button-group">
                     <button type="button" class="button button-primary" id="save-script-prompt">Save Script Prompt</button>
                     <button type="button" class="button button-secondary" id="reset-script-prompt">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cost Optimization Tab -->
+        <div id="cost-tab" class="tab-content">
+            <div class="setting-card">
+                <h2>💰 Cost Optimization Settings</h2>
+                <p class="description">Configure intelligent cost optimization to automatically select the most cost-effective Sora model while maintaining quality.</p>
+
+                <div class="form-group">
+                    <label for="enable-cost-optimization">Enable Cost Optimization</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Automatically analyze prompts and recommend the most cost-effective model.</p>
+                    <select id="enable-cost-optimization">
+                        <option value="true">Enabled</option>
+                        <option value="false">Disabled</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="max-cost-limit">Maximum Cost Per Generation</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Maximum cost allowed per generation (USD).</p>
+                    <input type="number" id="max-cost-limit" step="0.01" min="0" max="50" placeholder="5.00">
+                </div>
+
+                <div class="form-group">
+                    <label for="cost-threshold">Cost Optimization Threshold</label>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Minimum savings required to show optimization recommendations (USD).</p>
+                    <input type="number" id="cost-threshold" step="0.01" min="0" max="10" placeholder="0.50">
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="button button-primary" id="save-cost-settings">Save Cost Settings</button>
+                    <button type="button" class="button button-secondary" id="reset-cost-settings">Reset</button>
+                </div>
+
+                <hr style="margin: 30px 0; border: none; border-top: 2px solid #e0e0e0;">
+
+                <div class="form-group">
+                    <h3>Cost Analysis</h3>
+                    <p class="description">View current cost optimization statistics and recommendations.</p>
+                    
+                    <div id="cost-stats" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div>
+                                <h4 style="margin-bottom: 10px; color: #333;">Model Usage</h4>
+                                <div id="model-usage-stats">Loading...</div>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 10px; color: #333;">Cost Savings</h4>
+                                <div id="cost-savings-stats">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

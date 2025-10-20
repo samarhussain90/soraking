@@ -43,6 +43,11 @@ class Config:
     SORA_2_COST_PER_SECOND = 0.064  # $0.064/second for Sora 2
     SORA_2_PRO_COST_PER_SECOND = 0.08  # $0.08/second for Sora 2 Pro
 
+    # Cost Optimization Settings
+    ENABLE_COST_OPTIMIZATION = True  # Enable intelligent model selection
+    MAX_COST_PER_GENERATION = 5.0  # Maximum cost per generation (USD)
+    COST_OPTIMIZATION_THRESHOLD = 0.50  # Minimum savings to recommend optimization
+
     # Video settings
     DEFAULT_AD_DURATION = 48  # Total ad length in seconds
     SCENES_PER_AD = 4  # 4 scenes × 12s = 48s

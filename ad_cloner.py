@@ -16,6 +16,7 @@ from modules.sora_client import SoraClient
 from modules.video_assembler import VideoAssembler
 from modules.ad_evaluator import AdEvaluator
 from modules.prompt_validator import PromptValidator
+from modules.cost_optimizer import CostOptimizer
 from modules.utils import normalize_spokesperson
 from pipeline_integrator import PipelineIntegrator
 
@@ -45,6 +46,7 @@ class Scene1Generator:
         self.sora_client = SoraClient(spaces_client=spaces_client, session_id=session_id)
         self.assembler = VideoAssembler()
         self.evaluator = AdEvaluator()  # Evaluate generated ads
+        self.cost_optimizer = CostOptimizer()  # Cost optimization
         self.logger = logger  # Optional logger for web interface
         self.generation_id = generation_id  # Generation ID for history tracking
         self.integrator = integrator  # PipelineIntegrator for saving history
@@ -371,8 +373,59 @@ class Scene1Generator:
                 self.logger.fail_stage('prompts', str(e))
             raise
 
-        # STEP 4: Generate viral hooks with Sora (parallel)
-        print("\n[4/4] Generating viral hooks with Sora...")
+        # STEP 4: Cost Optimization Analysis
+        if Config.ENABLE_COST_OPTIMIZATION:
+            print("\n[4/5] Analyzing cost optimization...")
+            if self.logger:
+                self.logger.log(LogLevel.VERBOSE, "Running cost optimization analysis", {})
+            
+            try:
+                # Analyze all prompts for cost optimization
+                all_prompts = []
+                for variant_level, prompts in variant_prompts.items():
+                    for prompt_data in prompts:
+                        all_prompts.append({
+                            'prompt': prompt_data['prompt'],
+                            'duration_seconds': 12,
+                            'variant': variant_level
+                        })
+                
+                # Get cost analysis
+                cost_analysis = self.cost_optimizer.batch_optimize(all_prompts)
+                
+                # Log cost optimization results
+                print(f"✓ Cost analysis complete:")
+                print(f"  - Optimized cost: ${cost_analysis['optimized_cost']:.2f}")
+                print(f"  - Potential savings: ${cost_analysis['potential_savings']:.2f}")
+                print(f"  - Sora 2 scenes: {cost_analysis['sora_2_scenes']}")
+                print(f"  - Sora 2 Pro scenes: {cost_analysis['sora_2_pro_scenes']}")
+                
+                if self.logger:
+                    self.logger.log(LogLevel.INFO, "Cost optimization analysis complete", {
+                        'optimized_cost': cost_analysis['optimized_cost'],
+                        'potential_savings': cost_analysis['potential_savings'],
+                        'sora_2_scenes': cost_analysis['sora_2_scenes'],
+                        'sora_2_pro_scenes': cost_analysis['sora_2_pro_scenes']
+                    })
+                
+                # Check if cost exceeds limit
+                if cost_analysis['optimized_cost'] > Config.MAX_COST_PER_GENERATION:
+                    print(f"⚠ Cost (${cost_analysis['optimized_cost']:.2f}) exceeds limit (${Config.MAX_COST_PER_GENERATION})")
+                    if self.logger:
+                        self.logger.log(LogLevel.WARNING, f"Generation cost exceeds limit", {
+                            'cost': cost_analysis['optimized_cost'],
+                            'limit': Config.MAX_COST_PER_GENERATION
+                        })
+                
+            except Exception as e:
+                print(f"⚠ Cost optimization failed: {str(e)}")
+                if self.logger:
+                    self.logger.log(LogLevel.WARNING, f"Cost optimization failed: {str(e)}", {
+                        'error': str(e)
+                    })
+
+        # STEP 5: Generate viral hooks with Sora (parallel)
+        print(f"\n[{'5' if Config.ENABLE_COST_OPTIMIZATION else '4'}/{'5' if Config.ENABLE_COST_OPTIMIZATION else '4'}] Generating viral hooks with Sora...")
         print(f"Total hooks to generate: {sum(len(p) for p in variant_prompts.values())}")
         print(f"This will take approximately 3-5 minutes (1 hook per variant)...\n")
 

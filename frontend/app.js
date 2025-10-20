@@ -647,6 +647,18 @@ function updateCostEstimate() {
             costNote.textContent = 'Using Sora 2 (regular) • 80% cheaper than Pro';
         }
     }
+    
+    // Show cost optimization if using Sora 2 Pro
+    const costOptimization = document.getElementById('cost-optimization');
+    const optimizationText = document.getElementById('optimization-text');
+    
+    if (selectedModel === 'sora-2-pro' && costOptimization && optimizationText) {
+        const savings = (SORA_2_PRO_COST_PER_SECOND - SORA_2_COST_PER_SECOND) * totalSeconds;
+        optimizationText.textContent = `Save $${savings.toFixed(2)} by using Sora 2 for simple scenes`;
+        costOptimization.style.display = 'block';
+    } else if (costOptimization) {
+        costOptimization.style.display = 'none';
+    }
 }
 
 // Update aggression level display
